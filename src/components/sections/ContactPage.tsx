@@ -126,26 +126,13 @@ function ContactForm() {
     return (value: string) => setForm((f) => ({ ...f, [key]: value }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("sending");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        setForm(EMPTY);
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    setTimeout(() => {
+      setStatus("success");
+      setForm(EMPTY);
+    }, 800);
   }
 
   if (status === "success") {
@@ -223,13 +210,6 @@ function ContactForm() {
           placeholder="Tell us about your brand, the outcome you're trying to drive, and where you are currently with CTV..."
         />
       </Field>
-
-      {/* Error */}
-      {status === "error" && (
-        <p className="text-sm" style={{ color: "#ef4444" }}>
-          Something went wrong — please try again or email greg.brenner@broadlab.tv directly.
-        </p>
-      )}
 
       {/* Submit */}
       <button
