@@ -3,8 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-
 // ─── Featured bio data ─────────────────────────────────────────────────────────
 // Bio copy to be provided by each person before launch
 
@@ -35,129 +33,6 @@ const EXTRA_BIO_SLOTS = 2;
 // ─── Team data ─────────────────────────────────────────────────────────────────
 // Update names, roles and image paths as the team grows
 
-const TEAMS = [
-  {
-    name: "Executive",
-    members: [
-      { name: "Jakob Nielsen",    role: "Chief Executive Officer",   image: "/images/team/jakob.jpeg"           },
-      { name: "Matt Mee",         role: "Chief Strategy Officer",    image: null                                },
-      { name: "Kristian Claxton", role: "Vice President",            image: null                                },
-      { name: "Jana Eisenstein",  role: "Chief Partnership Officer", image: "/images/team/jana-eisenstein.jpeg" },
-      { name: "Paul Cooper",      role: "Partner Advisor",           image: "/images/team/paul-cooper.png"      },
-    ],
-  },
-  {
-    name: "Strategy",
-    members: [
-      { name: "Team Member", role: "Strategy Lead",     image: null },
-      { name: "Team Member", role: "Strategy Manager",  image: null },
-      { name: "Team Member", role: "Strategic Planner", image: null },
-      { name: "Team Member", role: "Market Analyst",    image: null },
-    ],
-  },
-  {
-    name: "Optimisation",
-    members: [
-      { name: "Team Member", role: "Optimisation Lead",   image: null },
-      { name: "Team Member", role: "Campaign Optimiser",  image: null },
-      { name: "Team Member", role: "Campaign Optimiser",  image: null },
-      { name: "Team Member", role: "Performance Analyst", image: null },
-      { name: "Team Member", role: "Data Analyst",        image: null },
-    ],
-  },
-  {
-    name: "Product",
-    members: [
-      { name: "Timothy Whiterow", role: "Senior Product Manager", image: "/images/team/timothy-whiterow.jpeg" },
-      { name: "Team Member",      role: "Product Manager",        image: null                                 },
-      { name: "Team Member",      role: "UX Designer",            image: null                                 },
-      { name: "Team Member",      role: "Software Engineer",      image: null                                 },
-    ],
-  },
-  {
-    name: "Operations",
-    members: [
-      { name: "Chris Buck",  role: "Head of Operations",  image: "/images/team/chris-buck.jpeg" },
-      { name: "Team Member", role: "Operations Manager",  image: null                           },
-      { name: "Team Member", role: "Campaign Manager",    image: null                           },
-      { name: "Team Member", role: "Operations Analyst",  image: null                           },
-    ],
-  },
-  {
-    name: "Client Success",
-    members: [
-      { name: "Team Member", role: "Client Success Lead",    image: null },
-      { name: "Team Member", role: "Account Director",       image: null },
-      { name: "Team Member", role: "Account Manager",        image: null },
-      { name: "Team Member", role: "Client Success Manager", image: null },
-    ],
-  },
-  {
-    name: "Supply",
-    members: [
-      { name: "Team Member", role: "Supply Lead",       image: null },
-      { name: "Team Member", role: "Publisher Manager", image: null },
-      { name: "Team Member", role: "Supply Manager",    image: null },
-    ],
-  },
-];
-
-// ─── Helpers ───────────────────────────────────────────────────────────────────
-
-function getInitials(name: string) {
-  const parts = name.trim().split(" ").filter(Boolean);
-  if (parts.length < 2) return "";
-  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-}
-
-// ─── Person avatar ─────────────────────────────────────────────────────────────
-
-function PersonAvatar({ name, image }: { name: string; image: string | null }) {
-  const isPlaceholder = name === "Team Member";
-
-  if (image) {
-    return (
-      <div className="relative w-full aspect-square rounded-xl overflow-hidden">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          className="object-cover object-top"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 160px"
-        />
-      </div>
-    );
-  }
-
-  if (isPlaceholder) {
-    return (
-      <div
-        className="w-full aspect-square rounded-xl flex items-center justify-center"
-        style={{ background: "#f3f4f6" }}
-      >
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="16" cy="12" r="6" fill="#d1d5db" />
-          <path d="M4 28c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#d1d5db" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      </div>
-    );
-  }
-
-  const inits = getInitials(name);
-  return (
-    <div
-      className="w-full aspect-square rounded-xl flex items-center justify-center"
-      style={{ background: "rgba(10,59,75,0.08)" }}
-    >
-      <span
-        className="font-bold select-none"
-        style={{ fontSize: "1.5rem", color: "#0a3b4b", letterSpacing: "0.02em" }}
-      >
-        {inits}
-      </span>
-    </div>
-  );
-}
 
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 
@@ -509,102 +384,161 @@ function OfficeMosaic() {
   );
 }
 
-// ─── Team grid ─────────────────────────────────────────────────────────────────
 
-function PersonCard({
-  member,
-  index,
-  inView,
-}: {
-  member: { name: string; role: string; image: string | null };
-  index: number;
-  inView: boolean;
-}) {
-  const isPlaceholder = member.name === "Team Member";
+// ─── Recognition ───────────────────────────────────────────────────────────────
+// PLACEHOLDER — add confirmed awards below as they are received.
+// The first entry is confirmed. Remaining entries are templates.
 
-  return (
-    <motion.div
-      className="flex flex-col gap-2.5"
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
-      transition={{ delay: index * 0.06, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      <PersonAvatar name={member.name} image={member.image} />
-      <div>
-        <p
-          className="font-semibold leading-snug"
-          style={{
-            fontSize: "0.8125rem",
-            color: isPlaceholder ? "#d1d5db" : "#0a3b4b",
-          }}
-        >
-          {isPlaceholder ? "—" : member.name}
-        </p>
-        <p
-          className="mt-0.5"
-          style={{ fontSize: "0.75rem", color: isPlaceholder ? "#e5e7eb" : "#9ca3af" }}
-        >
-          {isPlaceholder ? member.role : member.role}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
+const AWARDS = [
+  {
+    body:      "Thinkbox TV Planning Awards",
+    category:  "Best use of Addressability",
+    campaign:  "BroadLab for Scottish Widows",
+    year:      "2025",
+    status:    "Shortlisted",
+    confirmed: true,
+  },
+  {
+    body:      "Placeholder",
+    category:  "",
+    campaign:  "",
+    year:      "",
+    status:    "Placeholder",
+    confirmed: false,
+  },
+  {
+    body:      "Placeholder",
+    category:  "",
+    campaign:  "",
+    year:      "",
+    status:    "Placeholder",
+    confirmed: false,
+  },
+] as const;
 
-function TeamSection({ team }: { team: (typeof TEAMS)[number] }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-
-  return (
-    <div ref={ref} className="mb-14 last:mb-0">
-      {/* Team label with extending line */}
-      <motion.div
-        className="flex items-center gap-4 mb-7"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: inView ? 1 : 0 }}
-        transition={{ delay: 0.05, duration: 0.5 }}
-      >
-        <p
-          className="text-[0.625rem] font-bold uppercase tracking-[0.18em] shrink-0"
-          style={{ color: "#3aaece" }}
-        >
-          {team.name}
-        </p>
-        <div className="flex-1 h-px" style={{ background: "rgba(58,174,206,0.15)" }} />
-      </motion.div>
-
-      {/* Member cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-        {team.members.map((member, i) => (
-          <PersonCard key={i} member={member} index={i} inView={inView} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function TeamGrid() {
+function Recognition() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} style={{ background: "#f9fafb" }}>
+    <section ref={ref} style={{ background: "#0a3b4b" }}>
+      <div
+        className="pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.1) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          height: 1,
+        }}
+      />
       <div className="section-padding">
         <div className="container-main">
 
-          <motion.h2
-            className="font-bold mb-14"
-            style={{ fontSize: "clamp(1.625rem,2.5vw,2.25rem)", color: "#0a3b4b" }}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-          >
-            The full team
-          </motion.h2>
+          {/* Header */}
+          <div className="mb-12">
+            <motion.p
+              className="text-[0.625rem] font-bold uppercase tracking-[0.2em] mb-4"
+              style={{ color: "#3aaece" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: inView ? 1 : 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Industry recognition
+            </motion.p>
+            <motion.h2
+              className="font-bold text-white"
+              style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              Recognised for what we build.
+            </motion.h2>
+          </div>
 
-          {TEAMS.map((team) => (
-            <TeamSection key={team.name} team={team} />
-          ))}
+          {/* Award cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {AWARDS.map((award, i) => (
+              <motion.div
+                key={i}
+                className="flex flex-col gap-5 rounded-2xl p-7"
+                style={{
+                  background: award.confirmed ? "rgba(58,174,206,0.06)" : "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  borderTop: `2px solid ${award.confirmed ? "#3aaece" : "rgba(58,174,206,0.2)"}`,
+                  opacity: award.confirmed ? 1 : 0.45,
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: inView ? (award.confirmed ? 1 : 0.45) : 0, y: inView ? 0 : 20 }}
+                transition={{ delay: 0.15 + i * 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                {/* Logo / star + status */}
+                <div className="flex items-center justify-between">
+                  {award.confirmed ? (
+                    <div
+                      className="flex items-center justify-center rounded px-2.5 py-1.5"
+                      style={{ background: "white" }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/thinkbox.png"
+                        alt="Thinkbox"
+                        style={{ height: 20, width: "auto" }}
+                      />
+                    </div>
+                  ) : (
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1l1.545 3.09L12 4.635l-2.5 2.43.59 3.435L7 8.75l-3.09 1.75.59-3.435L2 4.635l3.455-.545L7 1z"
+                        fill="rgba(58,174,206,0.3)" />
+                    </svg>
+                  )}
+                  <span
+                    className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-2.5 py-1"
+                    style={{
+                      color:      award.confirmed ? "#3aaece" : "rgba(58,174,206,0.35)",
+                      background: award.confirmed ? "rgba(58,174,206,0.12)" : "rgba(58,174,206,0.05)",
+                    }}
+                  >
+                    {award.status}
+                  </span>
+                </div>
+
+                {/* Award body */}
+                <div className="flex flex-col gap-1.5 flex-1">
+                  <p
+                    className="font-bold text-white leading-snug"
+                    style={{ fontSize: "0.9375rem" }}
+                  >
+                    {award.body}
+                  </p>
+                  <p
+                    className="text-sm"
+                    style={{ color: "rgba(234,246,251,0.5)" }}
+                  >
+                    {award.category}
+                  </p>
+                </div>
+
+                {/* Campaign + year */}
+                <div
+                  className="pt-4 flex items-center justify-between"
+                  style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+                >
+                  <p
+                    className="text-xs"
+                    style={{ color: award.confirmed ? "rgba(58,174,206,0.7)" : "rgba(255,255,255,0.2)" }}
+                  >
+                    {award.campaign}
+                  </p>
+                  <p
+                    className="text-xs font-semibold tabular-nums"
+                    style={{ color: "rgba(255,255,255,0.25)" }}
+                  >
+                    {award.year}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
         </div>
       </div>
@@ -631,7 +565,7 @@ export default function About() {
       </div>
 
       <OfficeMosaic />
-      <TeamGrid />
+      <Recognition />
     </>
   );
 }

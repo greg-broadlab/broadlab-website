@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 // ─── Vertical data ─────────────────────────────────────────────────────────────
@@ -10,39 +11,43 @@ import Link from "next/link";
 const VERTICALS = [
   {
     sector: "Financial Services",
+    client: "Scottish Widows",
     problem: "Driving action in a high-trust, high-consideration category",
     desc: "Financial services brands face the hardest measurement problem in CTV — long consideration cycles, multiple touchpoints, and boardrooms that won't accept last-click attribution. BroadLab's geo holdout methodology delivers causal proof that satisfies CFOs and boards.",
-    result: "9× lift over untreated group",
-    client: "Scottish Widows",
-    tags: ["Audience ID Graph", "Incrementality Proof", "Compounding Intelligence"],
-    gradient: "linear-gradient(135deg, #071c2a 0%, #10657f 100%)",
+    resultNumber: "9×",
+    resultLabel: "lift over untreated group",
+    methodology: "Geo holdout — causal, not modelled",
+    image: "/images/finance.jpg",
   },
   {
     sector: "Retail / DTC",
+    client: "Wonderbly",
     problem: "Proving CTV drives sales, not just awareness",
     desc: "For DTC brands, every pound of budget needs to prove itself against revenue — not reach, not views. BroadLab connects CTV exposure directly to purchase, with cost efficiency that compounds campaign after campaign.",
-    result: "87% reduction in cost per order",
-    client: "Wonderbly",
-    tags: ["Audience ID Graph", "CTV Supply Curation", "Incrementality Proof"],
-    gradient: "linear-gradient(135deg, #0a3b4b 0%, #1a6a85 100%)",
+    resultNumber: "87%",
+    resultLabel: "reduction in cost per order",
+    methodology: "Achieved within the first campaign flight",
+    image: "/images/retail.jpg",
   },
   {
     sector: "Automotive",
+    client: "Kia EV2",
     problem: "Connecting national CTV to local dealer footfall",
     desc: "Automotive brands need to bridge the gap between national CTV and local dealer action. BroadLab's PLZ holdout methodology proves which postcode regions CTV actually moved — giving regional media planning a causal foundation it has never had.",
-    result: "+100.6% incremental test drives",
-    client: "Kia EV2",
-    tags: ["Audience ID Graph", "PLZ Holdout", "Compounding Intelligence"],
-    gradient: "linear-gradient(135deg, #071c2a 0%, #0a3b4b 100%)",
+    resultNumber: "+100.6%",
+    resultLabel: "incremental test drives",
+    methodology: "PLZ holdout — not correlation, not last-click",
+    image: "/images/automotive.jpg",
   },
   {
     sector: "Streaming & Entertainment",
+    client: "Sports Streaming",
     problem: "Building subscription audiences at the lowest possible cost",
     desc: "Streaming platforms need to turn CTV into a subscriber acquisition engine, not just a brand channel. BroadLab deploys the full system — viewership data, lookalike audiences, and in-flight optimisation — against a single north star: cost per subscriber.",
-    result: "8.9% of total sales attributed to CTV",
-    client: "Sports Streaming",
-    tags: ["Audience ID Graph", "CTV Supply Curation", "Compounding Intelligence"],
-    gradient: "linear-gradient(135deg, #0d4a60 0%, #10657f 100%)",
+    resultNumber: "8.9%",
+    resultLabel: "of total sales attributed to CTV",
+    methodology: "Attribution — cross-platform, in-flight",
+    image: "/images/streaming.jpg",
   },
 ] as const;
 
@@ -101,118 +106,119 @@ function ServicesIntro() {
   );
 }
 
-// ─── Vertical section ──────────────────────────────────────────────────────────
+// ─── Case study switcher ───────────────────────────────────────────────────────
 
-function VerticalSection({
-  v,
-  index,
-}: {
-  v: (typeof VERTICALS)[number];
-  index: number;
-}) {
+function CaseStudySwitcher() {
+  const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const imageRight = index % 2 === 0;
-
-  const textBlock = (
-    <motion.div
-      className="flex flex-col justify-center px-8 py-16 sm:px-12 lg:px-16 lg:py-20 order-2 lg:order-none"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-      transition={{ delay: 0.15, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      <p
-        className="text-[0.625rem] font-bold uppercase tracking-[0.18em] mb-4"
-        style={{ color: "#3aaece" }}
-      >
-        {v.sector}
-      </p>
-
-      <h2
-        className="font-bold leading-snug mb-5"
-        style={{ fontSize: "clamp(1.375rem,2.2vw,1.875rem)", color: "#0a3b4b" }}
-      >
-        {v.problem}
-      </h2>
-
-      <p className="text-[0.9375rem] leading-relaxed text-[#4b5563] mb-8">
-        {v.desc}
-      </p>
-
-      {/* Result callout */}
-      <div
-        className="mb-8 pl-5 border-l-2"
-        style={{ borderColor: "#3aaece" }}
-      >
-        <p
-          className="font-bold leading-none mb-1.5"
-          style={{ fontSize: "clamp(1.375rem,2vw,1.75rem)", color: "#0a3b4b" }}
-        >
-          {v.result}
-        </p>
-        <p className="text-xs tracking-wide" style={{ color: "#9ca3af" }}>
-          {v.client}
-        </p>
-      </div>
-
-    </motion.div>
-  );
-
-  const imageBlock = (
-    <motion.div
-      className="relative min-h-[300px] lg:min-h-0 order-1 lg:order-none overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: inView ? 1 : 0 }}
-      transition={{ delay: 0.05, duration: 0.8 }}
-    >
-      {/*
-        Drop a real photo at /public/images/services/<sector-slug>.jpg
-        and replace this div with:
-        <Image src="/images/services/<slug>.jpg" alt={v.sector} fill className="object-cover" />
-        with an overlay div on top for the dark tint.
-      */}
-      <div className="absolute inset-0" style={{ background: v.gradient }} />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.09) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-      {/* Sector watermark centred in the image block */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-8">
-        <p
-          className="font-bold uppercase text-center"
-          style={{ fontSize: "0.625rem", letterSpacing: "0.2em", color: "rgba(58,174,206,0.3)" }}
-        >
-          {v.sector}
-        </p>
-        <p
-          style={{ fontSize: "0.5625rem", letterSpacing: "0.12em", color: "rgba(234,246,251,0.12)" }}
-        >
-          Replace with real photography
-        </p>
-      </div>
-    </motion.div>
-  );
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const v = VERTICALS[active];
 
   return (
-    <div
-      ref={ref}
-      className="grid grid-cols-1 lg:grid-cols-2 border-b border-[#e5e7eb]"
-      style={{ minHeight: 480 }}
-    >
-      {imageRight ? (
-        <>
-          {textBlock}
-          {imageBlock}
-        </>
-      ) : (
-        <>
-          {imageBlock}
-          {textBlock}
-        </>
-      )}
+    <div ref={ref} className="section-padding">
+      <div className="container-main">
+
+        {/* Tab row */}
+        <motion.div
+          className="flex border-b border-[#e5e7eb] overflow-x-auto mb-12"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+        >
+          {VERTICALS.map((item, i) => (
+            <button
+              key={item.sector}
+              onClick={() => setActive(i)}
+              className="relative px-5 py-3.5 text-sm font-semibold whitespace-nowrap transition-colors duration-200 shrink-0"
+              style={{ color: active === i ? "#0a3b4b" : "#9ca3af" }}
+            >
+              {item.sector}
+              {active === i && (
+                <motion.div
+                  layoutId="tab-indicator"
+                  className="absolute bottom-0 left-0 right-0 h-[2px]"
+                  style={{ background: "#3aaece" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Panel */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-12 lg:gap-16"
+            initial={{ opacity: 0, x: 14 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -14 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            {/* Text side */}
+            <div className="flex flex-col justify-center">
+              <p
+                className="text-[0.625rem] font-bold uppercase tracking-[0.18em] mb-6"
+                style={{ color: "#3aaece" }}
+              >
+                {v.client}
+              </p>
+
+              <div className="mb-8">
+                <p
+                  className="font-bold leading-none"
+                  style={{ fontSize: "clamp(3.5rem,7vw,5.5rem)", color: "#0a3b4b" }}
+                >
+                  {v.resultNumber}
+                </p>
+                <p className="mt-2 text-base" style={{ color: "#6b7280" }}>
+                  {v.resultLabel}
+                </p>
+              </div>
+
+              <h2
+                className="font-bold leading-snug mb-4"
+                style={{ fontSize: "clamp(1.25rem,2vw,1.625rem)", color: "#0a3b4b" }}
+              >
+                {v.problem}
+              </h2>
+
+              <p className="text-[0.9375rem] leading-relaxed mb-10" style={{ color: "#4b5563" }}>
+                {v.desc}
+              </p>
+
+              <div className="flex items-center gap-3 pt-6 border-t border-[#e5e7eb]">
+                <div
+                  className="w-[3px] h-7 rounded-full shrink-0"
+                  style={{ background: "#3aaece" }}
+                />
+                <p className="text-xs leading-snug" style={{ color: "#9ca3af" }}>
+                  {v.methodology}
+                </p>
+              </div>
+            </div>
+
+            {/* Image side */}
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{ minHeight: 440 }}
+            >
+              <Image
+                src={v.image}
+                alt={v.sector}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 480px"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(10,59,75,0.4) 100%)" }}
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+      </div>
     </div>
   );
 }
@@ -240,7 +246,6 @@ function AgencyCallout() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
 
-              {/* Brand track */}
               <div
                 className="flex flex-col gap-5 p-10 lg:p-12"
                 style={{ background: "white", borderRight: "1px solid #e5e7eb" }}
@@ -278,7 +283,6 @@ function AgencyCallout() {
                 </div>
               </div>
 
-              {/* Agency track */}
               <div
                 className="flex flex-col gap-5 p-10 lg:p-12"
                 style={{ background: "#f9fafb" }}
@@ -407,11 +411,9 @@ export default function Services() {
   return (
     <>
       <ServicesIntro />
-      <div style={{ background: "white" }}>
-        {VERTICALS.map((v, i) => (
-          <VerticalSection key={v.sector} v={v} index={i} />
-        ))}
-      </div>
+      <section style={{ background: "white" }}>
+        <CaseStudySwitcher />
+      </section>
       <AgencyCallout />
       <BottomHook />
     </>

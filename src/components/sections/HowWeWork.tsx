@@ -192,31 +192,25 @@ export default function HowWeWork() {
         <div className="container-main">
 
           {/* ── Header ── */}
-          <div className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <motion.h2
-                className="font-bold leading-tight"
-                style={{ fontSize: "clamp(2rem,3.8vw,3.5rem)", color: "#0a3b4b" }}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-              >
-                A system,
-                <br className="hidden lg:block" />
-                not a service.
-              </motion.h2>
-            </div>
+          <div className="mb-16 max-w-2xl mx-auto text-center">
+            <motion.h2
+              className="font-bold leading-tight"
+              style={{ fontSize: "clamp(2rem,3.8vw,3.5rem)", color: "#0a3b4b" }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              How the system works
+            </motion.h2>
 
             <motion.p
-              className="self-end"
+              className="mt-5"
               style={{ fontSize: "1.0625rem", lineHeight: "1.75", color: "#4b5563" }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              {/* PLACEHOLDER — confirm copy with BroadLab */}
-              Define the outcome, design the system, optimise in real time — then let
-              compounding intelligence do what no single campaign ever could.
+              Define the outcome, build the system, optimise daily — and let every campaign make the next one stronger.
             </motion.p>
           </div>
 

@@ -2,8 +2,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import WhyCTV from "@/components/sections/WhyCTV";
-import TheSystem from "@/components/sections/TheSystem";
-import HowWeWork from "@/components/sections/HowWeWork";
+import WhyUnderperforms from "@/components/sections/WhyUnderperforms";
+import Positioning from "@/components/sections/Positioning";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
@@ -12,8 +12,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhyCTV />
-      <TheSystem />
-      <HowWeWork />
+      <WhyUnderperforms />
+      <Positioning />
       <FinalCTA />
       <Footer />
     </main>

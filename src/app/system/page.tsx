@@ -1,8 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SystemHero from "@/components/sections/SystemHero";
-import AudienceGraphSection from "@/components/sections/AudienceGraphSection";
-import FourComponents from "@/components/sections/FourComponents";
+import HowWeWork from "@/components/sections/HowWeWork";
 import ProofSection from "@/components/sections/ProofSection";
 
 export const metadata = {
@@ -16,8 +15,7 @@ export default function SystemPage() {
     <main className="min-h-screen">
       <Navbar />
       <SystemHero />
-      <AudienceGraphSection />
-      <FourComponents />
+      <HowWeWork />
       <ProofSection />
       <Footer />
     </main>

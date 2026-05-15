@@ -156,14 +156,15 @@ export default function WhyCTV() {
             </motion.h2>
 
             <motion.p
-              className="mt-4 max-w-[520px] mx-auto text-[1.0625rem] leading-relaxed text-[#eaf6fb]"
+              className="mt-5 max-w-[560px] mx-auto text-[1.125rem] leading-relaxed text-white font-semibold"
               initial={{ opacity: 0, y: 12 }}
               animate={headingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.22, duration: 0.5 }}
             >
-              {/* PLACEHOLDER — confirm with BroadLab */}
-              Most brands aren&apos;t close to unlocking it. The gap between what CTV can deliver and what the market is actually achieving is exactly where BroadLab operates.
+              {/* PLACEHOLDER — confirm 90% stat with BroadLab before go-live */}
+              CTV reaches 90% of homes. Most of that investment is still underperforming.
             </motion.p>
+
           </div>
 
           {/* Stat cards */}

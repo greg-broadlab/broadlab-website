@@ -8,7 +8,7 @@ import Link from "next/link";
 
 function useCountUp(end: number, duration: number, active: boolean) {
   const [count, setCount] = useState(0);
-  const rafRef  = useRef<number | null>(null);
+  const rafRef   = useRef<number | null>(null);
   const startRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -28,135 +28,96 @@ function useCountUp(end: number, duration: number, active: boolean) {
   return count;
 }
 
-// ─── Proof visuals ─────────────────────────────────────────────────────────────
+// ─── Mini visuals — pure geometry, no text ───────────────────────────────────
+// All: viewBox="0 0 80 48", bars sit on baseline y=44
 
-function VisualHoldout() {
+function VisualROAS() {
+  // Two bars: dim (spend) vs teal (3× return)
   return (
-    <div className="flex items-end gap-5" style={{ height: 64 }}>
-      <div className="flex flex-col items-center gap-1.5 justify-end">
-        <div
-          style={{
-            width: 34,
-            height: 16,
-            borderRadius: 3,
-            background: "rgba(58,174,206,0.12)",
-            border: "1px solid rgba(58,174,206,0.28)",
-          }}
-        />
-        <span style={{ fontSize: "0.5625rem", color: "rgba(234,246,251,0.3)", fontWeight: 600, letterSpacing: "0.08em" }}>
-          CTRL
-        </span>
-      </div>
-      <div className="flex flex-col items-center gap-1.5 justify-end">
-        <span style={{ fontSize: "0.6875rem", fontWeight: 700, color: "#3aaece", letterSpacing: "0.04em", marginBottom: 2 }}>
-          9×
-        </span>
-        <div style={{ width: 34, height: 52, borderRadius: 3, background: "rgba(58,174,206,0.75)" }} />
-        <span style={{ fontSize: "0.5625rem", color: "#3aaece", fontWeight: 600, letterSpacing: "0.08em" }}>
-          CTV
-        </span>
-      </div>
-    </div>
+    <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.12)" strokeWidth="1" />
+      <rect x="8"  y="28" width="24" height="16" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.25)" strokeWidth="1" />
+      <rect x="48" y="2"  width="24" height="42" rx="2" fill="rgba(58,174,206,0.7)" />
+    </svg>
   );
 }
 
 function VisualCostReduction() {
+  // Tall dim bar → tiny teal bar, with a simple chevron-down between
   return (
-    <div className="flex items-end gap-3" style={{ height: 64 }}>
-      <div className="flex flex-col items-center gap-1.5 justify-end">
-        <div
-          style={{
-            width: 34,
-            height: 52,
-            borderRadius: 3,
-            background: "rgba(58,174,206,0.18)",
-            border: "1px solid rgba(58,174,206,0.25)",
-          }}
-        />
-        <span style={{ fontSize: "0.5625rem", color: "rgba(234,246,251,0.3)", fontWeight: 600, letterSpacing: "0.08em" }}>
-          BEFORE
-        </span>
-      </div>
-
-      {/* Down arrow */}
-      <svg width="14" height="36" viewBox="0 0 14 36" style={{ marginBottom: 18 }} aria-hidden="true">
-        <line x1="7" y1="2" x2="7" y2="28" stroke="rgba(58,174,206,0.35)" strokeWidth="1" strokeDasharray="2.5 2" />
-        <path d="M 3,24 L 7,30 L 11,24" stroke="rgba(58,174,206,0.6)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-
-      <div className="flex flex-col items-center gap-1.5 justify-end">
-        <div style={{ width: 34, height: 8, borderRadius: 3, background: "rgba(58,174,206,0.8)" }} />
-        <span style={{ fontSize: "0.5625rem", color: "#3aaece", fontWeight: 600, letterSpacing: "0.08em" }}>
-          AFTER
-        </span>
-      </div>
-    </div>
+    <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.12)" strokeWidth="1" />
+      <rect x="8"  y="2"  width="24" height="42" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.25)" strokeWidth="1" />
+      <rect x="56" y="38" width="16" height="6"  rx="2" fill="rgba(58,174,206,0.75)" />
+    </svg>
   );
 }
 
-function VisualIncrementalLift() {
+function VisualFootfall() {
+  // Three ascending bars — signal-strength style
   return (
-    <div className="flex items-end gap-5" style={{ height: 64 }}>
-      <div className="flex flex-col items-center gap-1.5 justify-end">
-        <div
-          style={{
-            width: 34,
-            height: 22,
-            borderRadius: 3,
-            background: "rgba(58,174,206,0.12)",
-            border: "1px solid rgba(58,174,206,0.28)",
-          }}
-        />
-        <span style={{ fontSize: "0.5625rem", color: "rgba(234,246,251,0.3)", fontWeight: 600, letterSpacing: "0.08em" }}>
-          CTRL
-        </span>
-      </div>
-      <div className="flex flex-col items-center gap-1.5 justify-end">
-        <span style={{ fontSize: "0.5rem", fontWeight: 700, color: "#3aaece", letterSpacing: "0.02em", marginBottom: 2 }}>
-          +100.6%
-        </span>
-        <div style={{ width: 34, height: 46, borderRadius: 3, background: "rgba(58,174,206,0.75)" }} />
-        <span style={{ fontSize: "0.5625rem", color: "#3aaece", fontWeight: 600, letterSpacing: "0.08em" }}>
-          TEST
-        </span>
-      </div>
-    </div>
+    <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.12)" strokeWidth="1" />
+      <rect x="8"  y="32" width="18" height="12" rx="2" fill="rgba(58,174,206,0.3)" />
+      <rect x="31" y="20" width="18" height="24" rx="2" fill="rgba(58,174,206,0.5)" />
+      <rect x="54" y="6"  width="18" height="38" rx="2" fill="rgba(58,174,206,0.75)" />
+    </svg>
+  );
+}
+
+function VisualAttribution() {
+  // Horizontal stacked bar: large dim section + small teal slice on the right
+  return (
+    <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
+      <rect x="4"  y="18" width="56" height="12" rx="2" fill="rgba(58,174,206,0.14)" stroke="rgba(58,174,206,0.22)" strokeWidth="1" />
+      <rect x="60" y="18" width="16" height="12" rx="2" fill="rgba(58,174,206,0.75)" />
+    </svg>
   );
 }
 
 // ─── Case data ────────────────────────────────────────────────────────────────
 
-// Numbers from audited campaign results — confirm with BroadLab before launch
+// PLACEHOLDER — confirm all figures with BroadLab before launch
 const CASES = [
   {
-    value:       9,
-    unit:        "×",
-    prefix:      "",
-    decimal:     false,
-    metric:      "Lift over untreated group",
-    methodology: "Geo holdout — causal, not modelled",
-    client:      "Financial Services · Scottish Widows",
-    Visual:      VisualHoldout,
+    value:   3,
+    unit:    ":1",
+    prefix:  "",
+    decimal: false,
+    metric:  "ROAS",
+    detail:  "TV outperforming every other channel",
+    sector:  "Financial Services",
+    Visual:  VisualROAS,
   },
   {
-    value:       87,
-    unit:        "%",
-    prefix:      "",
-    decimal:     false,
-    metric:      "Reduction in cost per order",
-    methodology: "Achieved within the first campaign flight",
-    client:      "Retail / DTC · Wonderbly",
-    Visual:      VisualCostReduction,
+    value:   87,
+    unit:    "%",
+    prefix:  "",
+    decimal: false,
+    metric:  "Reduction in cost per order",
+    detail:  "Achieved within the first campaign flight",
+    sector:  "Retail / DTC",
+    Visual:  VisualCostReduction,
   },
   {
-    value:       100.6,
-    unit:        "%",
-    prefix:      "+",
-    decimal:     true,
-    metric:      "Incremental test drives",
-    methodology: "PLZ holdout — not correlation, not last-click",
-    client:      "Automotive · Kia EV2",
-    Visual:      VisualIncrementalLift,
+    value:   24.8,
+    unit:    "%",
+    prefix:  "+",
+    decimal: true,
+    metric:  "Increase in showroom visits",
+    detail:  "Measured via geo holdout",
+    sector:  "Automotive",
+    Visual:  VisualFootfall,
+  },
+  {
+    value:   8.9,
+    unit:    "%",
+    prefix:  "",
+    decimal: true,
+    metric:  "Of total sales attributed to CTV",
+    detail:  "Full-funnel attribution",
+    sector:  "Sports Streaming",
+    Visual:  VisualAttribution,
   },
 ] as const;
 
@@ -177,46 +138,45 @@ function CaseCard({
 
   return (
     <motion.div
-      className="flex flex-col gap-5 rounded-xl p-8"
+      className="flex flex-col gap-5 rounded-xl p-7"
       style={{
-        background:  "rgba(255,255,255,0.05)",
-        border:      "1px solid rgba(255,255,255,0.07)",
-        borderTop:   "2px solid #3aaece",
+        background: "rgba(255,255,255,0.05)",
+        border:     "1px solid rgba(255,255,255,0.07)",
+        borderTop:  "2px solid #3aaece",
       }}
       initial={{ opacity: 0, y: 28 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 28 }}
-      transition={{ delay: index * 0.13, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ delay: index * 0.12, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
     >
+      {/* Sector — prominent at top */}
+      <p
+        className="text-sm font-bold tracking-wide text-white"
+      >
+        {c.sector}
+      </p>
+
       {/* Mini visual */}
-      <div className="flex items-end h-[64px]">
+      <div className="flex items-end" style={{ height: 48 }}>
         <Visual />
       </div>
 
       {/* Big number */}
       <p
         className="font-bold leading-none text-white"
-        style={{ fontSize: "clamp(2.75rem,4.5vw,3.75rem)" }}
+        style={{ fontSize: "clamp(2.5rem,4vw,3.5rem)" }}
       >
         {c.prefix}{display}{c.unit}
       </p>
 
-      {/* Metric + methodology */}
+      {/* Metric + detail */}
       <div className="flex flex-col gap-1.5">
         <p className="text-[0.9375rem] font-semibold leading-snug text-white/80">
           {c.metric}
         </p>
         <p className="text-sm leading-relaxed text-white/45">
-          {c.methodology}
+          {c.detail}
         </p>
       </div>
-
-      {/* Client label */}
-      <p
-        className="mt-auto text-[0.625rem] font-semibold uppercase tracking-[0.14em]"
-        style={{ color: "rgba(58,174,206,0.6)" }}
-      >
-        {c.client}
-      </p>
     </motion.div>
   );
 }
@@ -230,7 +190,6 @@ export default function ProofSection() {
   return (
     <section ref={ref} className="relative overflow-hidden" style={{ background: "#0a3b4b" }}>
 
-      {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -257,22 +216,21 @@ export default function ProofSection() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
               transition={{ delay: 0.1, duration: 0.6 }}
             >
-              Proof that holds up to board scrutiny.
+              Proven across sectors.
             </motion.h2>
             <motion.p
               className="mx-auto mt-4 max-w-lg leading-relaxed"
-              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.55)" }}
+              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.5)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Every result below was measured via geo or PLZ holdout — the same causal
-              methodology used in clinical trials. Not correlation. Not modelled. Proof.
+              Outcomes that hold up to CFO and board scrutiny — across financial services, retail, automotive and media.
             </motion.p>
           </div>
 
-          {/* Case study cards */}
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {CASES.map((c, i) => (
               <CaseCard key={i} c={c} index={i} inView={inView} />
             ))}
@@ -284,36 +242,36 @@ export default function ProofSection() {
             style={{ background: "rgba(58,174,206,0.2)" }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: inView ? 1 : 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
           />
 
-          {/* CTA block */}
+          {/* CTA */}
           <div className="mt-10 text-center">
             <motion.h2
               className="font-bold leading-tight text-white"
               style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)" }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
-              transition={{ delay: 0.55, duration: 0.6 }}
+              transition={{ delay: 0.65, duration: 0.6 }}
             >
-              Ready to build yours?
+              See what this looks like for your brand.
             </motion.h2>
 
             <motion.p
               className="mx-auto mt-4 max-w-md leading-relaxed"
-              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.6)" }}
+              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.55)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
-              transition={{ delay: 0.65, duration: 0.5 }}
+              transition={{ delay: 0.75, duration: 0.5 }}
             >
-              Every week without a system is a week lost. Let&apos;s map the methodology to your brand.
+              Book a consultation and we&apos;ll show you exactly how the system applies to your business.
             </motion.p>
 
             <motion.div
               className="mt-9 flex flex-wrap items-center justify-center gap-4"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
-              transition={{ delay: 0.75, duration: 0.5 }}
+              transition={{ delay: 0.85, duration: 0.5 }}
             >
               <Link
                 href="/contact"
