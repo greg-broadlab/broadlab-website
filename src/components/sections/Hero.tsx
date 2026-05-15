@@ -218,6 +218,15 @@ export default function Hero() {
         >
           <div className="flex flex-col items-center text-center max-w-[700px] mx-auto">
 
+            <motion.p
+              className="mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-[#3aaece]"
+              initial={{ opacity: 0, y: 8 }}
+              animate={introComplete ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1, duration: 0.5 }}
+            >
+              Broadlab
+            </motion.p>
+
             <motion.h1
               className="font-bold text-[#0a3b4b] leading-[1.08] tracking-tight"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
@@ -225,7 +234,7 @@ export default function Hero() {
               animate={introComplete ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              CTV is one of the fastest-growing channels for brand and commercial growth.
+              The CTV system that builds brands and drives outcomes.
             </motion.h1>
 
             <motion.p
