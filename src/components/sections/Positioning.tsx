@@ -54,7 +54,7 @@ export default function Positioning() {
 
               <motion.h2
                 className="font-bold leading-tight"
-                style={{ fontSize: "clamp(2rem, 3.8vw, 3.25rem)", color: "#0a3b4b" }}
+                style={{ fontSize: "clamp(2rem, 3.8vw, 3.25rem)", color: "#0d2535" }}
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
                 transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
@@ -81,7 +81,7 @@ export default function Positioning() {
                 <Link
                   href="/system"
                   className="inline-flex items-center gap-2 text-sm font-semibold transition-opacity duration-200 hover:opacity-60"
-                  style={{ color: "#0a3b4b" }}
+                  style={{ color: "#0d2535" }}
                 >
                   Explore the System
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -124,7 +124,7 @@ export default function Positioning() {
                   <div>
                     <h3
                       className="font-bold leading-snug mb-2"
-                      style={{ fontSize: "1.0625rem", color: "#0a3b4b" }}
+                      style={{ fontSize: "1.0625rem", color: "#0d2535" }}
                     >
                       {cap.name}
                     </h3>

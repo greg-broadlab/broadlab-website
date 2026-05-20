@@ -82,17 +82,18 @@ function KpiTile({
     <motion.div
       className="rounded-xl p-5"
       style={{
-        background: "rgba(255,255,255,0.05)",
-        border: "1px solid rgba(255,255,255,0.08)",
+        background: "#ffffff",
+        border: "1px solid #e5e7eb",
+        boxShadow: "0 2px 12px rgba(16,101,127,0.06)",
       }}
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 18 }}
       transition={{ delay: 0.3 + index * 0.1, duration: 0.55 }}
     >
-      <p className="text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-white/40 mb-3">
+      <p className="text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-[#9ca3af] mb-3">
         {label}
       </p>
-      <p className="text-[2rem] font-bold leading-none text-white mb-2">
+      <p className="text-[2rem] font-bold leading-none text-[#0d2535] mb-2">
         {prefix}{display}{suffix}
       </p>
       <div className="flex items-center justify-between">
@@ -117,9 +118,9 @@ function Lever({ label, active, delay, inView }: { label: string; active: boolea
     >
       <div
         className="h-2 w-2 rounded-full shrink-0"
-        style={{ backgroundColor: active ? "#3aaece" : "rgba(255,255,255,0.2)" }}
+        style={{ backgroundColor: active ? "#3aaece" : "#d1d5db" }}
       />
-      <span className="text-xs text-white/60">{label}</span>
+      <span className="text-xs text-[#4b5563]">{label}</span>
       {active && (
         <span className="ml-auto text-[0.625rem] font-semibold text-[#3aaece]/70 uppercase tracking-wide">
           Active
@@ -190,21 +191,14 @@ export default function MeasurementDashboard() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden" style={{ background: "#0a3b4b" }}>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: "#f0f8fb" }}>
 
       {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.12) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(10,59,75,0.7) 100%)",
         }}
       />
 
@@ -214,7 +208,7 @@ export default function MeasurementDashboard() {
           {/* Header */}
           <div className="mb-12 text-center">
             <motion.h2
-              className="font-bold leading-tight text-white"
+              className="font-bold leading-tight text-[#0d2535]"
               style={{ fontSize: "clamp(1.75rem,3vw,2.75rem)" }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
@@ -224,7 +218,7 @@ export default function MeasurementDashboard() {
             </motion.h2>
             <motion.p
               className="mx-auto mt-4 max-w-lg leading-relaxed"
-              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.55)" }}
+              style={{ fontSize: "1.0625rem", color: "#4b5563" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -241,10 +235,10 @@ export default function MeasurementDashboard() {
             <motion.div
               className="flex items-center justify-between rounded-t-xl px-5 py-3"
               style={{
-                background: "rgba(255,255,255,0.06)",
-                borderTop: "1px solid rgba(255,255,255,0.08)",
-                borderLeft: "1px solid rgba(255,255,255,0.08)",
-                borderRight: "1px solid rgba(255,255,255,0.08)",
+                background: "#ffffff",
+                borderTop: "1px solid #e5e7eb",
+                borderLeft: "1px solid #e5e7eb",
+                borderRight: "1px solid #e5e7eb",
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
@@ -252,8 +246,8 @@ export default function MeasurementDashboard() {
             >
               <div className="flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/logo.png" alt="" className="h-4 w-auto" style={{ filter: "invert(1) brightness(6)", mixBlendMode: "screen" }} />
-                <span className="text-[11px] font-bold text-white/50 tracking-[0.12em] uppercase">
+                <img src="/images/logo.png" alt="" className="h-4 w-auto" />
+                <span className="text-[11px] font-bold text-[#9ca3af] tracking-[0.12em] uppercase">
                   Geo Holdout Results · Scottish Widows
                 </span>
               </div>
@@ -267,8 +261,8 @@ export default function MeasurementDashboard() {
             <div
               className="grid grid-cols-2 lg:grid-cols-4 gap-px"
               style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#f9fafb",
+                border: "1px solid #e5e7eb",
                 borderTop: "none",
               }}
             >
@@ -283,15 +277,15 @@ export default function MeasurementDashboard() {
             <motion.div
               className="rounded-b-xl px-6 py-5"
               style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                borderTop: "1px solid rgba(255,255,255,0.08)",
+                background: "#ffffff",
+                border: "1px solid #e5e7eb",
+                borderTop: "1px solid #e5e7eb",
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-white/30 mb-4">
+              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-[#9ca3af] mb-4">
                 Optimisation Levers — All Active
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">

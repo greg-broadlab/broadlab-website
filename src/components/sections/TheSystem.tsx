@@ -43,9 +43,9 @@ function GraphDiagram({ inView }: { inView: boolean }) {
       transition={{ delay: 0.25, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
       className="overflow-hidden rounded-2xl"
       style={{
-        background: "#0a3b4b",
+        background: "#0d2535",
         border: "1px solid rgba(58,174,206,0.15)",
-        boxShadow: "0 32px 80px rgba(10,59,75,0.2), 0 0 0 1px rgba(58,174,206,0.06)",
+        boxShadow: "0 32px 80px rgba(13,37,53,0.15), 0 0 0 1px rgba(58,174,206,0.06)",
       }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px_1fr]">
@@ -279,7 +279,7 @@ export default function TheSystem() {
                 The BroadLab ID Graph
               </motion.p>
               <motion.h2
-                className="text-[clamp(2rem,3.8vw,3.5rem)] font-bold leading-tight text-[#0a3b4b]"
+                className="text-[clamp(2rem,3.8vw,3.5rem)] font-bold leading-tight text-[#0d2535]"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
                 transition={{ delay: 0.1, duration: 0.6 }}

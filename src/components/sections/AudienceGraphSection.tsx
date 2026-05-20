@@ -6,7 +6,7 @@ import AudienceGraphDashboard from "@/components/ui/AudienceGraphDashboard";
 
 const NUMBERS = [
   { value: "1.8M", label: "UK postcodes" },
-  { value: "6,233", label: "Attributes per record" },
+  { value: "5,000+", label: "Attributes per record" },
   { value: "32M", label: "US Zip+4" },
 ] as const;
 
@@ -16,19 +16,29 @@ export default function AudienceGraphSection() {
 
   return (
     <section ref={ref} className="bg-white">
+      <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
+
       <div className="section-padding">
         <div className="container-main">
 
           {/* Header */}
-          <div className="mb-14 text-center">
+          <div className="mb-14 max-w-2xl mx-auto text-center">
+            <motion.p
+              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
+              transition={{ delay: 0.05, duration: 0.5 }}
+            >
+              01 / Audience Graph
+            </motion.p>
             <motion.h2
-              className="font-bold text-[#0a3b4b]"
+              className="font-bold text-[#0d2535]"
               style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)" }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
               transition={{ delay: 0.1, duration: 0.6 }}
             >
-              The Audience ID Graph
+              The foundation everything else is built on.
             </motion.h2>
 
             <motion.p
@@ -37,8 +47,8 @@ export default function AudienceGraphSection() {
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Every UK postcode and US Zip+4 mapped across 6,233 demographic,
-              behavioural and viewership attributes. Privacy-safe via Snowflake.
+              Every UK postcode and US Zip+4 mapped across 5,000+ demographic,
+              behavioural and viewership attributes. AI-powered audience intelligence, privacy-safe via Snowflake.
             </motion.p>
 
             {/* Clean stat row — no pills, just numbers */}
@@ -52,7 +62,7 @@ export default function AudienceGraphSection() {
                 <div key={n.label} className="flex flex-col items-center gap-1">
                   <span
                     className="font-bold leading-none"
-                    style={{ fontSize: "clamp(1.75rem,2.5vw,2.25rem)", color: "#0a3b4b" }}
+                    style={{ fontSize: "clamp(1.75rem,2.5vw,2.25rem)", color: "#0d2535" }}
                   >
                     {n.value}
                   </span>

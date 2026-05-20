@@ -23,14 +23,14 @@ export default function SupportModels() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} style={{ background: "#0a3b4b" }}>
-      <div className="h-px w-full" style={{ background: "rgba(58,174,206,0.4)" }} />
+    <section ref={ref} style={{ background: "#ffffff" }}>
+      <div className="h-px w-full" style={{ background: "rgba(58,174,206,0.3)" }} />
 
       <div className="section-padding">
         <div className="container-main">
 
           <motion.h2
-            className="mb-14 text-center font-bold leading-tight text-white"
+            className="mb-14 text-center font-bold leading-tight text-[#0d2535]"
             style={{ fontSize: "clamp(2rem, 3.8vw, 3.25rem)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -39,14 +39,14 @@ export default function SupportModels() {
             Flexible support, built around your model.
           </motion.h2>
 
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+          <div style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
             {MODELS.map((model, i) => (
               <motion.div
                 key={model.name}
                 className="grid grid-cols-1 gap-3 py-9 md:grid-cols-[1fr_2fr] md:gap-20 md:items-center"
                 style={{
                   borderBottom: i < MODELS.length - 1
-                    ? "1px solid rgba(255,255,255,0.08)"
+                    ? "1px solid rgba(0,0,0,0.06)"
                     : undefined,
                 }}
                 initial={{ opacity: 0, y: 16 }}
@@ -54,14 +54,14 @@ export default function SupportModels() {
                 transition={{ delay: 0.2 + i * 0.12, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 <span
-                  className="font-bold text-white"
+                  className="font-bold text-[#0d2535]"
                   style={{ fontSize: "clamp(1.25rem, 2vw, 1.5rem)" }}
                 >
                   {model.name}
                 </span>
                 <p
-                  className="leading-relaxed"
-                  style={{ color: "rgba(234,246,251,0.65)", fontSize: "1rem" }}
+                  className="leading-relaxed text-[#4b5563]"
+                  style={{ fontSize: "1rem" }}
                 >
                   {model.desc}
                 </p>

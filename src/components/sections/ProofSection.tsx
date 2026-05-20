@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 
 // ─── Count-up hook ────────────────────────────────────────────────────────────
@@ -29,35 +29,31 @@ function useCountUp(end: number, duration: number, active: boolean) {
 }
 
 // ─── Mini visuals — pure geometry, no text ───────────────────────────────────
-// All: viewBox="0 0 80 48", bars sit on baseline y=44
 
 function VisualROAS() {
-  // Two bars: dim (spend) vs teal (3× return)
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.12)" strokeWidth="1" />
-      <rect x="8"  y="28" width="24" height="16" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.25)" strokeWidth="1" />
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.18)" strokeWidth="1" />
+      <rect x="8"  y="28" width="24" height="16" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.3)" strokeWidth="1" />
       <rect x="48" y="2"  width="24" height="42" rx="2" fill="rgba(58,174,206,0.7)" />
     </svg>
   );
 }
 
 function VisualCostReduction() {
-  // Tall dim bar → tiny teal bar, with a simple chevron-down between
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.12)" strokeWidth="1" />
-      <rect x="8"  y="2"  width="24" height="42" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.25)" strokeWidth="1" />
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.18)" strokeWidth="1" />
+      <rect x="8"  y="2"  width="24" height="42" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.3)" strokeWidth="1" />
       <rect x="56" y="38" width="16" height="6"  rx="2" fill="rgba(58,174,206,0.75)" />
     </svg>
   );
 }
 
 function VisualFootfall() {
-  // Three ascending bars — signal-strength style
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.12)" strokeWidth="1" />
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.18)" strokeWidth="1" />
       <rect x="8"  y="32" width="18" height="12" rx="2" fill="rgba(58,174,206,0.3)" />
       <rect x="31" y="20" width="18" height="24" rx="2" fill="rgba(58,174,206,0.5)" />
       <rect x="54" y="6"  width="18" height="38" rx="2" fill="rgba(58,174,206,0.75)" />
@@ -66,10 +62,9 @@ function VisualFootfall() {
 }
 
 function VisualAttribution() {
-  // Horizontal stacked bar: large dim section + small teal slice on the right
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <rect x="4"  y="18" width="56" height="12" rx="2" fill="rgba(58,174,206,0.14)" stroke="rgba(58,174,206,0.22)" strokeWidth="1" />
+      <rect x="4"  y="18" width="56" height="12" rx="2" fill="rgba(58,174,206,0.14)" stroke="rgba(58,174,206,0.25)" strokeWidth="1" />
       <rect x="60" y="18" width="16" height="12" rx="2" fill="rgba(58,174,206,0.75)" />
     </svg>
   );
@@ -121,6 +116,8 @@ const CASES = [
   },
 ] as const;
 
+const MAX_TILT = 10;
+
 // ─── Case card ────────────────────────────────────────────────────────────────
 
 function CaseCard({
@@ -132,52 +129,106 @@ function CaseCard({
   index: number;
   inView: boolean;
 }) {
+  const ref     = useRef<HTMLDivElement>(null);
   const count   = useCountUp(c.value, 1300, inView);
   const display = c.decimal ? count.toFixed(1) : Math.round(count).toString();
   const { Visual } = c;
 
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+  const rotateXSpring = useSpring(rotateX, { stiffness: 280, damping: 22 });
+  const rotateYSpring = useSpring(rotateY, { stiffness: 280, damping: 22 });
+
+  const glowX = useMotionValue(0);
+  const glowY = useMotionValue(0);
+  const glowXSpring = useSpring(glowX, { stiffness: 200, damping: 25 });
+  const glowYSpring = useSpring(glowY, { stiffness: 200, damping: 25 });
+  const glowOpacity = useMotionValue(0);
+  const glowOpacitySpring = useSpring(glowOpacity, { stiffness: 200, damping: 25 });
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width / 2);
+    const dy = (e.clientY - cy) / (rect.height / 2);
+    rotateX.set(dy * MAX_TILT);
+    rotateY.set(-dx * MAX_TILT);
+    glowX.set(e.clientX - cx);
+    glowY.set(e.clientY - cy);
+    glowOpacity.set(1);
+  }
+
+  function handleMouseLeave() {
+    rotateX.set(0);
+    rotateY.set(0);
+    glowX.set(0);
+    glowY.set(0);
+    glowOpacity.set(0);
+  }
+
   return (
-    <motion.div
-      className="flex flex-col gap-5 rounded-xl p-7"
-      style={{
-        background: "rgba(255,255,255,0.05)",
-        border:     "1px solid rgba(255,255,255,0.07)",
-        borderTop:  "2px solid #3aaece",
-      }}
-      initial={{ opacity: 0, y: 28 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 28 }}
-      transition={{ delay: index * 0.12, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      {/* Sector — prominent at top */}
-      <p
-        className="text-sm font-bold tracking-wide text-white"
+    <div style={{ perspective: "1000px" }}>
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative flex flex-col gap-5 rounded-xl bg-white p-7 overflow-hidden"
+        style={{
+          border:    "1px solid #e5e7eb",
+          borderTop: "2px solid #3aaece",
+          boxShadow: "0 4px 24px rgba(16,101,127,0.06)",
+          rotateX: rotateXSpring,
+          rotateY: rotateYSpring,
+        }}
+        initial={{ opacity: 0, y: 28 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 28 }}
+        transition={{ delay: index * 0.12, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
       >
-        {c.sector}
-      </p>
+        {/* Light glow that follows cursor */}
+        <motion.div
+          className="absolute pointer-events-none rounded-full"
+          style={{
+            width: 220,
+            height: 220,
+            left: "50%",
+            top: "50%",
+            marginLeft: -110,
+            marginTop: -110,
+            x: glowXSpring,
+            y: glowYSpring,
+            opacity: glowOpacitySpring,
+            background: "radial-gradient(circle, rgba(58,174,206,0.12) 0%, transparent 70%)",
+          }}
+        />
 
-      {/* Mini visual */}
-      <div className="flex items-end" style={{ height: 48 }}>
-        <Visual />
-      </div>
-
-      {/* Big number */}
-      <p
-        className="font-bold leading-none text-white"
-        style={{ fontSize: "clamp(2.5rem,4vw,3.5rem)" }}
-      >
-        {c.prefix}{display}{c.unit}
-      </p>
-
-      {/* Metric + detail */}
-      <div className="flex flex-col gap-1.5">
-        <p className="text-[0.9375rem] font-semibold leading-snug text-white/80">
-          {c.metric}
+        <p className="text-sm font-bold tracking-wide text-[#0d2535]">
+          {c.sector}
         </p>
-        <p className="text-sm leading-relaxed text-white/45">
-          {c.detail}
+
+        <div className="flex items-end" style={{ height: 48 }}>
+          <Visual />
+        </div>
+
+        <p
+          className="font-bold leading-none text-[#0d2535]"
+          style={{ fontSize: "clamp(2.5rem,4vw,3.5rem)" }}
+        >
+          {c.prefix}{display}{c.unit}
         </p>
-      </div>
-    </motion.div>
+
+        <div className="flex flex-col gap-1.5">
+          <p className="text-[0.9375rem] font-semibold leading-snug text-[#0d2535]">
+            {c.metric}
+          </p>
+          <p className="text-sm leading-relaxed text-[#9ca3af]">
+            {c.detail}
+          </p>
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
@@ -188,19 +239,13 @@ export default function ProofSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden" style={{ background: "#0a3b4b" }}>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: "#f0f8fb" }}>
 
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.14) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(10,59,75,0.75) 100%)",
         }}
       />
 
@@ -210,7 +255,7 @@ export default function ProofSection() {
           {/* Header */}
           <div className="mb-12 text-center">
             <motion.h2
-              className="font-bold leading-tight text-white"
+              className="font-bold leading-tight text-[#0d2535]"
               style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)" }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
@@ -219,8 +264,8 @@ export default function ProofSection() {
               Proven across sectors.
             </motion.h2>
             <motion.p
-              className="mx-auto mt-4 max-w-lg leading-relaxed"
-              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.5)" }}
+              className="mx-auto mt-4 max-w-lg leading-relaxed text-[#4b5563]"
+              style={{ fontSize: "1.0625rem" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -239,7 +284,7 @@ export default function ProofSection() {
           {/* Divider */}
           <motion.div
             className="mx-auto mt-16 h-px w-24"
-            style={{ background: "rgba(58,174,206,0.2)" }}
+            style={{ background: "rgba(58,174,206,0.35)" }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: inView ? 1 : 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -248,7 +293,7 @@ export default function ProofSection() {
           {/* CTA */}
           <div className="mt-10 text-center">
             <motion.h2
-              className="font-bold leading-tight text-white"
+              className="font-bold leading-tight text-[#0d2535]"
               style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)" }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
@@ -258,8 +303,8 @@ export default function ProofSection() {
             </motion.h2>
 
             <motion.p
-              className="mx-auto mt-4 max-w-md leading-relaxed"
-              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.55)" }}
+              className="mx-auto mt-4 max-w-md leading-relaxed text-[#4b5563]"
+              style={{ fontSize: "1.0625rem" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.75, duration: 0.5 }}
@@ -273,11 +318,7 @@ export default function ProofSection() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
               transition={{ delay: 0.85, duration: 0.5 }}
             >
-              <Link
-                href="/contact"
-                className="inline-flex items-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#0a3b4b] transition-colors duration-200 hover:bg-[#eaf6fb]"
-                style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.2)" }}
-              >
+              <Link href="/contact" className="btn-primary">
                 Book a consultation
               </Link>
             </motion.div>

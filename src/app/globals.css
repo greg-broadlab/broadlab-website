@@ -8,8 +8,8 @@
   /* Brand Colours */
   --color-brand-teal: #10657f;
   --color-brand-teal-300: #3aaece;
-  --color-brand-teal-50: #eaf6fb;
-  --color-brand-teal-dark: #0a3b4b;
+  --color-brand-teal-50: #e4f2f8;
+  --color-brand-teal-dark: #0d2535;
   --color-brand-navy: #1e4f80;
   --color-brand-purple: #4c2fa8;
   --color-brand-coral: #c83b2a;
@@ -23,13 +23,13 @@
 
   /* Backgrounds */
   --color-bg: #ffffff;
-  --color-bg-alt: #eaf6fb;
+  --color-bg-alt: #f0f8fb;
   --color-bg-card: #f9fafb;
-  --color-bg-elevated: #eaf6fb;
+  --color-bg-elevated: #e4f2f8;
   --color-bg-border: #e5e7eb;
 
   /* Text */
-  --color-text: #111827;
+  --color-text: #0d2535;
   --color-text-muted: #4b5563;
   --color-text-subtle: #9ca3af;
 
@@ -42,6 +42,7 @@
   --color-danger-bg: #fef2f2;
 
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 
   --radius-card: 0.75rem;
   --radius-pill: 9999px;
@@ -61,14 +62,14 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #3aaece #eaf6fb;
+  scrollbar-color: #3aaece #f0f8fb;
 }
 
 html::-webkit-scrollbar {
   width: 6px;
 }
 html::-webkit-scrollbar-track {
-  background: #eaf6fb;
+  background: #f0f8fb;
 }
 html::-webkit-scrollbar-thumb {
   background: #3aaece;
@@ -85,7 +86,7 @@ body {
 
 ::selection {
   background: rgba(58, 174, 206, 0.25);
-  color: #0a3b4b;
+  color: #10657f;
 }
 
 @keyframes marquee {
@@ -94,7 +95,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #0a3b4b, #3aaece);
+  background: linear-gradient(135deg, #0d2535, #3aaece);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -150,7 +151,7 @@ body {
   align-items: center;
   padding: 0.75rem 1.75rem;
   border-radius: 9999px;
-  background-color: #0a3b4b;
+  background-color: #10657f;
   color: #ffffff;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -159,8 +160,8 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #10657f;
-  box-shadow: 0 4px 20px rgba(10, 59, 75, 0.3);
+  background-color: #0d2535;
+  box-shadow: 0 4px 20px rgba(13, 37, 53, 0.25);
 }
 
 .btn-secondary {
@@ -177,12 +178,12 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: #0a3b4b;
+  background-color: #0d2535;
   color: #ffffff;
 }
 
 @theme inline {
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-heading);
   --font-sans: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -235,10 +236,10 @@ body {
   --primary-foreground: #ffffff;
   --secondary: #1e4f80;
   --secondary-foreground: #ffffff;
-  --muted: #eaf6fb;
+  --muted: #f0f8fb;
   --muted-foreground: #4b5563;
   --accent: #3aaece;
-  --accent-foreground: #0a3b4b;
+  --accent-foreground: #0d2535;
   --destructive: #dc2626;
   --border: #e5e7eb;
   --input: #e5e7eb;
@@ -302,5 +303,8 @@ body {
   }
   html {
     @apply font-sans;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
   }
 }

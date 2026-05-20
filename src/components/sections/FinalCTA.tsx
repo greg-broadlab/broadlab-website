@@ -24,22 +24,14 @@ export default function FinalCTA() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden" style={{ background: "#0a3b4b" }}>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: "#f0f8fb" }}>
 
       {/* Dot grid texture */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.14) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
-        }}
-      />
-
-      {/* Edge vignette */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(10,59,75,0.75) 100%)",
         }}
       />
 
@@ -48,7 +40,7 @@ export default function FinalCTA() {
 
           {/* Support models */}
           <motion.h2
-            className="mb-14 text-center font-bold leading-tight text-white"
+            className="mb-14 text-center font-bold leading-tight text-[#0d2535]"
             style={{ fontSize: "clamp(2rem, 3.8vw, 3.25rem)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
@@ -57,24 +49,24 @@ export default function FinalCTA() {
             Flexible support, built around your model.
           </motion.h2>
 
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+          <div style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
             {MODELS.map((model, i) => (
               <motion.div
                 key={model.name}
                 className="grid grid-cols-1 gap-3 py-9 md:grid-cols-[1fr_2fr] md:gap-20 md:items-center"
                 style={{
                   borderBottom: i < MODELS.length - 1
-                    ? "1px solid rgba(255,255,255,0.08)"
+                    ? "1px solid rgba(0,0,0,0.06)"
                     : undefined,
                 }}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
                 transition={{ delay: 0.2 + i * 0.12, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <span className="font-bold text-white" style={{ fontSize: "clamp(1.25rem, 2vw, 1.5rem)" }}>
+                <span className="font-bold text-[#0d2535]" style={{ fontSize: "clamp(1.25rem, 2vw, 1.5rem)" }}>
                   {model.name}
                 </span>
-                <p className="leading-relaxed" style={{ color: "rgba(234,246,251,0.65)", fontSize: "1rem" }}>
+                <p className="leading-relaxed text-[#4b5563]" style={{ fontSize: "1rem" }}>
                   {model.desc}
                 </p>
               </motion.div>
@@ -84,7 +76,7 @@ export default function FinalCTA() {
           {/* Divider */}
           <motion.div
             className="mx-auto mt-16 h-px w-24"
-            style={{ background: "rgba(58,174,206,0.25)" }}
+            style={{ background: "rgba(58,174,206,0.35)" }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: inView ? 1 : 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -93,7 +85,7 @@ export default function FinalCTA() {
           {/* CTA */}
           <div className="mt-14 text-center">
             <motion.h2
-              className="font-bold leading-tight text-white"
+              className="font-bold leading-tight text-[#0d2535]"
               style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)" }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
@@ -103,8 +95,8 @@ export default function FinalCTA() {
             </motion.h2>
 
             <motion.p
-              className="mx-auto mt-4 max-w-md leading-relaxed"
-              style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.6)" }}
+              className="mx-auto mt-4 max-w-md leading-relaxed text-[#4b5563]"
+              style={{ fontSize: "1.0625rem" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
@@ -118,18 +110,13 @@ export default function FinalCTA() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
               transition={{ delay: 0.9, duration: 0.5 }}
             >
-              <Link
-                href="/contact"
-                className="inline-flex items-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#0a3b4b] transition-colors duration-200 hover:bg-[#eaf6fb]"
-                style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.2)" }}
-              >
+              <Link href="/contact" className="btn-primary">
                 Book a consultation
               </Link>
 
               <Link
                 href="/system"
-                className="inline-flex items-center gap-2 rounded-full border px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/10"
-                style={{ borderColor: "rgba(255,255,255,0.2)" }}
+                className="inline-flex items-center gap-2 rounded-full border border-[#10657f] px-7 py-3 text-sm font-semibold text-[#10657f] transition-colors duration-200 hover:bg-[#10657f] hover:text-white"
               >
                 Explore the System
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

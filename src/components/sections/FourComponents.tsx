@@ -107,7 +107,7 @@ function MiniHoldout() {
           <line x1="7" y1="2" x2="7" y2="34" stroke="rgba(58,174,206,0.35)" strokeWidth="1" strokeDasharray="2.5 2" />
           <path d="M 3,6 L 7,2 L 11,6" stroke="rgba(58,174,206,0.6)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        <span className="text-[10px] font-bold" style={{ color: "#0a3b4b" }}>Δ</span>
+        <span className="text-[10px] font-bold" style={{ color: "#0d2535" }}>Δ</span>
       </div>
     </div>
   );
@@ -213,7 +213,7 @@ function ComponentCard({
       </p>
 
       {/* Name */}
-      <h3 className="text-[1.0625rem] font-bold text-[#0a3b4b] mb-3 leading-snug">
+      <h3 className="text-[1.0625rem] font-bold text-[#0d2535] mb-3 leading-snug">
         {comp.name}
       </h3>
 
@@ -249,7 +249,7 @@ export default function FourComponents() {
 
           <div className="mb-12 text-center">
             <motion.h2
-              className="font-bold text-[#0a3b4b]"
+              className="font-bold text-[#0d2535]"
               style={{ fontSize: "clamp(1.75rem,3vw,2.75rem)" }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}

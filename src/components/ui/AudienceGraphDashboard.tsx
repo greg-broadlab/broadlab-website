@@ -23,7 +23,7 @@ function sr(seed: number) {
 }
 
 function scoreToStyle(score: number): { bg: string; fg: string } {
-  if (score >= 80) return { bg: "#0a3b4b", fg: "#3aaece" };
+  if (score >= 80) return { bg: "#0d2535", fg: "#3aaece" };
   if (score >= 64) return { bg: "#10657f", fg: "#eaf6fb" };
   if (score >= 48) return { bg: "#1e4f80", fg: "#ffffff" };
   if (score >= 32) return { bg: "#3aaece", fg: "#ffffff" };

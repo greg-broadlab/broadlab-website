@@ -2,7 +2,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SystemHero from "@/components/sections/SystemHero";
 import HowWeWork from "@/components/sections/HowWeWork";
-import ProofSection from "@/components/sections/ProofSection";
+import AudienceGraphSection from "@/components/sections/AudienceGraphSection";
+import MeasurementSection from "@/components/sections/MeasurementSection";
+import OptimisationSection from "@/components/sections/OptimisationSection";
+import LearningSection from "@/components/sections/LearningSection";
+import SystemCTA from "@/components/sections/SystemCTA";
 
 export const metadata = {
   title: "The System — BroadLab",
@@ -16,7 +20,11 @@ export default function SystemPage() {
       <Navbar />
       <SystemHero />
       <HowWeWork />
-      <ProofSection />
+      <AudienceGraphSection />
+      <MeasurementSection />
+      <OptimisationSection />
+      <LearningSection />
+      <SystemCTA />
       <Footer />
     </main>
   );

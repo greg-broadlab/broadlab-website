@@ -6,11 +6,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Home",     href: "/" },
-  { label: "System",   href: "/system" },
+  { label: "Home",      href: "/" },
+  { label: "System",    href: "/system" },
   { label: "Solutions", href: "/solutions" },
-  { label: "About",    href: "/about" },
-  { label: "Contact",  href: "/contact" },
+  { label: "Our Work",  href: "/work" },
+  { label: "About",     href: "/about" },
+  { label: "Contact",   href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -29,8 +30,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-[#0a3b4b] transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_2px_24px_rgba(0,0,0,0.25)]" : ""
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_2px_16px_rgba(13,37,53,0.08)] border-b border-[#e5e7eb]" : "border-b border-transparent"
       }`}
     >
       <div className="container-main flex items-center justify-between h-16 md:h-20">
@@ -38,7 +39,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/full.logo.png"
+            src="/broadlab-logo-darktext.png"
             alt="Broadlab"
             width={200}
             height={48}
@@ -55,8 +56,8 @@ export default function Navbar() {
               href={link.href}
               className={`text-sm font-medium transition-colors duration-200 ${
                 isActive(link.href)
-                  ? "text-white font-semibold underline underline-offset-4 decoration-[#3aaece]"
-                  : "text-white/70 hover:text-white"
+                  ? "text-[#0d2535] font-semibold underline underline-offset-4 decoration-[#3aaece]"
+                  : "text-[#4b5563] hover:text-[#0d2535]"
               }`}
             >
               {link.label}
@@ -68,7 +69,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="px-5 py-2.5 rounded-full bg-white text-[#0a3b4b] text-sm font-semibold hover:bg-[#eaf6fb] transition-colors duration-200"
+            className="px-5 py-2.5 rounded-full bg-[#10657f] text-white text-sm font-semibold hover:bg-[#0d2535] transition-colors duration-200"
           >
             Book a consultation
           </Link>
@@ -80,15 +81,15 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#0d2535] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#0d2535] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#0d2535] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </div>
 
       {/* Mobile menu */}
       <div className={`md:hidden transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-80" : "max-h-0"}`}>
-        <nav className="bg-[#0a3b4b] border-t border-white/10 px-6 py-6 flex flex-col gap-5">
+        <nav className="bg-white border-t border-[#e5e7eb] px-6 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -96,8 +97,8 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`text-sm font-medium transition-colors duration-200 ${
                 isActive(link.href)
-                  ? "text-white font-semibold"
-                  : "text-white/70 hover:text-white"
+                  ? "text-[#0d2535] font-semibold"
+                  : "text-[#4b5563] hover:text-[#0d2535]"
               }`}
             >
               {link.label}
@@ -106,7 +107,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 px-5 py-2.5 rounded-full bg-white text-[#0a3b4b] text-sm font-semibold text-center"
+            className="mt-2 px-5 py-2.5 rounded-full bg-[#10657f] text-white text-sm font-semibold text-center hover:bg-[#0d2535] transition-colors duration-200"
           >
             Book a consultation
           </Link>

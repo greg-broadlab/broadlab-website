@@ -51,7 +51,7 @@ function AboutHero() {
         <Image src="/images/about/office-hero.jpg" alt="BroadLab office" fill className="object-cover" />
         Then add the overlay divs on top.
       */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #071c2a 0%, #0a3b4b 50%, #10657f 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #071c2a 0%, #0d2535 50%, #10657f 100%)" }} />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -132,7 +132,7 @@ function CompanyStatement() {
             >
               <p
                 className="font-bold leading-tight"
-                style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0a3b4b" }}
+                style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0d2535" }}
               >
                 "We built the system the industry
                 <span style={{ color: "#3aaece" }}> should have built</span> years ago."
@@ -199,7 +199,7 @@ function FeaturedBio({
         </>
       ) : (
         <>
-          <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #0a3b4b 0%, #10657f 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #0d2535 0%, #10657f 100%)" }} />
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -232,7 +232,7 @@ function FeaturedBio({
       </p>
       <h2
         className="font-bold leading-none mb-6"
-        style={{ fontSize: "clamp(2rem,3.5vw,3rem)", color: "#0a3b4b" }}
+        style={{ fontSize: "clamp(2rem,3.5vw,3rem)", color: "#0d2535" }}
       >
         {person.name}
       </h2>
@@ -296,9 +296,9 @@ function EmptyBioSlot({ index }: { index: number }) {
 // ─── Office mosaic ─────────────────────────────────────────────────────────────
 
 const MOSAIC_CELLS = [
-  { label: "Office",    gradient: "linear-gradient(160deg, #071c2a, #0a3b4b)", gridArea: "1 / 1 / 3 / 2" },
-  { label: "Meeting",   gradient: "linear-gradient(160deg, #0a3b4b, #10657f)", gridArea: "1 / 2 / 2 / 4" },
-  { label: "Team",      gradient: "linear-gradient(160deg, #0d4a60, #0a3b4b)", gridArea: "2 / 2 / 3 / 3" },
+  { label: "Office",    gradient: "linear-gradient(160deg, #071c2a, #0d2535)", gridArea: "1 / 1 / 3 / 2" },
+  { label: "Meeting",   gradient: "linear-gradient(160deg, #0d2535, #10657f)", gridArea: "1 / 2 / 2 / 4" },
+  { label: "Team",      gradient: "linear-gradient(160deg, #0d4a60, #0d2535)", gridArea: "2 / 2 / 3 / 3" },
   { label: "Work",      gradient: "linear-gradient(160deg, #071c2a, #10657f)", gridArea: "2 / 3 / 3 / 4" },
 ];
 
@@ -421,7 +421,7 @@ function Recognition() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} style={{ background: "#0a3b4b" }}>
+    <section ref={ref} style={{ background: "#0d2535" }}>
       <div
         className="pointer-events-none"
         style={{

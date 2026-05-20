@@ -61,25 +61,19 @@ function ServicesIntro() {
     <section
       ref={ref}
       className="relative overflow-hidden pt-32 pb-20"
-      style={{ background: "#0a3b4b" }}
+      style={{ background: "#f0f8fb" }}
     >
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.12) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 20%, rgba(10,59,75,0.85) 100%)",
         }}
       />
 
       <div className="container-main relative z-10 text-center">
         <motion.h1
-          className="font-bold leading-tight text-white"
+          className="font-bold leading-tight text-[#0d2535]"
           style={{ fontSize: "clamp(2.25rem,4.5vw,3.75rem)" }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
@@ -130,7 +124,7 @@ function CaseStudySwitcher() {
               key={item.sector}
               onClick={() => setActive(i)}
               className="relative px-5 py-3.5 text-sm font-semibold whitespace-nowrap transition-colors duration-200 shrink-0"
-              style={{ color: active === i ? "#0a3b4b" : "#9ca3af" }}
+              style={{ color: active === i ? "#0d2535" : "#9ca3af" }}
             >
               {item.sector}
               {active === i && (
@@ -167,7 +161,7 @@ function CaseStudySwitcher() {
               <div className="mb-8">
                 <p
                   className="font-bold leading-none"
-                  style={{ fontSize: "clamp(3.5rem,7vw,5.5rem)", color: "#0a3b4b" }}
+                  style={{ fontSize: "clamp(3.5rem,7vw,5.5rem)", color: "#0d2535" }}
                 >
                   {v.resultNumber}
                 </p>
@@ -178,7 +172,7 @@ function CaseStudySwitcher() {
 
               <h2
                 className="font-bold leading-snug mb-4"
-                style={{ fontSize: "clamp(1.25rem,2vw,1.625rem)", color: "#0a3b4b" }}
+                style={{ fontSize: "clamp(1.25rem,2vw,1.625rem)", color: "#0d2535" }}
               >
                 {v.problem}
               </h2>
@@ -258,7 +252,7 @@ function AgencyCallout() {
                 </p>
                 <h3
                   className="font-bold leading-snug"
-                  style={{ fontSize: "clamp(1.25rem,1.8vw,1.625rem)", color: "#0a3b4b" }}
+                  style={{ fontSize: "clamp(1.25rem,1.8vw,1.625rem)", color: "#0d2535" }}
                 >
                   You own the intelligence.
                   <br />We build the system.
@@ -272,8 +266,8 @@ function AgencyCallout() {
                 <div className="mt-auto">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors duration-200"
-                    style={{ background: "#0a3b4b" }}
+                    className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]"
+                    style={{ background: "#10657f" }}
                   >
                     Talk to us
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -295,7 +289,7 @@ function AgencyCallout() {
                 </p>
                 <h3
                   className="font-bold leading-snug"
-                  style={{ fontSize: "clamp(1.25rem,1.8vw,1.625rem)", color: "#0a3b4b" }}
+                  style={{ fontSize: "clamp(1.25rem,1.8vw,1.625rem)", color: "#0d2535" }}
                 >
                   The intelligence layer
                   <br />above your existing buys.
@@ -355,7 +349,7 @@ function BottomHook() {
 
           <motion.h2
             className="font-bold leading-tight"
-            style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0a3b4b" }}
+            style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0d2535" }}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
             transition={{ delay: 0.15, duration: 0.6 }}
@@ -382,8 +376,8 @@ function BottomHook() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:opacity-90"
-              style={{ background: "#0a3b4b" }}
+              className="inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]"
+              style={{ background: "#10657f" }}
             >
               Book a consultation
             </Link>

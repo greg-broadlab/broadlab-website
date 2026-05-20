@@ -4,184 +4,31 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-// ─── Steps ────────────────────────────────────────────────────────────────────
-// PLACEHOLDER — confirm copy with BroadLab before launch
 const STEPS = [
   {
     n: "01",
-    title: "Define Your Outcome",
-    desc: "Every campaign starts with a clear business outcome — not a media target.",
+    title: "Build the audience foundation",
+    desc: "Use the Audience Graph to create a cleaner, more accurate planning and measurement base.",
   },
   {
     n: "02",
-    title: "Design Your Solution",
-    desc: "Custom audience architecture and measurement framework built around your goal.",
+    title: "Define the right outcomes",
+    desc: "Align measurement to the outcomes that matter most — brand, search, conversion or footfall.",
   },
   {
     n: "03",
-    title: "Dynamic Optimisation",
-    desc: "Real-time in-flight refinement across audience, creative, geography and frequency.",
+    title: "Optimise in flight",
+    desc: "Use daily AI/ML signals and expert oversight to improve performance while campaigns are live.",
   },
   {
     n: "04",
-    title: "Learn & Scale",
-    desc: "AI-driven signals compound across every campaign, building a structural performance edge.",
+    title: "Feed learning forward",
+    desc: "Turn campaign intelligence into reusable advantage for the next cycle.",
   },
 ] as const;
 
-// ─── ID Graph Visual ──────────────────────────────────────────────────────────
-
-const GRAPH_INPUTS  = ["Census Data", "TV / CTV Signals", "Behavioural Data"];
-const GRAPH_OUTPUTS = ["CRM Integration", "In-Flight AI/ML", "Postcode Insights"];
-
-// Dot positions [row, col] inside an 8 × 5 grid (0-indexed)
-const DOTS: [number, number][] = [
-  [0, 1], [0, 4], [0, 6],
-  [1, 0], [1, 2], [1, 5], [1, 7],
-  [2, 1], [2, 3], [2, 6],
-  [3, 2], [3, 4], [3, 7],
-  [4, 0], [4, 3], [4, 5],
-];
-
-const G_COLS = 8;
-const G_ROWS = 5;
-const G_CW   = 27; // cell width  px
-const G_CH   = 26; // cell height px
-const G_HDR  = 28; // dark header bar height px
-
-// Total grid box dimensions
-const GRID_W = G_COLS * G_CW;           // 216
-const GRID_H = G_HDR + G_ROWS * G_CH;  // 18 + 130 = 148
-
-function IDGraphVisual({ inView }: { inView: boolean }) {
-  return (
-    <motion.div
-      className="flex items-center gap-5"
-      initial={{ opacity: 0, scale: 0.94 }}
-      animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.94 }}
-      transition={{ delay: 2.0, duration: 0.6 }}
-    >
-      {/* ── Left: inputs ── */}
-      <div
-        className="flex flex-col justify-around"
-        style={{ width: 120, height: GRID_H }}
-      >
-        {GRAPH_INPUTS.map((label, i) => (
-          <div key={i} className="flex items-center justify-end gap-2">
-            <span
-              className="font-semibold leading-snug text-right"
-              style={{ fontSize: "0.5625rem", color: "#0a3b4b" }}
-            >
-              {label}
-            </span>
-            {/* Small inline arrow pointing right into the grid */}
-            <svg width="18" height="8" viewBox="0 0 18 8" style={{ flexShrink: 0 }}>
-              <line x1="0" y1="4" x2="13" y2="4" stroke="#3aaece" strokeWidth="1.2" strokeOpacity="0.65" />
-              <polyline points="10,1 14,4 10,7" fill="none" stroke="#3aaece" strokeWidth="1.2" strokeOpacity="0.65" strokeLinejoin="round" strokeLinecap="round" />
-            </svg>
-          </div>
-        ))}
-      </div>
-
-      {/* ── Centre: dot grid + title ── */}
-      <div className="flex flex-col items-center gap-2.5">
-        <div
-          style={{
-            borderRadius: 4,
-            border: "1px solid rgba(10,59,75,0.22)",
-            overflow: "hidden",
-          }}
-        >
-          {/* Dark header bar — title lives here */}
-          <div
-            className="flex items-center justify-center"
-            style={{ background: "#0a3b4b", height: G_HDR, width: GRID_W }}
-          >
-            <p
-              className="font-bold uppercase"
-              style={{ fontSize: "0.5rem", letterSpacing: "0.14em", color: "#3aaece" }}
-            >
-              The BroadLab ID Graph
-            </p>
-          </div>
-
-          {/* Dot grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: `repeat(${G_COLS}, ${G_CW}px)`,
-              gridTemplateRows: `repeat(${G_ROWS}, ${G_CH}px)`,
-            }}
-          >
-            {Array.from({ length: G_ROWS * G_COLS }, (_, idx) => {
-              const row = Math.floor(idx / G_COLS);
-              const col = idx % G_COLS;
-              const hasDot = DOTS.some(([r, c]) => r === row && c === col);
-              return (
-                <div
-                  key={idx}
-                  style={{
-                    width: G_CW,
-                    height: G_CH,
-                    borderRight: "0.5px solid rgba(58,174,206,0.16)",
-                    borderBottom: "0.5px solid rgba(58,174,206,0.16)",
-                    background: "white",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {hasDot && (
-                    <div
-                      style={{
-                        width: 5,
-                        height: 5,
-                        borderRadius: "50%",
-                        background: "#0a3b4b",
-                        opacity: 0.6,
-                      }}
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Stats beneath the grid */}
-        <p style={{ fontSize: "0.5rem", color: "#9ca3af", letterSpacing: "0.04em" }}>
-          3,000+ Segments · 1.8M Postcodes
-        </p>
-      </div>
-
-      {/* ── Right: outputs ── */}
-      <div
-        className="flex flex-col justify-around"
-        style={{ width: 120, height: GRID_H }}
-      >
-        {GRAPH_OUTPUTS.map((label, i) => (
-          <div key={i} className="flex items-center gap-2">
-            {/* Small inline arrow pointing right out of the grid */}
-            <svg width="18" height="8" viewBox="0 0 18 8" style={{ flexShrink: 0 }}>
-              <line x1="0" y1="4" x2="13" y2="4" stroke="#3aaece" strokeWidth="1.2" strokeOpacity="0.65" />
-              <polyline points="10,1 14,4 10,7" fill="none" stroke="#3aaece" strokeWidth="1.2" strokeOpacity="0.65" strokeLinejoin="round" strokeLinecap="round" />
-            </svg>
-            <span
-              className="font-semibold leading-snug"
-              style={{ fontSize: "0.5625rem", color: "#0a3b4b" }}
-            >
-              {label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </motion.div>
-  );
-}
-
-// ─── Section ──────────────────────────────────────────────────────────────────
 export default function HowWeWork() {
-  const ref = useRef<HTMLElement>(null);
+  const ref    = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
@@ -191,30 +38,37 @@ export default function HowWeWork() {
       <div className="section-padding">
         <div className="container-main">
 
-          {/* ── Header ── */}
+          {/* Header */}
           <div className="mb-16 max-w-2xl mx-auto text-center">
+            <motion.p
+              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
+              transition={{ delay: 0.05, duration: 0.5 }}
+            >
+              How it works
+            </motion.p>
             <motion.h2
               className="font-bold leading-tight"
-              style={{ fontSize: "clamp(2rem,3.8vw,3.5rem)", color: "#0a3b4b" }}
+              style={{ fontSize: "clamp(2rem,3.8vw,3.5rem)", color: "#0d2535" }}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
               transition={{ delay: 0.1, duration: 0.6 }}
             >
               How the system works
             </motion.h2>
-
             <motion.p
-              className="mt-5"
+              className="mt-5 max-w-xl mx-auto"
               style={{ fontSize: "1.0625rem", lineHeight: "1.75", color: "#4b5563" }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Define the outcome, build the system, optimise daily — and let every campaign make the next one stronger.
+              Four steps. One continuous loop. Each stage feeds the next — so every campaign becomes more effective than the last.
             </motion.p>
           </div>
 
-          {/* ── Desktop: step cards + arrows ── */}
+          {/* Desktop: step cards + arrows */}
           <div
             className="hidden lg:grid items-stretch"
             style={{ gridTemplateColumns: "1fr 44px 1fr 44px 1fr 44px 1fr" }}
@@ -225,7 +79,7 @@ export default function HowWeWork() {
                   key={`card-${step.n}`}
                   className="flex flex-col gap-3 rounded-xl p-6"
                   style={{
-                    border: "1px solid rgba(58,174,206,0.18)",
+                    border:    "1px solid rgba(58,174,206,0.18)",
                     borderTop: "2px solid #3aaece",
                     boxShadow: "0 2px 16px rgba(10,59,75,0.06)",
                   }}
@@ -235,13 +89,13 @@ export default function HowWeWork() {
                 >
                   <p
                     className="font-bold select-none leading-none"
-                    style={{ fontSize: "clamp(2rem,3vw,2.75rem)", color: "rgba(58,174,206,0.1)" }}
+                    style={{ fontSize: "clamp(2rem,3vw,2.75rem)", color: "rgba(58,174,206,0.12)" }}
                   >
                     {step.n}
                   </p>
                   <h3
                     className="font-semibold leading-snug"
-                    style={{ fontSize: "1.0625rem", color: "#0a3b4b" }}
+                    style={{ fontSize: "1.0625rem", color: "#0d2535" }}
                   >
                     {step.title}
                   </h3>
@@ -269,14 +123,14 @@ export default function HowWeWork() {
             })}
           </div>
 
-          {/* ── Mobile: stacked cards ── */}
+          {/* Mobile: stacked cards */}
           <div className="flex flex-col gap-4 lg:hidden">
             {STEPS.map((step, i) => (
               <motion.div
                 key={step.n}
                 className="flex flex-col gap-3 rounded-xl p-6"
                 style={{
-                  border: "1px solid rgba(58,174,206,0.18)",
+                  border:    "1px solid rgba(58,174,206,0.18)",
                   borderTop: "2px solid #3aaece",
                   boxShadow: "0 2px 16px rgba(10,59,75,0.06)",
                 }}
@@ -286,11 +140,11 @@ export default function HowWeWork() {
               >
                 <p
                   className="font-bold select-none leading-none"
-                  style={{ fontSize: "2rem", color: "rgba(58,174,206,0.1)" }}
+                  style={{ fontSize: "2rem", color: "rgba(58,174,206,0.12)" }}
                 >
                   {step.n}
                 </p>
-                <h3 className="font-semibold leading-snug" style={{ fontSize: "1.0625rem", color: "#0a3b4b" }}>
+                <h3 className="font-semibold leading-snug" style={{ fontSize: "1.0625rem", color: "#0d2535" }}>
                   {step.title}
                 </h3>
                 <p style={{ fontSize: "0.875rem", lineHeight: "1.65", color: "#4b5563" }}>
@@ -300,14 +154,8 @@ export default function HowWeWork() {
             ))}
           </div>
 
-          {/* ── Desktop: return arc + ID Graph visual ── */}
-          {/*
-            CSS border arc instead of SVG: always spans exactly 100% of the
-            container so it always connects Step 4 to Step 1 at every screen width.
-            border-radius "0 0 50% 50% / 0 0 100% 100%" creates a pure U-shape
-            with zero straight vertical segments — the curve fills the full height.
-          */}
-          <div className="relative mt-0 hidden lg:block" style={{ height: 350 }}>
+          {/* Desktop: return arc + connecting paragraph */}
+          <div className="relative mt-0 hidden lg:block" style={{ height: 320 }}>
 
             {/* Anchor dot — Step 4 (top-right) */}
             <motion.div
@@ -322,7 +170,7 @@ export default function HowWeWork() {
             <motion.div
               className="absolute inset-x-0 top-0 pointer-events-none"
               style={{
-                height: 300,
+                height: 270,
                 borderLeft:   "2px solid rgba(58,174,206,0.4)",
                 borderRight:  "2px solid rgba(58,174,206,0.4)",
                 borderBottom: "2px solid rgba(58,174,206,0.4)",
@@ -344,9 +192,45 @@ export default function HowWeWork() {
               transition={{ delay: 2.35, duration: 0.3 }}
             />
 
-            {/* ID Graph visual — centred inside the arc bowl */}
-            <div className="absolute left-1/2 -translate-x-1/2" style={{ top: 32 }}>
-              <IDGraphVisual inView={inView} />
+            {/* Connecting chain centred inside the arc bowl */}
+            <div
+              className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-0"
+              style={{ top: 36 }}
+            >
+              {[
+                ["Better audience inputs improve", "measurement"],
+                ["Better measurement improves", "optimisation"],
+                ["Better optimisation creates stronger", "learning"],
+                ["Stronger learning feeds", "the next campaign"],
+              ].map(([prefix, highlight], i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <motion.p
+                    className="text-center whitespace-nowrap"
+                    style={{ fontSize: "0.875rem", color: "#4b5563" }}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 6 }}
+                    transition={{ delay: 2.0 + i * 0.2, duration: 0.5 }}
+                  >
+                    {prefix}{" "}
+                    <span className="font-semibold text-[#3aaece]">{highlight}</span>
+                    {i < 3 ? "." : "."}
+                  </motion.p>
+                  {i < 3 && (
+                    <motion.div
+                      className="flex flex-col items-center my-1"
+                      initial={{ opacity: 0, scaleY: 0 }}
+                      animate={{ opacity: inView ? 1 : 0, scaleY: inView ? 1 : 0 }}
+                      transition={{ delay: 2.15 + i * 0.2, duration: 0.3 }}
+                      style={{ originY: 0 }}
+                    >
+                      <div style={{ width: 1, height: 10, background: "rgba(58,174,206,0.35)" }} />
+                      <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
+                        <path d="M0 0L4 5L8 0" stroke="rgba(58,174,206,0.5)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </motion.div>
+                  )}
+                </div>
+              ))}
             </div>
 
           </div>

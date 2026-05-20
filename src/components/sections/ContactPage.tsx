@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // ─── Form inputs ───────────────────────────────────────────────────────────────
 
 const inputBase =
-  "w-full rounded-lg px-4 py-3 text-sm text-[#0a3b4b] outline-none transition-all duration-200";
+  "w-full rounded-lg px-4 py-3 text-sm text-[#0d2535] outline-none transition-all duration-200";
 const inputDefault = { background: "#f9fafb", border: "1px solid #e5e7eb" };
 const inputFocused = {
   background: "white",
@@ -92,7 +92,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
           </svg>
         </div>
         <div>
-          <h3 className="font-bold text-lg mb-1.5" style={{ color: "#0a3b4b" }}>All set.</h3>
+          <h3 className="font-bold text-lg mb-1.5" style={{ color: "#0d2535" }}>All set.</h3>
           <p className="text-sm leading-relaxed max-w-xs" style={{ color: "#6b7280" }}>
             Your message is sent and a call is booked. We look forward to speaking with you.
           </p>
@@ -122,7 +122,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
           </svg>
         </div>
         <div>
-          <p className="font-bold text-base mb-1" style={{ color: "#0a3b4b" }}>Message sent.</p>
+          <p className="font-bold text-base mb-1" style={{ color: "#0d2535" }}>Message sent.</p>
           <p className="text-sm leading-relaxed" style={{ color: "#6b7280" }}>
             We&apos;ll be in touch within one business day.
           </p>
@@ -135,7 +135,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
       {/* Book a call CTA */}
       <div className="flex flex-col gap-4">
         <div>
-          <p className="font-semibold text-sm mb-1" style={{ color: "#0a3b4b" }}>
+          <p className="font-semibold text-sm mb-1" style={{ color: "#0d2535" }}>
             Want to talk sooner?
           </p>
           <p className="text-sm leading-relaxed" style={{ color: "#6b7280" }}>
@@ -149,7 +149,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
           href="#"
           onClick={(e) => { e.preventDefault(); setBooked(true); }}
           className="inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
-          style={{ background: "#0a3b4b" }}
+          style={{ background: "#10657f" }}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <rect x="1" y="2" width="12" height="11" rx="1.5" stroke="white" strokeWidth="1.3" />
@@ -219,7 +219,7 @@ function ContactForm() {
             disabled={status === "sending"}
             className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
             style={{
-              background: status === "sending" ? "#9ca3af" : "#0a3b4b",
+              background: status === "sending" ? "#9ca3af" : "#10657f",
               cursor: status === "sending" ? "not-allowed" : "pointer",
             }}
           >
@@ -252,20 +252,14 @@ export default function ContactPage() {
   const ref = useRef<HTMLElement>(null);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center" style={{ background: "#0a3b4b" }}>
+    <section ref={ref} className="relative min-h-screen flex items-center" style={{ background: "#f0f8fb" }}>
 
       {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.12) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(7,28,42,0.65) 100%)",
         }}
       />
 
@@ -284,13 +278,13 @@ export default function ContactPage() {
                 Get in touch
               </p>
               <h1
-                className="font-bold text-white leading-tight"
+                className="font-bold text-[#0d2535] leading-tight"
                 style={{ fontSize: "clamp(2.25rem,4.5vw,3.75rem)" }}
               >
                 Let&apos;s build something
                 <span style={{ color: "#3aaece" }}> that works.</span>
               </h1>
-              <p className="mt-5 leading-relaxed" style={{ fontSize: "1.0625rem", color: "rgba(234,246,251,0.55)" }}>
+              <p className="mt-5 leading-relaxed" style={{ fontSize: "1.0625rem", color: "#4b5563" }}>
                 Send us your question or tell us about your brand — we&apos;ll
                 come back to you within one business day.
               </p>
@@ -316,7 +310,7 @@ export default function ContactPage() {
                   >
                     {step.n}
                   </span>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(234,246,251,0.5)" }}>
+                  <p className="text-sm leading-relaxed" style={{ color: "#4b5563" }}>
                     {step.text}
                   </p>
                 </motion.div>
