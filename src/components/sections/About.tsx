@@ -44,66 +44,55 @@ function AboutHero() {
     <section
       ref={ref}
       className="relative overflow-hidden"
-      style={{ background: "#071c2a", minHeight: "92vh" }}
+      style={{ background: "#f0f8fb" }}
     >
-      {/*
-        Replace this placeholder with a real office photo:
-        <Image src="/images/about/office-hero.jpg" alt="BroadLab office" fill className="object-cover" />
-        Then add the overlay divs on top.
-      */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #071c2a 0%, #0d2535 50%, #10657f 100%)" }} />
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.1) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
+          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
         }}
       />
-      {/* Bottom gradient so text reads cleanly */}
-      <div
-        className="absolute inset-x-0 bottom-0 pointer-events-none"
-        style={{ height: "55%", background: "linear-gradient(to top, rgba(7,28,42,0.95) 0%, transparent 100%)" }}
-      />
 
-      {/* Small "photo placeholder" label */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
-        <p style={{ fontSize: "0.5625rem", letterSpacing: "0.2em", color: "rgba(58,174,206,0.2)" }}>
-          OFFICE HERO PHOTO
-        </p>
-      </div>
-
-      {/* Text overlay at bottom */}
-      <div className="absolute inset-x-0 bottom-0 z-10">
-        <div className="container-main pb-16 pt-0">
+      <div className="container-main relative z-10 section-padding">
+        <div className="max-w-3xl">
           <motion.p
-            className="text-[0.625rem] font-bold uppercase tracking-[0.2em] mb-4"
-            style={{ color: "rgba(58,174,206,0.6)" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
+            transition={{ duration: 0.5 }}
           >
-            BroadLab
+            Our Team
           </motion.p>
-          <motion.h1
-            className="font-bold leading-tight text-white"
-            style={{ fontSize: "clamp(2.5rem,5.5vw,5rem)" }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-            transition={{ delay: 0.1, duration: 0.7 }}
+
+          <h1
+            className="font-bold leading-tight text-[#0d2535]"
+            style={{ fontSize: "clamp(2.5rem, 5.5vw, 5rem)" }}
           >
-            The people behind
-            <br />the system.
-          </motion.h1>
+            {["The people behind", "the system."].map((line, i) => (
+              <div key={i} style={{ overflow: "hidden" }}>
+                <motion.span
+                  className="block"
+                  initial={{ y: "110%" }}
+                  animate={inView ? { y: "0%" } : {}}
+                  transition={{ delay: 0.1 + i * 0.13, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  {line}
+                </motion.span>
+              </div>
+            ))}
+          </h1>
+
           <motion.div
-            className="mt-6 flex items-center gap-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
-            transition={{ delay: 0.35, duration: 0.5 }}
+            className="mt-8 flex items-center gap-10"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
+            transition={{ delay: 0.38, duration: 0.5 }}
           >
-            {[["25+", "Specialists"], ["7", "Teams"]].map(([val, label]) => (
+            {[["25+", "Specialists"], ["7", "Practice areas"]].map(([val, label]) => (
               <div key={label} className="flex flex-col gap-0.5">
-                <span className="font-bold text-white" style={{ fontSize: "1.375rem" }}>{val}</span>
-                <span style={{ fontSize: "0.6875rem", color: "rgba(234,246,251,0.45)", letterSpacing: "0.08em" }}>{label}</span>
+                <span className="font-bold text-[#0d2535]" style={{ fontSize: "1.75rem" }}>{val}</span>
+                <span className="text-xs text-[#9ca3af]" style={{ letterSpacing: "0.08em" }}>{label}</span>
               </div>
             ))}
           </motion.div>
@@ -421,15 +410,8 @@ function Recognition() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} style={{ background: "#0d2535" }}>
-      <div
-        className="pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.1) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-          height: 1,
-        }}
-      />
+    <section ref={ref} style={{ background: "white" }}>
+      <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
       <div className="section-padding">
         <div className="container-main">
 
@@ -445,7 +427,7 @@ function Recognition() {
               Industry recognition
             </motion.p>
             <motion.h2
-              className="font-bold text-white"
+              className="font-bold text-[#0d2535]"
               style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
@@ -456,15 +438,13 @@ function Recognition() {
           </div>
 
           {/* Award cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(58,174,206,0.12)" }}>
             {AWARDS.map((award, i) => (
               <motion.div
                 key={i}
-                className="flex flex-col gap-5 rounded-2xl p-7"
+                className="bg-white flex flex-col gap-5 p-8"
                 style={{
-                  background: award.confirmed ? "rgba(58,174,206,0.06)" : "rgba(255,255,255,0.02)",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  borderTop: `2px solid ${award.confirmed ? "#3aaece" : "rgba(58,174,206,0.2)"}`,
+                  borderTop: `3px solid ${award.confirmed ? "#3aaece" : "rgba(58,174,206,0.2)"}`,
                   opacity: award.confirmed ? 1 : 0.45,
                 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -476,7 +456,7 @@ function Recognition() {
                   {award.confirmed ? (
                     <div
                       className="flex items-center justify-center rounded px-2.5 py-1.5"
-                      style={{ background: "white" }}
+                      style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.2)" }}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
@@ -495,7 +475,7 @@ function Recognition() {
                     className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-2.5 py-1"
                     style={{
                       color:      award.confirmed ? "#3aaece" : "rgba(58,174,206,0.35)",
-                      background: award.confirmed ? "rgba(58,174,206,0.12)" : "rgba(58,174,206,0.05)",
+                      background: award.confirmed ? "rgba(58,174,206,0.1)" : "rgba(58,174,206,0.04)",
                     }}
                   >
                     {award.status}
@@ -505,15 +485,12 @@ function Recognition() {
                 {/* Award body */}
                 <div className="flex flex-col gap-1.5 flex-1">
                   <p
-                    className="font-bold text-white leading-snug"
+                    className="font-bold text-[#0d2535] leading-snug"
                     style={{ fontSize: "0.9375rem" }}
                   >
                     {award.body}
                   </p>
-                  <p
-                    className="text-sm"
-                    style={{ color: "rgba(234,246,251,0.5)" }}
-                  >
+                  <p className="text-sm text-[#6b7280]">
                     {award.category}
                   </p>
                 </div>
@@ -521,18 +498,15 @@ function Recognition() {
                 {/* Campaign + year */}
                 <div
                   className="pt-4 flex items-center justify-between"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+                  style={{ borderTop: "1px solid #e5e7eb" }}
                 >
                   <p
                     className="text-xs"
-                    style={{ color: award.confirmed ? "rgba(58,174,206,0.7)" : "rgba(255,255,255,0.2)" }}
+                    style={{ color: award.confirmed ? "#3aaece" : "#d1d5db" }}
                   >
                     {award.campaign}
                   </p>
-                  <p
-                    className="text-xs font-semibold tabular-nums"
-                    style={{ color: "rgba(255,255,255,0.25)" }}
-                  >
+                  <p className="text-xs font-semibold tabular-nums text-[#9ca3af]">
                     {award.year}
                   </p>
                 </div>

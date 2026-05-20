@@ -3,9 +3,9 @@ import Footer from "@/components/layout/Footer";
 import ContactPage from "@/components/sections/ContactPage";
 
 export const metadata = {
-  title: "Contact — BroadLab",
+  title: "About — BroadLab",
   description:
-    "Get in touch with BroadLab. Tell us the outcome you need to move and we'll map the system to your brand.",
+    "BroadLab is a specialist CTV partner combining consultancy, AI-powered technology and named human expertise to turn CTV into an accountable growth engine.",
 };
 
 export default function Contact() {
