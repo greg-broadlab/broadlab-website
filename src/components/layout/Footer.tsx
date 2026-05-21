@@ -1,5 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+
+function CookiePreferences() {
+  function resetConsent() {
+    document.cookie = "broadlab_consent=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+    window.location.reload();
+  }
+  return (
+    <button
+      onClick={resetConsent}
+      className="text-xs text-[#9ca3af] hover:text-[#4b5563] transition-colors duration-200"
+    >
+      Cookie Preferences
+    </button>
+  );
+}
 
 const footerLinks = [
   { label: "Home",     href: "/" },
@@ -93,7 +110,7 @@ export default function Footer() {
           <p className="text-xs text-[#9ca3af]">
             © {new Date().getFullYear()} Broadlab. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 flex-wrap justify-center">
             {legalLinks.map((link) => (
               <a
                 key={link.label}
@@ -103,6 +120,7 @@ export default function Footer() {
                 {link.label}
               </a>
             ))}
+            <CookiePreferences />
           </div>
         </div>
       </div>
