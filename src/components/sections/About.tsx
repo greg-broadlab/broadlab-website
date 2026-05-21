@@ -1,43 +1,75 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-// ─── Featured bio data ─────────────────────────────────────────────────────────
-// Bio copy to be provided by each person before launch
-
-const FEATURED = [
-  {
-    name: "Jakob Nielsen",
-    role: "Chief Executive Officer",
-    bio: "Placeholder — to be provided by Jakob. A short paragraph on what drove the founding of BroadLab, his background in the industry, and what he believes about the future of outcome-driven TV.",
-    image: "/images/team/jakob.jpeg",
-  },
-  {
-    name: "Matt Mee",
-    role: "Chief Strategy Officer",
-    bio: "Placeholder — to be provided by Matt. A short paragraph on strategic background, vision for how BroadLab sits in the market, and what makes the methodology genuinely different from anything else in CTV.",
-    image: null,
-  },
-  {
-    name: "Kristian Claxton",
-    role: "Vice President",
-    bio: "Placeholder — to be provided by Kristian. A short paragraph on area of expertise, what he brings to client relationships, and his view on building intelligence systems that compound over time.",
-    image: null,
-  },
-];
-
-// Add more entries here when additional featured bios are needed
-const EXTRA_BIO_SLOTS = 2;
 
 // ─── Team data ─────────────────────────────────────────────────────────────────
-// Update names, roles and image paths as the team grows
+// Bio copy to be confirmed by each person before launch
 
+const TEAM = [
+  {
+    name:  "Jakob Nielsen",
+    role:  "CEO & Founder",
+    image: "/images/team/jakob.jpeg",
+    bio: [
+      "Jakob Nielsen is a media technology entrepreneur and senior advertising executive with over 25 years of experience across Addressable TV, advanced advertising, and marketing technology. Before founding Broadlab, he held senior leadership roles across the advertising and media technology sector, including co-founding and leading several businesses alongside Irwin Gotlieb, Managing Director of GroupM UK Digital, and a board seat at INVIDI Technologies. He also held various roles in Europe at Microsoft Digital Advertising Solutions. He holds a Master's degree in Economics and Business Administration from Copenhagen Business School.",
+      "As CEO and Founder of Broadlab, Jakob leads the company's vision and strategy, helping brands and agencies build accountable Addressable TV systems that connect audience intelligence, premium inventory, activation and measurement in one operating model.",
+      "For brands, this means a simpler and more effective way to unlock the value of Addressable TV: smarter access to audiences, more accountable media investment, and clearer evidence of business impact across the full marketing funnel.",
+    ],
+  },
+  {
+    name:  "Matt Mee",
+    role:  "Chief Strategy Officer",
+    image: null,
+    bio: [
+      "Matt Mee is a media and strategy planning specialist, with 30 years of experience in leading integrated planning for brands as diverse as Mars, IKEA, VW and Adidas.",
+      "As Global CSO of EssenceMediaCom, he led the development and global roll-out of their suite of advanced media planning and effectiveness tools.",
+      "At Broadlab, he works with clients to design CTV solutions, customised for their categories and marketing challenges, that deliver market-leading results.",
+    ],
+  },
+  {
+    name:  "Kristian Claxton",
+    role:  "Global EVP",
+    image: null,
+    bio: [
+      "Kristian leads client relationships at Broadlab, helping brands build accountable CTV systems that deliver measurable results and proprietary marketing intelligence, creating competitive advantage.",
+      "He brings 18 years of hands-on experience in digital marketing and advertising technology, including senior leadership at WPP, advising brands on Advanced TV strategy, marketing innovation and data.",
+      "He guides customers through organisational change; helping teams adopt new capabilities, navigate adoption and build internal alignment around data-driven decision-making that drives performance and return on investment.",
+    ],
+  },
+  {
+    name:  "Brian Jents",
+    role:  "Placeholder role — to be confirmed",
+    image: null,
+    bio: [
+      "Placeholder — to be provided by Brian.",
+    ],
+  },
+  {
+    name:  "Carrie Ward",
+    role:  "Global Head of Data Science",
+    image: null,
+    bio: [
+      "Carrie Ward is a data scientist and optimisation specialist with over 20 years of experience building AI and machine learning systems for the advertising industry; including programmatic video, addressable TV, and digital out-of-home. She holds a Master's degree in Applied Mathematics and is a named inventor on two patents in machine learning and media inventory optimisation.",
+      "At Broadlab, Carrie leads the data science function, developing the core algorithms, data infrastructure, and proprietary planning tool that sit at the heart of the platform.",
+      "For brands, this translates into smarter campaign performance: precisely targeted audiences, continuously optimised budget allocation, and clear measurement of results across the full marketing funnel.",
+    ],
+  },
+  {
+    name:  "Jana Eisenstein",
+    role:  "Placeholder role — to be confirmed",
+    image: null,
+    bio: [
+      "Placeholder — to be provided by Jana.",
+    ],
+  },
+];
 
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 
 function AboutHero() {
-  const ref = useRef<HTMLElement>(null);
+  const ref    = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true });
 
   return (
@@ -91,7 +123,7 @@ function AboutHero() {
 // ─── Company statement ─────────────────────────────────────────────────────────
 
 function CompanyStatement() {
-  const ref = useRef<HTMLElement>(null);
+  const ref    = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
@@ -109,8 +141,8 @@ function CompanyStatement() {
                 className="font-bold leading-tight"
                 style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0d2535" }}
               >
-                "We built the system the industry
-                <span style={{ color: "#3aaece" }}> should have built</span> years ago."
+                &ldquo;We built the system the industry
+                <span style={{ color: "#3aaece" }}> should have built</span> years ago.&rdquo;
               </p>
             </motion.div>
 
@@ -141,217 +173,116 @@ function CompanyStatement() {
   );
 }
 
-// ─── Featured bio strip ────────────────────────────────────────────────────────
+// ─── Team selector ─────────────────────────────────────────────────────────────
 
-function FeaturedBio({
-  person,
-  index,
-}: {
-  person: { name: string; role: string; bio: string; image: string | null };
-  index: number;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const imageRight = index % 2 === 0;
-
-  const photoBlock = (
-    <motion.div
-      className="relative min-h-[380px] lg:min-h-0 overflow-hidden order-1 lg:order-none"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: inView ? 1 : 0 }}
-      transition={{ delay: 0.05, duration: 0.75 }}
-    >
-      {person.image ? (
-        <>
-          <Image
-            src={person.image}
-            alt={person.name}
-            fill
-            className="object-cover object-top"
-            sizes="50vw"
-          />
-          <div className="absolute inset-0" style={{ background: "rgba(10,59,75,0.25)" }} />
-        </>
-      ) : (
-        <>
-          <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #0d2535 0%, #10657f 100%)" }} />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.1) 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <p style={{ fontSize: "0.5625rem", letterSpacing: "0.18em", color: "rgba(58,174,206,0.25)" }}>
-              HEADSHOT PLACEHOLDER
-            </p>
-          </div>
-        </>
-      )}
-    </motion.div>
-  );
-
-  const textBlock = (
-    <motion.div
-      className="flex flex-col justify-center px-8 py-16 sm:px-12 lg:px-16 lg:py-20 order-2 lg:order-none"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-      transition={{ delay: 0.15, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      <p
-        className="text-[0.625rem] font-bold uppercase tracking-[0.18em] mb-3"
-        style={{ color: "#3aaece" }}
-      >
-        {person.role}
-      </p>
-      <h2
-        className="font-bold leading-none mb-6"
-        style={{ fontSize: "clamp(2rem,3.5vw,3rem)", color: "#0d2535" }}
-      >
-        {person.name}
-      </h2>
-      <div className="w-10 h-0.5 mb-7" style={{ background: "rgba(58,174,206,0.4)" }} />
-      <p className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
-        {person.bio}
-      </p>
-    </motion.div>
-  );
-
-  return (
-    <div
-      ref={ref}
-      className="grid grid-cols-1 lg:grid-cols-2 border-b border-[#e5e7eb]"
-      style={{ minHeight: 500 }}
-    >
-      {imageRight ? <>{textBlock}{photoBlock}</> : <>{photoBlock}{textBlock}</>}
-    </div>
-  );
-}
-
-// ─── Empty bio slot ────────────────────────────────────────────────────────────
-
-function EmptyBioSlot({ index }: { index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
+function TeamSection() {
+  const [active, setActive] = useState(0);
+  const ref    = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
-  return (
-    <motion.div
-      ref={ref}
-      className="flex items-center justify-center border-b border-[#e5e7eb]"
-      style={{ minHeight: 200 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: inView ? 1 : 0 }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-    >
-      <div
-        className="flex flex-col items-center gap-3 rounded-2xl px-12 py-10 m-8"
-        style={{
-          border: "2px dashed rgba(58,174,206,0.25)",
-          background: "rgba(234,246,251,0.3)",
-        }}
-      >
-        <div
-          className="w-10 h-10 rounded-full flex items-center justify-center"
-          style={{ background: "rgba(58,174,206,0.1)", border: "1.5px dashed rgba(58,174,206,0.4)" }}
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M8 3v10M3 8h10" stroke="#3aaece" strokeWidth="1.8" strokeLinecap="round" />
-          </svg>
-        </div>
-        <p className="text-sm font-semibold" style={{ color: "#9ca3af" }}>Add featured bio here</p>
-        <p className="text-xs text-center max-w-xs" style={{ color: "#d1d5db" }}>
-          Duplicate a FeaturedBio entry in the FEATURED array at the top of About.tsx
-        </p>
-      </div>
-    </motion.div>
-  );
-}
-
-// ─── Office mosaic ─────────────────────────────────────────────────────────────
-
-const MOSAIC_CELLS = [
-  { label: "Office",    gradient: "linear-gradient(160deg, #071c2a, #0d2535)", gridArea: "1 / 1 / 3 / 2" },
-  { label: "Meeting",   gradient: "linear-gradient(160deg, #0d2535, #10657f)", gridArea: "1 / 2 / 2 / 4" },
-  { label: "Team",      gradient: "linear-gradient(160deg, #0d4a60, #0d2535)", gridArea: "2 / 2 / 3 / 3" },
-  { label: "Work",      gradient: "linear-gradient(160deg, #071c2a, #10657f)", gridArea: "2 / 3 / 3 / 4" },
-];
-
-function OfficeMosaic() {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const person = TEAM[active];
 
   return (
     <section ref={ref} style={{ background: "white" }}>
-      <div className="section-padding">
-        <div className="container-main">
+      <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
+      <div className="container-main section-padding">
 
-          <motion.p
-            className="text-[0.625rem] font-bold uppercase tracking-[0.18em] mb-8"
-            style={{ color: "#3aaece" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-          >
-            The BroadLab office
-          </motion.p>
+        <motion.p
+          className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: inView ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Meet the team
+        </motion.p>
 
-          {/* Desktop asymmetric grid */}
-          <div
-            className="hidden sm:grid gap-3"
-            style={{
-              gridTemplateColumns: "1fr 1fr 1fr",
-              gridTemplateRows: "280px 280px",
-            }}
+        <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 lg:gap-16 items-start">
+
+          {/* Left — name list */}
+          <motion.div
+            className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 lg:sticky lg:top-28"
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -12 }}
+            transition={{ delay: 0.1, duration: 0.55 }}
           >
-            {MOSAIC_CELLS.map((cell, i) => (
-              <motion.div
-                key={i}
-                className="rounded-xl overflow-hidden relative"
-                style={{ gridArea: cell.gridArea, background: cell.gradient }}
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.97 }}
-                transition={{ delay: 0.1 + i * 0.09, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+            {TEAM.map((member, i) => (
+              <button
+                key={member.name}
+                onClick={() => setActive(i)}
+                className="text-left flex-shrink-0 lg:flex-shrink-[unset] rounded-xl px-4 py-3 transition-all duration-200"
+                style={{
+                  background:  active === i ? "#f0f8fb" : "transparent",
+                  borderLeft:  `3px solid ${active === i ? "#3aaece" : "transparent"}`,
+                }}
               >
-                {/*
-                  Replace each placeholder with a real photo:
-                  <Image src="/images/about/{label.toLowerCase()}.jpg" alt="{label}" fill className="object-cover" />
-                */}
+                <p
+                  className="font-semibold text-sm whitespace-nowrap lg:whitespace-normal"
+                  style={{ color: active === i ? "#0d2535" : "#6b7280" }}
+                >
+                  {member.name}
+                </p>
+                <p
+                  className="text-xs mt-0.5 hidden lg:block"
+                  style={{ color: active === i ? "#3aaece" : "#9ca3af" }}
+                >
+                  {member.role}
+                </p>
+              </button>
+            ))}
+          </motion.div>
+
+          {/* Right — bio content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex flex-col gap-8"
+            >
+              {/* Header row — photo + name */}
+              <div className="flex items-center gap-6">
                 <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.08) 1px, transparent 1px)",
-                    backgroundSize: "20px 20px",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p style={{ fontSize: "0.5625rem", letterSpacing: "0.18em", color: "rgba(58,174,206,0.22)" }}>
-                    {cell.label.toUpperCase()} PHOTO
-                  </p>
+                  className="shrink-0 w-20 h-20 rounded-2xl overflow-hidden"
+                  style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.2)" }}
+                >
+                  {person.image ? (
+                    <Image
+                      src={person.image}
+                      alt={person.name}
+                      width={80}
+                      height={80}
+                      className="object-cover object-top w-full h-full"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <p style={{ fontSize: "0.4375rem", letterSpacing: "0.12em", color: "rgba(58,174,206,0.35)" }}>
+                        PHOTO
+                      </p>
+                    </div>
+                  )}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <div>
+                  <h2 className="font-bold text-[#0d2535]" style={{ fontSize: "1.375rem" }}>
+                    {person.name}
+                  </h2>
+                  <p className="text-sm font-medium text-[#3aaece] mt-0.5">{person.role}</p>
+                </div>
+              </div>
 
-          {/* Mobile: simple 2-col grid */}
-          <div className="sm:hidden grid grid-cols-2 gap-3">
-            {MOSAIC_CELLS.map((cell, i) => (
-              <motion.div
-                key={i}
-                className="rounded-xl overflow-hidden relative"
-                style={{ height: 180, background: cell.gradient }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: inView ? 1 : 0 }}
-                transition={{ delay: 0.1 + i * 0.09, duration: 0.6 }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p style={{ fontSize: "0.5rem", letterSpacing: "0.14em", color: "rgba(58,174,206,0.22)" }}>
-                    {cell.label.toUpperCase()}
+              <div className="h-px" style={{ background: "#e5e7eb" }} />
+
+              {/* Bio */}
+              <div className="flex flex-col gap-5 max-w-2xl">
+                {person.bio.map((para, i) => (
+                  <p key={i} className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
+                    {para}
                   </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
         </div>
       </div>
@@ -366,18 +297,7 @@ export default function About() {
     <>
       <AboutHero />
       <CompanyStatement />
-
-      {/* Featured bios */}
-      <div style={{ background: "white" }}>
-        {FEATURED.map((person, i) => (
-          <FeaturedBio key={person.name} person={person} index={i} />
-        ))}
-        {Array.from({ length: EXTRA_BIO_SLOTS }, (_, i) => (
-          <EmptyBioSlot key={i} index={i} />
-        ))}
-      </div>
-
-      <OfficeMosaic />
+      <TeamSection />
     </>
   );
 }
