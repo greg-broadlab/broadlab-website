@@ -380,7 +380,7 @@ export default function Hero() {
                 animate={introComplete ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.48, duration: 0.5 }}
               >
-                <Link href="/contact" className="btn-primary">Book a consultation</Link>
+                <Link href="/contact#contact" className="btn-primary">Book a consultation</Link>
                 <Link href="/system" className="btn-secondary">Explore the System</Link>
               </motion.div>
 

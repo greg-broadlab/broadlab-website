@@ -46,7 +46,7 @@ export default function SystemCTA() {
               View our work
             </Link>
             <Link
-              href="/contact"
+              href="/contact#contact"
               className="inline-flex items-center justify-center rounded-full border border-[#10657f] px-7 py-3 text-sm font-semibold text-[#10657f] transition-colors hover:bg-[#10657f] hover:text-white"
             >
               Book a consultation

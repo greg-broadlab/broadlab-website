@@ -338,7 +338,7 @@ export default function Platform() {
               clean dashboard that shows exactly what&apos;s working.
             </p>
             <a
-              href="/#contact"
+              href="/contact#contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#4d7a96] hover:bg-[#6bbdd8] text-white text-sm font-medium transition-all duration-200 hover:shadow-[0_0_24px_rgba(77,122,150,0.35)]"
             >
               Request a Demo →

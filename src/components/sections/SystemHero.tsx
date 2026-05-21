@@ -300,11 +300,11 @@ export default function SystemHero() {
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
                 transition={{ delay: 0.52, duration: 0.5 }}
               >
-                <Link href="/contact" className="btn-primary">
+                <Link href="/contact#contact" className="btn-primary">
                   Book a consultation
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/contact#contact"
                   className="inline-flex items-center rounded-full border border-[#10657f] px-7 py-3 text-[0.875rem] font-semibold text-[#10657f] transition-colors duration-200 hover:bg-[#10657f] hover:text-white"
                 >
                   Talk to Broadlab

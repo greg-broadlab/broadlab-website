@@ -68,7 +68,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:block">
           <Link
-            href="/contact"
+            href="/contact#contact"
             className="px-5 py-2.5 rounded-full bg-[#10657f] text-white text-sm font-semibold hover:bg-[#0d2535] transition-colors duration-200"
           >
             Book a consultation

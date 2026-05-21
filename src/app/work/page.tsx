@@ -198,7 +198,7 @@ export default function WorkPage() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/contact"
+                  href="/contact#contact"
                   className="inline-flex items-center justify-center rounded-full bg-[#3aaece] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2d9ab8]"
                 >
                   Book a 20-minute CTV consult

@@ -265,7 +265,7 @@ function SolutionsHero() {
               transition={{ delay: 0.5, duration: 0.5 }}
             >
               <Link
-                href="/contact"
+                href="/contact#contact"
                 className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition-opacity duration-200 hover:opacity-90"
                 style={{ background: "#3aaece", color: "#ffffff" }}
               >
@@ -993,7 +993,7 @@ function FinalCTA() {
               transition={{ delay: 0.35, duration: 0.5 }}
             >
               <Link
-                href="/contact"
+                href="/contact#contact"
                 className="inline-flex items-center rounded-full px-9 py-4 text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
                 style={{ background: "#3aaece", color: "#071c2a" }}
               >

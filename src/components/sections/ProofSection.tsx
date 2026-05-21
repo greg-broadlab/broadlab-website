@@ -318,7 +318,7 @@ export default function ProofSection() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
               transition={{ delay: 0.85, duration: 0.5 }}
             >
-              <Link href="/contact" className="btn-primary">
+              <Link href="/contact#contact" className="btn-primary">
                 Book a consultation
               </Link>
             </motion.div>

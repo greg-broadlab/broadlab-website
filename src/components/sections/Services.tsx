@@ -265,7 +265,7 @@ function AgencyCallout() {
                 </p>
                 <div className="mt-auto">
                   <Link
-                    href="/contact"
+                    href="/contact#contact"
                     className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]"
                     style={{ background: "#10657f" }}
                   >
@@ -302,7 +302,7 @@ function AgencyCallout() {
                 </p>
                 <div className="mt-auto">
                   <Link
-                    href="/contact"
+                    href="/contact#contact"
                     className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200"
                     style={{
                       color: "#10657f",
@@ -375,7 +375,7 @@ function BottomHook() {
             transition={{ delay: 0.35, duration: 0.5 }}
           >
             <Link
-              href="/contact"
+              href="/contact#contact"
               className="inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]"
               style={{ background: "#10657f" }}
             >
