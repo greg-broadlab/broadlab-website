@@ -90,6 +90,7 @@ export default function Positioning() {
                 </Link>
                 <Link
                   href="/solutions"
+                  scroll={true}
                   className="inline-flex items-center gap-2 text-sm font-semibold transition-opacity duration-200 hover:opacity-60"
                   style={{ color: "#3aaece" }}
                 >

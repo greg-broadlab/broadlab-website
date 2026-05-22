@@ -64,6 +64,16 @@ const TEAM = [
       "Placeholder — to be provided by Jana.",
     ],
   },
+  {
+    name:  "Cath Crow",
+    role:  "Global Head of Client Success",
+    image: null,
+    bio: [
+      "Cath Crow is Global Head of Client Success at Broadlab, bringing more than 30 years of experience across performance TV and media. Widely recognised as a pioneer in performance television, she has spent her career helping brands connect media investment to measurable business outcomes.",
+      "Before joining Broadlab, Cath spent 12 years at Sky Media as Head of Performance, where she helped pioneer deterministic tracking and outcome-based TV buying, working with leading advertisers and agencies to demonstrate the power of accountable television advertising. Prior to Sky, she led the DRTV business at Mediacom for 20 years, developing and delivering response-driven campaigns for major brands.",
+      "At Broadlab, Cath works with brands and agencies to unlock the full potential of Connected TV through advanced audience targeting, campaign optimisation, and transparent measurement solutions that drive growth and performance.",
+    ],
+  },
 ];
 
 // ─── Hero ──────────────────────────────────────────────────────────────────────
@@ -152,17 +162,15 @@ function CompanyStatement() {
               animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 20 }}
               transition={{ delay: 0.2, duration: 0.65 }}
             >
-              {/* Placeholder — confirm company origin story with BroadLab before launch */}
               <p className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
-                Placeholder company statement — to be confirmed with BroadLab. A short
-                paragraph on why BroadLab was founded, what problem was being solved,
-                and what the team believed needed to change about the way CTV was bought
-                and measured.
+                BroadLab brings together the capability areas that matter most in CTV:
+                media planning expertise, marketplace innovation, and advanced optimisation
+                and measurement — not as separate services, but as one connected system.
               </p>
               <p className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
-                Second paragraph — the team&apos;s background, the combination of
-                data science, media and technology expertise, and what makes BroadLab&apos;s
-                approach structurally different from anything that came before it.
+                The result is a partner that can work alongside brands and agencies at any
+                level — from full managed delivery to specialist support within an existing
+                model, or helping teams build stronger in-house capability over time.
               </p>
             </motion.div>
 
