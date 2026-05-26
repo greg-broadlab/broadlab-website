@@ -119,7 +119,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("SES error:", err);
-    return NextResponse.json({ error: "Failed to send message. Please try again." }, { status: 500 });
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("SES error:", message);
+    return NextResponse.json({ error: `SES error: ${message}` }, { status: 500 });
   }
 }
