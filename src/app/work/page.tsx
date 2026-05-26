@@ -185,6 +185,9 @@ export default function WorkPage() {
           return               <DAZNCaseStudy   key={c.id} caseItem={c} />;
         })}
 
+        {/* Industry Recognition */}
+        <RecognitionSection />
+
         {/* Final CTA */}
         <section className="bg-[#f0f8fb]">
           <div className="h-px w-full bg-[#3aaece]/30" />
@@ -219,6 +222,115 @@ export default function WorkPage() {
     </main>
   );
 }
+
+// ─── Industry Recognition ──────────────────────────────────────────────────────
+
+const AWARDS = [
+  {
+    body:      "Thinkbox TV Planning Awards",
+    category:  "Best use of Addressability",
+    campaign:  "BroadLab for Scottish Widows",
+    year:      "2025",
+    status:    "Shortlisted",
+    confirmed: true,
+  },
+  { body: "Placeholder", category: "", campaign: "", year: "", status: "Placeholder", confirmed: false },
+  { body: "Placeholder", category: "", campaign: "", year: "", status: "Placeholder", confirmed: false },
+] as const;
+
+function RecognitionSection() {
+  const ref    = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <div style={{ background: "white" }}>
+      <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
+      <div className="section-padding">
+        <div className="container-main" ref={ref}>
+
+          <div className="mb-12">
+            <motion.p
+              className="text-[0.625rem] font-bold uppercase tracking-[0.2em] mb-4 text-[#3aaece]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: inView ? 1 : 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Industry recognition
+            </motion.p>
+            <motion.h2
+              className="font-bold text-[#0d2535]"
+              style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              Recognised for what we build.
+            </motion.h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(58,174,206,0.12)" }}>
+            {AWARDS.map((award, i) => (
+              <motion.div
+                key={i}
+                className="bg-white flex flex-col gap-5 p-8"
+                style={{
+                  borderTop: `3px solid ${award.confirmed ? "#3aaece" : "rgba(58,174,206,0.2)"}`,
+                  opacity: award.confirmed ? 1 : 0.45,
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: inView ? (award.confirmed ? 1 : 0.45) : 0, y: inView ? 0 : 20 }}
+                transition={{ delay: 0.15 + i * 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                <div className="flex items-center justify-between">
+                  {award.confirmed ? (
+                    <div
+                      className="flex items-center justify-center rounded px-2.5 py-1.5"
+                      style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.2)" }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/images/thinkbox.png" alt="Thinkbox" style={{ height: 20, width: "auto" }} />
+                    </div>
+                  ) : (
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1l1.545 3.09L12 4.635l-2.5 2.43.59 3.435L7 8.75l-3.09 1.75.59-3.435L2 4.635l3.455-.545L7 1z"
+                        fill="rgba(58,174,206,0.3)" />
+                    </svg>
+                  )}
+                  <span
+                    className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-2.5 py-1"
+                    style={{
+                      color:      award.confirmed ? "#3aaece" : "rgba(58,174,206,0.35)",
+                      background: award.confirmed ? "rgba(58,174,206,0.1)" : "rgba(58,174,206,0.04)",
+                    }}
+                  >
+                    {award.status}
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-1.5 flex-1">
+                  <p className="font-bold text-[#0d2535] leading-snug" style={{ fontSize: "0.9375rem" }}>
+                    {award.body}
+                  </p>
+                  <p className="text-sm text-[#6b7280]">{award.category}</p>
+                </div>
+
+                <div className="pt-4 flex items-center justify-between" style={{ borderTop: "1px solid #e5e7eb" }}>
+                  <p className="text-xs" style={{ color: award.confirmed ? "#3aaece" : "#d1d5db" }}>
+                    {award.campaign}
+                  </p>
+                  <p className="text-xs font-semibold tabular-nums text-[#9ca3af]">{award.year}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Case studies ──────────────────────────────────────────────────────────────
 
 function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
   const ref    = useRef<HTMLDivElement>(null);
