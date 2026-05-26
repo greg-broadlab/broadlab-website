@@ -37,6 +37,14 @@ const team = [
     linkedin: "https://www.linkedin.com/in/paulcoopermediacom/",
   },
   {
+    name: "Brian Jentz",
+    title: "Chief Product Officer",
+    bio: "Brian brings over 20 years of experience in connected TV, video streaming and advertising technology, having held senior roles at Roku, Nielsen's Advanced Video Advertising division, Sorenson Media and Xumo. At Broadlab, he leads product management, engineering and data science — building the next generation of AI-driven tools at the heart of Broadlab's CTV advertising platform.",
+    image: null,
+    linkedin: null,
+    // TODO: add photo and LinkedIn URL
+  },
+  {
     name: "Your Name",
     title: "Placeholder Role",
     bio: "Broadlab is growing. This position is reserved for the next member of our team as we continue to expand our capabilities and reach.",
