@@ -57,16 +57,37 @@ export default function ContactPage() {
   const ref    = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [form, setForm]     = useState<FormState>(EMPTY);
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  // Honeypot — populated by bots, invisible to humans
+  const [honeypot, setHoneypot] = useState("");
 
   function set(key: keyof FormState) {
     return (v: string) => setForm((f) => ({ ...f, [key]: v }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => { setStatus("sent"); setForm(EMPTY); }, 800);
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, website: honeypot }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setErrorMsg(data.error ?? "Something went wrong. Please try again.");
+        setStatus("error");
+      } else {
+        setStatus("sent");
+        setForm(EMPTY);
+      }
+    } catch {
+      setErrorMsg("Network error. Please check your connection and try again.");
+      setStatus("error");
+    }
   }
 
   return (
@@ -170,6 +191,17 @@ export default function ContactPage() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
+                  {/* Honeypot — hidden from humans, traps bots */}
+                  <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+                  />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <Field label="Your name">
                       <FocusInput name="name" value={form.name} onChange={set("name")} placeholder="Jane Smith" />
@@ -184,11 +216,14 @@ export default function ContactPage() {
                   <Field label="What are you trying to achieve?">
                     <FocusTextarea name="reason" value={form.reason} onChange={set("reason")} placeholder="Tell us the outcome you're working towards and where CTV fits in..." />
                   </Field>
+                  {status === "error" && (
+                    <p style={{ color: "#dc2626", fontSize: "13px", margin: 0 }}>{errorMsg}</p>
+                  )}
                   <button
                     type="submit"
                     disabled={status === "sending"}
                     className="mt-1 inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
-                    style={{ background: status === "sending" ? "#9ca3af" : "#10657f", cursor: status === "sending" ? "not-allowed" : "pointer" }}
+                    style={{ background: status === "sending" ? "#9ca3af" : "#10657f", cursor: status === "sending" ? "not-allowed" : "pointer", opacity: status === "error" ? 1 : undefined }}
                   >
                     {status === "sending" ? (
                       <>
