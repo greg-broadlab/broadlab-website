@@ -72,6 +72,13 @@ function htmlEmail(name: string, email: string, company: string, reason: string)
 }
 
 export async function POST(req: NextRequest) {
+  // Debug — confirm env vars are present (remove after fix)
+  const keyId = process.env.SES_ACCESS_KEY_ID ?? "";
+  const secret = process.env.SES_SECRET_ACCESS_KEY ?? "";
+  console.log("SES_ACCESS_KEY_ID length:", keyId.length, "starts:", keyId.slice(0, 4));
+  console.log("SES_SECRET_ACCESS_KEY length:", secret.length);
+  console.log("SES_REGION:", process.env.SES_REGION);
+
   // Rate limiting
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
   if (isRateLimited(ip)) {
