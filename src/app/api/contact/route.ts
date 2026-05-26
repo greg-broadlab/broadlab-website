@@ -72,13 +72,6 @@ function htmlEmail(name: string, email: string, company: string, reason: string)
 }
 
 export async function POST(req: NextRequest) {
-  // Debug — confirm env vars are present (remove after fix)
-  const keyId = process.env.SES_ACCESS_KEY_ID ?? "";
-  const secret = process.env.SES_SECRET_ACCESS_KEY ?? "";
-  return NextResponse.json({
-    error: `DEBUG: keyId length=${keyId.length} starts=${keyId.slice(0,4)} secret length=${secret.length} region=${process.env.SES_REGION ?? "not set"}`
-  }, { status: 500 });
-
   // Rate limiting
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
   if (isRateLimited(ip)) {
@@ -127,7 +120,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
-    console.error("SES error:", message);
-    return NextResponse.json({ error: `SES error: ${message}` }, { status: 500 });
+    const keyId = process.env.SES_ACCESS_KEY_ID ?? "";
+    const secret = process.env.SES_SECRET_ACCESS_KEY ?? "";
+    return NextResponse.json({
+      error: `SES error: ${message} | DEBUG: keyId=${keyId.slice(0,4)}(len=${keyId.length}) secret len=${secret.length} region=${process.env.SES_REGION ?? "not set"}`
+    }, { status: 500 });
   }
 }
