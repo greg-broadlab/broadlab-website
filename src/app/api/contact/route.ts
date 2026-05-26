@@ -2,7 +2,7 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { NextRequest, NextResponse } from "next/server";
 
 const ses = new SESClient({
-  region: process.env.AWS_SES_REGION ?? "eu-west-2",
+  region: process.env.SES_REGION ?? "eu-west-2",
   credentials: {
     accessKeyId:     process.env.SES_ACCESS_KEY_ID ?? "",
     secretAccessKey: process.env.SES_SECRET_ACCESS_KEY ?? "",
