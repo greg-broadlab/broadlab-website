@@ -2,7 +2,7 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { NextRequest, NextResponse } from "next/server";
 
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "no-reply@broadlab.tech";
-const TO_EMAIL   = process.env.CONTACT_TO_EMAIL   ?? "hello@broadlab.tv";
+const TO_EMAIL   = process.env.CONTACT_TO_EMAIL   ?? "info@broadlab.tv";
 
 // In-memory rate limiter: max 3 submissions per IP per 10 minutes
 const rateMap = new Map<string, number[]>();

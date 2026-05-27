@@ -132,10 +132,10 @@ export default function ContactPage() {
 
             <div className="flex flex-col gap-4 mt-2">
               <a
-                href="mailto:hello@broadlab.tv"
+                href="mailto:info@broadlab.tv"
                 className="text-sm font-medium text-[#3aaece] transition-opacity hover:opacity-70"
               >
-                hello@broadlab.tv
+                info@broadlab.tv
               </a>
 
               <div className="h-px w-12" style={{ background: "rgba(58,174,206,0.3)" }} />
