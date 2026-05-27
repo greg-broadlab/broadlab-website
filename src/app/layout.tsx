@@ -4,6 +4,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Script from "next/script";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-sans" });
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-heading" });
@@ -13,7 +14,10 @@ export const metadata: Metadata = {
   description:
     "Broadlab simplifies the complex world of Addressable TV, giving brands and agencies a single, optimised solution to maximise outcomes through our proprietary, household-based ID graph.",
   icons: {
-    icon: "/images/logo.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/logo.png", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Broadlab | Outcome-Driven Addressable TV",
@@ -73,6 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        <ScrollToTop />
         {children}
         <CookieBanner />
       </body>
