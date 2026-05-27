@@ -1,14 +1,6 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { NextRequest, NextResponse } from "next/server";
 
-const ses = new SESClient({
-  region: process.env.SES_REGION ?? "eu-west-2",
-  credentials: {
-    accessKeyId:     process.env.SES_ACCESS_KEY_ID ?? "",
-    secretAccessKey: process.env.SES_SECRET_ACCESS_KEY ?? "",
-  },
-});
-
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "no-reply@broadlab.tech";
 const TO_EMAIL   = process.env.CONTACT_TO_EMAIL   ?? "hello@broadlab.tv";
 
@@ -72,6 +64,14 @@ function htmlEmail(name: string, email: string, company: string, reason: string)
 }
 
 export async function POST(req: NextRequest) {
+  const ses = new SESClient({
+    region: process.env.SES_REGION ?? "eu-west-2",
+    credentials: {
+      accessKeyId:     process.env.SES_ACCESS_KEY_ID ?? "",
+      secretAccessKey: process.env.SES_SECRET_ACCESS_KEY ?? "",
+    },
+  });
+
   // Rate limiting
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
   if (isRateLimited(ip)) {
