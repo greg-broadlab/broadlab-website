@@ -119,11 +119,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    const keyId = process.env.SES_ACCESS_KEY_ID ?? "";
-    const secret = process.env.SES_SECRET_ACCESS_KEY ?? "";
-    return NextResponse.json({
-      error: `SES error: ${message} | DEBUG: keyId=${keyId.slice(0,4)}(len=${keyId.length}) secret len=${secret.length} region=${process.env.SES_REGION ?? "not set"}`
-    }, { status: 500 });
+    console.error("SES error:", err);
+    return NextResponse.json({ error: "Failed to send message. Please try again." }, { status: 500 });
   }
 }
