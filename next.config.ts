@@ -4,6 +4,13 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [],
   },
+  env: {
+    SES_ACCESS_KEY_ID:     process.env.SES_ACCESS_KEY_ID     ?? "",
+    SES_SECRET_ACCESS_KEY: process.env.SES_SECRET_ACCESS_KEY ?? "",
+    SES_REGION:            process.env.SES_REGION            ?? "eu-west-2",
+    CONTACT_FROM_EMAIL:    process.env.CONTACT_FROM_EMAIL    ?? "",
+    CONTACT_TO_EMAIL:      process.env.CONTACT_TO_EMAIL      ?? "",
+  },
   async headers() {
     return [
       {
