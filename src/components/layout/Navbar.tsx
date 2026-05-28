@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_2px_16px_rgba(13,37,53,0.08)] border-b border-[#e5e7eb]" : "border-b border-transparent"
+        scrolled ? "shadow-[0_2px_16px_rgba(13,37,53,0.08)] border-b border-[#e5e7eb]" : "border-b border-white"
       }`}
     >
       <div className="container-main flex items-center justify-between h-16 md:h-20">
