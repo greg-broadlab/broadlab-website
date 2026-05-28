@@ -13,12 +13,6 @@ export const metadata: Metadata = {
   title: "Broadlab | Outcome-Driven Addressable TV",
   description:
     "Broadlab simplifies the complex world of Addressable TV, giving brands and agencies a single, optimised solution to maximise outcomes through our proprietary, household-based ID graph.",
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/images/logo.png", type: "image/png" },
-    ],
-  },
   openGraph: {
     title: "Broadlab | Outcome-Driven Addressable TV",
     description:
