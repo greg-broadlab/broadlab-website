@@ -55,7 +55,7 @@ function AgentCard({ agent, index, inView }: { agent: typeof AGENTS[number]; ind
           </div>
         </div>
         <p className="text-sm font-bold text-[#0d2535]">{agent.role}</p>
-        <p className="mt-2 text-xs leading-relaxed text-[#6b7280]">{agent.tagline}</p>
+        <p className="mt-2 text-xs leading-relaxed text-[#6b7280]" style={{ minHeight: "3.5rem" }}>{agent.tagline}</p>
       </div>
 
       {/* Skills */}

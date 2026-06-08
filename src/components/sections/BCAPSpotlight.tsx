@@ -11,38 +11,8 @@ const FEATURES = [
   { label: "Full visibility from brief to live", desc: "You see exactly how your campaign is structured, what it costs and how it's performing - at every stage." },
 ];
 
-const NAV_TABS = ["Audience", "Plan", "Supply", "Review", "Report"];
-
-const SUPPLIERS = [
-  { name: "Netflix",   cpm: "£17.64", type: "SVOD", meas: true,  geo: "98%", trend: [3,4,4,5,5,6,6] },
-  { name: "DAZN",      cpm: "£15.00", type: "FAST", meas: true,  geo: "72%", trend: [2,3,3,4,4,5,5] },
-  { name: "HBO Max",   cpm: "£11.00", type: "SVOD", meas: false, geo: "N/A", trend: [4,3,3,3,2,2,2] },
-  { name: "Disney+",   cpm: "£14.50", type: "AVOD", meas: true,  geo: "45%", trend: [2,2,3,3,4,4,5] },
-  { name: "Sky",       cpm: "£18.56", type: "FAST", meas: true,  geo: "2%",  trend: [5,5,4,4,3,3,4] },
-];
-
-const STATS = [
-  { label: "IMPS",       value: "1.2M",   sub: "100% allocated" },
-  { label: "TOTAL COST", value: "£25K",   sub: "gross £40.75"   },
-  { label: "MARGIN",     value: "42.2%",  sub: "target ≥45%", warn: true },
-  { label: "MEASURABLE", value: "55.4%",  sub: "target ≥80%"   },
-];
-
-function MiniTrend({ values }: { values: number[] }) {
-  const max = Math.max(...values);
-  const w = 40, h = 18;
-  const pts = values.map((v, i) => `${(i / (values.length - 1)) * w},${h - (v / max) * h}`).join(" ");
-  return (
-    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
-      <polyline points={pts} fill="none" stroke="#3aaece" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-const ACTIVE_TAB = 2; // Supply - fixed, non-interactive
 
 function BCAPMockup({ inView }: { inView: boolean }) {
-
   return (
     <motion.div
       className="rounded-2xl overflow-hidden bg-white"
@@ -51,87 +21,112 @@ function BCAPMockup({ inView }: { inView: boolean }) {
       animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 24 }}
       transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-5 py-3"
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-4"
         style={{ borderBottom: "1px solid #f3f4f6", background: "#fafafa" }}>
-        <div>
-          <p className="text-[11px] font-bold text-[#0d2535]">Plan Campaign - Cambridge Building Society</p>
-          <p className="text-[10px] text-[#9ca3af]">Supply allocation and pricing</p>
+        <div className="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6" cy="6" r="3" stroke="#0d2535" strokeWidth="1.5" />
+            <circle cx="10" cy="6" r="3" stroke="#0d2535" strokeWidth="1.5" />
+            <path d="M2 14c0-2.5 3-4 6-4s6 1.5 6 4" stroke="#0d2535" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          <p className="text-[12px] font-bold text-[#0d2535]">Build Your Audience</p>
         </div>
-        <div className="flex gap-2">
-          <span className="text-[9px] font-semibold px-2.5 py-1 rounded-full text-[#6b7280]"
-            style={{ background: "#f3f4f6" }}>Draft</span>
-          <span className="text-[9px] font-semibold px-2.5 py-1 rounded-full text-white"
-            style={{ background: "#10657f" }}>Send for Approval</span>
-        </div>
+        <span className="text-[9px] font-bold px-2 py-1 rounded text-[#10657f]"
+          style={{ background: "rgba(16,101,127,0.08)", border: "1px solid rgba(16,101,127,0.2)" }}>
+          BROADLAB
+        </span>
       </div>
 
-      {/* Stats row */}
-      <div className="flex items-center gap-6 px-5 py-3"
-        style={{ borderBottom: "1px solid #f3f4f6", background: "#fafafa" }}>
-        {STATS.map((s) => (
-          <div key={s.label}>
-            <p className="text-[8.5px] font-bold tracking-[0.1em] uppercase text-[#9ca3af]">{s.label}</p>
-            <p className="text-[13px] font-bold mt-0.5" style={{ color: s.warn ? "#f59e0b" : "#0d2535" }}>{s.value}</p>
-            <p className="text-[8px] text-[#9ca3af]">{s.sub}</p>
-          </div>
-        ))}
-      </div>
+      <div className="px-5 py-4 flex flex-col gap-3">
 
-      {/* Tab bar */}
-      <div className="flex px-5 pt-2" style={{ borderBottom: "1px solid #f3f4f6" }}>
-        {NAV_TABS.map((tab, i) => (
-          <div key={tab}
-            className="text-[10px] font-semibold px-4 py-2"
-            style={{
-              borderBottom: ACTIVE_TAB === i ? "2px solid #3aaece" : "2px solid transparent",
-              color: ACTIVE_TAB === i ? "#3aaece" : "#9ca3af",
-            }}>
-            {tab}
-          </div>
-        ))}
-      </div>
-
-      {/* Table */}
-      <div className="px-5 py-3">
-        <div className="flex items-center justify-between mb-3">
-          <p className="text-[10px] font-bold text-[#9ca3af] tracking-[0.1em] uppercase">
-            Supply Allocation <span className="text-[#3aaece]">(8/34)</span>
-          </p>
-          <span className="text-[9px] font-semibold px-2.5 py-1 rounded-lg text-white"
-            style={{ background: "#3aaece" }}>+ Add Deal</span>
-        </div>
-
-        {/* Table header */}
-        <div className="grid gap-2 pb-2 mb-1"
-          style={{ gridTemplateColumns: "1fr 56px 44px 44px 40px 44px", borderBottom: "1px solid #f3f4f6" }}>
-          {["SUPPLIER", "INV. CPM", "TYPE", "MEAS.", "GEO", "TREND"].map((h) => (
-            <p key={h} className="text-[8px] font-bold tracking-[0.08em] text-[#9ca3af]">{h}</p>
-          ))}
-        </div>
-
-        {/* Rows */}
-        {SUPPLIERS.map((s, i) => (
-          <motion.div key={s.name}
-            className="grid gap-2 py-2 items-center"
-            style={{ gridTemplateColumns: "1fr 56px 44px 44px 40px 44px", borderBottom: i < SUPPLIERS.length - 1 ? "1px solid #f9fafb" : "none" }}
-            initial={{ opacity: 0, x: 8 }}
-            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 8 }}
-            transition={{ delay: 0.5 + i * 0.07, duration: 0.4 }}>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full shrink-0"
-                style={{ background: s.meas ? "#3aaece" : "#e5e7eb" }} />
-              <span className="text-[11px] font-semibold text-[#0d2535]">{s.name}</span>
+        {/* Campaign Details */}
+        <div className="rounded-xl p-3" style={{ border: "1px solid #f3f4f6", background: "#fafafa" }}>
+          <p className="text-[9px] font-semibold text-[#9ca3af] mb-2.5">Campaign Details (Optional)</p>
+          <div className="grid grid-cols-2 gap-2 mb-2">
+            <div>
+              <p className="text-[9px] text-[#6b7280] mb-1">Advertiser</p>
+              <div className="px-2.5 py-1.5 rounded-lg text-[10px] font-medium text-[#0d2535]"
+                style={{ border: "1px solid #e5e7eb", background: "white" }}>
+                Bella+Duke
+              </div>
             </div>
-            <span className="text-[10px] text-[#4b5563] font-medium">{s.cpm}</span>
-            <span className="text-[9px] px-1.5 py-0.5 rounded text-[#6b7280] text-center"
-              style={{ background: "#f3f4f6" }}>{s.type}</span>
-            <span className="text-[10px] font-bold text-center"
-              style={{ color: s.meas ? "#3aaece" : "#d1d5db" }}>{s.meas ? "✓" : "✗"}</span>
-            <span className="text-[10px] text-[#6b7280] text-center">{s.geo}</span>
-            <MiniTrend values={s.trend} />
-          </motion.div>
+            <div>
+              <p className="text-[9px] text-[#6b7280] mb-1">Industry</p>
+              <div className="px-2.5 py-1.5 rounded-lg text-[10px] font-medium text-[#0d2535]"
+                style={{ border: "1px solid #e5e7eb", background: "white" }}>
+                Pets &gt; Pet Supplies
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            <div>
+              <p className="text-[9px] text-[#6b7280] mb-1">Budget</p>
+              <div className="px-2.5 py-1.5 rounded-lg text-[10px] text-[#9ca3af]"
+                style={{ border: "1px solid #e5e7eb", background: "white" }}>
+                £ 0
+              </div>
+            </div>
+            <div>
+              <p className="text-[9px] text-[#6b7280] mb-1">CPM</p>
+              <div className="px-2.5 py-1.5 rounded-lg text-[10px] text-[#9ca3af]"
+                style={{ border: "1px solid #e5e7eb", background: "white" }}>
+                Auto
+              </div>
+            </div>
+            <div>
+              <p className="text-[9px] text-[#6b7280] mb-1">KPI</p>
+              <div className="px-2.5 py-1.5 rounded-lg text-[10px] text-[#9ca3af] flex items-center justify-between"
+                style={{ border: "1px solid #e5e7eb", background: "white" }}>
+                Select a KPI
+                <span>▾</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Audience Brief */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <p className="text-[10px] font-semibold text-[#0d2535]">Audience Brief <span className="text-[#3aaece]">*</span></p>
+            <span className="text-[9px] font-medium text-[#3aaece] px-2 py-0.5 rounded-full flex items-center gap-1"
+              style={{ background: "rgba(58,174,206,0.08)", border: "1px solid rgba(58,174,206,0.2)" }}>
+              ✦ Format with AI
+            </span>
+          </div>
+          <div className="rounded-xl px-3 py-2.5" style={{ border: "1px solid #e5e7eb", background: "white", minHeight: 60 }}>
+            <p className="text-[10px] text-[#0d2535] leading-relaxed">
+              Premium Pet Pamperers — high household income, aged 30-55, own pets and treat them as family. Interested in premium pet nutrition and wellness.
+            </p>
+          </div>
+          <p className="text-[9px] text-[#9ca3af] mt-1">Describe your target audience using natural language</p>
+        </div>
+
+        {/* Vendor + Filters */}
+        {["Vendor(s)", "Filters (Optional)"].map((label) => (
+          <div key={label} className="flex items-center justify-between px-3 py-2.5 rounded-xl cursor-pointer"
+            style={{ border: "1px solid #e5e7eb", background: "#fafafa" }}>
+            <p className="text-[10px] font-medium text-[#4b5563]">{label}</p>
+            <span className="text-[#9ca3af] text-xs">▾</span>
+          </div>
         ))}
+
+        {/* Action buttons */}
+        <div className="flex gap-2 mt-1">
+          <button className="text-[10px] font-semibold px-3 py-2 rounded-lg text-[#ef4444] flex items-center gap-1"
+            style={{ border: "1px solid #fecaca", background: "white" }}>
+            ✕ Clear
+          </button>
+          <button className="flex-1 text-[10px] font-semibold px-3 py-2 rounded-lg text-white flex items-center justify-center gap-1"
+            style={{ background: "#4b5563" }}>
+            ✦ Build Audience
+          </button>
+          <button className="flex-1 text-[10px] font-semibold px-3 py-2 rounded-lg text-white flex items-center justify-center gap-1"
+            style={{ background: "#3aaece" }}>
+            ↻ Re-launch Clustering
+          </button>
+        </div>
+
       </div>
     </motion.div>
   );
