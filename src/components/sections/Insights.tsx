@@ -10,9 +10,9 @@ const datasets = [
   {
     id: "market",
     stat: "£2.31B",
-    label: "UK CTV ad market projected value in 2026 — up from £1.17B in 2021 (IAB UK Compass)",
+    label: "UK CTV ad market projected value in 2026 - up from £1.17B in 2021 (IAB UK Compass)",
     chartTitle: "UK CTV Advertising Market",
-    chartSub: "Total CTV ad spend, £ Billions — IAB UK / eMarketer",
+    chartSub: "Total CTV ad spend, £ Billions - IAB UK / eMarketer",
     unit: "£bn",
     source: "IAB UK Compass; eMarketer (2025). 2022–2024 interpolated from BVOD growth indices (AA/WARC).",
     points: [
@@ -29,7 +29,7 @@ const datasets = [
     stat: "+15%",
     label: "BVOD revenues grew 15% in 2025, surpassing £1 billion for the first time (Ofcom Media Nations)",
     chartTitle: "BVOD Year-on-Year Growth",
-    chartSub: "Annual % growth in broadcaster VOD ad revenue — AA/WARC, Ofcom",
+    chartSub: "Annual % growth in broadcaster VOD ad revenue - AA/WARC, Ofcom",
     unit: "%",
     source: "AA/WARC; Ofcom Media Nations 2025; Statista. 2026 forecast from AA/WARC.",
     points: [
@@ -44,9 +44,9 @@ const datasets = [
   {
     id: "streaming",
     stat: "30%",
-    label: "of UK adults reached weekly by ad-funded SVOD in 2025 — up from 11% in 2024 (IPA / Marketing Week)",
+    label: "of UK adults reached weekly by ad-funded SVOD in 2025 - up from 11% in 2024 (IPA / Marketing Week)",
     chartTitle: "Ad-Funded SVOD Weekly Reach",
-    chartSub: "% of UK adults reached weekly — IPA / Marketing Week",
+    chartSub: "% of UK adults reached weekly - IPA / Marketing Week",
     unit: "%",
     source: "IPA (2025) via Marketing Week. 2022–2023 estimated from adoption trajectory; 2026 projected.",
     points: [
@@ -179,7 +179,7 @@ export default function Insights() {
           </h2>
           <p className="text-[#4a6070] leading-relaxed mt-4 max-w-xl">
             The huge growth in ad-supported CTV leads to improved inventory
-            availability, more extensive reach, and deeper targeting —
+            availability, more extensive reach, and deeper targeting -
             resulting in even better outcomes for brands.
           </p>
         </div>
@@ -303,7 +303,7 @@ export default function Insights() {
                 />
               )}
 
-              {/* Main line — animated draw */}
+              {/* Main line - animated draw */}
               <path
                 ref={pathRef}
                 d={linePath}

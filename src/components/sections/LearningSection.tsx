@@ -12,7 +12,7 @@ function yOf(cpd: number) {
   return Y_TOP + (1 - cpd / CPD_MAX) * Y_RANGE;
 }
 
-// X layout — wide gap so pill and bracket never collide
+// X layout - wide gap so pill and bracket never collide
 const C1_X1 = 60,  C1_X2 = 380;
 const C2_X1 = 630, C2_X2 = 960;
 const PILL_CX   = 460;           // pill centred left-half of gap
@@ -58,7 +58,7 @@ export default function LearningSection() {
             <motion.p className="mt-4 text-[1rem] leading-relaxed text-[#4b5563]"
               initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.22, duration: 0.5 }}>
-              Each cycle feeds intelligence back into the system — so every brief starts sharper than the last.
+              Each cycle feeds intelligence back into the system - so every brief starts sharper than the last.
             </motion.p>
           </div>
 
@@ -185,7 +185,7 @@ export default function LearningSection() {
                   stroke="#3aaece" strokeWidth="1.5"
                   initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }}
                   transition={{ delay: 2.55 }} />
-                {/* 43% label — to the LEFT of bracket, away from C2 */}
+                {/* 43% label - to the LEFT of bracket, away from C2 */}
                 <motion.text x={BRACKET_X - 13} y={BMID - 3}
                   fontSize="14" fontWeight="800" fill="#3aaece"
                   textAnchor="end" fontFamily="Inter, system-ui, sans-serif"

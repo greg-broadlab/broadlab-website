@@ -9,9 +9,9 @@ import LearningSection from "@/components/sections/LearningSection";
 import SystemCTA from "@/components/sections/SystemCTA";
 
 export const metadata = {
-  title: "The System — BroadLab",
+  title: "The System - BroadLab",
   description:
-    "The BroadLab System: four connected components — Audience Graph, Outcome Measurement, Optimisation Engine, and Compounding Intelligence.",
+    "The BroadLab System: four connected components - Audience Graph, Outcome Measurement, Optimisation Engine, and Compounding Intelligence.",
 };
 
 export default function SystemPage() {

@@ -120,7 +120,7 @@ function CampaignsPanel() {
           <p className="text-[11px] font-semibold text-[#0f1923]">Campaign Reach</p>
           <span className="text-[9px] text-[#8a9bad] bg-[#f1f5f9] px-2 py-0.5 rounded">Jan → Mar 2025</span>
         </div>
-        {/* No circles — avoids oval distortion from non-uniform SVG scaling */}
+        {/* No circles - avoids oval distortion from non-uniform SVG scaling */}
         <svg viewBox="0 0 310 80" className="w-full h-[72px]" preserveAspectRatio="none">
           <defs>
             <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
@@ -134,7 +134,7 @@ function CampaignsPanel() {
           <path d={smoothPath(chartPts, true)} fill="url(#areaFill)" />
           <path d={smoothPath(chartPts)} fill="none" stroke="#4d7a96" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        {/* X-axis labels — rendered in HTML so they stay crisp */}
+        {/* X-axis labels - rendered in HTML so they stay crisp */}
         <div className="flex justify-between mt-1.5 px-0.5">
           {["Jan", "Feb", "Mar"].map((m) => (
             <span key={m} className="text-[9px] text-[#b0bec8]">{m}</span>
@@ -329,7 +329,7 @@ export default function Platform() {
             </h2>
             <p className="text-[#4a6070] leading-relaxed mb-5">
               Broadlab&apos;s platform gives agencies and advertisers a single
-              command centre for Addressable TV — inventory sourcing, audience
+              command centre for Addressable TV - inventory sourcing, audience
               targeting, real-time optimisation, and holistic reporting, all in
               one place.
             </p>
@@ -391,7 +391,7 @@ export default function Platform() {
                   </div>
                 </div>
 
-                {/* Tab content — animated swap */}
+                {/* Tab content - animated swap */}
                 <div
                   key={activeTab}
                   style={{ animation: "tabFadeIn 0.25s ease both" }}
@@ -406,7 +406,7 @@ export default function Platform() {
             </div>
 
             <p className="text-center text-[10px] text-[#aab8c4] mt-2.5 italic">
-              Illustrative platform preview — data is representative only
+              Illustrative platform preview - data is representative only
             </p>
           </div>
 

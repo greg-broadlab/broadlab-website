@@ -5,7 +5,7 @@ import Platform from "@/components/sections/Platform";
 export const metadata = {
   title: "Platform | Broadlab",
   description:
-    "Broadlab's AI-driven Addressable TV platform — a full funnel advertising solution covering inventory sourcing, audience targeting, campaign activation, optimisation, and holistic reporting.",
+    "Broadlab's AI-driven Addressable TV platform - a full funnel advertising solution covering inventory sourcing, audience targeting, campaign activation, optimisation, and holistic reporting.",
 };
 
 export default function PlatformPage() {

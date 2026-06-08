@@ -57,10 +57,9 @@ function SolutionTiles({ inView }: { inView: boolean }) {
   return (
     <div className="grid grid-cols-2 gap-4">
       {SOLUTIONS.map((s, i) => (
-        <motion.a
+        <motion.div
           key={s.id}
-          href={`#${s.id}`}
-          className="group flex flex-col gap-4 rounded-2xl bg-white p-6 cursor-pointer"
+          className="flex flex-col gap-4 rounded-2xl bg-white p-6"
           style={{
             border: "1px solid rgba(58,174,206,0.15)",
             boxShadow: "0 2px 12px rgba(16,101,127,0.05)",
@@ -68,11 +67,6 @@ function SolutionTiles({ inView }: { inView: boolean }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
           transition={{ delay: 0.2 + i * 0.1, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
-          whileHover={{
-            y: -3,
-            boxShadow: "0 8px 28px rgba(16,101,127,0.1)",
-            borderColor: "rgba(58,174,206,0.35)",
-          }}
         >
           {/* Icon row */}
           <div className="flex items-center justify-between">
@@ -86,12 +80,6 @@ function SolutionTiles({ inView }: { inView: boolean }) {
             >
               {s.icon}
             </div>
-            <motion.svg
-              width="16" height="16" viewBox="0 0 16 16" fill="none"
-              className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="#3aaece" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </motion.svg>
           </div>
 
           {/* Text */}
@@ -99,7 +87,7 @@ function SolutionTiles({ inView }: { inView: boolean }) {
             <p className="text-sm font-bold text-[#0d2535] leading-snug">{s.label}</p>
             <p className="mt-1.5 text-xs leading-relaxed text-[#6b7280]">{s.desc}</p>
           </div>
-        </motion.a>
+        </motion.div>
       ))}
     </div>
   );
@@ -121,7 +109,7 @@ export default function SolutionsHero() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* Left — copy */}
+            {/* Left - copy */}
             <div>
               <motion.p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
@@ -161,7 +149,7 @@ export default function SolutionsHero() {
               </motion.div>
             </div>
 
-            {/* Right — solution tiles */}
+            {/* Right - solution tiles */}
             <SolutionTiles inView={inView} />
 
           </div>

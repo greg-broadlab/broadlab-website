@@ -18,7 +18,7 @@ const CASES = [
     approach:
       "Broadlab combined consultancy, an AI-powered Audience Graph, propensity modelling and closed-loop measurement to configure CTV around a real business objective rather than legacy TV or programmatic assumptions.",
     outcome:
-      "The result was over £3 ROAS, with TV outperforming every other channel — a strong demonstration of what happens when consultancy, technology and outcome-led measurement are connected properly.",
+      "The result was over £3 ROAS, with TV outperforming every other channel - a strong demonstration of what happens when consultancy, technology and outcome-led measurement are connected properly.",
     quote: {
       text: "As Lloyds Banking Group invests to lead in data, technology and AI-driven marketing, we have worked with Broadlab to redefine what TV can do.",
       author: "Sam Taylor",
@@ -56,7 +56,7 @@ const CASES = [
     approach:
       "Broadlab optimised daily towards likely boxing fans using a more accurate audience foundation and an outcome-led optimisation model tied directly to subscription goals.",
     outcome:
-      "The campaign delivered 10,000+ subscriptions, alongside household brand uplift data that could be fed into the next campaign cycle — a strong example of Broadlab's compounding learning model in practice.",
+      "The campaign delivered 10,000+ subscriptions, alongside household brand uplift data that could be fed into the next campaign cycle - a strong example of Broadlab's compounding learning model in practice.",
     quote: null,
     barriers: ["Fragmentation", "Programmatic legacy"],
   },
@@ -70,7 +70,7 @@ export default function WorkPageClient() {
     <main style={{ background: "#f0f8fb" }}>
       <Navbar />
 
-      {/* Sticky full-screen hero — content slides over on scroll */}
+      {/* Sticky full-screen hero - content slides over on scroll */}
       <div style={{ position: "sticky", top: 0, height: "100vh", zIndex: 0 }}>
         <div className="relative h-full overflow-hidden" style={{ background: "#f0f8fb" }}>
 
@@ -98,7 +98,7 @@ export default function WorkPageClient() {
               Our work
             </motion.p>
 
-            {/* Headline — curtain reveal */}
+            {/* Headline - curtain reveal */}
             <h1
               className="font-bold leading-tight text-[#0d2535]"
               style={{ fontSize: "clamp(2.75rem, 6vw, 5rem)" }}
@@ -269,61 +269,46 @@ function RecognitionSection() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: "rgba(58,174,206,0.12)" }}>
-            {AWARDS.map((award, i) => (
-              <motion.div
-                key={i}
-                className="bg-white flex flex-col gap-5 p-8"
-                style={{
-                  borderTop: `3px solid ${award.confirmed ? "#3aaece" : "rgba(58,174,206,0.2)"}`,
-                  opacity: award.confirmed ? 1 : 0.45,
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: inView ? (award.confirmed ? 1 : 0.45) : 0, y: inView ? 0 : 20 }}
-                transition={{ delay: 0.15 + i * 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                <div className="flex items-center justify-between">
-                  {award.confirmed ? (
-                    <div
-                      className="flex items-center justify-center rounded px-2.5 py-1.5"
-                      style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.2)" }}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/images/thinkbox.png" alt="Thinkbox" style={{ height: 20, width: "auto" }} />
-                    </div>
-                  ) : (
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                      <path d="M7 1l1.545 3.09L12 4.635l-2.5 2.43.59 3.435L7 8.75l-3.09 1.75.59-3.435L2 4.635l3.455-.545L7 1z"
-                        fill="rgba(58,174,206,0.3)" />
-                    </svg>
-                  )}
-                  <span
-                    className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-2.5 py-1"
-                    style={{
-                      color:      award.confirmed ? "#3aaece" : "rgba(58,174,206,0.35)",
-                      background: award.confirmed ? "rgba(58,174,206,0.1)" : "rgba(58,174,206,0.04)",
-                    }}
-                  >
-                    {award.status}
-                  </span>
-                </div>
+          {/* Single award - horizontal layout */}
+          {AWARDS.filter(a => a.confirmed).map((award, i) => (
+            <motion.div
+              key={i}
+              className="flex items-center gap-8 p-8 rounded-2xl"
+              style={{
+                border: "1px solid rgba(58,174,206,0.18)",
+                borderTop: "3px solid #3aaece",
+                boxShadow: "0 4px 24px rgba(16,101,127,0.06)",
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+              transition={{ delay: 0.15, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              {/* Logo */}
+              <div className="flex items-center justify-center rounded-lg px-4 py-3 shrink-0"
+                style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.2)" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/thinkbox.png" alt="Thinkbox" style={{ height: 24, width: "auto" }} />
+              </div>
 
-                <div className="flex flex-col gap-1.5 flex-1">
-                  <p className="font-bold text-[#0d2535] leading-snug" style={{ fontSize: "0.9375rem" }}>
-                    {award.body}
-                  </p>
-                  <p className="text-sm text-[#6b7280]">{award.category}</p>
-                </div>
+              {/* Details */}
+              <div className="flex-1">
+                <p className="font-bold text-[#0d2535]" style={{ fontSize: "0.9375rem" }}>{award.body}</p>
+                <p className="text-sm text-[#6b7280] mt-1">{award.category}</p>
+              </div>
 
-                <div className="pt-4 flex items-center justify-between" style={{ borderTop: "1px solid #e5e7eb" }}>
-                  <p className="text-xs" style={{ color: award.confirmed ? "#3aaece" : "#d1d5db" }}>
-                    {award.campaign}
-                  </p>
-                  <p className="text-xs font-semibold tabular-nums text-[#9ca3af]">{award.year}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              {/* Campaign + year */}
+              <div className="text-right shrink-0">
+                <p className="text-xs font-medium text-[#3aaece]">{award.campaign}</p>
+                <p className="text-xs font-semibold text-[#9ca3af] mt-1">{award.year}</p>
+              </div>
+
+              {/* Status pill */}
+              <span className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-3 py-1.5 shrink-0"
+                style={{ color: "#3aaece", background: "rgba(58,174,206,0.1)" }}>
+                {award.status}
+              </span>
+            </motion.div>
+          ))}
 
         </div>
       </div>
@@ -481,7 +466,7 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
 
-            {/* Zone 1 — Header row */}
+            {/* Zone 1 - Header row */}
             <div
               className="flex items-center justify-between flex-wrap gap-4 pb-8 mb-10"
               style={{ borderBottom: "1px solid #e5e7eb" }}
@@ -511,17 +496,17 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               </div>
             </div>
 
-            {/* Zone 2 — Narrative + results panel */}
+            {/* Zone 2 - Narrative + results panel */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-              {/* Left — narrative, staggered */}
+              {/* Left - narrative, staggered */}
               <div className="flex flex-col gap-7">
                 <NarrativeBlock label="The challenge"     text={caseItem.problem}  inView={inView} delay={0.25} />
                 <NarrativeBlock label="What Broadlab did" text={caseItem.approach} inView={inView} delay={0.38} />
                 <NarrativeBlock label="The outcome"       text={caseItem.outcome}  inView={inView} delay={0.51} />
               </div>
 
-              {/* Right — results panel, metrics slide in from right */}
+              {/* Right - results panel, metrics slide in from right */}
               <motion.div
                 className="rounded-2xl p-8 flex flex-col"
                 style={{
@@ -570,7 +555,7 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               </motion.div>
             </div>
 
-            {/* Zone 3 — Quote */}
+            {/* Zone 3 - Quote */}
             {caseItem.quote && (
               <motion.blockquote
                 className="mt-12 pt-10 text-center"
@@ -592,7 +577,7 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   <cite className="not-italic text-sm font-semibold text-[#0d2535]">
                     {caseItem.quote.author}
                   </cite>
-                  <span className="text-sm text-[#6b7280]"> — {caseItem.quote.role}</span>
+                  <span className="text-sm text-[#6b7280]"> - {caseItem.quote.role}</span>
                 </footer>
               </motion.blockquote>
             )}
@@ -621,7 +606,7 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
 
-            {/* Zone 1 — Header row */}
+            {/* Zone 1 - Header row */}
             <div
               className="flex items-center justify-between flex-wrap gap-4 pb-8 mb-10"
               style={{ borderBottom: "1px solid rgba(58,174,206,0.2)" }}
@@ -651,17 +636,17 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               </div>
             </div>
 
-            {/* Zone 2 — Narrative + results panel */}
+            {/* Zone 2 - Narrative + results panel */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-              {/* Left — narrative, staggered */}
+              {/* Left - narrative, staggered */}
               <div className="flex flex-col gap-7">
                 <NarrativeBlock label="The challenge"     text={caseItem.problem}  inView={inView} delay={0.25} />
                 <NarrativeBlock label="What Broadlab did" text={caseItem.approach} inView={inView} delay={0.38} />
                 <NarrativeBlock label="The outcome"       text={caseItem.outcome}  inView={inView} delay={0.51} />
               </div>
 
-              {/* Right — results panel, slides in from right */}
+              {/* Right - results panel, slides in from right */}
               <motion.div
                 className="rounded-2xl p-8 flex flex-col"
                 style={{
@@ -739,7 +724,7 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               </motion.div>
             </div>
 
-            {/* Zone 3 — Quote */}
+            {/* Zone 3 - Quote */}
             {caseItem.quote && (
               <motion.blockquote
                 className="mt-12 pt-10 text-center"
@@ -756,7 +741,7 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                 </p>
                 <footer className="mt-4">
                   <cite className="not-italic text-sm font-semibold text-[#0d2535]">{caseItem.quote.author}</cite>
-                  <span className="text-sm text-[#6b7280]"> — {caseItem.quote.role}</span>
+                  <span className="text-sm text-[#6b7280]"> - {caseItem.quote.role}</span>
                 </footer>
               </motion.blockquote>
             )}
@@ -785,7 +770,7 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
 
-            {/* Zone 1 — Header row */}
+            {/* Zone 1 - Header row */}
             <div
               className="flex items-center justify-between flex-wrap gap-4 pb-8 mb-10"
               style={{ borderBottom: "1px solid #e5e7eb" }}
@@ -815,17 +800,17 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               </div>
             </div>
 
-            {/* Zone 2 — Narrative + results panel */}
+            {/* Zone 2 - Narrative + results panel */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-              {/* Left — narrative, staggered */}
+              {/* Left - narrative, staggered */}
               <div className="flex flex-col gap-7">
                 <NarrativeBlock label="The challenge"     text={caseItem.problem}  inView={inView} delay={0.25} />
                 <NarrativeBlock label="What Broadlab did" text={caseItem.approach} inView={inView} delay={0.38} />
                 <NarrativeBlock label="The outcome"       text={caseItem.outcome}  inView={inView} delay={0.51} />
               </div>
 
-              {/* Right — results panel, slides in from right */}
+              {/* Right - results panel, slides in from right */}
               <motion.div
                 className="rounded-2xl p-8 flex flex-col"
                 style={{
@@ -868,12 +853,12 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ delay: 0.7, duration: 0.5 }}>
                   <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3aaece] mb-2">Key insight</p>
-                  <p className="text-sm leading-relaxed text-[#0d2535]">Optimising daily towards likely boxing fans — not broad sports audiences — made the difference.</p>
+                  <p className="text-sm leading-relaxed text-[#0d2535]">Optimising daily towards likely boxing fans - not broad sports audiences - made the difference.</p>
                 </motion.div>
               </motion.div>
             </div>
 
-            {/* Zone 3 — Compounding callout (no quote available) */}
+            {/* Zone 3 - Compounding callout (no quote available) */}
             <motion.div
               className="mt-12 pt-10"
               style={{ borderTop: "1px solid #e5e7eb" }}
@@ -894,7 +879,7 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   </p>
                 </div>
                 <p className="text-sm leading-relaxed text-[#4b5563]">
-                  The brand uplift and audience data captured during the DAZN campaign fed directly into the next brief — tightening the audience model and giving the following cycle a sharper starting point. This is Broadlab&apos;s compounding intelligence model in practice.
+                  The brand uplift and audience data captured during the DAZN campaign fed directly into the next brief - tightening the audience model and giving the following cycle a sharper starting point. This is Broadlab&apos;s compounding intelligence model in practice.
                 </p>
               </div>
             </motion.div>
@@ -933,7 +918,7 @@ function CaseStudy({
             {/* Three-column grid */}
             <div className="grid grid-cols-1 lg:grid-cols-[160px_1fr_2fr] gap-8 lg:gap-16 items-start">
 
-              {/* Left — number + meta */}
+              {/* Left - number + meta */}
               <div>
                 <p
                   className="font-bold leading-none select-none"
@@ -947,7 +932,7 @@ function CaseStudy({
                 <p className="mt-1.5 text-sm font-semibold text-[#0d2535]">{caseItem.client}</p>
               </div>
 
-              {/* Center — headline stat */}
+              {/* Center - headline stat */}
               <div>
                 <p
                   className="font-bold leading-none text-[#0d2535]"
@@ -958,7 +943,7 @@ function CaseStudy({
                 <p className="mt-3 text-sm leading-snug text-[#4b5563]">{caseItem.statLabel}</p>
               </div>
 
-              {/* Right — narrative */}
+              {/* Right - narrative */}
               <div className="flex flex-col gap-7">
                 <NarrativeBlock label="The challenge" text={caseItem.problem} />
                 <NarrativeBlock label="What Broadlab did" text={caseItem.approach} />
@@ -967,7 +952,7 @@ function CaseStudy({
 
             </div>
 
-            {/* Quote — full width */}
+            {/* Quote - full width */}
             {caseItem.quote && (
               <motion.blockquote
                 className="mt-12 pt-10 text-center"
@@ -989,7 +974,7 @@ function CaseStudy({
                   <cite className="not-italic text-sm font-semibold text-[#0d2535]">
                     {caseItem.quote.author}
                   </cite>
-                  <span className="text-sm text-[#6b7280]"> — {caseItem.quote.role}</span>
+                  <span className="text-sm text-[#6b7280]"> - {caseItem.quote.role}</span>
                 </footer>
               </motion.blockquote>
             )}

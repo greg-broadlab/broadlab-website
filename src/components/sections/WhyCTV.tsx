@@ -5,7 +5,7 @@ import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { TrendingUp, Zap, Target } from "lucide-react";
 
 // ---------------------------------------------------------------------------
-// Data — PLACEHOLDER: stats sourced from OFCOM, Amplified Intelligence,
+// Data - PLACEHOLDER: stats sourced from OFCOM, Amplified Intelligence,
 // and INCRMNTAL/Profitability 2. Confirm with BroadLab before going live.
 // ---------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ const STATS = [
     decimal: true,
     suffix: "X",
     prefix: "",
-    claim: "more active attention than linear TV — with 3× less wastage than scrollable social",
+    claim: "more active attention than linear TV - with 3× less wastage than scrollable social",
     source: "AMPLIFIED INTELLIGENCE",
   },
   {
@@ -223,7 +223,7 @@ export default function WhyCTV() {
               animate={headingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.22, duration: 0.5 }}
             >
-              {/* PLACEHOLDER — confirm 90% stat with BroadLab before go-live */}
+              {/* PLACEHOLDER - confirm 90% stat with BroadLab before go-live */}
               CTV reaches 90% of homes. For brands that use it properly, it&apos;s the most powerful and accountable channel in media.
             </motion.p>
 

@@ -28,7 +28,7 @@ function useCountUp(end: number, duration: number, active: boolean) {
   return count;
 }
 
-// ─── Mini visuals — pure geometry, no text ───────────────────────────────────
+// ─── Mini visuals - pure geometry, no text ───────────────────────────────────
 
 function VisualROAS() {
   return (
@@ -72,7 +72,7 @@ function VisualAttribution() {
 
 // ─── Case data ────────────────────────────────────────────────────────────────
 
-// PLACEHOLDER — confirm all figures with BroadLab before launch
+// PLACEHOLDER - confirm all figures with BroadLab before launch
 const CASES = [
   {
     value:   3,
@@ -270,7 +270,7 @@ export default function ProofSection() {
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Outcomes that hold up to CFO and board scrutiny — across financial services, retail, automotive and media.
+              Outcomes that hold up to CFO and board scrutiny - across financial services, retail, automotive and media.
             </motion.p>
           </div>
 

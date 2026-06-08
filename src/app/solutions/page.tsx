@@ -7,7 +7,7 @@ import AgentsSection from "@/components/sections/AgentsSection";
 import SolutionsCTA from "@/components/sections/SolutionsCTA";
 
 export const metadata = {
-  title: "Solutions — BroadLab",
+  title: "Solutions - BroadLab",
   description: "The technology stack that makes BroadLab different. AI and proprietary data built in from the ground up.",
 };
 

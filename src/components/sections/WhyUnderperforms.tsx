@@ -17,7 +17,7 @@ const BARRIERS = [
   {
     n: "03",
     title: "Metrics",
-    desc: "Most CTV is still measured on delivery — impressions, completions, CPM — not on what it does for the business.",
+    desc: "Most CTV is still measured on delivery - impressions, completions, CPM - not on what it does for the business.",
   },
 ];
 

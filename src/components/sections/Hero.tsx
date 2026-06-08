@@ -339,7 +339,7 @@ export default function Hero() {
         {/* Gradient orbs */}
         <GradientOrbs visible={introComplete} />
 
-        {/* Edge fade — keeps orbs from bleeding to hard edges */}
+        {/* Edge fade - keeps orbs from bleeding to hard edges */}
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_50%,white_100%)]" />
 
         {/* Content */}

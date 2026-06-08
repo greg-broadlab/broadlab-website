@@ -60,7 +60,7 @@ export default function CEOQuote() {
             <div className="mt-10 p-6 rounded-card border border-[#d0dce8] bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
               <p className="text-[#4a6070] text-sm leading-relaxed">
                 Broadlab was founded with a clear mission: to make Addressable
-                TV accessible, transparent, and measurable for every brand —
+                TV accessible, transparent, and measurable for every brand -
                 regardless of size. Our technology brings together the best of
                 broadcast and digital into one powerful, unified platform.
               </p>

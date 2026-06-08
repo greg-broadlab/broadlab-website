@@ -9,7 +9,7 @@ function sr(seed: number) {
   return (((Math.sin(seed * 9301 + 49297) % 1) + 1) % 1);
 }
 
-// Card 1: Audience ID Graph — postcode heatmap grid
+// Card 1: Audience ID Graph - postcode heatmap grid
 function MiniHeatmap() {
   const ROWS = 4;
   const COLS = 7;
@@ -34,7 +34,7 @@ function MiniHeatmap() {
   );
 }
 
-// Card 2: CTV Supply Curation — ascending signal bars
+// Card 2: CTV Supply Curation - ascending signal bars
 function MiniSupplyGrid() {
   const bars = [
     { h: 16, o: 0.25 },
@@ -65,7 +65,7 @@ function MiniSupplyGrid() {
   );
 }
 
-// Card 3: Incrementality Proof — clean control vs test bars
+// Card 3: Incrementality Proof - clean control vs test bars
 function MiniHoldout() {
   return (
     <div className="flex items-end gap-3" style={{ height: 72 }}>
@@ -113,7 +113,7 @@ function MiniHoldout() {
   );
 }
 
-// Card 4: Compounding Intelligence — exponential growth curve
+// Card 4: Compounding Intelligence - exponential growth curve
 function MiniLoop() {
   const pts: [number, number][] = [[0, 52], [20, 47], [40, 37], [60, 20], [80, 4]];
   const line = pts.map(([x, y]) => `${x},${y}`).join(" ");
@@ -155,28 +155,28 @@ const COMPONENTS = [
   {
     step: "01",
     name: "Audience ID Graph",
-    desc: "Postcode-level identity resolution linking CRM, census, behavioural, demographic, financial, web/app usage and TV signals — with 6,233 attributes per record.",
+    desc: "Postcode-level identity resolution linking CRM, census, behavioural, demographic, financial, web/app usage and TV signals - with 6,233 attributes per record.",
     bullets: ["1.8M UK postcodes · 6,233 attributes", "32M US Zip+4", "Privacy-safe via Snowflake"],
     Visual: MiniHeatmap,
   },
   {
     step: "02",
     name: "CTV Supply Curation",
-    desc: "Rigorously curated premium inventory across every major streaming platform. Full control over where, when and how your brand appears — DSP-agnostic.",
+    desc: "Rigorously curated premium inventory across every major streaming platform. Full control over where, when and how your brand appears - DSP-agnostic.",
     bullets: ["30+ BVOD partners globally", "DSP-agnostic", "Premium-only inventory"],
     Visual: MiniSupplyGrid,
   },
   {
     step: "03",
     name: "Incrementality Proof",
-    desc: "True incrementality measurement using geo holdout — not correlation, not last-click. Results that hold up to CFO and board scrutiny.",
+    desc: "True incrementality measurement using geo holdout - not correlation, not last-click. Results that hold up to CFO and board scrutiny.",
     bullets: ["Geo holdout methodology", "Causal, not modelled", "Board-grade results"],
     Visual: MiniHoldout,
   },
   {
     step: "04",
     name: "Compounding Intelligence",
-    desc: "AI-driven learning accumulates into a proprietary asset that rivals cannot replicate. Every campaign feeds the next — audiences sharpen, costs fall.",
+    desc: "AI-driven learning accumulates into a proprietary asset that rivals cannot replicate. Every campaign feeds the next - audiences sharpen, costs fall.",
     bullets: ["Every campaign feeds the next", "Proprietary asset you own", "CRM + MMM integration"],
     Visual: MiniLoop,
   },

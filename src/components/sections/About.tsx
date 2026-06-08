@@ -20,10 +20,10 @@ const TEAM = [
   },
   {
     name:  "Brian Jents",
-    role:  "Placeholder role — to be confirmed",
+    role:  "Placeholder role - to be confirmed",
     image: null,
     bio: [
-      "Placeholder — to be provided by Brian.",
+      "Placeholder - to be provided by Brian.",
     ],
   },
   {
@@ -64,14 +64,6 @@ const TEAM = [
       "Cath Crow is Global Head of Client Success at Broadlab, bringing more than 30 years of experience across performance TV and media. Widely recognised as a pioneer in performance television, she has spent her career helping brands connect media investment to measurable business outcomes.",
       "Before joining Broadlab, Cath spent 12 years at Sky Media as Head of Performance, where she helped pioneer deterministic tracking and outcome-based TV buying, working with leading advertisers and agencies to demonstrate the power of accountable television advertising. Prior to Sky, she led the DRTV business at Mediacom for 20 years, developing and delivering response-driven campaigns for major brands.",
       "At Broadlab, Cath works with brands and agencies to unlock the full potential of Connected TV through advanced audience targeting, campaign optimisation, and transparent measurement solutions that drive growth and performance.",
-    ],
-  },
-  {
-    name:  "Jana Eisenstein",
-    role:  "Placeholder role — to be confirmed",
-    image: null,
-    bio: [
-      "Placeholder — to be provided by Jana.",
     ],
   },
 ];
@@ -165,11 +157,11 @@ function CompanyStatement() {
               <p className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
                 BroadLab brings together the capability areas that matter most in CTV:
                 media planning expertise, marketplace innovation, and advanced optimisation
-                and measurement — not as separate services, but as one connected system.
+                and measurement - not as separate services, but as one connected system.
               </p>
               <p className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
                 The result is a partner that can work alongside brands and agencies at any
-                level — from full managed delivery to specialist support within an existing
+                level - from full managed delivery to specialist support within an existing
                 model, or helping teams build stronger in-house capability over time.
               </p>
             </motion.div>
@@ -206,7 +198,7 @@ function TeamSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 lg:gap-16 items-start">
 
-          {/* Left — name list */}
+          {/* Left - name list */}
           <motion.div
             className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 lg:sticky lg:top-28"
             initial={{ opacity: 0, x: -12 }}
@@ -239,7 +231,7 @@ function TeamSection() {
             ))}
           </motion.div>
 
-          {/* Right — bio content */}
+          {/* Right - bio content */}
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -249,7 +241,7 @@ function TeamSection() {
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex flex-col gap-8"
             >
-              {/* Header row — photo + name */}
+              {/* Header row - photo + name */}
               <div className="flex items-center gap-6">
                 <div
                   className="shrink-0 w-20 h-20 rounded-2xl overflow-hidden"

@@ -38,7 +38,7 @@ const SOLUTIONS_DETAIL = [
   {
     n: "03",
     name: "Measurement",
-    statement: "Proof CTV is working — from first view to final purchase.",
+    statement: "Proof CTV is working - from first view to final purchase.",
     stat: { value: "Daily", label: "in-flight reporting" },
     facts: ["Brand uplift", "Search uplift", "Conversion tracking", "Footfall attribution"],
   },
@@ -716,7 +716,7 @@ function SolutionsDetail() {
             transition={{ duration: 0.6 }}
           >
 
-            {/* Left — tabs */}
+            {/* Left - tabs */}
             <div className="flex flex-col">
               {SOLUTIONS_DETAIL.map((s, i) => (
                 <button
@@ -794,7 +794,7 @@ function SolutionsDetail() {
               ))}
             </div>
 
-            {/* Right — bespoke panel */}
+            {/* Right - bespoke panel */}
             <div
               className="rounded-2xl overflow-hidden relative"
               style={{
@@ -982,7 +982,7 @@ function FinalCTA() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
               transition={{ delay: 0.22, duration: 0.55 }}
             >
-              Whether you&apos;re just exploring or ready to scale — we&apos;ll show you exactly where the opportunity is.
+              Whether you&apos;re just exploring or ready to scale - we&apos;ll show you exactly where the opportunity is.
             </motion.p>
 
             {/* CTA */}

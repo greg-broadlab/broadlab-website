@@ -8,17 +8,17 @@ const CAPABILITIES = [
   {
     n: "01",
     name: "Audience Graph",
-    desc: "A privacy-safe, geo-based system for building accurate audiences from 60.3 million geo keys and 7,000+ attributes — consistent across every platform.",
+    desc: "A privacy-safe, geo-based system for building accurate audiences from 60.3 million geo keys and 7,000+ attributes - consistent across every platform.",
   },
   {
     n: "02",
     name: "Outcome Measurement",
-    desc: "Brand lift, search uplift, conversion, footfall and sales — all tracked daily, in-flight.",
+    desc: "Brand lift, search uplift, conversion, footfall and sales - all tracked daily, in-flight.",
   },
   {
     n: "03",
     name: "Optimisation Engine",
-    desc: "AI and expert-led refinement across audience, creative, geography, supply and frequency — every single day.",
+    desc: "AI and expert-led refinement across audience, creative, geography, supply and frequency - every single day.",
   },
   {
     n: "04",
@@ -39,7 +39,7 @@ export default function Positioning() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-            {/* Left — positioning statement */}
+            {/* Left - positioning statement */}
             <div className="lg:sticky lg:top-32">
 
               <motion.p
@@ -69,7 +69,7 @@ export default function Positioning() {
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
                 transition={{ delay: 0.2, duration: 0.55 }}
               >
-                BroadLab is the intelligence layer that sits above fragmented CTV — unifying audience, measurement, optimisation and learning into one connected system.
+                BroadLab is the intelligence layer that sits above fragmented CTV - unifying audience, measurement, optimisation and learning into one connected system.
               </motion.p>
 
               <motion.div
@@ -103,7 +103,7 @@ export default function Positioning() {
 
             </div>
 
-            {/* Right — four capabilities */}
+            {/* Right - four capabilities */}
             <div className="flex flex-col">
               {CAPABILITIES.map((cap, i) => (
                 <motion.div

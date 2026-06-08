@@ -132,7 +132,7 @@ function Lever({ label, active, delay, inView }: { label: string; active: boolea
 
 // ─── KPI data ─────────────────────────────────────────────────────────────────
 
-// Numbers from Scottish Widows case study — confirm before launch
+// Numbers from Scottish Widows case study - confirm before launch
 const KPIS = [
   {
     label: "Triple-channel lift",
@@ -141,7 +141,7 @@ const KPIS = [
     prefix: "",
     decimal: false,
     trend: "up" as const,
-    trendLabel: "vs organic — geo holdout",
+    trendLabel: "vs organic - geo holdout",
     sparkValues: [1.8, 3.1, 4.4, 5.2, 6.7, 7.9, 9],
   },
   {
@@ -223,7 +223,7 @@ export default function MeasurementDashboard() {
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              True incrementality via geo holdout — not correlation, not last-click.
+              True incrementality via geo holdout - not correlation, not last-click.
               Results that hold up to CFO and board scrutiny, every campaign.
             </motion.p>
           </div>
@@ -286,7 +286,7 @@ export default function MeasurementDashboard() {
               transition={{ delay: 0.6, duration: 0.5 }}
             >
               <p className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-[#9ca3af] mb-4">
-                Optimisation Levers — All Active
+                Optimisation Levers - All Active
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
                 {LEVERS.map((lever, i) => (

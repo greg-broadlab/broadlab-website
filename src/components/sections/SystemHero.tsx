@@ -107,7 +107,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
           })}
         </motion.g>
 
-        {/* Centre — "THE SYSTEM" */}
+        {/* Centre - "THE SYSTEM" */}
         <motion.g
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.7 }}
@@ -237,7 +237,7 @@ export default function SystemHero() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16 items-center">
 
-            {/* Left — copy */}
+            {/* Left - copy */}
             <div>
               <motion.p
                 className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
@@ -288,7 +288,7 @@ export default function SystemHero() {
                     </span>
                     <p className="text-[0.875rem] leading-snug text-[#4b5563]">
                       <span className="font-semibold text-[#0d2535]">{label}</span>
-                      {" — "}{desc}
+                      {" - "}{desc}
                     </p>
                   </div>
                 ))}
@@ -312,7 +312,7 @@ export default function SystemHero() {
               </motion.div>
             </div>
 
-            {/* Right — loop diagram */}
+            {/* Right - loop diagram */}
             <LoopDiagram inView={inView} />
 
           </div>

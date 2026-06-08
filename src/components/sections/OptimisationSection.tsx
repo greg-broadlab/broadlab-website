@@ -135,7 +135,7 @@ export default function OptimisationSection() {
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.22, duration: 0.5 }}
             >
-              AI and expert oversight across all six dimensions — simultaneously, every day.
+              AI and expert oversight across all six dimensions - simultaneously, every day.
             </motion.p>
           </div>
 

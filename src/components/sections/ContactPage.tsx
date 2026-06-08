@@ -59,7 +59,7 @@ export default function ContactPage() {
   const [form, setForm]     = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  // Honeypot — populated by bots, invisible to humans
+  // Honeypot - populated by bots, invisible to humans
   const [honeypot, setHoneypot] = useState("");
 
   function set(key: keyof FormState) {
@@ -109,7 +109,7 @@ export default function ContactPage() {
       <div className="container-main relative z-10 section-padding w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Left — details */}
+          {/* Left - details */}
           <motion.div
             className="flex flex-col gap-6"
             initial={{ opacity: 0, y: 16 }}
@@ -150,7 +150,7 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* Right — form */}
+          {/* Right - form */}
           <motion.div
             className="rounded-2xl p-8 sm:p-10 bg-white shadow-[0_4px_40px_rgba(13,37,53,0.08)]"
             initial={{ opacity: 0, y: 20 }}
@@ -191,7 +191,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  {/* Honeypot — hidden from humans, traps bots */}
+                  {/* Honeypot - hidden from humans, traps bots */}
                   <input
                     type="text"
                     name="website"

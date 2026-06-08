@@ -7,7 +7,7 @@ const AGENTS = [
   {
     id: "data",
     role: "General AI Agent",
-    tagline: "Ask anything about campaigns, supply, delivery or the wider data model — in plain English.",
+    tagline: "Ask anything about campaigns, supply, delivery or the wider data model - in plain English.",
     skills: ["Campaigns & Delivery", "Supply & Deals", "Geographic Breakdown", "Industry & Glossary"],
     prompts: ["What's my campaign pacing this week?", "Which supply is underperforming?"],
   },
@@ -21,7 +21,7 @@ const AGENTS = [
   {
     id: "strategy",
     role: "Strategy Agent",
-    tagline: "Builds briefs, plans audiences, structures campaigns and surfaces recommendations — before a pound is spent.",
+    tagline: "Builds briefs, plans audiences, structures campaigns and surfaces recommendations - before a pound is spent.",
     skills: ["Campaign Briefs", "Audience Strategy", "Client Recommendations", "Budget Planning"],
     prompts: ["Build a campaign brief for this client", "What audience should I target?"],
   },
@@ -138,7 +138,7 @@ export default function AgentsSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}>
-              Three AI agents, each built on BroadLab&apos;s proprietary data and tailored for a specific job — powering every decision we make across your campaigns.
+              Three AI agents, each built on BroadLab&apos;s proprietary data and tailored for a specific job - powering every decision we make across your campaigns.
             </motion.p>
           </div>
 

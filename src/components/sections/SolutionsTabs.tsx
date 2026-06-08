@@ -11,25 +11,25 @@ const TABS = [
     id: "marketplaces",
     label: "Curated Marketplaces",
     headline: "Premium supply.\nDirect access.",
-    body: "BroadLab builds and manages curated CTV marketplaces across the UK, US and Europe — giving brands and agencies direct access to premium inventory with fewer intermediaries, lower fees and full transparency on every deal.",
+    body: "BroadLab builds and manages curated CTV marketplaces across the UK, US and Europe - giving brands and agencies direct access to premium inventory with fewer intermediaries, lower fees and full transparency on every deal.",
   },
   {
     id: "identity",
     label: "Identity Solutions",
     headline: "One view.\nYours to keep.",
-    body: "We build privacy-safe, brand-specific identity graphs that combine CRM data, CTV exposure and geo audience signals into a single planning and measurement asset — one that compounds in value with every campaign.",
+    body: "We build privacy-safe, brand-specific identity graphs that combine CRM data, CTV exposure and geo audience signals into a single planning and measurement asset - one that compounds in value with every campaign.",
   },
   {
     id: "audience",
     label: "Audience Planning",
     headline: "Plan smarter.\nActivate with precision.",
-    body: "BCAP is BroadLab's campaign and audience builder — designed to make complex CTV planning fast and precise. Define outcomes, build audiences, allocate supply and launch, all in one place.",
+    body: "BCAP is BroadLab's campaign and audience builder - designed to make complex CTV planning fast and precise. Define outcomes, build audiences, allocate supply and launch, all in one place.",
   },
   {
     id: "optimisation",
     label: "Optimisation",
     headline: "Every lever.\nAdjusted every day.",
-    body: "46,000+ variables monitored continuously throughout every campaign. BroadLab's optimisation engine adjusts audience, creative, geography, supply and frequency daily — delivering measurable improvements while campaigns are live.",
+    body: "46,000+ variables monitored continuously throughout every campaign. BroadLab's optimisation engine adjusts audience, creative, geography, supply and frequency daily - delivering measurable improvements while campaigns are live.",
   },
 ];
 
@@ -244,6 +244,19 @@ export default function SolutionsTabs() {
     if (hash in map) setActive(map[hash]);
   }, []);
 
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const index = (e as CustomEvent).detail?.index;
+      if (typeof index === "number") {
+        setActive(index);
+        setPaused(true);
+        setTimeout(() => setPaused(false), 100);
+      }
+    };
+    window.addEventListener("switchTab", handler);
+    return () => window.removeEventListener("switchTab", handler);
+  }, []);
+
   const handleTabClick = (i: number) => {
     setActive(i);
     setPaused(true);
@@ -294,7 +307,7 @@ export default function SolutionsTabs() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}>
 
-              {/* Left — copy */}
+              {/* Left - copy */}
               <div className="flex flex-col justify-center" style={{ minHeight: CARD_HEIGHT }}>
                 <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#3aaece] mb-5">
                   {String(active + 1).padStart(2, "0")} / {TABS[active].label}
@@ -311,7 +324,7 @@ export default function SolutionsTabs() {
                 </p>
               </div>
 
-              {/* Right — card (fixed height) */}
+              {/* Right - card (fixed height) */}
               <div style={{ height: CARD_HEIGHT }}>
                 <ActiveCard />
               </div>

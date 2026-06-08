@@ -39,7 +39,7 @@ const team = [
   {
     name: "Brian Jentz",
     title: "Chief Product Officer",
-    bio: "Brian brings over 20 years of experience in connected TV, video streaming and advertising technology, having held senior roles at Roku, Nielsen's Advanced Video Advertising division, Sorenson Media and Xumo. At Broadlab, he leads product management, engineering and data science — building the next generation of AI-driven tools at the heart of Broadlab's CTV advertising platform.",
+    bio: "Brian brings over 20 years of experience in connected TV, video streaming and advertising technology, having held senior roles at Roku, Nielsen's Advanced Video Advertising division, Sorenson Media and Xumo. At Broadlab, he leads product management, engineering and data science - building the next generation of AI-driven tools at the heart of Broadlab's CTV advertising platform.",
     image: null,
     linkedin: null,
     // TODO: add photo and LinkedIn URL
@@ -136,7 +136,7 @@ export default function Team() {
                 </p>
                 {member.placeholder && (
                   <p className="text-xs text-[#8a9bad] mt-3 italic">
-                    * Placeholder — to be updated
+                    * Placeholder - to be updated
                   </p>
                 )}
               </div>

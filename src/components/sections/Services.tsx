@@ -6,24 +6,24 @@ import Image from "next/image";
 import Link from "next/link";
 
 // ─── Vertical data ─────────────────────────────────────────────────────────────
-// Results from audited campaign data — confirm with BroadLab before launch
+// Results from audited campaign data - confirm with BroadLab before launch
 
 const VERTICALS = [
   {
     sector: "Financial Services",
     client: "Scottish Widows",
     problem: "Driving action in a high-trust, high-consideration category",
-    desc: "Financial services brands face the hardest measurement problem in CTV — long consideration cycles, multiple touchpoints, and boardrooms that won't accept last-click attribution. BroadLab's geo holdout methodology delivers causal proof that satisfies CFOs and boards.",
+    desc: "Financial services brands face the hardest measurement problem in CTV - long consideration cycles, multiple touchpoints, and boardrooms that won't accept last-click attribution. BroadLab's geo holdout methodology delivers causal proof that satisfies CFOs and boards.",
     resultNumber: "9×",
     resultLabel: "lift over untreated group",
-    methodology: "Geo holdout — causal, not modelled",
+    methodology: "Geo holdout - causal, not modelled",
     image: "/images/finance.jpg",
   },
   {
     sector: "Retail / DTC",
     client: "Wonderbly",
     problem: "Proving CTV drives sales, not just awareness",
-    desc: "For DTC brands, every pound of budget needs to prove itself against revenue — not reach, not views. BroadLab connects CTV exposure directly to purchase, with cost efficiency that compounds campaign after campaign.",
+    desc: "For DTC brands, every pound of budget needs to prove itself against revenue - not reach, not views. BroadLab connects CTV exposure directly to purchase, with cost efficiency that compounds campaign after campaign.",
     resultNumber: "87%",
     resultLabel: "reduction in cost per order",
     methodology: "Achieved within the first campaign flight",
@@ -33,20 +33,20 @@ const VERTICALS = [
     sector: "Automotive",
     client: "Kia EV2",
     problem: "Connecting national CTV to local dealer footfall",
-    desc: "Automotive brands need to bridge the gap between national CTV and local dealer action. BroadLab's PLZ holdout methodology proves which postcode regions CTV actually moved — giving regional media planning a causal foundation it has never had.",
+    desc: "Automotive brands need to bridge the gap between national CTV and local dealer action. BroadLab's PLZ holdout methodology proves which postcode regions CTV actually moved - giving regional media planning a causal foundation it has never had.",
     resultNumber: "+100.6%",
     resultLabel: "incremental test drives",
-    methodology: "PLZ holdout — not correlation, not last-click",
+    methodology: "PLZ holdout - not correlation, not last-click",
     image: "/images/automotive.jpg",
   },
   {
     sector: "Streaming & Entertainment",
     client: "Sports Streaming",
     problem: "Building subscription audiences at the lowest possible cost",
-    desc: "Streaming platforms need to turn CTV into a subscriber acquisition engine, not just a brand channel. BroadLab deploys the full system — viewership data, lookalike audiences, and in-flight optimisation — against a single north star: cost per subscriber.",
+    desc: "Streaming platforms need to turn CTV into a subscriber acquisition engine, not just a brand channel. BroadLab deploys the full system - viewership data, lookalike audiences, and in-flight optimisation - against a single north star: cost per subscriber.",
     resultNumber: "8.9%",
     resultLabel: "of total sales attributed to CTV",
-    methodology: "Attribution — cross-platform, in-flight",
+    methodology: "Attribution - cross-platform, in-flight",
     image: "/images/streaming.jpg",
   },
 ] as const;
@@ -92,7 +92,7 @@ function ServicesIntro() {
           transition={{ delay: 0.25, duration: 0.55 }}
         >
           Every sector has a different business problem. BroadLab deploys the
-          same four-component intelligence system against each one — with
+          same four-component intelligence system against each one - with
           measurement methodology that holds up to the hardest scrutiny in your category.
         </motion.p>
       </div>
@@ -261,7 +261,7 @@ function AgencyCallout() {
                   BroadLab works directly with CMOs and heads of media to design,
                   run and compound an intelligence system around your brand&apos;s
                   specific outcomes. The audience graph, measurement framework and
-                  optimisation loop are built for you — and owned by you.
+                  optimisation loop are built for you - and owned by you.
                 </p>
                 <div className="mt-auto">
                   <Link
@@ -296,7 +296,7 @@ function AgencyCallout() {
                 </h3>
                 <p className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
                   BroadLab is not a media buyer competing with your agency. We
-                  sit above the buy — providing the ID graph, measurement
+                  sit above the buy - providing the ID graph, measurement
                   methodology and compounding intelligence that makes your
                   clients&apos; CTV investment provably more effective.
                 </p>

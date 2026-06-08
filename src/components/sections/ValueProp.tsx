@@ -89,7 +89,7 @@ export default function ValueProp() {
             <span className="gradient-text">Addressable TV</span>
           </h2>
 
-          {/* Body copy — staggered 0.18s after headline */}
+          {/* Body copy - staggered 0.18s after headline */}
           <p
             className="text-[#4a6070] text-lg leading-relaxed"
             style={{
@@ -127,7 +127,7 @@ export default function ValueProp() {
               transition: "opacity 0.6s ease 0.6s",
             }}
           >
-            *Figures are placeholders — to be updated with verified data
+            *Figures are placeholders - to be updated with verified data
           </p>
         </div>
 

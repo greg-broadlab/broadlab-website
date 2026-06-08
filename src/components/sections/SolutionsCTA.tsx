@@ -32,7 +32,7 @@ export default function SolutionsCTA() {
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.15, duration: 0.5 }}>
-              Book a call and we&apos;ll walk you through exactly how our technology works — and what it would mean for your business.
+              Book a call and we&apos;ll walk you through exactly how our technology works - and what it would mean for your business.
             </motion.p>
 
             <motion.div

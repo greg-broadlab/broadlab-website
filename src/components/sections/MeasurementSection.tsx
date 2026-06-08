@@ -61,7 +61,7 @@ export default function MeasurementSection() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* Left — copy */}
+            {/* Left - copy */}
             <div>
               <motion.p
                 className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
@@ -89,7 +89,7 @@ export default function MeasurementSection() {
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ delay: 0.22, duration: 0.5 }}
               >
-                Not impressions. Not reach. Business outcomes — measured daily while campaigns are still live.
+                Not impressions. Not reach. Business outcomes - measured daily while campaigns are still live.
               </motion.p>
 
               {/* Outcome cards */}
@@ -112,7 +112,7 @@ export default function MeasurementSection() {
               </motion.div>
             </div>
 
-            {/* Right — animated bar chart */}
+            {/* Right - animated bar chart */}
             <motion.div
               className="rounded-xl bg-white border border-[#e5e7eb] p-7"
               style={{ boxShadow: "0 4px 24px rgba(16,101,127,0.07)" }}

@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", inter.variable, plusJakarta.variable)}>
       <head>
-        {/* Set consent defaults BEFORE GTM loads — blocks tracking until user accepts */}
+        {/* Set consent defaults BEFORE GTM loads - blocks tracking until user accepts */}
         <Script
           id="consent-defaults"
           strategy="beforeInteractive"

@@ -6,9 +6,9 @@ import Link from "next/link";
 
 const FEATURES = [
   { label: "Campaigns built around your outcomes", desc: "Every campaign is structured around the metrics that matter to your business, before a pound is spent." },
-  { label: "Precision audiences from 60.3M geo keys", desc: "We build privacy-safe audience segments using the Audience Graph — accurate, scalable and consistent across every platform." },
+  { label: "Precision audiences from 60.3M geo keys", desc: "We build privacy-safe audience segments using the Audience Graph - accurate, scalable and consistent across every platform." },
   { label: "Supply allocated across premium CTV", desc: "We plan and allocate across premium inventory with full pricing transparency and no hidden intermediaries." },
-  { label: "Full visibility from brief to live", desc: "You see exactly how your campaign is structured, what it costs and how it's performing — at every stage." },
+  { label: "Full visibility from brief to live", desc: "You see exactly how your campaign is structured, what it costs and how it's performing - at every stage." },
 ];
 
 const NAV_TABS = ["Audience", "Plan", "Supply", "Review", "Report"];
@@ -39,7 +39,7 @@ function MiniTrend({ values }: { values: number[] }) {
   );
 }
 
-const ACTIVE_TAB = 2; // Supply — fixed, non-interactive
+const ACTIVE_TAB = 2; // Supply - fixed, non-interactive
 
 function BCAPMockup({ inView }: { inView: boolean }) {
 
@@ -55,7 +55,7 @@ function BCAPMockup({ inView }: { inView: boolean }) {
       <div className="flex items-center justify-between px-5 py-3"
         style={{ borderBottom: "1px solid #f3f4f6", background: "#fafafa" }}>
         <div>
-          <p className="text-[11px] font-bold text-[#0d2535]">Plan Campaign — Cambridge Building Society</p>
+          <p className="text-[11px] font-bold text-[#0d2535]">Plan Campaign - Cambridge Building Society</p>
           <p className="text-[10px] text-[#9ca3af]">Supply allocation and pricing</p>
         </div>
         <div className="flex gap-2">
@@ -149,7 +149,7 @@ export default function BCAPSpotlight() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* Left — copy */}
+            {/* Left - copy */}
             <div>
               <motion.p
                 className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
@@ -207,7 +207,7 @@ export default function BCAPSpotlight() {
               </motion.div>
             </div>
 
-            {/* Right — BCAP mockup */}
+            {/* Right - BCAP mockup */}
             <BCAPMockup inView={inView} />
 
           </div>

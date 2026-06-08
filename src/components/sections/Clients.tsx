@@ -1,6 +1,6 @@
 "use client";
 
-// ── Placeholder data — replace with real logos when available ─────────────────
+// ── Placeholder data - replace with real logos when available ─────────────────
 
 const row1 = [
   { name: "Initiative",   category: "Media Agency"  },
@@ -76,7 +76,7 @@ export default function Clients() {
 
       </div>
 
-      {/* Carousel — full-bleed so edge fades reach the screen edges */}
+      {/* Carousel - full-bleed so edge fades reach the screen edges */}
       <div className="relative overflow-hidden py-2">
         {/* Left fade */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0f1923] to-transparent z-10 pointer-events-none" />
@@ -84,11 +84,11 @@ export default function Clients() {
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0f1923] to-transparent z-10 pointer-events-none" />
 
         <div className="flex flex-col gap-4">
-          {/* Row 1 — scrolls left */}
+          {/* Row 1 - scrolls left */}
           <div className="overflow-hidden">
             <MarqueeRow items={row1} reverse={false} />
           </div>
-          {/* Row 2 — scrolls right */}
+          {/* Row 2 - scrolls right */}
           <div className="overflow-hidden">
             <MarqueeRow items={row2} reverse={true} />
           </div>

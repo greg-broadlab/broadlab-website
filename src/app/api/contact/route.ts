@@ -42,7 +42,7 @@ function htmlEmail(name: string, email: string, company: string, reason: string)
             </td></tr>
             <tr><td style="padding:24px 0;border-bottom:1px solid #e5e7eb">
               <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9ca3af">Company</p>
-              <p style="margin:0;font-size:15px;color:#374151">${company || "—"}</p>
+              <p style="margin:0;font-size:15px;color:#374151">${company || "-"}</p>
             </td></tr>
             <tr><td style="padding:24px 0">
               <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9ca3af">Message</p>
@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
 
   const { name, email, company, reason, website } = body;
 
-  // Honeypot — bots fill this in, humans don't
+  // Honeypot - bots fill this in, humans don't
   if (website) {
     return NextResponse.json({ ok: true }); // silently accept to not tip off bots
   }
@@ -112,7 +112,7 @@ export async function POST(req: NextRequest) {
         Subject: { Data: `New enquiry from ${name}${company ? ` at ${company}` : ""}`, Charset: "UTF-8" },
         Body: {
           Html: { Data: htmlEmail(name, email, company, reason), Charset: "UTF-8" },
-          Text: { Data: `From: ${name} (${email})\nCompany: ${company || "—"}\n\n${reason}`, Charset: "UTF-8" },
+          Text: { Data: `From: ${name} (${email})\nCompany: ${company || "-"}\n\n${reason}`, Charset: "UTF-8" },
         },
       },
     }));

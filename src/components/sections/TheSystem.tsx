@@ -18,7 +18,7 @@ const OUTPUTS = [
   { label: "Postcode Insights",      desc: "1.8M postcodes mapped & modelled" },
 ];
 
-// PLACEHOLDER — swap with real approved logo image files before launch
+// PLACEHOLDER - swap with real approved logo image files before launch
 const CLIENTS = [
   "Heineken",
   "ASOS",
@@ -50,7 +50,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px_1fr]">
 
-        {/* Left — Data Inputs */}
+        {/* Left - Data Inputs */}
         <div className="flex flex-col justify-center gap-7 p-8 lg:p-10">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
             Data Inputs
@@ -75,7 +75,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
           ))}
         </div>
 
-        {/* Centre — The BroadLab ID Graph */}
+        {/* Centre - The BroadLab ID Graph */}
         <div
           className="relative flex flex-col items-center justify-center gap-5 px-8 py-10 text-center"
           style={{
@@ -179,7 +179,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
           </motion.div>
         </div>
 
-        {/* Right — Intelligence Outputs */}
+        {/* Right - Intelligence Outputs */}
         <div className="flex flex-col justify-center gap-7 p-8 lg:p-10">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
             Intelligence Outputs
@@ -296,9 +296,9 @@ export default function TheSystem() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              {/* PLACEHOLDER — confirm copy with BroadLab */}
+              {/* PLACEHOLDER - confirm copy with BroadLab */}
               BroadLab's proprietary ID Graph combines census, behavioural and
-              TV signal data — creating the audience intelligence layer that gives
+              TV signal data - creating the audience intelligence layer that gives
               every campaign a structural edge before it launches.
             </motion.p>
           </div>

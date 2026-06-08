@@ -8,12 +8,12 @@ const STEPS = [
   {
     n: "01",
     title: "Define the right outcomes",
-    desc: "Align measurement to the outcomes that matter most — brand, search, conversion or footfall.",
+    desc: "Align measurement to the outcomes that matter most - brand, search, conversion or footfall.",
   },
   {
     n: "02",
     title: "Solution design",
-    desc: "Design the full campaign system around the defined outcomes — audience, supply, creative and measurement all aligned from the start.",
+    desc: "Design the full campaign system around the defined outcomes - audience, supply, creative and measurement all aligned from the start.",
   },
   {
     n: "03",
@@ -64,7 +64,7 @@ export default function HowWeWork() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Four steps. One continuous loop. Each stage feeds the next — so every campaign becomes more effective than the last.
+              Four steps. One continuous loop. Each stage feeds the next - so every campaign becomes more effective than the last.
             </motion.p>
           </div>
 
@@ -157,7 +157,7 @@ export default function HowWeWork() {
           {/* Desktop: return arc + connecting paragraph */}
           <div className="relative mt-0 hidden lg:block" style={{ height: 320 }}>
 
-            {/* Anchor dot — Step 4 (top-right) */}
+            {/* Anchor dot - Step 4 (top-right) */}
             <motion.div
               className="absolute top-0 right-0 rounded-full"
               style={{ width: 7, height: 7, marginTop: -3.5, background: "#3aaece", opacity: 0.5 }}
@@ -183,7 +183,7 @@ export default function HowWeWork() {
               transition={{ delay: 1.4, duration: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
             />
 
-            {/* Anchor dot — Step 1 (top-left) */}
+            {/* Anchor dot - Step 1 (top-left) */}
             <motion.div
               className="absolute top-0 left-0 rounded-full"
               style={{ width: 7, height: 7, marginTop: -3.5, background: "#3aaece", opacity: 0.5 }}

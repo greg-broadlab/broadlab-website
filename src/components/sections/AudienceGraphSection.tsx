@@ -49,7 +49,7 @@ export default function AudienceGraphSection() {
               60.3 million geo keys mapped across 7,000+ demographic, behavioural and viewership attributes. AI-powered audience intelligence, privacy-safe via Snowflake.
             </motion.p>
 
-            {/* Clean stat row — no pills, just numbers */}
+            {/* Clean stat row - no pills, just numbers */}
             <motion.div
               className="mt-10 flex items-start justify-center gap-12 sm:gap-20"
               initial={{ opacity: 0 }}

@@ -7,15 +7,15 @@ import Link from "next/link";
 const MODELS = [
   {
     name: "Managed",
-    desc: "Full CTV planning and activation handled end-to-end — strategy, audience, supply, measurement and optimisation.",
+    desc: "Full CTV planning and activation handled end-to-end - strategy, audience, supply, measurement and optimisation.",
   },
   {
     name: "Specialist support",
-    desc: "Targeted expertise across audience building, in-flight measurement and continuous optimisation — plugged into your existing team.",
+    desc: "Targeted expertise across audience building, in-flight measurement and continuous optimisation - plugged into your existing team.",
   },
   {
     name: "Capability-building",
-    desc: "For teams developing in-house CTV solutions — frameworks, tooling and training to accelerate the build.",
+    desc: "For teams developing in-house CTV solutions - frameworks, tooling and training to accelerate the build.",
   },
 ];
 
@@ -38,10 +38,10 @@ export default function FinalCTA() {
       <div className="section-padding relative z-10">
         <div className="container-main">
 
-          {/* Support models — two column layout */}
+          {/* Support models - two column layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-            {/* Left — heading + model rows */}
+            {/* Left - heading + model rows */}
             <div>
               <motion.h2
                 className="mb-12 font-bold leading-tight text-[#0d2535]"
@@ -78,7 +78,7 @@ export default function FinalCTA() {
               </div>
             </div>
 
-            {/* Right — team photo placeholder */}
+            {/* Right - team photo placeholder */}
             <motion.div
               className="relative w-full overflow-hidden rounded-2xl"
               style={{ aspectRatio: "4/5" }}

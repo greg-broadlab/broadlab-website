@@ -117,7 +117,7 @@ export default function AudienceGraphDashboard() {
             animate={{ x: [0, -LOOP_W] }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           >
-            {/* Column headers — duplicated for seamless loop */}
+            {/* Column headers - duplicated for seamless loop */}
             <div className="flex flex-shrink-0" style={{ height: COL_H }}>
               {[...DATA_COLS, ...DATA_COLS].map((col, ci) => (
                 <div
@@ -132,7 +132,7 @@ export default function AudienceGraphDashboard() {
               ))}
             </div>
 
-            {/* Data rows — duplicated for seamless loop */}
+            {/* Data rows - duplicated for seamless loop */}
             {POSTCODES.map((_, ri) => (
               <motion.div
                 key={`row-${ri}`}

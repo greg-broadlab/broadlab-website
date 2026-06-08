@@ -6,7 +6,7 @@ import Team from "@/components/sections/Team";
 export const metadata = {
   title: "Team | Broadlab",
   description:
-    "Meet the team behind Broadlab — a seasoned group of media, technology, and data specialists united by a passion for Addressable TV.",
+    "Meet the team behind Broadlab - a seasoned group of media, technology, and data specialists united by a passion for Addressable TV.",
 };
 
 export default function TeamPage() {
