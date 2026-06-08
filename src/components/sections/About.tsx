@@ -19,6 +19,24 @@ const TEAM = [
     ],
   },
   {
+    name:  "Brian Jents",
+    role:  "Placeholder role — to be confirmed",
+    image: null,
+    bio: [
+      "Placeholder — to be provided by Brian.",
+    ],
+  },
+  {
+    name:  "Carrie Ward",
+    role:  "Global Head of Data Science",
+    image: null,
+    bio: [
+      "Carrie Ward is a data scientist and optimisation specialist with over 20 years of experience building AI and machine learning systems for the advertising industry; including programmatic video, addressable TV, and digital out-of-home. She holds a Master's degree in Applied Mathematics and is a named inventor on two patents in machine learning and media inventory optimisation.",
+      "At Broadlab, Carrie leads the data science function, developing the core algorithms, data infrastructure, and proprietary planning tool that sit at the heart of the platform.",
+      "For brands, this translates into smarter campaign performance: precisely targeted audiences, continuously optimised budget allocation, and clear measurement of results across the full marketing funnel.",
+    ],
+  },
+  {
     name:  "Matt Mee",
     role:  "Chief Strategy Officer",
     image: null,
@@ -39,21 +57,13 @@ const TEAM = [
     ],
   },
   {
-    name:  "Brian Jents",
-    role:  "Placeholder role — to be confirmed",
+    name:  "Cath Crow",
+    role:  "Global Head of Client Success",
     image: null,
     bio: [
-      "Placeholder — to be provided by Brian.",
-    ],
-  },
-  {
-    name:  "Carrie Ward",
-    role:  "Global Head of Data Science",
-    image: null,
-    bio: [
-      "Carrie Ward is a data scientist and optimisation specialist with over 20 years of experience building AI and machine learning systems for the advertising industry; including programmatic video, addressable TV, and digital out-of-home. She holds a Master's degree in Applied Mathematics and is a named inventor on two patents in machine learning and media inventory optimisation.",
-      "At Broadlab, Carrie leads the data science function, developing the core algorithms, data infrastructure, and proprietary planning tool that sit at the heart of the platform.",
-      "For brands, this translates into smarter campaign performance: precisely targeted audiences, continuously optimised budget allocation, and clear measurement of results across the full marketing funnel.",
+      "Cath Crow is Global Head of Client Success at Broadlab, bringing more than 30 years of experience across performance TV and media. Widely recognised as a pioneer in performance television, she has spent her career helping brands connect media investment to measurable business outcomes.",
+      "Before joining Broadlab, Cath spent 12 years at Sky Media as Head of Performance, where she helped pioneer deterministic tracking and outcome-based TV buying, working with leading advertisers and agencies to demonstrate the power of accountable television advertising. Prior to Sky, she led the DRTV business at Mediacom for 20 years, developing and delivering response-driven campaigns for major brands.",
+      "At Broadlab, Cath works with brands and agencies to unlock the full potential of Connected TV through advanced audience targeting, campaign optimisation, and transparent measurement solutions that drive growth and performance.",
     ],
   },
   {
@@ -62,16 +72,6 @@ const TEAM = [
     image: null,
     bio: [
       "Placeholder — to be provided by Jana.",
-    ],
-  },
-  {
-    name:  "Cath Crow",
-    role:  "Global Head of Client Success",
-    image: null,
-    bio: [
-      "Cath Crow is Global Head of Client Success at Broadlab, bringing more than 30 years of experience across performance TV and media. Widely recognised as a pioneer in performance television, she has spent her career helping brands connect media investment to measurable business outcomes.",
-      "Before joining Broadlab, Cath spent 12 years at Sky Media as Head of Performance, where she helped pioneer deterministic tracking and outcome-based TV buying, working with leading advertisers and agencies to demonstrate the power of accountable television advertising. Prior to Sky, she led the DRTV business at Mediacom for 20 years, developing and delivering response-driven campaigns for major brands.",
-      "At Broadlab, Cath works with brands and agencies to unlock the full potential of Connected TV through advanced audience targeting, campaign optimisation, and transparent measurement solutions that drive growth and performance.",
     ],
   },
 ];
@@ -151,8 +151,8 @@ function CompanyStatement() {
                 className="font-bold leading-tight"
                 style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0d2535" }}
               >
-                &ldquo;We built the system the industry
-                <span style={{ color: "#3aaece" }}> should have built</span> years ago.&rdquo;
+                &ldquo;AI has allowed us to build the system
+                <span style={{ color: "#3aaece" }}> the industry should have built</span> years ago.&rdquo;
               </p>
             </motion.div>
 

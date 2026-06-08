@@ -103,7 +103,7 @@ export default function WorkPageClient() {
               className="font-bold leading-tight text-[#0d2535]"
               style={{ fontSize: "clamp(2.75rem, 6vw, 5rem)" }}
             >
-              {["Real clients.", "Measurable results."].map((line, i) => (
+              {["Real challenges.", "Measurable results."].map((line, i) => (
                 <div key={i} style={{ overflow: "hidden" }}>
                   <motion.span
                     className="block"
@@ -178,6 +178,9 @@ export default function WorkPageClient() {
         }}
       >
 
+        {/* Stats breakdown */}
+        <StatsGrid />
+
         {/* Case studies */}
         {CASES.map((c, i) => {
           if (i === 0) return <LloydsCaseStudy  key={c.id} caseItem={c} />;
@@ -234,8 +237,6 @@ const AWARDS = [
     status:    "Shortlisted",
     confirmed: true,
   },
-  { body: "Placeholder", category: "", campaign: "", year: "", status: "Placeholder", confirmed: false },
-  { body: "Placeholder", category: "", campaign: "", year: "", status: "Placeholder", confirmed: false },
 ] as const;
 
 function RecognitionSection() {
@@ -330,6 +331,137 @@ function RecognitionSection() {
   );
 }
 
+// ─── Stats breakdown grid ──────────────────────────────────────────────────────
+
+const STAT_CASES = [
+  {
+    sector: "Financial Services",
+    client: "Scottish Widows",
+    multiplier: "9×",
+    label: "Triple-channel vs organic",
+    stats: [
+      { value: "2.4×",   desc: "CPD improvement over campaign" },
+      { value: "51%",    desc: "below target CPD"              },
+      { value: "+53%",   desc: "direct mail amplification"     },
+      { value: "£3:1",   desc: "ROAS"                          },
+    ],
+  },
+  {
+    sector: "Automotive",
+    client: "Kia EV2 / Innocean",
+    multiplier: "5.5×",
+    label: "Cost per visit improvement",
+    stats: [
+      { value: "+100.6%", desc: "incremental test drives"   },
+      { value: "12×",     desc: "weekly site visit growth"  },
+      { value: "+20.3%",  desc: "brand awareness"           },
+      { value: "−74%",    desc: "cost per site visit"       },
+    ],
+  },
+  {
+    sector: "Retail / DTC",
+    client: "Wonderbly",
+    multiplier: "7.7×",
+    label: "Cost per order improvement",
+    stats: [
+      { value: "87%",  desc: "reduction in cost per order" },
+      { value: "+36%", desc: "brand awareness lift"        },
+      { value: "✓",    desc: "positive ROAS confirmed"     },
+    ],
+  },
+  {
+    sector: "Sports Streaming",
+    client: "DAZN",
+    multiplier: "2–5×",
+    label: "Performance via optimisation",
+    stats: [
+      { value: "+33.2%", desc: "purchase consideration lift"    },
+      { value: "8.9%",   desc: "subscriptions attributed to CTV" },
+      { value: "✓",      desc: "positive ROAS confirmed"         },
+    ],
+  },
+] as const;
+
+function StatsGrid() {
+  const ref    = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <div style={{ background: "#f0f8fb" }}>
+      <div className="h-px" style={{ background: "rgba(58,174,206,0.25)" }} />
+      <div className="section-padding">
+        <div className="container-main" ref={ref}>
+
+          <div className="mb-10">
+            <motion.h2
+              className="font-bold leading-tight text-[#0d2535]"
+              style={{ fontSize: "clamp(1.75rem,3vw,2.5rem)" }}
+              initial={{ opacity: 0, y: 14 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}>
+              Consistently 2–9× performance improvement.
+            </motion.h2>
+            <motion.p
+              className="mt-2 font-semibold"
+              style={{ fontSize: "1.125rem", color: "#3aaece" }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.15, duration: 0.5 }}>
+              Across every sector we operate in.
+            </motion.p>
+            <motion.p
+              className="mt-3 text-xs text-[#9ca3af]"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.25, duration: 0.5 }}>
+              The following multipliers are derived from audited campaign results. Each uses geo holdout or independent uplift methodology.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px"
+            style={{ background: "rgba(58,174,206,0.15)", border: "1px solid rgba(58,174,206,0.15)", borderRadius: "1rem", overflow: "hidden" }}>
+            {STAT_CASES.map((c, i) => (
+              <motion.div
+                key={c.client}
+                className="bg-white flex flex-col p-6 gap-4"
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 + i * 0.1, duration: 0.55 }}>
+
+                {/* Sector + client */}
+                <div>
+                  <p className="text-[9px] font-bold tracking-[0.16em] uppercase text-[#3aaece] mb-1">{c.sector}</p>
+                  <p className="text-sm font-bold text-[#0d2535]">{c.client}</p>
+                </div>
+
+                {/* Multiplier */}
+                <div>
+                  <p className="font-bold leading-none text-[#0d2535]" style={{ fontSize: "3rem" }}>{c.multiplier}</p>
+                  <p className="mt-1 text-xs font-medium text-[#3aaece]">{c.label}</p>
+                </div>
+
+                <div className="h-px bg-[#f3f4f6]" />
+
+                {/* Stats */}
+                <div className="flex flex-col gap-2.5">
+                  {c.stats.map((s) => (
+                    <div key={s.desc} className="flex items-baseline gap-2">
+                      <span className="text-sm font-bold text-[#0d2535] shrink-0 w-14 tabular-nums">{s.value}</span>
+                      <span className="text-xs text-[#6b7280] leading-snug">{s.desc}</span>
+                    </div>
+                  ))}
+                </div>
+
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Case studies ──────────────────────────────────────────────────────────────
 
 function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
@@ -405,50 +537,35 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   Campaign outcomes
                 </p>
 
-                {/* Metric 1 */}
+                {/* Stats grid */}
+                {[
+                  { value: "2.4×",  label: "CPD improvement over campaign" },
+                  { value: "51%",   label: "Below target CPD"              },
+                  { value: "+53%",  label: "Direct mail amplification"     },
+                  { value: "£3:1",  label: "ROAS"                          },
+                ].map((s, i) => (
+                  <motion.div key={s.value}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}>
+                    <div className="flex items-baseline gap-3 py-4"
+                      style={{ borderBottom: i < 3 ? "1px solid rgba(58,174,206,0.12)" : "none" }}>
+                      <span className="font-bold text-[#0d2535] shrink-0" style={{ fontSize: "1.75rem", minWidth: "4.5rem" }}>
+                        {s.value}
+                      </span>
+                      <span className="text-sm text-[#4b5563] leading-snug">{s.label}</span>
+                    </div>
+                  </motion.div>
+                ))}
+
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                >
-                  <p className="font-bold leading-none text-[#0d2535]" style={{ fontSize: "2.5rem" }}>
-                    <CountUp prefix="£" end={3} inView={inView} />
-                  </p>
-                  <p className="mt-1.5 text-sm text-[#4b5563]">Return on ad spend</p>
-                  <p className="mt-0.5 text-xs text-[#9ca3af]">ROAS</p>
-                </motion.div>
-
-                <div className="my-6 h-px" style={{ background: "rgba(58,174,206,0.15)" }} />
-
-                {/* Metric 2 */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.55, duration: 0.5 }}
-                >
-                  <p className="font-bold leading-none text-[#0d2535]" style={{ fontSize: "2.5rem" }}>
-                    <CountUp end={81} suffix="%" inView={inView} />
-                  </p>
-                  <p className="mt-1.5 text-sm text-[#4b5563]">Cost efficiency improvement</p>
-                  <p className="mt-0.5 text-xs text-[#9ca3af]">vs. prior activity</p>
-                </motion.div>
-
-                <div className="my-6 h-px" style={{ background: "rgba(58,174,206,0.15)" }} />
-
-                {/* Insight */}
-                <motion.div
-                  className="rounded-xl px-5 py-4"
+                  className="mt-4 rounded-xl px-5 py-4"
                   style={{ background: "rgba(58,174,206,0.08)", border: "1px solid rgba(58,174,206,0.15)" }}
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                >
-                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3aaece] mb-2">
-                    Key insight
-                  </p>
-                  <p className="text-sm leading-relaxed text-[#0d2535]">
-                    TV outperformed every other channel in the media mix.
-                  </p>
+                  transition={{ delay: 0.8, duration: 0.5 }}>
+                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3aaece] mb-2">Key insight</p>
+                  <p className="text-sm leading-relaxed text-[#0d2535]">TV outperformed every other channel in the media mix.</p>
                 </motion.div>
               </motion.div>
             </div>
@@ -724,46 +841,34 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   Campaign outcomes
                 </p>
 
-                {/* Metric 1 */}
+                {/* Stats grid */}
+                {[
+                  { value: "+33.2%", label: "Purchase consideration lift"      },
+                  { value: "8.9%",   label: "Subscriptions attributed to CTV"  },
+                  { value: "✓",      label: "Positive ROAS confirmed"           },
+                ].map((s, i) => (
+                  <motion.div key={s.value}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}>
+                    <div className="flex items-baseline gap-3 py-4"
+                      style={{ borderBottom: i < 2 ? "1px solid rgba(58,174,206,0.12)" : "none" }}>
+                      <span className="font-bold shrink-0" style={{ fontSize: "1.75rem", minWidth: "4.5rem", color: s.value === "✓" ? "#3aaece" : "#0d2535" }}>
+                        {s.value}
+                      </span>
+                      <span className="text-sm text-[#4b5563] leading-snug">{s.label}</span>
+                    </div>
+                  </motion.div>
+                ))}
+
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                >
-                  <p className="font-bold leading-none text-[#0d2535]" style={{ fontSize: "2.5rem" }}>
-                    <CountUp end={10000} suffix="+" format inView={inView} />
-                  </p>
-                  <p className="mt-1.5 text-sm text-[#4b5563]">Subscriptions driven</p>
-                  <p className="mt-0.5 text-xs text-[#9ca3af]">Direct from CTV campaign</p>
-                </motion.div>
-
-                <div className="my-6 h-px" style={{ background: "rgba(58,174,206,0.15)" }} />
-
-                {/* Metric 2 */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.55, duration: 0.5 }}
-                >
-                  <p className="font-bold leading-none text-[#3aaece]" style={{ fontSize: "2.5rem" }}>✓</p>
-                  <p className="mt-1.5 text-sm text-[#4b5563]">Household brand uplift captured</p>
-                  <p className="mt-0.5 text-xs text-[#9ca3af]">Fed into next campaign cycle</p>
-                </motion.div>
-
-                <div className="my-6 h-px" style={{ background: "rgba(58,174,206,0.15)" }} />
-
-                {/* Insight */}
-                <motion.div
-                  className="rounded-xl px-5 py-4"
+                  className="mt-4 rounded-xl px-5 py-4"
                   style={{ background: "rgba(58,174,206,0.08)", border: "1px solid rgba(58,174,206,0.15)" }}
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                >
+                  transition={{ delay: 0.7, duration: 0.5 }}>
                   <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3aaece] mb-2">Key insight</p>
-                  <p className="text-sm leading-relaxed text-[#0d2535]">
-                    Optimising daily towards likely boxing fans — not broad sports audiences — made the difference.
-                  </p>
+                  <p className="text-sm leading-relaxed text-[#0d2535]">Optimising daily towards likely boxing fans — not broad sports audiences — made the difference.</p>
                 </motion.div>
               </motion.div>
             </div>

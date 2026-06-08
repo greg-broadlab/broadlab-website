@@ -5,9 +5,8 @@ import { motion, useInView } from "framer-motion";
 import AudienceGraphDashboard from "@/components/ui/AudienceGraphDashboard";
 
 const NUMBERS = [
-  { value: "1.8M", label: "UK postcodes" },
-  { value: "5,000+", label: "Attributes per record" },
-  { value: "32M", label: "US Zip+4" },
+  { value: "60.3M", label: "Geo keys" },
+  { value: "7,000+", label: "Attributes per record" },
 ] as const;
 
 export default function AudienceGraphSection() {
@@ -38,7 +37,7 @@ export default function AudienceGraphSection() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
               transition={{ delay: 0.1, duration: 0.6 }}
             >
-              The foundation everything else is built on.
+              The foundation for effective CTV.
             </motion.h2>
 
             <motion.p
@@ -47,8 +46,7 @@ export default function AudienceGraphSection() {
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Every UK postcode and US Zip+4 mapped across 5,000+ demographic,
-              behavioural and viewership attributes. AI-powered audience intelligence, privacy-safe via Snowflake.
+              60.3 million geo keys mapped across 7,000+ demographic, behavioural and viewership attributes. AI-powered audience intelligence, privacy-safe via Snowflake.
             </motion.p>
 
             {/* Clean stat row — no pills, just numbers */}
@@ -74,6 +72,7 @@ export default function AudienceGraphSection() {
 
           {/* Dashboard */}
           <motion.div
+            className="mx-auto max-w-3xl"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 24 }}
             transition={{ delay: 0.4, duration: 0.7 }}

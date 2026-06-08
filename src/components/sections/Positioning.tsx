@@ -8,7 +8,7 @@ const CAPABILITIES = [
   {
     n: "01",
     name: "Audience Graph",
-    desc: "1.8M UK postcodes. 5,000+ attributes. One privacy-safe view of your audience, consistent across every platform.",
+    desc: "A privacy-safe, geo-based system for building accurate audiences from 60.3 million geo keys and 7,000+ attributes — consistent across every platform.",
   },
   {
     n: "02",
@@ -59,7 +59,7 @@ export default function Positioning() {
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
                 transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                One system.<br />Four capabilities.
+                Fragmentation of<br />the TV landscape.
               </motion.h2>
 
               <motion.p

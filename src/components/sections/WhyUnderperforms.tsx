@@ -6,17 +6,17 @@ import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 const BARRIERS = [
   {
     n: "01",
-    title: "Too many platforms, no single view",
+    title: "Fragmentation",
     desc: "CTV is bought across multiple platforms with duplicate audiences, no unified reporting and no clear picture of what's actually working.",
   },
   {
     n: "02",
-    title: "No one owns it properly",
+    title: "Focus",
     desc: "CTV falls between TV and digital teams, so it rarely gets the strategic focus or planning logic the channel deserves.",
   },
   {
     n: "03",
-    title: "The wrong metrics",
+    title: "Metrics",
     desc: "Most CTV is still measured on delivery — impressions, completions, CPM — not on what it does for the business.",
   },
 ];
@@ -106,7 +106,7 @@ function BarrierCard({ barrier, index, inView }: {
         >
           {barrier.n}
         </span>
-        <h3 className="font-semibold text-[#0d2535] text-base leading-snug">
+        <h3 className="font-semibold text-[#0d2535] text-xl leading-snug">
           {barrier.title}
         </h3>
         <p className="text-sm leading-relaxed text-[#4b5563]">

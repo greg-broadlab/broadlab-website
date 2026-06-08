@@ -9,28 +9,36 @@ const MAX_TILT = 10;
 
 const CASES = [
   {
-    id: "lloyds",
+    id: "scottish-widows",
     sector: "Financial Services",
-    client: "Lloyds Banking Group",
-    stat: "£3",
-    statSuffix: " ROAS",
-    label: "Return on ad spend",
+    client: "Scottish Widows",
+    stat: "9x",
+    statSuffix: "",
+    label: "Triple-channel vs organic",
   },
   {
-    id: "lenovo",
-    sector: "Technology",
-    client: "Lenovo",
-    stat: "22%",
+    id: "kia",
+    sector: "Automotive",
+    client: "Kia / Innocean",
+    stat: "5.5x",
     statSuffix: "",
-    label: "Awareness gain",
+    label: "Cost per visit improvement",
+  },
+  {
+    id: "wonderbly",
+    sector: "Retail / DTC",
+    client: "Wonderbly",
+    stat: "7.7x",
+    statSuffix: "",
+    label: "Cost per order improvement",
   },
   {
     id: "dazn",
-    sector: "Media & Entertainment",
+    sector: "Sports Streaming",
     client: "DAZN",
-    stat: "10,000+",
+    stat: "2–5x",
     statSuffix: "",
-    label: "Subscriptions driven",
+    label: "Performance via optimisation",
   },
 ] as const;
 
@@ -65,7 +73,7 @@ export default function OurWork() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {CASES.map((c, i) => (
               <CaseCard key={c.id} caseItem={c} index={i} />
             ))}
@@ -80,7 +88,7 @@ export default function OurWork() {
             transition={{ delay: 0.35, duration: 0.5 }}
           >
             <span className="text-xs font-medium text-[#9ca3af] mr-1">Also across</span>
-            {["Retail", "Automotive", "Sports Streaming", "B2B Tech", "Consumer Electronics"].map((s) => (
+            {["Technology", "B2B Tech", "Consumer Electronics", "Media & Entertainment"].map((s) => (
               <span
                 key={s}
                 className="rounded-full border border-[#d1d5db] px-3 py-1 text-xs font-medium text-[#6b7280]"
@@ -158,7 +166,7 @@ function CaseCard({
   }
 
   return (
-    <div style={{ perspective: "1000px" }}>
+    <div style={{ perspective: "1000px" }} className="h-full">
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}
@@ -166,7 +174,7 @@ function CaseCard({
         initial={{ opacity: 0, y: 32 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
         transition={{ delay: index * 0.15, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
-        className="relative flex flex-col gap-6 rounded-xl bg-white border border-[#e5e7eb] px-9 py-10 overflow-hidden"
+        className="relative flex flex-col gap-6 rounded-xl bg-white border border-[#e5e7eb] px-9 py-10 overflow-hidden h-full"
         style={{
           borderTop: "2px solid #3aaece",
           boxShadow: "0 4px 24px rgba(16,101,127,0.06)",

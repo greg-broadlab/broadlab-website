@@ -11,6 +11,15 @@ const nextConfig: NextConfig = {
     CONTACT_FROM_EMAIL:    process.env.CONTACT_FROM_EMAIL    ?? "",
     CONTACT_TO_EMAIL:      process.env.CONTACT_TO_EMAIL      ?? "",
   },
+  async redirects() {
+    return [
+      {
+        source: "/platform",
+        destination: "/solutions",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -29,7 +29,7 @@
   --color-bg-border: #e5e7eb;
 
   /* Text */
-  --color-text: #0d2535;
+  --color-text: #111827;
   --color-text-muted: #4b5563;
   --color-text-subtle: #9ca3af;
 
@@ -244,11 +244,11 @@ body {
   --border: #e5e7eb;
   --input: #e5e7eb;
   --ring: #3aaece;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --chart-1: #10657f;
+  --chart-2: #1e4f80;
+  --chart-3: #4c2fa8;
+  --chart-4: #c83b2a;
+  --chart-5: #3aaece;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);

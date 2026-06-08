@@ -37,7 +37,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
     <div className="flex items-center justify-center py-4">
       <motion.svg
         viewBox="0 0 360 360"
-        className="w-full max-w-[300px] sm:max-w-[340px]"
+        className="w-full max-w-[420px] sm:max-w-[500px]"
         aria-hidden="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: inView ? 1 : 0 }}
@@ -235,7 +235,7 @@ export default function SystemHero() {
 
       <div className="section-padding relative z-10">
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16 items-center">
 
             {/* Left — copy */}
             <div>

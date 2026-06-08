@@ -7,13 +7,13 @@ import { ArrowRight } from "lucide-react";
 const STEPS = [
   {
     n: "01",
-    title: "Build the audience foundation",
-    desc: "Use the Audience Graph to create a cleaner, more accurate planning and measurement base.",
+    title: "Define the right outcomes",
+    desc: "Align measurement to the outcomes that matter most — brand, search, conversion or footfall.",
   },
   {
     n: "02",
-    title: "Define the right outcomes",
-    desc: "Align measurement to the outcomes that matter most — brand, search, conversion or footfall.",
+    title: "Solution design",
+    desc: "Design the full campaign system around the defined outcomes — audience, supply, creative and measurement all aligned from the start.",
   },
   {
     n: "03",
@@ -55,7 +55,7 @@ export default function HowWeWork() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
               transition={{ delay: 0.1, duration: 0.6 }}
             >
-              How the system works
+              How the BroadLab system works
             </motion.h2>
             <motion.p
               className="mt-5 max-w-xl mx-auto"
@@ -198,10 +198,10 @@ export default function HowWeWork() {
               style={{ top: 36 }}
             >
               {[
-                ["Better audience inputs improve", "measurement"],
+                ["Better audience insights improve", "outcomes"],
                 ["Better measurement improves", "optimisation"],
                 ["Better optimisation creates stronger", "learning"],
-                ["Stronger learning feeds", "the next campaign"],
+                ["Stronger learning feeds", "compound effectiveness"],
               ].map(([prefix, highlight], i) => (
                 <div key={i} className="flex flex-col items-center">
                   <motion.p

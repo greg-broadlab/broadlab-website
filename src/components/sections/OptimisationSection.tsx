@@ -9,10 +9,10 @@ const TABS = [
     label: "Audience",
     sublabel: "Delivery split by audience segment",
     bars: [
-      { label: "ABC1 professionals",     pct: 74 },
-      { label: "Homeowners 35–54",        pct: 61 },
-      { label: "High household income",   pct: 53 },
-      { label: "Family households",       pct: 38 },
+      { label: "Digital-first Pet Parents",       pct: 74 },
+      { label: "Established Empty Nesters",       pct: 61 },
+      { label: "Practical Pet Enthusiasts",       pct: 53 },
+      { label: "Premium Pet Pamperers",           pct: 38 },
     ],
   },
   {
@@ -127,7 +127,7 @@ export default function OptimisationSection() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
               transition={{ delay: 0.12, duration: 0.6 }}
             >
-              Every lever. Adjusted every day.
+              Every lever. Analysed every day.
             </motion.h2>
             <motion.p
               className="mt-5 text-[1.0625rem] leading-relaxed text-[#4b5563]"

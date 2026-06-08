@@ -186,7 +186,7 @@ export default function AudienceGraphDashboard() {
       {/* Status bar */}
       <div className="flex items-center justify-between px-4 py-2 bg-[#eaf6fb] border-t border-[#e5e7eb]">
         <span className="text-[9px] font-medium text-[#9ca3af] tracking-wide">
-          1.8M Postcodes · 5,000+ Attributes · Updated daily
+          60.3M Geo Keys · 7,000+ Attributes · Updated daily
         </span>
         <span className="text-[9px] font-semibold text-[#10657f]/40 tracking-[0.08em] uppercase">
           Powered by Snowflake

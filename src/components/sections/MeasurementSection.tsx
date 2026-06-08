@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const OUTCOMES = [
-  { label: "Brand Lift",    sub: "Awareness and consideration" },
-  { label: "Search Uplift", sub: "Incremental branded search"  },
-  { label: "Conversion",    sub: "Online and offline sales"    },
-  { label: "Footfall",      sub: "In-store visits"             },
+  { label: "Brand Lift",    sub: "Awareness and consideration", desc: "Measured via panel surveys, tracked daily while campaigns are live."         },
+  { label: "Search Uplift", sub: "Incremental branded search",  desc: "Branded keyword uplift measured against a matched control group."            },
+  { label: "Conversion",    sub: "Online and offline sales",    desc: "Purchase attribution across digital and in-store events."                   },
+  { label: "Footfall",      sub: "In-store visits",             desc: "Incremental store visits measured via geo holdout and location panel data."  },
 ] as const;
 
 const BARS = [
@@ -102,10 +102,11 @@ export default function MeasurementSection() {
                 {OUTCOMES.map((o) => (
                   <div
                     key={o.label}
-                    className="rounded-lg border border-[#3aaece]/25 bg-white px-4 py-3"
+                    className="rounded-lg border border-[#3aaece]/25 bg-white px-4 py-4"
                   >
                     <p className="text-sm font-semibold text-[#0d2535]">{o.label}</p>
                     <p className="mt-0.5 text-xs text-[#6b7280]">{o.sub}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-[#9ca3af]">{o.desc}</p>
                   </div>
                 ))}
               </motion.div>
@@ -160,6 +161,7 @@ export default function MeasurementSection() {
             </motion.div>
 
           </div>
+
         </div>
       </div>
     </section>
