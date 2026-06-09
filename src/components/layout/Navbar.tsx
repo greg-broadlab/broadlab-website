@@ -56,7 +56,7 @@ export default function Navbar() {
               href={link.href}
               className={`text-sm font-medium transition-colors duration-200 ${
                 isActive(link.href)
-                  ? "text-[#0d2535] font-semibold underline underline-offset-4 decoration-[#3aaece]"
+                  ? "text-[#0d2535] font-semibold underline underline-offset-4 decoration-[#3a6682]"
                   : "text-[#4b5563] hover:text-[#0d2535]"
               }`}
             >
@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/contact#contact"
-            className="px-5 py-2.5 rounded-full bg-[#10657f] text-white text-sm font-semibold hover:bg-[#0d2535] transition-colors duration-200"
+            className="px-5 py-2.5 rounded-full bg-[#3a6682] text-white text-sm font-semibold hover:bg-[#0d2535] transition-colors duration-200"
           >
             Book a consultation
           </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 px-5 py-2.5 rounded-full bg-[#10657f] text-white text-sm font-semibold text-center hover:bg-[#0d2535] transition-colors duration-200"
+            className="mt-2 px-5 py-2.5 rounded-full bg-[#3a6682] text-white text-sm font-semibold text-center hover:bg-[#0d2535] transition-colors duration-200"
           >
             Book a consultation
           </Link>

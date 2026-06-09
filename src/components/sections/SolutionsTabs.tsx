@@ -43,17 +43,17 @@ function MarketplacesCard() {
   ];
   return (
     <div className="rounded-2xl bg-white border border-[#e5e7eb] p-5 overflow-hidden"
-      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(16,101,127,0.07)" }}>
+      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(58,102,130,0.07)" }}>
       <div className="grid grid-cols-3 gap-4 h-full">
         {regions.map((r) => (
           <div key={r.name} className="overflow-hidden">
-            <p className="text-[10px] font-bold tracking-[0.14em] text-[#3aaece] mb-2">{r.name}</p>
+            <p className="text-[10px] font-bold tracking-[0.14em] text-[#3a6682] mb-2">{r.name}</p>
             <div className="h-px bg-[#e5e7eb] mb-3" />
             <div className="flex flex-wrap gap-1.5">
               {r.publishers.map((p) => (
                 <span key={p}
                   className="text-[10px] font-semibold px-2 py-1 rounded-lg"
-                  style={{ background: "#10657f", color: "white" }}>
+                  style={{ background: "#3a6682", color: "white" }}>
                   {p}
                 </span>
               ))}
@@ -73,17 +73,17 @@ function IdentityCard() {
   ];
   return (
     <div className="rounded-2xl bg-white border border-[#e5e7eb] p-6 flex flex-col gap-4 overflow-hidden"
-      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(16,101,127,0.07)" }}>
+      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(58,102,130,0.07)" }}>
 
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-[10px] font-bold tracking-[0.14em] text-[#3aaece] uppercase">Audience Profile</p>
+          <p className="text-[10px] font-bold tracking-[0.14em] text-[#3a6682] uppercase">Audience Profile</p>
           <p className="text-xs font-semibold text-[#0d2535] mt-0.5">#GB-SW1A-0012</p>
         </div>
-        <span className="flex items-center gap-1.5 text-[10px] font-semibold text-[#3aaece] px-2.5 py-1 rounded-full"
-          style={{ background: "rgba(58,174,206,0.08)", border: "1px solid rgba(58,174,206,0.2)" }}>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#3aaece]" />
+        <span className="flex items-center gap-1.5 text-[10px] font-semibold text-[#3a6682] px-2.5 py-1 rounded-full"
+          style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.2)" }}>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#3a6682]" />
           Privacy-safe
         </span>
       </div>
@@ -96,7 +96,7 @@ function IdentityCard() {
           <div key={d.source} className="flex items-center gap-3 py-2 px-3 rounded-xl"
             style={{ background: "#f9fafb", border: "1px solid #f3f4f6" }}>
             <span className="text-[9px] font-bold px-2 py-1 rounded shrink-0 text-white"
-              style={{ background: "#10657f" }}>{d.source}</span>
+              style={{ background: "#3a6682" }}>{d.source}</span>
             <span className="text-xs text-[#6b7280] flex-1">{d.label}</span>
             <span className="text-xs font-semibold text-[#0d2535]">{d.value}</span>
           </div>
@@ -130,15 +130,15 @@ function BCAPCard() {
   ];
   return (
     <div className="rounded-2xl bg-white border border-[#e5e7eb] overflow-hidden flex"
-      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(16,101,127,0.07)" }}>
+      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(58,102,130,0.07)" }}>
       {/* Sidebar */}
       <div className="w-10 flex flex-col items-center gap-3 py-4 shrink-0"
         style={{ background: "#f8fafc", borderRight: "1px solid #e5e7eb" }}>
         {["◉","⊞","≡","⊙","▤"].map((icon, i) => (
           <button key={i} onClick={() => setActiveNav(i)}
             className="w-7 h-7 flex items-center justify-center rounded-lg text-[11px] transition-colors"
-            style={{ background: activeNav === i ? "rgba(58,174,206,0.1)" : "transparent",
-                     color: activeNav === i ? "#3aaece" : "#9ca3af" }}>
+            style={{ background: activeNav === i ? "rgba(58,102,130,0.1)" : "transparent",
+                     color: activeNav === i ? "#3a6682" : "#9ca3af" }}>
             {icon}
           </button>
         ))}
@@ -154,8 +154,8 @@ function BCAPCard() {
           {navItems.map((n, i) => (
             <button key={n} onClick={() => setActiveNav(i)}
               className="text-[10px] font-semibold px-3 py-1.5 transition-colors"
-              style={{ borderBottom: activeNav === i ? "2px solid #3aaece" : "2px solid transparent",
-                       color: activeNav === i ? "#3aaece" : "#9ca3af" }}>
+              style={{ borderBottom: activeNav === i ? "2px solid #3a6682" : "2px solid transparent",
+                       color: activeNav === i ? "#3a6682" : "#9ca3af" }}>
               {n}
             </button>
           ))}
@@ -167,12 +167,12 @@ function BCAPCard() {
               <div key={s.name} className="flex items-center gap-2 py-2"
                 style={{ borderBottom: "1px solid #f9fafb" }}>
                 <span className="w-1.5 h-1.5 rounded-full shrink-0"
-                  style={{ background: s.meas ? "#3aaece" : "#d1d5db" }} />
+                  style={{ background: s.meas ? "#3a6682" : "#d1d5db" }} />
                 <span className="text-[11px] font-semibold text-[#0d2535] flex-1 truncate">{s.name}</span>
                 <span className="text-[10px] text-[#6b7280]">{s.cpm}</span>
                 <span className="text-[9px] font-medium px-1.5 py-0.5 rounded text-[#6b7280]"
                   style={{ background: "#f3f4f6" }}>{s.type}</span>
-                <span className="text-[10px] font-bold" style={{ color: s.meas ? "#3aaece" : "#d1d5db" }}>
+                <span className="text-[10px] font-bold" style={{ color: s.meas ? "#3a6682" : "#d1d5db" }}>
                   {s.meas ? "✓" : "✗"}
                 </span>
               </div>
@@ -195,11 +195,11 @@ function OptimisationCard() {
   ];
   return (
     <div className="rounded-2xl bg-white border border-[#e5e7eb] p-5 overflow-hidden"
-      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(16,101,127,0.07)" }}>
+      style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(58,102,130,0.07)" }}>
       <div className="flex items-center justify-between mb-5">
         <p className="text-[10px] font-bold tracking-[0.14em] text-[#9ca3af] uppercase">Live optimisation</p>
-        <span className="flex items-center gap-1.5 text-[9px] font-bold text-[#3aaece]">
-          <motion.span className="w-1.5 h-1.5 rounded-full bg-[#3aaece]"
+        <span className="flex items-center gap-1.5 text-[9px] font-bold text-[#3a6682]">
+          <motion.span className="w-1.5 h-1.5 rounded-full bg-[#3a6682]"
             animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.5, repeat: Infinity }} />
           RUNNING
@@ -211,13 +211,13 @@ function OptimisationCard() {
             <div className="flex items-center justify-between mb-1">
               <span className="text-[10px] font-medium text-[#4b5563]">{lever.name}</span>
               <span className="text-[10px] font-bold"
-                style={{ color: lever.change.startsWith("+") ? "#3aaece" : "#f59e0b" }}>
+                style={{ color: lever.change.startsWith("+") ? "#3a6682" : "#f59e0b" }}>
                 {lever.change}
               </span>
             </div>
             <div className="h-1.5 bg-[#f3f4f6] rounded-full overflow-hidden">
               <motion.div className="h-full rounded-full"
-                style={{ background: lever.change.startsWith("+") ? "#3aaece" : "#10657f" }}
+                style={{ background: lever.change.startsWith("+") ? "#3a6682" : "#3a6682" }}
                 initial={{ width: 0 }}
                 animate={{ width: `${lever.pct}%` }}
                 transition={{ delay: i * 0.08, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }} />
@@ -285,7 +285,7 @@ export default function SolutionsTabs() {
                 {active === i && !paused && inView && (
                   <motion.div
                     key={`${active}-progress`}
-                    className="absolute bottom-0 left-0 h-0.5 bg-[#3aaece]"
+                    className="absolute bottom-0 left-0 h-0.5 bg-[#3a6682]"
                     style={{ transformOrigin: "left", width: "100%" }}
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
@@ -309,7 +309,7 @@ export default function SolutionsTabs() {
 
               {/* Left - copy */}
               <div className="flex flex-col justify-center" style={{ minHeight: CARD_HEIGHT }}>
-                <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#3aaece] mb-5">
+                <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#3a6682] mb-5">
                   {String(active + 1).padStart(2, "0")} / {TABS[active].label}
                 </p>
                 <h2 className="font-bold leading-tight text-[#0d2535]"

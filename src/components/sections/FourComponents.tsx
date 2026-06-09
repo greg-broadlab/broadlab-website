@@ -13,7 +13,7 @@ function sr(seed: number) {
 function MiniHeatmap() {
   const ROWS = 4;
   const COLS = 7;
-  const PALETTE = ["#eaf6fb", "rgba(58,174,206,0.25)", "rgba(58,174,206,0.55)", "#10657f"];
+  const PALETTE = ["#eaf6fb", "rgba(58,102,130,0.25)", "rgba(58,102,130,0.55)", "#3a6682"];
   const grid = Array.from({ length: ROWS }, (_, r) =>
     Array.from({ length: COLS }, (_, c) => Math.min(3, Math.floor(sr(r * 13 + c) * 4)))
   );
@@ -53,7 +53,7 @@ function MiniSupplyGrid() {
             style={{
               width: 13,
               height: b.h,
-              backgroundColor: `rgba(58,174,206,${b.o})`,
+              backgroundColor: `rgba(58,102,130,${b.o})`,
             }}
           />
         ))}
@@ -75,8 +75,8 @@ function MiniHoldout() {
           className="w-10 rounded-sm"
           style={{
             height: 20,
-            background: "rgba(58,174,206,0.15)",
-            border: "1px solid rgba(58,174,206,0.3)",
+            background: "rgba(58,102,130,0.15)",
+            border: "1px solid rgba(58,102,130,0.3)",
           }}
         />
         <span
@@ -91,11 +91,11 @@ function MiniHoldout() {
       <div className="flex flex-col items-center gap-1.5 justify-end">
         <div
           className="w-10 rounded-sm"
-          style={{ height: 52, background: "rgba(58,174,206,0.7)" }}
+          style={{ height: 52, background: "rgba(58,102,130,0.7)" }}
         />
         <span
           className="text-[7.5px] font-semibold tracking-[0.08em]"
-          style={{ color: "#3aaece" }}
+          style={{ color: "#3a6682" }}
         >
           CTV
         </span>
@@ -104,8 +104,8 @@ function MiniHoldout() {
       {/* Delta indicator */}
       <div className="flex flex-col items-center justify-end pb-5">
         <svg width="14" height="36" viewBox="0 0 14 36" aria-hidden="true">
-          <line x1="7" y1="2" x2="7" y2="34" stroke="rgba(58,174,206,0.35)" strokeWidth="1" strokeDasharray="2.5 2" />
-          <path d="M 3,6 L 7,2 L 11,6" stroke="rgba(58,174,206,0.6)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <line x1="7" y1="2" x2="7" y2="34" stroke="rgba(58,102,130,0.35)" strokeWidth="1" strokeDasharray="2.5 2" />
+          <path d="M 3,6 L 7,2 L 11,6" stroke="rgba(58,102,130,0.6)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <span className="text-[10px] font-bold" style={{ color: "#0d2535" }}>Δ</span>
       </div>
@@ -121,11 +121,11 @@ function MiniLoop() {
   return (
     <svg width="96" height="72" viewBox="0 0 96 72" aria-hidden="true">
       {/* Axis */}
-      <line x1="0" y1="58" x2="88" y2="58" stroke="rgba(16,101,127,0.12)" strokeWidth="1" />
+      <line x1="0" y1="58" x2="88" y2="58" stroke="rgba(58,102,130,0.12)" strokeWidth="1" />
       {/* Dashed linear reference */}
       <line
         x1="0" y1="52" x2="80" y2="8"
-        stroke="rgba(58,174,206,0.15)"
+        stroke="rgba(58,102,130,0.15)"
         strokeWidth="1"
         strokeDasharray="3 3"
       />
@@ -133,18 +133,18 @@ function MiniLoop() {
       <polyline
         points={line}
         fill="none"
-        stroke="#3aaece"
+        stroke="#3a6682"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       {/* Campaign dots */}
       {pts.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r={i === 0 ? 2.5 : 3.5} fill={i === 0 ? "rgba(58,174,206,0.35)" : "#3aaece"} />
+        <circle key={i} cx={x} cy={y} r={i === 0 ? 2.5 : 3.5} fill={i === 0 ? "rgba(58,102,130,0.35)" : "#3a6682"} />
       ))}
       {/* "Campaign N" label on last dot */}
-      <text x="64" y="16" fill="rgba(58,174,206,0.45)" fontSize={7} fontWeight={600}>C4</text>
-      <text x="2" y="48" fill="rgba(58,174,206,0.3)" fontSize={7} fontWeight={600}>C1</text>
+      <text x="64" y="16" fill="rgba(58,102,130,0.45)" fontSize={7} fontWeight={600}>C4</text>
+      <text x="2" y="48" fill="rgba(58,102,130,0.3)" fontSize={7} fontWeight={600}>C1</text>
     </svg>
   );
 }
@@ -197,7 +197,7 @@ function ComponentCard({
   return (
     <motion.div
       className="flex flex-col rounded-xl border border-[#e5e7eb] bg-white p-7"
-      style={{ boxShadow: "0 2px 16px rgba(16,101,127,0.07)" }}
+      style={{ boxShadow: "0 2px 16px rgba(58,102,130,0.07)" }}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 24 }}
       transition={{ delay: index * 0.12, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
@@ -208,7 +208,7 @@ function ComponentCard({
       </div>
 
       {/* Step number */}
-      <p className="text-[0.6875rem] font-bold tracking-[0.14em] text-[#3aaece]/60 mb-1">
+      <p className="text-[0.6875rem] font-bold tracking-[0.14em] text-[#3a6682]/60 mb-1">
         {comp.step}
       </p>
 
@@ -226,7 +226,7 @@ function ComponentCard({
           <li key={b} className="flex items-center gap-2 text-xs text-[#4b5563]">
             <span
               className="h-1 w-1 rounded-full shrink-0"
-              style={{ backgroundColor: "#3aaece" }}
+              style={{ backgroundColor: "#3a6682" }}
             />
             {b}
           </li>

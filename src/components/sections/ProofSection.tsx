@@ -33,9 +33,9 @@ function useCountUp(end: number, duration: number, active: boolean) {
 function VisualROAS() {
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.18)" strokeWidth="1" />
-      <rect x="8"  y="28" width="24" height="16" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.3)" strokeWidth="1" />
-      <rect x="48" y="2"  width="24" height="42" rx="2" fill="rgba(58,174,206,0.7)" />
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,102,130,0.18)" strokeWidth="1" />
+      <rect x="8"  y="28" width="24" height="16" rx="2" fill="rgba(58,102,130,0.18)" stroke="rgba(58,102,130,0.3)" strokeWidth="1" />
+      <rect x="48" y="2"  width="24" height="42" rx="2" fill="rgba(58,102,130,0.7)" />
     </svg>
   );
 }
@@ -43,9 +43,9 @@ function VisualROAS() {
 function VisualCostReduction() {
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.18)" strokeWidth="1" />
-      <rect x="8"  y="2"  width="24" height="42" rx="2" fill="rgba(58,174,206,0.18)" stroke="rgba(58,174,206,0.3)" strokeWidth="1" />
-      <rect x="56" y="38" width="16" height="6"  rx="2" fill="rgba(58,174,206,0.75)" />
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,102,130,0.18)" strokeWidth="1" />
+      <rect x="8"  y="2"  width="24" height="42" rx="2" fill="rgba(58,102,130,0.18)" stroke="rgba(58,102,130,0.3)" strokeWidth="1" />
+      <rect x="56" y="38" width="16" height="6"  rx="2" fill="rgba(58,102,130,0.75)" />
     </svg>
   );
 }
@@ -53,10 +53,10 @@ function VisualCostReduction() {
 function VisualFootfall() {
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,174,206,0.18)" strokeWidth="1" />
-      <rect x="8"  y="32" width="18" height="12" rx="2" fill="rgba(58,174,206,0.3)" />
-      <rect x="31" y="20" width="18" height="24" rx="2" fill="rgba(58,174,206,0.5)" />
-      <rect x="54" y="6"  width="18" height="38" rx="2" fill="rgba(58,174,206,0.75)" />
+      <line x1="0" y1="44" x2="80" y2="44" stroke="rgba(58,102,130,0.18)" strokeWidth="1" />
+      <rect x="8"  y="32" width="18" height="12" rx="2" fill="rgba(58,102,130,0.3)" />
+      <rect x="31" y="20" width="18" height="24" rx="2" fill="rgba(58,102,130,0.5)" />
+      <rect x="54" y="6"  width="18" height="38" rx="2" fill="rgba(58,102,130,0.75)" />
     </svg>
   );
 }
@@ -64,8 +64,8 @@ function VisualFootfall() {
 function VisualAttribution() {
   return (
     <svg width="80" height="48" viewBox="0 0 80 48" aria-hidden="true">
-      <rect x="4"  y="18" width="56" height="12" rx="2" fill="rgba(58,174,206,0.14)" stroke="rgba(58,174,206,0.25)" strokeWidth="1" />
-      <rect x="60" y="18" width="16" height="12" rx="2" fill="rgba(58,174,206,0.75)" />
+      <rect x="4"  y="18" width="56" height="12" rx="2" fill="rgba(58,102,130,0.14)" stroke="rgba(58,102,130,0.25)" strokeWidth="1" />
+      <rect x="60" y="18" width="16" height="12" rx="2" fill="rgba(58,102,130,0.75)" />
     </svg>
   );
 }
@@ -178,8 +178,8 @@ function CaseCard({
         className="relative flex flex-col gap-5 rounded-xl bg-white p-7 overflow-hidden"
         style={{
           border:    "1px solid #e5e7eb",
-          borderTop: "2px solid #3aaece",
-          boxShadow: "0 4px 24px rgba(16,101,127,0.06)",
+          borderTop: "2px solid #3a6682",
+          boxShadow: "0 4px 24px rgba(58,102,130,0.06)",
           rotateX: rotateXSpring,
           rotateY: rotateYSpring,
         }}
@@ -200,7 +200,7 @@ function CaseCard({
             x: glowXSpring,
             y: glowYSpring,
             opacity: glowOpacitySpring,
-            background: "radial-gradient(circle, rgba(58,174,206,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(58,102,130,0.12) 0%, transparent 70%)",
           }}
         />
 
@@ -239,12 +239,12 @@ export default function ProofSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden" style={{ background: "#f0f8fb" }}>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: "#eaf1f6" }}>
 
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.14) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.14) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -284,7 +284,7 @@ export default function ProofSection() {
           {/* Divider */}
           <motion.div
             className="mx-auto mt-16 h-px w-24"
-            style={{ background: "rgba(58,174,206,0.35)" }}
+            style={{ background: "rgba(58,102,130,0.35)" }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: inView ? 1 : 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}

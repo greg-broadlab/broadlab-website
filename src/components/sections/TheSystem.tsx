@@ -44,8 +44,8 @@ function GraphDiagram({ inView }: { inView: boolean }) {
       className="overflow-hidden rounded-2xl"
       style={{
         background: "#0d2535",
-        border: "1px solid rgba(58,174,206,0.15)",
-        boxShadow: "0 32px 80px rgba(13,37,53,0.15), 0 0 0 1px rgba(58,174,206,0.06)",
+        border: "1px solid rgba(58,102,130,0.15)",
+        boxShadow: "0 32px 80px rgba(13,37,53,0.15), 0 0 0 1px rgba(58,102,130,0.06)",
       }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px_1fr]">
@@ -64,13 +64,13 @@ function GraphDiagram({ inView }: { inView: boolean }) {
               transition={{ delay: 0.5 + i * 0.13, duration: 0.45 }}
             >
               <div className="flex items-start gap-3">
-                <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#3aaece]/50" />
+                <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#3a6682]/50" />
                 <div>
                   <p className="text-sm font-semibold text-white/80">{input.label}</p>
                   <p className="mt-0.5 text-[11px] leading-relaxed text-white/40">{input.desc}</p>
                 </div>
               </div>
-              <ArrowRight className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#3aaece]/50" />
+              <ArrowRight className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#3a6682]/50" />
             </motion.div>
           ))}
         </div>
@@ -79,11 +79,11 @@ function GraphDiagram({ inView }: { inView: boolean }) {
         <div
           className="relative flex flex-col items-center justify-center gap-5 px-8 py-10 text-center"
           style={{
-            borderLeft:  "1px solid rgba(58,174,206,0.12)",
-            borderRight: "1px solid rgba(58,174,206,0.12)",
+            borderLeft:  "1px solid rgba(58,102,130,0.12)",
+            borderRight: "1px solid rgba(58,102,130,0.12)",
             backgroundImage: [
-              "linear-gradient(rgba(58,174,206,0.06) 1px, transparent 1px)",
-              "linear-gradient(90deg, rgba(58,174,206,0.06) 1px, transparent 1px)",
+              "linear-gradient(rgba(58,102,130,0.06) 1px, transparent 1px)",
+              "linear-gradient(90deg, rgba(58,102,130,0.06) 1px, transparent 1px)",
             ].join(", "),
             backgroundSize: "22px 22px",
           }}
@@ -100,7 +100,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
           <motion.div
             className="pointer-events-none absolute inset-0"
             style={{
-              background: "radial-gradient(ellipse at center, rgba(58,174,206,0.08) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse at center, rgba(58,102,130,0.08) 0%, transparent 70%)",
             }}
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -114,7 +114,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
           >
             {/* Identity */}
             <div className="flex flex-col items-center gap-1.5">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#3aaece]/70">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#3a6682]/70">
                 Proprietary Engine
               </p>
               <p className="text-sm font-bold leading-snug text-white">
@@ -122,7 +122,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
               </p>
             </div>
 
-            <div className="h-px w-12 bg-[#3aaece]/20" />
+            <div className="h-px w-12 bg-[#3a6682]/20" />
 
             {/* Stats */}
             <div className="flex flex-col items-center gap-3">
@@ -138,7 +138,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
                 </p>
               </div>
 
-              <div className="h-px w-8 bg-[#3aaece]/15" />
+              <div className="h-px w-8 bg-[#3a6682]/15" />
 
               <div>
                 <p
@@ -153,17 +153,17 @@ function GraphDiagram({ inView }: { inView: boolean }) {
               </div>
             </div>
 
-            <div className="h-px w-12 bg-[#3aaece]/20" />
+            <div className="h-px w-12 bg-[#3a6682]/20" />
 
             {/* Data type pills */}
             <div className="flex flex-wrap justify-center gap-1.5">
               {DATA_TYPES.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full px-2.5 py-0.5 text-[9px] font-medium text-[#3aaece]/80"
+                  className="rounded-full px-2.5 py-0.5 text-[9px] font-medium text-[#3a6682]/80"
                   style={{
-                    background: "rgba(58,174,206,0.08)",
-                    border: "1px solid rgba(58,174,206,0.18)",
+                    background: "rgba(58,102,130,0.08)",
+                    border: "1px solid rgba(58,102,130,0.18)",
                   }}
                 >
                   {tag}
@@ -173,7 +173,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
 
             {/* Live badge */}
             <div className="flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#3aaece]" />
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#3a6682]" />
               <span className="text-[9px] tracking-wide text-white/40">Live · Updated daily</span>
             </div>
           </motion.div>
@@ -192,7 +192,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
               animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 14 }}
               transition={{ delay: 0.72 + i * 0.13, duration: 0.45 }}
             >
-              <ArrowRight className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#3aaece]/50" />
+              <ArrowRight className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#3a6682]/50" />
               <div>
                 <p className="text-sm font-semibold text-white/80">{output.label}</p>
                 <p className="mt-0.5 text-[11px] leading-relaxed text-white/40">{output.desc}</p>
@@ -271,7 +271,7 @@ export default function TheSystem() {
           <div className="mb-14 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-20">
             <div>
               <motion.p
-                className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#10657f]"
+                className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#3a6682]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ duration: 0.5 }}

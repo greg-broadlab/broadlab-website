@@ -39,7 +39,7 @@ function BrandIntro({ onComplete }: { onComplete: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] bg-[#f0f8fb] overflow-hidden"
+      className="fixed inset-0 z-[100] bg-[#eaf1f6] overflow-hidden"
       animate={{ y: phase >= 3 ? "-100%" : "0%" }}
       transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
     >
@@ -61,7 +61,7 @@ function BrandIntro({ onComplete }: { onComplete: () => void }) {
         Array.from({ length: PPS }, (_, pi) => (
           <motion.div
             key={`p-${si}-${pi}`}
-            className="absolute bg-[#3aaece] rounded-sm pointer-events-none"
+            className="absolute bg-[#6898b5] rounded-sm pointer-events-none"
             style={{ width: 14, height: 2, rotate: stream.rot }}
             initial={{ left: `${stream.ox}%`, top: `${stream.oy}%`, opacity: 0 }}
             animate={{ left: "50%", top: "50%", opacity: [0, 1, 1, 0] }}
@@ -86,9 +86,9 @@ function BrandIntro({ onComplete }: { onComplete: () => void }) {
 const ORBS = [
   {
     size: 700,
-    color: "#3aaece",
+    color: "#8fb3c8",
     blur: 160,
-    opacity: 0.13,
+    opacity: 0.18,
     x: "-10%",
     y: "-25%",
     drift: { x: 22, y: 18 },
@@ -96,9 +96,9 @@ const ORBS = [
   },
   {
     size: 500,
-    color: "#10657f",
+    color: "#3a6682",
     blur: 130,
-    opacity: 0.10,
+    opacity: 0.12,
     x: "60%",
     y: "30%",
     drift: { x: -20, y: -24 },
@@ -106,9 +106,9 @@ const ORBS = [
   },
   {
     size: 560,
-    color: "#3aaece",
+    color: "#6898b5",
     blur: 150,
-    opacity: 0.08,
+    opacity: 0.10,
     x: "25%",
     y: "50%",
     drift: { x: 16, y: -14 },
@@ -212,6 +212,15 @@ const DOT_CENTERS = LOGO_PATHS.map((d) => {
 const REPULSION_RADIUS = 70;
 const MAX_FORCE = 22;
 
+// Gradient: bottom dots lighter (#94b4c5), top dots darker (#3b6779)
+function dotColor(index: number): string {
+  const t = index / (LOGO_PATHS.length - 1);
+  const r = Math.round(148 + (59 - 148) * t);
+  const g = Math.round(180 + (103 - 180) * t);
+  const b = Math.round(197 + (121 - 197) * t);
+  return `rgb(${r},${g},${b})`;
+}
+
 function LogoDot({
   d,
   index,
@@ -225,7 +234,8 @@ function LogoDot({
   mouseX: MotionValue<number>;
   mouseY: MotionValue<number>;
 }) {
-  const baseOpacity = 0.65 - (index / 48) * 0.35;
+  // Bottom dots lighter/less opaque, top dots darker/more opaque — matches designer logo
+  const baseOpacity = 0.52 + (index / (LOGO_PATHS.length - 1)) * 0.40;
   const { cx, cy } = DOT_CENTERS[index];
 
   const repX = useMotionValue(0);
@@ -256,7 +266,7 @@ function LogoDot({
   return (
     <motion.path
       d={d}
-      fill="#3aaece"
+      fill={dotColor(index)}
       style={{ x: springX, y: springY }}
       initial={{ opacity: 0 }}
       animate={visible ? { opacity: baseOpacity } : { opacity: 0 }}
@@ -324,15 +334,16 @@ export default function Hero() {
     <>
       {showIntro && <BrandIntro onComplete={handleIntroComplete} />}
 
-      <section className="relative min-h-screen bg-white pt-16 md:pt-20 overflow-hidden flex items-center">
+      <section className="relative min-h-screen pt-16 md:pt-20 overflow-hidden flex items-center"
+        style={{ background: "linear-gradient(150deg, #dde8f0 0%, #eaf1f6 35%, #f4f8fb 65%, #ffffff 100%)" }}>
 
         {/* Dot grid */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(circle, #cce6f0 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #a8c4d4 1px, transparent 1px)",
             backgroundSize: "28px 28px",
-            opacity: 0.5,
+            opacity: 0.45,
           }}
         />
 
@@ -362,7 +373,7 @@ export default function Hero() {
                 transition={{ delay: 0.15, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 The CTV system that builds brands and drives{" "}
-                <span style={{ color: "#3aaece" }}>outcomes.</span>
+                <span style={{ color: "#3a6682" }}>outcomes.</span>
               </motion.h1>
 
               <motion.p

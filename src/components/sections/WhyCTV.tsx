@@ -140,8 +140,8 @@ function StatCard({
         transition={{ delay: index * 0.15, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
         className="relative flex flex-col gap-7 rounded-xl bg-white border border-[#e5e7eb] px-9 py-10 overflow-hidden"
         style={{
-          borderTop: "2px solid #3aaece",
-          boxShadow: "0 4px 24px rgba(16,101,127,0.06)",
+          borderTop: "2px solid #3a6682",
+          boxShadow: "0 4px 24px rgba(58,102,130,0.06)",
           rotateX: rotateXSpring,
           rotateY: rotateYSpring,
         }}
@@ -159,14 +159,14 @@ function StatCard({
             x: glowXSpring,
             y: glowYSpring,
             opacity: glowOpacitySpring,
-            background: "radial-gradient(circle, rgba(58,174,206,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(58,102,130,0.12) 0%, transparent 70%)",
           }}
         />
 
         {/* Icon + label */}
         <div className="flex items-center gap-2.5">
-          <Icon className="h-4 w-4 text-[#3aaece]" />
-          <span className="text-xs font-semibold tracking-[0.15em] text-[#3aaece] uppercase">
+          <Icon className="h-4 w-4 text-[#3a6682]" />
+          <span className="text-xs font-semibold tracking-[0.15em] text-[#3a6682] uppercase">
             {stat.label}
           </span>
         </div>
@@ -199,8 +199,8 @@ export default function WhyCTV() {
   const headingInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-[#f0f8fb]">
-      <div className="h-px w-full bg-[#3aaece]/30" />
+    <section className="bg-[#eaf1f6]">
+      <div className="h-px w-full bg-[#3a6682]/30" />
 
       <div className="section-padding">
         <div className="container-main">
@@ -214,7 +214,7 @@ export default function WhyCTV() {
               transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
               The most powerful screen in{" "}
-              <span style={{ color: "#3aaece" }}>media.</span>
+              <span style={{ color: "#3a6682" }}>media.</span>
             </motion.h2>
 
             <motion.p

@@ -73,8 +73,8 @@ function BarrierCard({ barrier, index, inView }: {
         onMouseLeave={handleMouseLeave}
         className="relative flex flex-col gap-4 rounded-xl p-7 overflow-hidden h-full"
         style={{
-          border: "1px solid rgba(58,174,206,0.18)",
-          borderTop: "2px solid #3aaece",
+          border: "1px solid rgba(58,102,130,0.18)",
+          borderTop: "2px solid #3a6682",
           boxShadow: "0 2px 16px rgba(10,59,75,0.06)",
           rotateX: rotateXSpring,
           rotateY: rotateYSpring,
@@ -96,13 +96,13 @@ function BarrierCard({ barrier, index, inView }: {
             x: glowXSpring,
             y: glowYSpring,
             opacity: glowOpacitySpring,
-            background: "radial-gradient(circle, rgba(58,174,206,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(58,102,130,0.12) 0%, transparent 70%)",
           }}
         />
 
         <span
           className="font-bold leading-none select-none"
-          style={{ fontSize: "2rem", color: "rgba(58,174,206,0.2)" }}
+          style={{ fontSize: "2rem", color: "rgba(58,102,130,0.2)" }}
         >
           {barrier.n}
         </span>
@@ -122,7 +122,7 @@ export default function WhyUnderperforms() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-white">
+    <section ref={ref} style={{ background: "#eaf1f6" }}>
       <div className="h-px w-full bg-[#e5e7eb]" />
 
       <div className="section-padding">

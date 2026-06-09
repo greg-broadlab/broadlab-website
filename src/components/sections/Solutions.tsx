@@ -106,7 +106,7 @@ function CampaignDashboard({ inView }: { inView: boolean }) {
         className="relative rounded-2xl overflow-hidden"
         style={{
           background: "#ffffff",
-          border: "1px solid rgba(58,174,206,0.2)",
+          border: "1px solid rgba(58,102,130,0.2)",
           boxShadow: "0 16px 48px rgba(13,37,53,0.10), 0 4px 12px rgba(0,0,0,0.04)",
           rotateX: rotateXSpring,
           rotateY: rotateYSpring,
@@ -121,7 +121,7 @@ function CampaignDashboard({ inView }: { inView: boolean }) {
             marginLeft: -140, marginTop: -140,
             x: glowXSpring, y: glowYSpring,
             opacity: glowOpacitySpring,
-            background: "radial-gradient(circle, rgba(58,174,206,0.07) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(58,102,130,0.07) 0%, transparent 70%)",
           }}
         />
 
@@ -129,12 +129,12 @@ function CampaignDashboard({ inView }: { inView: boolean }) {
 
           {/* Header */}
           <div className="flex items-center justify-between" style={{ marginBottom: 20 }}>
-            <p className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: "#3aaece" }}>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: "#3a6682" }}>
               Campaign Intelligence
             </p>
             <div className="flex items-center" style={{ gap: 6 }}>
               <motion.div
-                style={{ width: 6, height: 6, borderRadius: "50%", background: "#3aaece" }}
+                style={{ width: 6, height: 6, borderRadius: "50%", background: "#3a6682" }}
                 animate={{ opacity: [1, 0.3, 1] }}
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -152,8 +152,8 @@ function CampaignDashboard({ inView }: { inView: boolean }) {
               <span
                 className="text-[0.6rem] font-bold tracking-[0.08em]"
                 style={{
-                  background: "rgba(58,174,206,0.15)",
-                  color: "#3aaece",
+                  background: "rgba(58,102,130,0.15)",
+                  color: "#3a6682",
                   padding: "2px 7px",
                   borderRadius: 4,
                 }}
@@ -171,7 +171,7 @@ function CampaignDashboard({ inView }: { inView: boolean }) {
                 style={{
                   flex: 1,
                   borderRadius: "3px 3px 0 0",
-                  background: `rgba(58,174,206,${0.18 + (i / (CAMPAIGN_BARS.length - 1)) * 0.72})`,
+                  background: `rgba(58,102,130,${0.18 + (i / (CAMPAIGN_BARS.length - 1)) * 0.72})`,
                 }}
                 initial={{ height: 0 }}
                 animate={inView ? { height: h } : { height: 0 }}
@@ -213,13 +213,13 @@ function SolutionsHero() {
     <section
       ref={ref}
       className="relative min-h-screen flex flex-col overflow-hidden"
-      style={{ background: "#f0f8fb" }}
+      style={{ background: "#eaf1f6" }}
     >
       {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -267,14 +267,14 @@ function SolutionsHero() {
               <Link
                 href="/contact#contact"
                 className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition-opacity duration-200 hover:opacity-90"
-                style={{ background: "#3aaece", color: "#ffffff" }}
+                style={{ background: "#3a6682", color: "#ffffff" }}
               >
                 Book a consultation
               </Link>
               <Link
                 href="/system"
-                className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-[#10657f] hover:text-white"
-                style={{ border: "1px solid #10657f", color: "#10657f" }}
+                className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-[#3a6682] hover:text-white"
+                style={{ border: "1px solid #3a6682", color: "#3a6682" }}
               >
                 See how it works
               </Link>
@@ -289,7 +289,7 @@ function SolutionsHero() {
 
       {/* Platform logos */}
       <div className="relative z-10 container-main pb-12">
-        <div className="h-px w-full mb-8" style={{ background: "rgba(58,174,206,0.12)" }} />
+        <div className="h-px w-full mb-8" style={{ background: "rgba(58,102,130,0.12)" }} />
         <motion.div
           className="flex flex-wrap items-center justify-center gap-8 md:gap-10"
           initial={{ opacity: 0 }}
@@ -346,12 +346,12 @@ const MINI_COLS = [
 function msr(seed: number) { return (((Math.sin(seed * 9301 + 49297) % 1) + 1) % 1); }
 function miniScore(r: number, c: number) { return Math.floor(msr(r * 100 + c) * 100); }
 function miniStyle(score: number): { bg: string; fg: string } {
-  if (score >= 80) return { bg: "#0d2535", fg: "#3aaece" };
-  if (score >= 64) return { bg: "#10657f", fg: "#eaf6fb" };
-  if (score >= 48) return { bg: "#1e4f80", fg: "#ffffff" };
-  if (score >= 32) return { bg: "#3aaece", fg: "#ffffff" };
-  if (score >= 16) return { bg: "#eaf6fb", fg: "#10657f" };
-  return { bg: "#f9fafb", fg: "#10657f" };
+  if (score >= 80) return { bg: "#0d2535", fg: "#3a6682" };
+  if (score >= 64) return { bg: "#3a6682", fg: "#eaf6fb" };
+  if (score >= 48) return { bg: "#2a5068", fg: "#ffffff" };
+  if (score >= 32) return { bg: "#3a6682", fg: "#ffffff" };
+  if (score >= 16) return { bg: "#eaf6fb", fg: "#3a6682" };
+  return { bg: "#f9fafb", fg: "#3a6682" };
 }
 const M_CELL_W = 54, M_CELL_H = 30, M_COL_H = 32, M_PC_W = 88;
 const M_LOOP_W = MINI_COLS.length * M_CELL_W;
@@ -421,23 +421,23 @@ type OptTabId = typeof OPT_TABS[number]["id"];
 function InventoryPanel({ inView }: { inView: boolean }) {
   return (
     <div className="flex flex-col h-full p-8">
-      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#3aaece] mb-6">Premium Inventory</p>
+      <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#3a6682] mb-6">Premium Inventory</p>
       <div className="grid grid-cols-2 gap-3 flex-1 content-start">
         {PLATFORMS_TEXT.map((name, i) => (
           <motion.div
             key={name}
             className="flex items-center gap-2.5 rounded-xl px-4 py-3"
-            style={{ background: "#ffffff", border: "1px solid rgba(58,174,206,0.15)" }}
+            style={{ background: "#ffffff", border: "1px solid rgba(58,102,130,0.15)" }}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
             transition={{ delay: 0.06 + i * 0.06, duration: 0.4 }}
           >
-            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#3aaece", flexShrink: 0 }} />
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#3a6682", flexShrink: 0 }} />
             <p className="text-sm font-medium text-[#0d2535]">{name}</p>
           </motion.div>
         ))}
       </div>
-      <div className="mt-6 pt-5" style={{ borderTop: "1px solid rgba(58,174,206,0.12)" }}>
+      <div className="mt-6 pt-5" style={{ borderTop: "1px solid rgba(58,102,130,0.12)" }}>
         <p className="text-xs text-[#9ca3af]">Direct deals only · No open exchange · 19M homes</p>
       </div>
     </div>
@@ -449,9 +449,9 @@ function TargetingPanel({ inView }: { inView: boolean }) {
     <div className="flex flex-col h-full">
       {/* App header */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-[#eaf6fb] border-b border-[#e5e7eb]">
-        <span className="text-[10px] font-bold text-[#10657f] tracking-[0.14em] uppercase">Audience Graph</span>
-        <span className="flex items-center gap-1 text-[9px] text-[#3aaece] font-semibold">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#3aaece] inline-block animate-pulse" />
+        <span className="text-[10px] font-bold text-[#3a6682] tracking-[0.14em] uppercase">Audience Graph</span>
+        <span className="flex items-center gap-1 text-[9px] text-[#3a6682] font-semibold">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#3a6682] inline-block animate-pulse" />
           LIVE
         </span>
       </div>
@@ -461,7 +461,7 @@ function TargetingPanel({ inView }: { inView: boolean }) {
         {/* Fixed postcode column */}
         <div className="flex-shrink-0 z-10 border-r border-[#e5e7eb]" style={{ width: M_PC_W }}>
           <div className="flex items-center px-3 border-b border-[#e5e7eb] bg-[#eaf6fb]" style={{ height: M_COL_H }}>
-            <span className="text-[8px] font-bold text-[#10657f] tracking-[0.1em] uppercase">Postcode</span>
+            <span className="text-[8px] font-bold text-[#3a6682] tracking-[0.1em] uppercase">Postcode</span>
           </div>
           {MINI_POSTCODES.map((pc, ri) => (
             <motion.div
@@ -472,7 +472,7 @@ function TargetingPanel({ inView }: { inView: boolean }) {
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.1 + ri * 0.04, duration: 0.2 }}
             >
-              <span className="text-[10px] font-semibold text-[#10657f] tracking-wide" style={{ fontFamily: "ui-monospace, monospace" }}>
+              <span className="text-[10px] font-semibold text-[#3a6682] tracking-wide" style={{ fontFamily: "ui-monospace, monospace" }}>
                 {pc}
               </span>
             </motion.div>
@@ -495,7 +495,7 @@ function TargetingPanel({ inView }: { inView: boolean }) {
                   className="flex-shrink-0 flex items-center justify-center border-r border-b border-[#e5e7eb] bg-[#eaf6fb]"
                   style={{ width: M_CELL_W, height: M_COL_H }}
                 >
-                  <span className="text-[8px] font-bold text-[#10657f] tracking-[0.04em] uppercase truncate px-0.5">{col}</span>
+                  <span className="text-[8px] font-bold text-[#3a6682] tracking-[0.04em] uppercase truncate px-0.5">{col}</span>
                 </div>
               ))}
             </div>
@@ -536,7 +536,7 @@ function TargetingPanel({ inView }: { inView: boolean }) {
             animate={{ top: [M_COL_H + 2, M_COL_H + MINI_POSTCODES.length * M_CELL_H - 2] }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 0.8 }}
           >
-            <div className="w-full h-full bg-gradient-to-r from-transparent via-[#3aaece]/60 to-transparent" />
+            <div className="w-full h-full bg-gradient-to-r from-transparent via-[#3a6682]/60 to-transparent" />
           </motion.div>
 
           {/* Right-edge fade */}
@@ -547,7 +547,7 @@ function TargetingPanel({ inView }: { inView: boolean }) {
       {/* Status bar */}
       <div className="flex items-center justify-between px-4 py-2 bg-[#eaf6fb] border-t border-[#e5e7eb]">
         <span className="text-[9px] font-medium text-[#9ca3af] tracking-wide">1.8M Postcodes · 5,000+ Attributes · Updated daily</span>
-        <span className="text-[9px] font-semibold text-[#10657f]/40 tracking-[0.08em] uppercase">Snowflake</span>
+        <span className="text-[9px] font-semibold text-[#3a6682]/40 tracking-[0.08em] uppercase">Snowflake</span>
       </div>
     </div>
   );
@@ -562,8 +562,8 @@ function MeasurementPanel({ inView }: { inView: boolean }) {
           <p className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#0d2535]">Campaign Performance</p>
           <p className="text-[10px] text-[#9ca3af] mt-0.5">Outcome index · in-flight view</p>
         </div>
-        <span className="flex items-center gap-1 text-[9px] text-[#3aaece] font-semibold">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#3aaece] animate-pulse" />
+        <span className="flex items-center gap-1 text-[9px] text-[#3a6682] font-semibold">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#3a6682] animate-pulse" />
           LIVE
         </span>
       </div>
@@ -575,8 +575,8 @@ function MeasurementPanel({ inView }: { inView: boolean }) {
             <div className="flex items-end gap-[2px]" style={{ height: M_CHART_H }}>
               {([
                 { h: bar.brand,  color: "#0d2535"               },
-                { h: bar.search, color: "#3aaece"               },
-                { h: bar.conv,   color: "rgba(58,174,206,0.35)" },
+                { h: bar.search, color: "#3a6682"               },
+                { h: bar.conv,   color: "rgba(58,102,130,0.35)" },
                 { h: bar.foot,   color: "rgba(13,37,53,0.18)"   },
               ] as const).map((b, j) => (
                 <motion.div
@@ -598,8 +598,8 @@ function MeasurementPanel({ inView }: { inView: boolean }) {
       <div className="mt-5 pt-4 flex items-center gap-4 flex-wrap" style={{ borderTop: "1px solid #e5e7eb" }}>
         {[
           { color: "#0d2535",                label: "Brand lift"    },
-          { color: "#3aaece",                label: "Search uplift" },
-          { color: "rgba(58,174,206,0.35)",  label: "Conversion"   },
+          { color: "#3a6682",                label: "Search uplift" },
+          { color: "rgba(58,102,130,0.35)",  label: "Conversion"   },
           { color: "rgba(13,37,53,0.18)",    label: "Footfall"      },
         ].map(l => (
           <div key={l.label} className="flex items-center gap-1.5">
@@ -632,7 +632,7 @@ function OptimisationPanel({ inView: _ }: { inView: boolean }) {
             {activeTab === t.id && (
               <motion.div
                 layoutId="opt-tab-indicator"
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3aaece]"
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3a6682]"
                 transition={{ type: "spring", stiffness: 400, damping: 35 }}
               />
             )}
@@ -658,10 +658,10 @@ function OptimisationPanel({ inView: _ }: { inView: boolean }) {
               {tab.bars.map((bar, i) => (
                 <div key={bar.label} className="flex items-center gap-4">
                   <span className="text-[11px] text-[#6b7280] shrink-0" style={{ width: 155 }}>{bar.label}</span>
-                  <div className="flex-1 h-2.5 rounded-full overflow-hidden" style={{ background: "#f0f8fb" }}>
+                  <div className="flex-1 h-2.5 rounded-full overflow-hidden" style={{ background: "#eaf1f6" }}>
                     <motion.div
                       className="h-full rounded-full"
-                      style={{ background: "linear-gradient(90deg, #10657f, #3aaece)" }}
+                      style={{ background: "linear-gradient(90deg, #3a6682, #3a6682)" }}
                       initial={{ width: 0 }}
                       animate={{ width: `${bar.pct}%` }}
                       transition={{ delay: i * 0.08, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
@@ -728,8 +728,8 @@ function SolutionsDetail() {
                     borderTop: "none",
                     borderRight: "none",
                     borderBottom: "none",
-                    borderLeft: `2px solid ${active === i ? "#3aaece" : "rgba(58,174,206,0.15)"}`,
-                    background: active === i ? "rgba(58,174,206,0.04)" : "transparent",
+                    borderLeft: `2px solid ${active === i ? "#3a6682" : "rgba(58,102,130,0.15)"}`,
+                    background: active === i ? "rgba(58,102,130,0.04)" : "transparent",
                     transition: "background 0.3s ease, border-color 0.3s ease",
                     cursor: "pointer",
                     outline: "none",
@@ -737,7 +737,7 @@ function SolutionsDetail() {
                 >
                   <p
                     className="text-xs font-bold tracking-widest mb-1"
-                    style={{ color: active === i ? "#3aaece" : "rgba(58,174,206,0.35)" }}
+                    style={{ color: active === i ? "#3a6682" : "rgba(58,102,130,0.35)" }}
                   >
                     {s.n}
                   </p>
@@ -770,7 +770,7 @@ function SolutionsDetail() {
                         <ul className="mt-4 flex flex-col gap-1.5">
                           {s.facts.map(fact => (
                             <li key={fact} className="flex items-center gap-2 text-xs text-[#4b5563]">
-                              <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#3aaece", flexShrink: 0, display: "inline-block" }} />
+                              <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#3a6682", flexShrink: 0, display: "inline-block" }} />
                               {fact}
                             </li>
                           ))}
@@ -784,7 +784,7 @@ function SolutionsDetail() {
                     <motion.div
                       key={`bar-${i}-${active}`}
                       className="absolute bottom-0 left-0 h-[2px]"
-                      style={{ background: "#3aaece" }}
+                      style={{ background: "#3a6682" }}
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
                       transition={{ duration: ADVANCE_SECS, ease: "linear" }}
@@ -798,8 +798,8 @@ function SolutionsDetail() {
             <div
               className="rounded-2xl overflow-hidden relative"
               style={{
-                background: "#f0f8fb",
-                border: "1px solid rgba(58,174,206,0.15)",
+                background: "#eaf1f6",
+                border: "1px solid rgba(58,102,130,0.15)",
                 height: 480,
               }}
             >
@@ -856,15 +856,15 @@ function ResultsStrip() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} style={{ background: "#f0f8fb" }}>
-      <div className="h-px w-full" style={{ background: "rgba(58,174,206,0.3)" }} />
+    <section ref={ref} style={{ background: "#eaf1f6" }}>
+      <div className="h-px w-full" style={{ background: "rgba(58,102,130,0.3)" }} />
 
       <div className="section-padding">
         <div className="container-main">
 
           {/* Eyebrow */}
           <motion.p
-            className="text-center text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-12"
+            className="text-center text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-12"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
             transition={{ delay: 0.05, duration: 0.5 }}
@@ -875,13 +875,13 @@ function ResultsStrip() {
           {/* Stats grid */}
           <div
             className="grid grid-cols-2 lg:grid-cols-4 gap-px"
-            style={{ background: "rgba(58,174,206,0.15)" }}
+            style={{ background: "rgba(58,102,130,0.15)" }}
           >
             {RESULTS.map((r, i) => (
               <motion.div
                 key={r.sector}
-                className="flex flex-col px-8 py-10 bg-[#f0f8fb]"
-                style={{ borderTop: "3px solid #3aaece" }}
+                className="flex flex-col px-8 py-10 bg-[#eaf1f6]"
+                style={{ borderTop: "3px solid #3a6682" }}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
                 transition={{ delay: 0.1 + i * 0.1, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
@@ -900,9 +900,9 @@ function ResultsStrip() {
                 </p>
                 <p className="mt-3 text-sm leading-snug text-[#4b5563]">{r.label}</p>
                 <p
-                  className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[#3aaece]"
+                  className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[#3a6682]"
                   style={{
-                    borderTop: "1px solid rgba(58,174,206,0.2)",
+                    borderTop: "1px solid rgba(58,102,130,0.2)",
                     paddingTop: "12px",
                     marginTop: "auto",
                     paddingBottom: "2px",
@@ -937,13 +937,13 @@ function FinalCTA() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden" style={{ background: "#f0f8fb" }}>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: "#eaf1f6" }}>
 
       {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -955,7 +955,7 @@ function FinalCTA() {
             {/* Eyebrow */}
             <motion.p
               className="text-[0.625rem] font-bold uppercase tracking-[0.2em] mb-6"
-              style={{ color: "#3aaece" }}
+              style={{ color: "#3a6682" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ duration: 0.5 }}
@@ -995,7 +995,7 @@ function FinalCTA() {
               <Link
                 href="/contact#contact"
                 className="inline-flex items-center rounded-full px-9 py-4 text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-                style={{ background: "#3aaece", color: "#071c2a" }}
+                style={{ background: "#3a6682", color: "#071c2a" }}
               >
                 Get a CTV briefing
               </Link>

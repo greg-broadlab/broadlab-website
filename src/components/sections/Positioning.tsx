@@ -44,7 +44,7 @@ export default function Positioning() {
 
               <motion.p
                 className="text-[0.625rem] font-bold uppercase tracking-[0.2em] mb-5"
-                style={{ color: "#3aaece" }}
+                style={{ color: "#3a6682" }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
@@ -92,7 +92,7 @@ export default function Positioning() {
                   href="/solutions"
                   scroll={true}
                   className="inline-flex items-center gap-2 text-sm font-semibold transition-opacity duration-200 hover:opacity-60"
-                  style={{ color: "#3aaece" }}
+                  style={{ color: "#3a6682" }}
                 >
                   See our solutions
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -118,7 +118,7 @@ export default function Positioning() {
                 >
                   <span
                     className="shrink-0 font-bold tabular-nums leading-none select-none"
-                    style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", color: "rgba(58,174,206,0.15)", paddingTop: "2px" }}
+                    style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", color: "rgba(58,102,130,0.15)", paddingTop: "2px" }}
                   >
                     {cap.n}
                   </span>

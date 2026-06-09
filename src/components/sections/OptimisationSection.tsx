@@ -80,10 +80,10 @@ function HorizontalBar({ label, pct, delay }: { label: string; pct: number; dela
       <span className="text-[11px] text-[#6b7280] shrink-0" style={{ width: 170 }}>
         {label}
       </span>
-      <div className="flex-1 h-2.5 rounded-full overflow-hidden" style={{ background: "#f0f8fb" }}>
+      <div className="flex-1 h-2.5 rounded-full overflow-hidden" style={{ background: "#eaf1f6" }}>
         <motion.div
           className="h-full rounded-full"
-          style={{ background: "linear-gradient(90deg, #10657f, #3aaece)" }}
+          style={{ background: "linear-gradient(90deg, #3a6682, #3a6682)" }}
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
           transition={{ delay, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
@@ -104,7 +104,7 @@ export default function OptimisationSection() {
   const active = TABS.find((t) => t.id === activeId)!;
 
   return (
-    <section ref={ref} className="bg-white">
+    <section ref={ref} className="bg-[#eaf1f6]">
       <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
 
       <div className="section-padding">
@@ -113,7 +113,7 @@ export default function OptimisationSection() {
           {/* Header */}
           <div className="mb-12 max-w-2xl mx-auto text-center">
             <motion.p
-              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.05, duration: 0.5 }}
@@ -142,7 +142,7 @@ export default function OptimisationSection() {
           {/* Interactive panel */}
           <motion.div
             className="rounded-xl border border-[#e5e7eb] overflow-hidden"
-            style={{ boxShadow: "0 4px 32px rgba(16,101,127,0.08)" }}
+            style={{ boxShadow: "0 4px 32px rgba(58,102,130,0.08)" }}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 24 }}
             transition={{ delay: 0.3, duration: 0.65 }}
@@ -163,7 +163,7 @@ export default function OptimisationSection() {
                   {activeId === tab.id && (
                     <motion.div
                       layoutId="tab-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3aaece]"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3a6682]"
                       transition={{ type: "spring", stiffness: 400, damping: 35 }}
                     />
                   )}

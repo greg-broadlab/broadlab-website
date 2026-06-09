@@ -47,15 +47,15 @@ export default function OurWork() {
   const headingInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-[#f0f8fb]">
-      <div className="h-px w-full bg-[#3aaece]/30" />
+    <section className="bg-[#eaf1f6]">
+      <div className="h-px w-full bg-[#3a6682]/30" />
 
       <div className="section-padding">
         <div className="container-main">
 
           <div ref={headingRef} className="mb-16 max-w-2xl mx-auto text-center">
             <motion.p
-              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
               initial={{ opacity: 0, y: 10 }}
               animate={headingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
@@ -69,7 +69,7 @@ export default function OurWork() {
               transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
               Proven{" "}
-              <span style={{ color: "#3aaece" }}>in practice.</span>
+              <span style={{ color: "#3a6682" }}>in practice.</span>
             </motion.h2>
           </div>
 
@@ -107,7 +107,7 @@ export default function OurWork() {
           >
             <Link
               href="/work"
-              className="inline-flex items-center gap-2.5 rounded-lg bg-[#3aaece] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2d9ab8]"
+              className="inline-flex items-center gap-2.5 rounded-lg bg-[#3a6682] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2a5068]"
             >
               View our work
               <ArrowRight className="h-4 w-4" />
@@ -176,8 +176,8 @@ function CaseCard({
         transition={{ delay: index * 0.15, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
         className="relative flex flex-col gap-6 rounded-xl bg-white border border-[#e5e7eb] px-9 py-10 overflow-hidden h-full"
         style={{
-          borderTop: "2px solid #3aaece",
-          boxShadow: "0 4px 24px rgba(16,101,127,0.06)",
+          borderTop: "2px solid #3a6682",
+          boxShadow: "0 4px 24px rgba(58,102,130,0.06)",
           rotateX: rotateXSpring,
           rotateY: rotateYSpring,
         }}
@@ -195,11 +195,11 @@ function CaseCard({
             x: glowXSpring,
             y: glowYSpring,
             opacity: glowOpacitySpring,
-            background: "radial-gradient(circle, rgba(58,174,206,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(58,102,130,0.12) 0%, transparent 70%)",
           }}
         />
 
-        <span className="text-xs font-semibold tracking-[0.15em] text-[#3aaece] uppercase">
+        <span className="text-xs font-semibold tracking-[0.15em] text-[#3a6682] uppercase">
           {caseItem.sector}
         </span>
 
@@ -211,7 +211,7 @@ function CaseCard({
             {caseItem.stat}
             {caseItem.statSuffix && (
               <span
-                className="font-bold text-[#3aaece]"
+                className="font-bold text-[#3a6682]"
                 style={{ fontSize: "clamp(1.5rem,2.5vw,2.25rem)" }}
               >
                 {caseItem.statSuffix}

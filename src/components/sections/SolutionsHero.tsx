@@ -10,7 +10,7 @@ const SOLUTIONS = [
     label: "Curated Marketplaces",
     desc: "Premium CTV supply, direct connections, full transparency.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3aaece" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a6682" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1" />
         <rect x="14" y="3" width="7" height="7" rx="1" />
         <rect x="3" y="14" width="7" height="7" rx="1" />
@@ -23,7 +23,7 @@ const SOLUTIONS = [
     label: "Identity Solutions",
     desc: "Privacy-safe, geo-based identity graphs with CRM integration.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3aaece" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a6682" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2C8.5 2 6 5 6 8c0 4 6 13 6 13s6-9 6-13c0-3-2.5-6-6-6z" />
         <circle cx="12" cy="8" r="2" />
       </svg>
@@ -34,10 +34,10 @@ const SOLUTIONS = [
     label: "Audience Planning",
     desc: "Custom audience building with full-funnel CTV measurement.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3aaece" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a6682" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
         <circle cx="12" cy="12" r="5" />
-        <circle cx="12" cy="12" r="1.5" fill="#3aaece" />
+        <circle cx="12" cy="12" r="1.5" fill="#3a6682" />
       </svg>
     ),
   },
@@ -46,7 +46,7 @@ const SOLUTIONS = [
     label: "Optimisation",
     desc: "AI-driven, 46,000+ variables analysed continuously in-flight.",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3aaece" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a6682" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <path d="M13 2L4.5 13.5H12L11 22L19.5 10.5H12L13 2Z" />
       </svg>
     ),
@@ -61,8 +61,8 @@ function SolutionTiles({ inView }: { inView: boolean }) {
           key={s.id}
           className="flex flex-col gap-4 rounded-2xl bg-white p-6"
           style={{
-            border: "1px solid rgba(58,174,206,0.15)",
-            boxShadow: "0 2px 12px rgba(16,101,127,0.05)",
+            border: "1px solid rgba(58,102,130,0.15)",
+            boxShadow: "0 2px 12px rgba(58,102,130,0.05)",
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
@@ -75,7 +75,7 @@ function SolutionTiles({ inView }: { inView: boolean }) {
               style={{
                 width: 44,
                 height: 44,
-                background: "rgba(58,174,206,0.08)",
+                background: "rgba(58,102,130,0.08)",
               }}
             >
               {s.icon}
@@ -99,9 +99,9 @@ export default function SolutionsHero() {
 
   return (
     <section ref={ref} className="relative overflow-hidden pt-16 md:pt-20"
-      style={{ background: "#f0f8fb" }}>
+      style={{ background: "#eaf1f6" }}>
       <div className="pointer-events-none absolute inset-0" style={{
-        backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
         backgroundSize: "28px 28px",
       }} />
 
@@ -111,7 +111,7 @@ export default function SolutionsHero() {
 
             {/* Left - copy */}
             <div>
-              <motion.p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+              <motion.p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
                 transition={{ delay: 0.05, duration: 0.5 }}>
                 Solutions
@@ -122,7 +122,7 @@ export default function SolutionsHero() {
                 initial={{ opacity: 0, y: 14 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
                 transition={{ delay: 0.12, duration: 0.65 }}>
                 Better technology.<br />
-                <span style={{ color: "#3aaece" }}>Measurable outcomes.</span>
+                <span style={{ color: "#3a6682" }}>Measurable outcomes.</span>
               </motion.h1>
 
               <motion.p className="mt-5 leading-relaxed text-[#4b5563]"
@@ -140,7 +140,7 @@ export default function SolutionsHero() {
                   Book a consultation
                 </Link>
                 <Link href="/system"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#10657f] px-7 py-3 text-sm font-semibold text-[#10657f] transition-colors duration-200 hover:bg-[#10657f] hover:text-white">
+                  className="inline-flex items-center gap-2 rounded-full border border-[#3a6682] px-7 py-3 text-sm font-semibold text-[#3a6682] transition-colors duration-200 hover:bg-[#3a6682] hover:text-white">
                   Explore the system
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                     <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

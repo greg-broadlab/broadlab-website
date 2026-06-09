@@ -41,7 +41,7 @@ export default function HowWeWork() {
           {/* Header */}
           <div className="mb-16 max-w-2xl mx-auto text-center">
             <motion.p
-              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.05, duration: 0.5 }}
@@ -79,8 +79,8 @@ export default function HowWeWork() {
                   key={`card-${step.n}`}
                   className="flex flex-col gap-3 rounded-xl p-6"
                   style={{
-                    border:    "1px solid rgba(58,174,206,0.18)",
-                    borderTop: "2px solid #3aaece",
+                    border:    "1px solid rgba(58,102,130,0.18)",
+                    borderTop: "2px solid #3a6682",
                     boxShadow: "0 2px 16px rgba(10,59,75,0.06)",
                   }}
                   initial={{ opacity: 0, y: 14 }}
@@ -89,7 +89,7 @@ export default function HowWeWork() {
                 >
                   <p
                     className="font-bold select-none leading-none"
-                    style={{ fontSize: "clamp(2rem,3vw,2.75rem)", color: "rgba(58,174,206,0.12)" }}
+                    style={{ fontSize: "clamp(2rem,3vw,2.75rem)", color: "rgba(58,102,130,0.12)" }}
                   >
                     {step.n}
                   </p>
@@ -114,7 +114,7 @@ export default function HowWeWork() {
                     animate={{ opacity: inView ? 1 : 0 }}
                     transition={{ delay: 0.46 + i * 0.14, duration: 0.3 }}
                   >
-                    <ArrowRight className="h-4 w-4" style={{ color: "rgba(58,174,206,0.45)" }} />
+                    <ArrowRight className="h-4 w-4" style={{ color: "rgba(58,102,130,0.45)" }} />
                   </motion.div>
                 );
                 return [card, arrow];
@@ -130,8 +130,8 @@ export default function HowWeWork() {
                 key={step.n}
                 className="flex flex-col gap-3 rounded-xl p-6"
                 style={{
-                  border:    "1px solid rgba(58,174,206,0.18)",
-                  borderTop: "2px solid #3aaece",
+                  border:    "1px solid rgba(58,102,130,0.18)",
+                  borderTop: "2px solid #3a6682",
                   boxShadow: "0 2px 16px rgba(10,59,75,0.06)",
                 }}
                 initial={{ opacity: 0, y: 14 }}
@@ -140,7 +140,7 @@ export default function HowWeWork() {
               >
                 <p
                   className="font-bold select-none leading-none"
-                  style={{ fontSize: "2rem", color: "rgba(58,174,206,0.12)" }}
+                  style={{ fontSize: "2rem", color: "rgba(58,102,130,0.12)" }}
                 >
                   {step.n}
                 </p>
@@ -160,7 +160,7 @@ export default function HowWeWork() {
             {/* Anchor dot - Step 4 (top-right) */}
             <motion.div
               className="absolute top-0 right-0 rounded-full"
-              style={{ width: 7, height: 7, marginTop: -3.5, background: "#3aaece", opacity: 0.5 }}
+              style={{ width: 7, height: 7, marginTop: -3.5, background: "#3a6682", opacity: 0.5 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 0.5 : 0 }}
               transition={{ delay: 1.35, duration: 0.3 }}
@@ -171,9 +171,9 @@ export default function HowWeWork() {
               className="absolute inset-x-0 top-0 pointer-events-none"
               style={{
                 height: 270,
-                borderLeft:   "2px solid rgba(58,174,206,0.4)",
-                borderRight:  "2px solid rgba(58,174,206,0.4)",
-                borderBottom: "2px solid rgba(58,174,206,0.4)",
+                borderLeft:   "2px solid rgba(58,102,130,0.4)",
+                borderRight:  "2px solid rgba(58,102,130,0.4)",
+                borderBottom: "2px solid rgba(58,102,130,0.4)",
                 borderTop: "none",
                 borderRadius: "0 0 50% 50% / 0 0 100% 100%",
                 transformOrigin: "top center",
@@ -186,7 +186,7 @@ export default function HowWeWork() {
             {/* Anchor dot - Step 1 (top-left) */}
             <motion.div
               className="absolute top-0 left-0 rounded-full"
-              style={{ width: 7, height: 7, marginTop: -3.5, background: "#3aaece", opacity: 0.5 }}
+              style={{ width: 7, height: 7, marginTop: -3.5, background: "#3a6682", opacity: 0.5 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 0.5 : 0 }}
               transition={{ delay: 2.35, duration: 0.3 }}
@@ -212,7 +212,7 @@ export default function HowWeWork() {
                     transition={{ delay: 2.0 + i * 0.2, duration: 0.5 }}
                   >
                     {prefix}{" "}
-                    <span className="font-semibold text-[#3aaece]">{highlight}</span>
+                    <span className="font-semibold text-[#3a6682]">{highlight}</span>
                     {i < 3 ? "." : "."}
                   </motion.p>
                   {i < 3 && (
@@ -223,9 +223,9 @@ export default function HowWeWork() {
                       transition={{ delay: 2.15 + i * 0.2, duration: 0.3 }}
                       style={{ originY: 0 }}
                     >
-                      <div style={{ width: 1, height: 10, background: "rgba(58,174,206,0.35)" }} />
+                      <div style={{ width: 1, height: 10, background: "rgba(58,102,130,0.35)" }} />
                       <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
-                        <path d="M0 0L4 5L8 0" stroke="rgba(58,174,206,0.5)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M0 0L4 5L8 0" stroke="rgba(58,102,130,0.5)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </motion.div>
                   )}

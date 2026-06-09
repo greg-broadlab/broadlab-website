@@ -46,7 +46,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
         {/* Ambient glow */}
         <motion.circle
           cx={CX} cy={CY} r={R + 22}
-          fill="rgba(58,174,206,0.06)"
+          fill="rgba(58,102,130,0.06)"
           stroke="none"
           initial={{ opacity: 0 }}
           animate={{ opacity: inView ? 1 : 0 }}
@@ -57,7 +57,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
         <motion.circle
           cx={CX} cy={CY} r={R}
           fill="none"
-          stroke="rgba(58,174,206,0.3)"
+          stroke="rgba(58,102,130,0.3)"
           strokeWidth={1}
           strokeDasharray="4 8"
           initial={{ opacity: 0, strokeDashoffset: 0 }}
@@ -100,7 +100,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
               <polygon
                 key={i}
                 points="-5,-3.5 6,0 -5,3.5"
-                fill="rgba(58,174,206,0.55)"
+                fill="rgba(58,102,130,0.55)"
                 transform={`translate(${pos.x},${pos.y}) rotate(${a.dir})`}
               />
             );
@@ -117,7 +117,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
           <circle
             cx={CX} cy={CY} r={28}
             fill="#ffffff"
-            stroke="rgba(58,174,206,0.3)"
+            stroke="rgba(58,102,130,0.3)"
             strokeWidth={1}
           />
           <text
@@ -126,7 +126,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
             fontSize="6"
             fontWeight="700"
             letterSpacing="0.2em"
-            fill="rgba(16,101,127,0.55)"
+            fill="rgba(58,102,130,0.55)"
             fontFamily="Inter, system-ui, sans-serif"
           >
             THE
@@ -137,7 +137,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
             fontSize="6"
             fontWeight="700"
             letterSpacing="0.2em"
-            fill="rgba(16,101,127,0.55)"
+            fill="rgba(58,102,130,0.55)"
             fontFamily="Inter, system-ui, sans-serif"
           >
             SYSTEM
@@ -159,7 +159,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
               <motion.circle
                 cx={pos.x} cy={pos.y} r={NR + 2}
                 fill="none"
-                stroke="rgba(58,174,206,0.28)"
+                stroke="rgba(58,102,130,0.28)"
                 strokeWidth={1}
                 animate={inView ? { r: [NR + 2, NR + 16], opacity: [0.28, 0] } : {}}
                 transition={{
@@ -171,12 +171,12 @@ function LoopDiagram({ inView }: { inView: boolean }) {
                 }}
               />
               {/* Outer glow */}
-              <circle cx={pos.x} cy={pos.y} r={NR + 7} fill="rgba(58,174,206,0.06)" />
+              <circle cx={pos.x} cy={pos.y} r={NR + 7} fill="rgba(58,102,130,0.06)" />
               {/* Circle */}
               <circle
                 cx={pos.x} cy={pos.y} r={NR}
                 fill="#ffffff"
-                stroke="rgba(58,174,206,0.4)"
+                stroke="rgba(58,102,130,0.4)"
                 strokeWidth={1.5}
               />
               {/* Number */}
@@ -187,7 +187,7 @@ function LoopDiagram({ inView }: { inView: boolean }) {
                 fontSize="7"
                 fontWeight="700"
                 letterSpacing="0.14em"
-                fill="rgba(16,101,127,0.5)"
+                fill="rgba(58,102,130,0.5)"
                 fontFamily="Inter, system-ui, sans-serif"
               >
                 {node.id}
@@ -222,13 +222,13 @@ export default function SystemHero() {
     <section
       ref={ref}
       className="relative overflow-hidden pt-16 md:pt-20"
-      style={{ background: "#f0f8fb" }}
+      style={{ background: "#eaf1f6" }}
     >
       {/* Dot grid texture */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -240,7 +240,7 @@ export default function SystemHero() {
             {/* Left - copy */}
             <div>
               <motion.p
-                className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+                className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
                 transition={{ delay: 0.05, duration: 0.5 }}
@@ -283,7 +283,7 @@ export default function SystemHero() {
                   ["04", "Learn",          "Every campaign makes the next one smarter"],
                 ].map(([num, label, desc]) => (
                   <div key={num} className="flex items-start gap-3">
-                    <span className="mt-0.5 shrink-0 tabular-nums text-[0.625rem] font-bold tracking-[0.1em] text-[#3aaece]">
+                    <span className="mt-0.5 shrink-0 tabular-nums text-[0.625rem] font-bold tracking-[0.1em] text-[#3a6682]">
                       {num}
                     </span>
                     <p className="text-[0.875rem] leading-snug text-[#4b5563]">
@@ -305,7 +305,7 @@ export default function SystemHero() {
                 </Link>
                 <Link
                   href="/contact#contact"
-                  className="inline-flex items-center rounded-full border border-[#10657f] px-7 py-3 text-[0.875rem] font-semibold text-[#10657f] transition-colors duration-200 hover:bg-[#10657f] hover:text-white"
+                  className="inline-flex items-center rounded-full border border-[#3a6682] px-7 py-3 text-[0.875rem] font-semibold text-[#3a6682] transition-colors duration-200 hover:bg-[#3a6682] hover:text-white"
                 >
                   Talk to Broadlab
                 </Link>

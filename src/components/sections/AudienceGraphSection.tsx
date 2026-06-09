@@ -14,7 +14,7 @@ export default function AudienceGraphSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-white">
+    <section ref={ref} style={{ background: "#eaf1f6" }}>
       <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
 
       <div className="section-padding">
@@ -23,7 +23,7 @@ export default function AudienceGraphSection() {
           {/* Header */}
           <div className="mb-14 max-w-2xl mx-auto text-center">
             <motion.p
-              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.05, duration: 0.5 }}

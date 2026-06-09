@@ -7,7 +7,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 
 const inputBase = "w-full rounded-lg px-4 py-3 text-sm text-[#0d2535] outline-none transition-all duration-200";
 const inputDefault = { background: "white", border: "1px solid #e5e7eb" };
-const inputFocused = { background: "white", border: "1px solid rgba(58,174,206,0.6)", boxShadow: "0 0 0 3px rgba(58,174,206,0.08)" };
+const inputFocused = { background: "white", border: "1px solid rgba(58,102,130,0.6)", boxShadow: "0 0 0 3px rgba(58,102,130,0.08)" };
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -95,13 +95,13 @@ export default function ContactPage() {
       id="contact"
       ref={ref}
       className="relative overflow-hidden min-h-screen flex items-center"
-      style={{ background: "#f0f8fb" }}
+      style={{ background: "#eaf1f6" }}
     >
       {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -116,7 +116,7 @@ export default function ContactPage() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece]">
+            <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682]">
               Talk to BroadLab
             </p>
             <h1
@@ -133,12 +133,12 @@ export default function ContactPage() {
             <div className="flex flex-col gap-4 mt-2">
               <a
                 href="mailto:info@broadlab.tv"
-                className="text-sm font-medium text-[#3aaece] transition-opacity hover:opacity-70"
+                className="text-sm font-medium text-[#3a6682] transition-opacity hover:opacity-70"
               >
                 info@broadlab.tv
               </a>
 
-              <div className="h-px w-12" style={{ background: "rgba(58,174,206,0.3)" }} />
+              <div className="h-px w-12" style={{ background: "rgba(58,102,130,0.3)" }} />
 
               <address className="not-italic text-sm leading-relaxed text-[#6b7280]">
                 Unit 5, 2nd Floor<br />
@@ -167,9 +167,9 @@ export default function ContactPage() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: "rgba(58,174,206,0.1)" }}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: "rgba(58,102,130,0.1)" }}>
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                      <path d="M4 11l5 5L18 6" stroke="#3aaece" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M4 11l5 5L18 6" stroke="#3a6682" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <div>
@@ -223,7 +223,7 @@ export default function ContactPage() {
                     type="submit"
                     disabled={status === "sending"}
                     className="mt-1 inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
-                    style={{ background: status === "sending" ? "#9ca3af" : "#10657f", cursor: status === "sending" ? "not-allowed" : "pointer", opacity: status === "error" ? 1 : undefined }}
+                    style={{ background: status === "sending" ? "#9ca3af" : "#3a6682", cursor: status === "sending" ? "not-allowed" : "pointer", opacity: status === "error" ? 1 : undefined }}
                   >
                     {status === "sending" ? (
                       <>

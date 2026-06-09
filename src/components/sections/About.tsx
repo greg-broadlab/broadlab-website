@@ -78,12 +78,12 @@ function AboutHero() {
     <section
       ref={ref}
       className="relative overflow-hidden flex items-center"
-      style={{ background: "#f0f8fb", minHeight: "100vh" }}
+      style={{ background: "#eaf1f6", minHeight: "100vh" }}
     >
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -91,7 +91,7 @@ function AboutHero() {
       <div className="container-main relative z-10 section-padding">
         <div className="max-w-3xl">
           <motion.p
-            className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-6"
+            className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
             transition={{ duration: 0.5 }}
@@ -144,7 +144,7 @@ function CompanyStatement() {
                 style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0d2535" }}
               >
                 &ldquo;AI has allowed us to build the system
-                <span style={{ color: "#3aaece" }}> the industry should have built</span> years ago.&rdquo;
+                <span style={{ color: "#3a6682" }}> the industry should have built</span> years ago.&rdquo;
               </p>
             </motion.div>
 
@@ -188,7 +188,7 @@ function TeamSection() {
       <div className="container-main section-padding">
 
         <motion.p
-          className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-10"
+          className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: inView ? 1 : 0 }}
           transition={{ duration: 0.5 }}
@@ -211,8 +211,8 @@ function TeamSection() {
                 onClick={() => setActive(i)}
                 className="text-left flex-shrink-0 lg:flex-shrink-[unset] rounded-xl px-4 py-3 transition-all duration-200"
                 style={{
-                  background:  active === i ? "#f0f8fb" : "transparent",
-                  borderLeft:  `3px solid ${active === i ? "#3aaece" : "transparent"}`,
+                  background:  active === i ? "#eaf1f6" : "transparent",
+                  borderLeft:  `3px solid ${active === i ? "#3a6682" : "transparent"}`,
                 }}
               >
                 <p
@@ -223,7 +223,7 @@ function TeamSection() {
                 </p>
                 <p
                   className="text-xs mt-0.5 hidden lg:block"
-                  style={{ color: active === i ? "#3aaece" : "#9ca3af" }}
+                  style={{ color: active === i ? "#3a6682" : "#9ca3af" }}
                 >
                   {member.role}
                 </p>
@@ -245,7 +245,7 @@ function TeamSection() {
               <div className="flex items-center gap-6">
                 <div
                   className="shrink-0 w-20 h-20 rounded-2xl overflow-hidden"
-                  style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.2)" }}
+                  style={{ background: "#eaf1f6", border: "1px solid rgba(58,102,130,0.2)" }}
                 >
                   {person.image ? (
                     <Image
@@ -257,7 +257,7 @@ function TeamSection() {
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <p style={{ fontSize: "0.4375rem", letterSpacing: "0.12em", color: "rgba(58,174,206,0.35)" }}>
+                      <p style={{ fontSize: "0.4375rem", letterSpacing: "0.12em", color: "rgba(58,102,130,0.35)" }}>
                         PHOTO
                       </p>
                     </div>
@@ -267,7 +267,7 @@ function TeamSection() {
                   <h2 className="font-bold text-[#0d2535]" style={{ fontSize: "1.375rem" }}>
                     {person.name}
                   </h2>
-                  <p className="text-sm font-medium text-[#3aaece] mt-0.5">{person.role}</p>
+                  <p className="text-sm font-medium text-[#3a6682] mt-0.5">{person.role}</p>
                 </div>
               </div>
 

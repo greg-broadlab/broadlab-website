@@ -76,7 +76,7 @@ function KpiTile({
 }) {
   const count = useCountUp(rawValue, 1200, inView);
   const display = decimal ? count.toFixed(1) : Math.round(count).toString();
-  const trendColor = trend === "up" ? "#3aaece" : "#3aaece";
+  const trendColor = trend === "up" ? "#3a6682" : "#3a6682";
 
   return (
     <motion.div
@@ -84,7 +84,7 @@ function KpiTile({
       style={{
         background: "#ffffff",
         border: "1px solid #e5e7eb",
-        boxShadow: "0 2px 12px rgba(16,101,127,0.06)",
+        boxShadow: "0 2px 12px rgba(58,102,130,0.06)",
       }}
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 18 }}
@@ -100,7 +100,7 @@ function KpiTile({
         <span className="text-[0.6875rem] font-medium" style={{ color: trendColor }}>
           {trendLabel}
         </span>
-        <Sparkline values={sparkValues} color="rgba(58,174,206,0.6)" />
+        <Sparkline values={sparkValues} color="rgba(58,102,130,0.6)" />
       </div>
     </motion.div>
   );
@@ -118,11 +118,11 @@ function Lever({ label, active, delay, inView }: { label: string; active: boolea
     >
       <div
         className="h-2 w-2 rounded-full shrink-0"
-        style={{ backgroundColor: active ? "#3aaece" : "#d1d5db" }}
+        style={{ backgroundColor: active ? "#3a6682" : "#d1d5db" }}
       />
       <span className="text-xs text-[#4b5563]">{label}</span>
       {active && (
-        <span className="ml-auto text-[0.625rem] font-semibold text-[#3aaece]/70 uppercase tracking-wide">
+        <span className="ml-auto text-[0.625rem] font-semibold text-[#3a6682]/70 uppercase tracking-wide">
           Active
         </span>
       )}
@@ -191,13 +191,13 @@ export default function MeasurementDashboard() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden" style={{ background: "#f0f8fb" }}>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: "#eaf1f6" }}>
 
       {/* Dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -251,8 +251,8 @@ export default function MeasurementDashboard() {
                   Geo Holdout Results · Scottish Widows
                 </span>
               </div>
-              <span className="flex items-center gap-1.5 text-[10px] text-[#3aaece] font-semibold">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#3aaece] animate-pulse" />
+              <span className="flex items-center gap-1.5 text-[10px] text-[#3a6682] font-semibold">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#3a6682] animate-pulse" />
                 LIVE
               </span>
             </motion.div>

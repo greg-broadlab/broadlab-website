@@ -24,7 +24,7 @@ export default function SupportModels() {
 
   return (
     <section ref={ref} style={{ background: "#ffffff" }}>
-      <div className="h-px w-full" style={{ background: "rgba(58,174,206,0.3)" }} />
+      <div className="h-px w-full" style={{ background: "rgba(58,102,130,0.3)" }} />
 
       <div className="section-padding">
         <div className="container-main">
@@ -84,14 +84,14 @@ export default function SupportModels() {
             >
               <div
                 className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-                style={{ background: "#f0f8fb", border: "1.5px dashed rgba(58,174,206,0.35)" }}
+                style={{ background: "#eaf1f6", border: "1.5px dashed rgba(58,102,130,0.35)" }}
               >
                 {/* Placeholder person icon */}
                 <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                  <circle cx="28" cy="20" r="10" fill="rgba(58,174,206,0.2)" />
-                  <path d="M8 48c0-11.046 8.954-20 20-20s20 8.954 20 20" fill="rgba(58,174,206,0.15)" />
+                  <circle cx="28" cy="20" r="10" fill="rgba(58,102,130,0.2)" />
+                  <path d="M8 48c0-11.046 8.954-20 20-20s20 8.954 20 20" fill="rgba(58,102,130,0.15)" />
                 </svg>
-                <p className="text-xs font-medium tracking-wide" style={{ color: "rgba(58,174,206,0.6)" }}>
+                <p className="text-xs font-medium tracking-wide" style={{ color: "rgba(58,102,130,0.6)" }}>
                   Team photo coming soon
                 </p>
               </div>

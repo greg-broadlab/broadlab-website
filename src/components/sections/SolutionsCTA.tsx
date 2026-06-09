@@ -9,7 +9,7 @@ export default function SolutionsCTA() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-white">
+    <section ref={ref} style={{ background: "#eaf1f6" }}>
       <div className="h-px w-full bg-[#e5e7eb]" />
 
       <div className="section-padding">
@@ -23,7 +23,7 @@ export default function SolutionsCTA() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}>
               See what BroadLab can do<br />
-              <span style={{ color: "#3aaece" }}>for your campaigns.</span>
+              <span style={{ color: "#3a6682" }}>for your campaigns.</span>
             </motion.h2>
 
             <motion.p
@@ -44,7 +44,7 @@ export default function SolutionsCTA() {
                 Book a consultation
               </Link>
               <Link href="/system"
-                className="inline-flex items-center gap-2 rounded-full border border-[#10657f] px-7 py-3 text-sm font-semibold text-[#10657f] transition-colors duration-200 hover:bg-[#10657f] hover:text-white">
+                className="inline-flex items-center gap-2 rounded-full border border-[#3a6682] px-7 py-3 text-sm font-semibold text-[#3a6682] transition-colors duration-200 hover:bg-[#3a6682] hover:text-white">
                 Explore the system
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

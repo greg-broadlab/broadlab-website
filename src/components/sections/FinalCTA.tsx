@@ -24,13 +24,13 @@ export default function FinalCTA() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative overflow-hidden" style={{ background: "#f0f8fb" }}>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: "#3a6682" }}>
 
       {/* Dot grid texture */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -44,7 +44,7 @@ export default function FinalCTA() {
             {/* Left - heading + model rows */}
             <div>
               <motion.h2
-                className="mb-12 font-bold leading-tight text-[#0d2535]"
+                className="mb-12 font-bold leading-tight text-white"
                 style={{ fontSize: "clamp(2rem, 3.8vw, 3.25rem)" }}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
@@ -53,24 +53,24 @@ export default function FinalCTA() {
                 Flexible support, built around your model.
               </motion.h2>
 
-              <div style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.15)" }}>
                 {MODELS.map((model, i) => (
                   <motion.div
                     key={model.name}
                     className="grid grid-cols-1 gap-3 py-8 md:grid-cols-[1fr_2fr] md:gap-12 md:items-center"
                     style={{
                       borderBottom: i < MODELS.length - 1
-                        ? "1px solid rgba(0,0,0,0.06)"
+                        ? "1px solid rgba(255,255,255,0.15)"
                         : undefined,
                     }}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
                     transition={{ delay: 0.2 + i * 0.12, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
                   >
-                    <span className="font-bold text-[#0d2535]" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)" }}>
+                    <span className="font-bold text-white" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)" }}>
                       {model.name}
                     </span>
-                    <p className="leading-relaxed text-[#4b5563]" style={{ fontSize: "1rem" }}>
+                    <p className="leading-relaxed" style={{ fontSize: "1rem", color: "rgba(255,255,255,0.7)" }}>
                       {model.desc}
                     </p>
                   </motion.div>
@@ -88,13 +88,13 @@ export default function FinalCTA() {
             >
               <div
                 className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-                style={{ background: "rgba(255,255,255,0.6)", border: "1.5px dashed rgba(58,174,206,0.4)", borderRadius: "1rem" }}
+                style={{ background: "rgba(255,255,255,0.08)", border: "1.5px dashed rgba(255,255,255,0.2)", borderRadius: "1rem" }}
               >
                 <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                  <circle cx="28" cy="20" r="10" fill="rgba(58,174,206,0.2)" />
-                  <path d="M8 48c0-11.046 8.954-20 20-20s20 8.954 20 20" fill="rgba(58,174,206,0.15)" />
+                  <circle cx="28" cy="20" r="10" fill="rgba(255,255,255,0.15)" />
+                  <path d="M8 48c0-11.046 8.954-20 20-20s20 8.954 20 20" fill="rgba(255,255,255,0.1)" />
                 </svg>
-                <p className="text-xs font-medium tracking-wide" style={{ color: "rgba(58,174,206,0.6)" }}>
+                <p className="text-xs font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.45)" }}>
                   Team photo coming soon
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function FinalCTA() {
           {/* Divider */}
           <motion.div
             className="mx-auto mt-16 h-px w-24"
-            style={{ background: "rgba(58,174,206,0.35)" }}
+            style={{ background: "rgba(255,255,255,0.15)" }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: inView ? 1 : 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -114,7 +114,7 @@ export default function FinalCTA() {
           {/* CTA */}
           <div className="mt-14 text-center">
             <motion.h2
-              className="font-bold leading-tight text-[#0d2535]"
+              className="font-bold leading-tight text-white"
               style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)" }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 12 }}
@@ -124,8 +124,8 @@ export default function FinalCTA() {
             </motion.h2>
 
             <motion.p
-              className="mx-auto mt-4 max-w-md leading-relaxed text-[#4b5563]"
-              style={{ fontSize: "1.0625rem" }}
+              className="mx-auto mt-4 max-w-md leading-relaxed"
+              style={{ fontSize: "1.0625rem", color: "rgba(255,255,255,0.7)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
@@ -139,13 +139,16 @@ export default function FinalCTA() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
               transition={{ delay: 0.9, duration: 0.5 }}
             >
-              <Link href="/contact#contact" className="btn-primary">
+              <Link
+                href="/contact#contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3a6682] transition-colors hover:bg-[#eaf1f6]"
+              >
                 Book a consultation
               </Link>
 
               <Link
                 href="/system"
-                className="inline-flex items-center gap-2 rounded-full border border-[#10657f] px-7 py-3 text-sm font-semibold text-[#10657f] transition-colors duration-200 hover:bg-[#10657f] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-[#3a6682]"
               >
                 Explore the System
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

@@ -61,12 +61,12 @@ function ServicesIntro() {
     <section
       ref={ref}
       className="relative overflow-hidden pt-32 pb-20"
-      style={{ background: "#f0f8fb" }}
+      style={{ background: "#eaf1f6" }}
     >
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -131,7 +131,7 @@ function CaseStudySwitcher() {
                 <motion.div
                   layoutId="tab-indicator"
                   className="absolute bottom-0 left-0 right-0 h-[2px]"
-                  style={{ background: "#3aaece" }}
+                  style={{ background: "#3a6682" }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -153,7 +153,7 @@ function CaseStudySwitcher() {
             <div className="flex flex-col justify-center">
               <p
                 className="text-[0.625rem] font-bold uppercase tracking-[0.18em] mb-6"
-                style={{ color: "#3aaece" }}
+                style={{ color: "#3a6682" }}
               >
                 {v.client}
               </p>
@@ -184,7 +184,7 @@ function CaseStudySwitcher() {
               <div className="flex items-center gap-3 pt-6 border-t border-[#e5e7eb]">
                 <div
                   className="w-[3px] h-7 rounded-full shrink-0"
-                  style={{ background: "#3aaece" }}
+                  style={{ background: "#3a6682" }}
                 />
                 <p className="text-xs leading-snug" style={{ color: "#9ca3af" }}>
                   {v.methodology}
@@ -232,7 +232,7 @@ function AgencyCallout() {
             className="rounded-2xl overflow-hidden"
             style={{
               border: "1px solid #e5e7eb",
-              boxShadow: "0 2px 20px rgba(16,101,127,0.06)",
+              boxShadow: "0 2px 20px rgba(58,102,130,0.06)",
             }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
@@ -246,7 +246,7 @@ function AgencyCallout() {
               >
                 <p
                   className="text-[0.625rem] font-bold uppercase tracking-[0.18em]"
-                  style={{ color: "#3aaece" }}
+                  style={{ color: "#3a6682" }}
                 >
                   For Brands
                 </p>
@@ -267,7 +267,7 @@ function AgencyCallout() {
                   <Link
                     href="/contact#contact"
                     className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]"
-                    style={{ background: "#10657f" }}
+                    style={{ background: "#3a6682" }}
                   >
                     Talk to us
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -283,7 +283,7 @@ function AgencyCallout() {
               >
                 <p
                   className="text-[0.625rem] font-bold uppercase tracking-[0.18em]"
-                  style={{ color: "#3aaece" }}
+                  style={{ color: "#3a6682" }}
                 >
                   For Agencies & Holding Groups
                 </p>
@@ -305,8 +305,8 @@ function AgencyCallout() {
                     href="/contact#contact"
                     className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200"
                     style={{
-                      color: "#10657f",
-                      border: "1px solid rgba(58,174,206,0.35)",
+                      color: "#3a6682",
+                      border: "1px solid rgba(58,102,130,0.35)",
                       background: "white",
                     }}
                   >
@@ -339,7 +339,7 @@ function BottomHook() {
         <div className="container-main text-center">
           <motion.p
             className="text-[0.6875rem] font-bold uppercase tracking-[0.18em] mb-5"
-            style={{ color: "#3aaece" }}
+            style={{ color: "#3a6682" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: inView ? 1 : 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
@@ -377,14 +377,14 @@ function BottomHook() {
             <Link
               href="/contact#contact"
               className="inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]"
-              style={{ background: "#10657f" }}
+              style={{ background: "#3a6682" }}
             >
               Book a consultation
             </Link>
             <Link
               href="/system"
               className="inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200 hover:opacity-70"
-              style={{ color: "#10657f" }}
+              style={{ color: "#3a6682" }}
             >
               See how the system works
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

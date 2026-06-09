@@ -67,18 +67,18 @@ export default function WorkPageClient() {
   const heroInView = useInView(heroRef, { once: true });
 
   return (
-    <main style={{ background: "#f0f8fb" }}>
+    <main style={{ background: "#eaf1f6" }}>
       <Navbar />
 
       {/* Sticky full-screen hero - content slides over on scroll */}
       <div style={{ position: "sticky", top: 0, height: "100vh", zIndex: 0 }}>
-        <div className="relative h-full overflow-hidden" style={{ background: "#f0f8fb" }}>
+        <div className="relative h-full overflow-hidden" style={{ background: "#eaf1f6" }}>
 
           {/* Dot grid */}
           <div
             className="pointer-events-none absolute inset-0"
             style={{
-              backgroundImage: "radial-gradient(circle, rgba(58,174,206,0.18) 1px, transparent 1px)",
+              backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
               backgroundSize: "28px 28px",
             }}
           />
@@ -90,7 +90,7 @@ export default function WorkPageClient() {
           >
             {/* Eyebrow */}
             <motion.p
-              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-6"
+              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-6"
               initial={{ opacity: 0, y: 10 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
@@ -137,8 +137,8 @@ export default function WorkPageClient() {
               {["Lloyds Banking Group", "Lenovo", "DAZN"].map((name) => (
                 <span
                   key={name}
-                  className="rounded-full px-4 py-1.5 text-xs font-semibold text-[#10657f]"
-                  style={{ background: "white", border: "1px solid rgba(58,174,206,0.3)" }}
+                  className="rounded-full px-4 py-1.5 text-xs font-semibold text-[#3a6682]"
+                  style={{ background: "white", border: "1px solid rgba(58,102,130,0.3)" }}
                 >
                   {name}
                 </span>
@@ -158,7 +158,7 @@ export default function WorkPageClient() {
                 transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
               >
                 <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-                  <path d="M1 1l7 8 7-8" stroke="rgba(58,174,206,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M1 1l7 8 7-8" stroke="rgba(58,102,130,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </motion.div>
             </motion.div>
@@ -192,8 +192,8 @@ export default function WorkPageClient() {
         <RecognitionSection />
 
         {/* Final CTA */}
-        <section className="bg-[#f0f8fb]">
-          <div className="h-px w-full bg-[#3aaece]/30" />
+        <section className="bg-[#eaf1f6]">
+          <div className="h-px w-full bg-[#3a6682]/30" />
           <div className="section-padding">
             <div className="container-main max-w-2xl mx-auto text-center">
               <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-bold text-[#0d2535] leading-tight">
@@ -205,7 +205,7 @@ export default function WorkPageClient() {
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact#contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[#3aaece] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2d9ab8]"
+                  className="inline-flex items-center justify-center rounded-full bg-[#3a6682] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#2a5068]"
                 >
                   Book a 20-minute CTV consult
                 </Link>
@@ -251,7 +251,7 @@ function RecognitionSection() {
 
           <div className="mb-12">
             <motion.p
-              className="text-[0.625rem] font-bold uppercase tracking-[0.2em] mb-4 text-[#3aaece]"
+              className="text-[0.625rem] font-bold uppercase tracking-[0.2em] mb-4 text-[#3a6682]"
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ duration: 0.5 }}
@@ -275,9 +275,9 @@ function RecognitionSection() {
               key={i}
               className="flex items-center gap-8 p-8 rounded-2xl"
               style={{
-                border: "1px solid rgba(58,174,206,0.18)",
-                borderTop: "3px solid #3aaece",
-                boxShadow: "0 4px 24px rgba(16,101,127,0.06)",
+                border: "1px solid rgba(58,102,130,0.18)",
+                borderTop: "3px solid #3a6682",
+                boxShadow: "0 4px 24px rgba(58,102,130,0.06)",
               }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
@@ -285,7 +285,7 @@ function RecognitionSection() {
             >
               {/* Logo */}
               <div className="flex items-center justify-center rounded-lg px-4 py-3 shrink-0"
-                style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.2)" }}>
+                style={{ background: "#eaf1f6", border: "1px solid rgba(58,102,130,0.2)" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/thinkbox.png" alt="Thinkbox" style={{ height: 24, width: "auto" }} />
               </div>
@@ -298,13 +298,13 @@ function RecognitionSection() {
 
               {/* Campaign + year */}
               <div className="text-right shrink-0">
-                <p className="text-xs font-medium text-[#3aaece]">{award.campaign}</p>
+                <p className="text-xs font-medium text-[#3a6682]">{award.campaign}</p>
                 <p className="text-xs font-semibold text-[#9ca3af] mt-1">{award.year}</p>
               </div>
 
               {/* Status pill */}
               <span className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-3 py-1.5 shrink-0"
-                style={{ color: "#3aaece", background: "rgba(58,174,206,0.1)" }}>
+                style={{ color: "#3a6682", background: "rgba(58,102,130,0.1)" }}>
                 {award.status}
               </span>
             </motion.div>
@@ -372,8 +372,8 @@ function StatsGrid() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <div style={{ background: "#f0f8fb" }}>
-      <div className="h-px" style={{ background: "rgba(58,174,206,0.25)" }} />
+    <div style={{ background: "#eaf1f6" }}>
+      <div className="h-px" style={{ background: "rgba(58,102,130,0.25)" }} />
       <div className="section-padding">
         <div className="container-main" ref={ref}>
 
@@ -388,7 +388,7 @@ function StatsGrid() {
             </motion.h2>
             <motion.p
               className="mt-2 font-semibold"
-              style={{ fontSize: "1.125rem", color: "#3aaece" }}
+              style={{ fontSize: "1.125rem", color: "#3a6682" }}
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.15, duration: 0.5 }}>
@@ -404,7 +404,7 @@ function StatsGrid() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px"
-            style={{ background: "rgba(58,174,206,0.15)", border: "1px solid rgba(58,174,206,0.15)", borderRadius: "1rem", overflow: "hidden" }}>
+            style={{ background: "rgba(58,102,130,0.15)", border: "1px solid rgba(58,102,130,0.15)", borderRadius: "1rem", overflow: "hidden" }}>
             {STAT_CASES.map((c, i) => (
               <motion.div
                 key={c.client}
@@ -415,14 +415,14 @@ function StatsGrid() {
 
                 {/* Sector + client */}
                 <div>
-                  <p className="text-[9px] font-bold tracking-[0.16em] uppercase text-[#3aaece] mb-1">{c.sector}</p>
+                  <p className="text-[9px] font-bold tracking-[0.16em] uppercase text-[#3a6682] mb-1">{c.sector}</p>
                   <p className="text-sm font-bold text-[#0d2535]">{c.client}</p>
                 </div>
 
                 {/* Multiplier */}
                 <div>
                   <p className="font-bold leading-none text-[#0d2535]" style={{ fontSize: "3rem" }}>{c.multiplier}</p>
-                  <p className="mt-1 text-xs font-medium text-[#3aaece]">{c.label}</p>
+                  <p className="mt-1 text-xs font-medium text-[#3a6682]">{c.label}</p>
                 </div>
 
                 <div className="h-px bg-[#f3f4f6]" />
@@ -474,11 +474,11 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               <div className="flex items-center gap-5">
                 <span
                   className="font-bold leading-none select-none"
-                  style={{ fontSize: "1.75rem", color: "rgba(58,174,206,0.18)" }}
+                  style={{ fontSize: "1.75rem", color: "rgba(58,102,130,0.18)" }}
                 >
                   01
                 </span>
-                <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece]">
+                <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682]">
                   {caseItem.sector}
                 </span>
                 <span className="text-sm font-bold text-[#0d2535]">{caseItem.client}</span>
@@ -488,7 +488,7 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   <span
                     key={b}
                     className="rounded-full px-3 py-1 text-xs font-medium"
-                    style={{ border: "1px solid rgba(58,174,206,0.25)", color: "rgba(58,174,206,0.7)" }}
+                    style={{ border: "1px solid rgba(58,102,130,0.25)", color: "rgba(58,102,130,0.7)" }}
                   >
                     {b}
                   </span>
@@ -510,15 +510,15 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               <motion.div
                 className="rounded-2xl p-8 flex flex-col"
                 style={{
-                  background: "#f0f8fb",
-                  border: "1px solid rgba(58,174,206,0.2)",
-                  boxShadow: "0 4px 28px rgba(16,101,127,0.06)",
+                  background: "#eaf1f6",
+                  border: "1px solid rgba(58,102,130,0.2)",
+                  boxShadow: "0 4px 28px rgba(58,102,130,0.06)",
                 }}
                 initial={{ opacity: 0, x: 24 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#3aaece] mb-7">
+                <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#3a6682] mb-7">
                   Campaign outcomes
                 </p>
 
@@ -534,7 +534,7 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}>
                     <div className="flex items-baseline gap-3 py-4"
-                      style={{ borderBottom: i < 3 ? "1px solid rgba(58,174,206,0.12)" : "none" }}>
+                      style={{ borderBottom: i < 3 ? "1px solid rgba(58,102,130,0.12)" : "none" }}>
                       <span className="font-bold text-[#0d2535] shrink-0" style={{ fontSize: "1.75rem", minWidth: "4.5rem" }}>
                         {s.value}
                       </span>
@@ -545,11 +545,11 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
 
                 <motion.div
                   className="mt-4 rounded-xl px-5 py-4"
-                  style={{ background: "rgba(58,174,206,0.08)", border: "1px solid rgba(58,174,206,0.15)" }}
+                  style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.15)" }}
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ delay: 0.8, duration: 0.5 }}>
-                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3aaece] mb-2">Key insight</p>
+                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3a6682] mb-2">Key insight</p>
                   <p className="text-sm leading-relaxed text-[#0d2535]">TV outperformed every other channel in the media mix.</p>
                 </motion.div>
               </motion.div>
@@ -559,14 +559,14 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
             {caseItem.quote && (
               <motion.blockquote
                 className="mt-12 pt-10 text-center"
-                style={{ borderTop: "1px solid rgba(58,174,206,0.2)" }}
+                style={{ borderTop: "1px solid rgba(58,102,130,0.2)" }}
                 initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
                 <span
                   className="block font-bold"
-                  style={{ fontSize: "3rem", lineHeight: 1, color: "#3aaece", marginBottom: "0.5rem" }}
+                  style={{ fontSize: "3rem", lineHeight: 1, color: "#3a6682", marginBottom: "0.5rem" }}
                 >
                   &ldquo;
                 </span>
@@ -594,8 +594,8 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <div style={{ background: "#f0f8fb" }}>
-      <div className="h-px" style={{ background: "rgba(58,174,206,0.25)" }} />
+    <div style={{ background: "#eaf1f6" }}>
+      <div className="h-px" style={{ background: "rgba(58,102,130,0.25)" }} />
 
       <div className="section-padding">
         <div className="container-main">
@@ -609,16 +609,16 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
             {/* Zone 1 - Header row */}
             <div
               className="flex items-center justify-between flex-wrap gap-4 pb-8 mb-10"
-              style={{ borderBottom: "1px solid rgba(58,174,206,0.2)" }}
+              style={{ borderBottom: "1px solid rgba(58,102,130,0.2)" }}
             >
               <div className="flex items-center gap-5">
                 <span
                   className="font-bold leading-none select-none"
-                  style={{ fontSize: "1.75rem", color: "rgba(58,174,206,0.18)" }}
+                  style={{ fontSize: "1.75rem", color: "rgba(58,102,130,0.18)" }}
                 >
                   02
                 </span>
-                <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece]">
+                <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682]">
                   {caseItem.sector}
                 </span>
                 <span className="text-sm font-bold text-[#0d2535]">{caseItem.client}</span>
@@ -628,7 +628,7 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   <span
                     key={b}
                     className="rounded-full px-3 py-1 text-xs font-medium"
-                    style={{ border: "1px solid rgba(58,174,206,0.25)", color: "rgba(58,174,206,0.7)" }}
+                    style={{ border: "1px solid rgba(58,102,130,0.25)", color: "rgba(58,102,130,0.7)" }}
                   >
                     {b}
                   </span>
@@ -651,14 +651,14 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                 className="rounded-2xl p-8 flex flex-col"
                 style={{
                   background: "white",
-                  border: "1px solid rgba(58,174,206,0.2)",
-                  boxShadow: "0 4px 28px rgba(16,101,127,0.06)",
+                  border: "1px solid rgba(58,102,130,0.2)",
+                  boxShadow: "0 4px 28px rgba(58,102,130,0.06)",
                 }}
                 initial={{ opacity: 0, x: 24 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#3aaece] mb-7">
+                <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#3a6682] mb-7">
                   Campaign outcomes
                 </p>
 
@@ -675,7 +675,7 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   <p className="mt-0.5 text-xs text-[#9ca3af]">Within defined target audience</p>
                 </motion.div>
 
-                <div className="my-6 h-px" style={{ background: "rgba(58,174,206,0.15)" }} />
+                <div className="my-6 h-px" style={{ background: "rgba(58,102,130,0.15)" }} />
 
                 {/* What drove it */}
                 <motion.div
@@ -699,24 +699,24 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                         animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{ delay: 0.62 + i * 0.08, duration: 0.4 }}
                       >
-                        <div className="mt-1.5 flex-shrink-0 rounded-full" style={{ width: 5, height: 5, background: "#3aaece" }} />
+                        <div className="mt-1.5 flex-shrink-0 rounded-full" style={{ width: 5, height: 5, background: "#3a6682" }} />
                         <p className="text-sm leading-snug text-[#4b5563]">{point}</p>
                       </motion.div>
                     ))}
                   </div>
                 </motion.div>
 
-                <div className="my-6 h-px" style={{ background: "rgba(58,174,206,0.15)" }} />
+                <div className="my-6 h-px" style={{ background: "rgba(58,102,130,0.15)" }} />
 
                 {/* Insight */}
                 <motion.div
                   className="rounded-xl px-5 py-4"
-                  style={{ background: "rgba(58,174,206,0.06)", border: "1px solid rgba(58,174,206,0.15)" }}
+                  style={{ background: "rgba(58,102,130,0.06)", border: "1px solid rgba(58,102,130,0.15)" }}
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ delay: 0.85, duration: 0.5 }}
                 >
-                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3aaece] mb-2">Key insight</p>
+                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3a6682] mb-2">Key insight</p>
                   <p className="text-sm leading-relaxed text-[#0d2535]">
                     Better audience inputs created clearer proof of in-market impact.
                   </p>
@@ -728,12 +728,12 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
             {caseItem.quote && (
               <motion.blockquote
                 className="mt-12 pt-10 text-center"
-                style={{ borderTop: "1px solid rgba(58,174,206,0.2)" }}
+                style={{ borderTop: "1px solid rgba(58,102,130,0.2)" }}
                 initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
-                <span className="block font-bold" style={{ fontSize: "3rem", lineHeight: 1, color: "#3aaece", marginBottom: "0.5rem" }}>
+                <span className="block font-bold" style={{ fontSize: "3rem", lineHeight: 1, color: "#3a6682", marginBottom: "0.5rem" }}>
                   &ldquo;
                 </span>
                 <p className="text-[1.0625rem] italic leading-relaxed text-[#0d2535] max-w-2xl mx-auto">
@@ -778,11 +778,11 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               <div className="flex items-center gap-5">
                 <span
                   className="font-bold leading-none select-none"
-                  style={{ fontSize: "1.75rem", color: "rgba(58,174,206,0.18)" }}
+                  style={{ fontSize: "1.75rem", color: "rgba(58,102,130,0.18)" }}
                 >
                   03
                 </span>
-                <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece]">
+                <span className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682]">
                   {caseItem.sector}
                 </span>
                 <span className="text-sm font-bold text-[#0d2535]">{caseItem.client}</span>
@@ -792,7 +792,7 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                   <span
                     key={b}
                     className="rounded-full px-3 py-1 text-xs font-medium"
-                    style={{ border: "1px solid rgba(58,174,206,0.25)", color: "rgba(58,174,206,0.7)" }}
+                    style={{ border: "1px solid rgba(58,102,130,0.25)", color: "rgba(58,102,130,0.7)" }}
                   >
                     {b}
                   </span>
@@ -814,15 +814,15 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               <motion.div
                 className="rounded-2xl p-8 flex flex-col"
                 style={{
-                  background: "#f0f8fb",
-                  border: "1px solid rgba(58,174,206,0.2)",
-                  boxShadow: "0 4px 28px rgba(16,101,127,0.06)",
+                  background: "#eaf1f6",
+                  border: "1px solid rgba(58,102,130,0.2)",
+                  boxShadow: "0 4px 28px rgba(58,102,130,0.06)",
                 }}
                 initial={{ opacity: 0, x: 24 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#3aaece] mb-7">
+                <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#3a6682] mb-7">
                   Campaign outcomes
                 </p>
 
@@ -837,8 +837,8 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}>
                     <div className="flex items-baseline gap-3 py-4"
-                      style={{ borderBottom: i < 2 ? "1px solid rgba(58,174,206,0.12)" : "none" }}>
-                      <span className="font-bold shrink-0" style={{ fontSize: "1.75rem", minWidth: "4.5rem", color: s.value === "✓" ? "#3aaece" : "#0d2535" }}>
+                      style={{ borderBottom: i < 2 ? "1px solid rgba(58,102,130,0.12)" : "none" }}>
+                      <span className="font-bold shrink-0" style={{ fontSize: "1.75rem", minWidth: "4.5rem", color: s.value === "✓" ? "#3a6682" : "#0d2535" }}>
                         {s.value}
                       </span>
                       <span className="text-sm text-[#4b5563] leading-snug">{s.label}</span>
@@ -848,11 +848,11 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
 
                 <motion.div
                   className="mt-4 rounded-xl px-5 py-4"
-                  style={{ background: "rgba(58,174,206,0.08)", border: "1px solid rgba(58,174,206,0.15)" }}
+                  style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.15)" }}
                   initial={{ opacity: 0 }}
                   animate={inView ? { opacity: 1 } : {}}
                   transition={{ delay: 0.7, duration: 0.5 }}>
-                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3aaece] mb-2">Key insight</p>
+                  <p className="text-xs font-semibold tracking-[0.12em] uppercase text-[#3a6682] mb-2">Key insight</p>
                   <p className="text-sm leading-relaxed text-[#0d2535]">Optimising daily towards likely boxing fans - not broad sports audiences - made the difference.</p>
                 </motion.div>
               </motion.div>
@@ -868,10 +868,10 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
             >
               <div
                 className="rounded-2xl px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 items-center"
-                style={{ background: "#f0f8fb", border: "1px solid rgba(58,174,206,0.15)" }}
+                style={{ background: "#eaf1f6", border: "1px solid rgba(58,102,130,0.15)" }}
               >
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-2">
+                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-2">
                     What this enabled next
                   </p>
                   <p className="font-bold text-[#0d2535]" style={{ fontSize: "1.25rem", lineHeight: 1.3 }}>
@@ -903,8 +903,8 @@ function CaseStudy({
   const n = String(index + 1).padStart(2, "0");
 
   return (
-    <div style={{ background: index % 2 === 0 ? "white" : "#f0f8fb" }}>
-      <div className="h-px" style={{ background: index % 2 === 0 ? "#e5e7eb" : "rgba(58,174,206,0.25)" }} />
+    <div style={{ background: index % 2 === 0 ? "white" : "#eaf1f6" }}>
+      <div className="h-px" style={{ background: index % 2 === 0 ? "#e5e7eb" : "rgba(58,102,130,0.25)" }} />
 
       <div className="section-padding">
         <div className="container-main">
@@ -922,11 +922,11 @@ function CaseStudy({
               <div>
                 <p
                   className="font-bold leading-none select-none"
-                  style={{ fontSize: "clamp(3.5rem, 6vw, 5rem)", color: "rgba(58,174,206,0.15)" }}
+                  style={{ fontSize: "clamp(3.5rem, 6vw, 5rem)", color: "rgba(58,102,130,0.15)" }}
                 >
                   {n}
                 </p>
-                <p className="mt-4 text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece]">
+                <p className="mt-4 text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682]">
                   {caseItem.sector}
                 </p>
                 <p className="mt-1.5 text-sm font-semibold text-[#0d2535]">{caseItem.client}</p>
@@ -956,14 +956,14 @@ function CaseStudy({
             {caseItem.quote && (
               <motion.blockquote
                 className="mt-12 pt-10 text-center"
-                style={{ borderTop: "1px solid rgba(58,174,206,0.2)" }}
+                style={{ borderTop: "1px solid rgba(58,102,130,0.2)" }}
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.35, duration: 0.6 }}
               >
                 <span
                   className="block font-bold"
-                  style={{ fontSize: "3rem", lineHeight: 1, color: "#3aaece", marginBottom: "0.5rem" }}
+                  style={{ fontSize: "3rem", lineHeight: 1, color: "#3a6682", marginBottom: "0.5rem" }}
                 >
                   &ldquo;
                 </span>

@@ -74,16 +74,16 @@ export default function CookieBanner() {
                 <div className="flex items-start gap-4">
                   <div
                     className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5"
-                    style={{ background: "rgba(58,174,206,0.1)" }}
+                    style={{ background: "rgba(58,102,130,0.1)" }}
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                      <circle cx="7" cy="7" r="6" stroke="#3aaece" strokeWidth="1.3" />
-                      <path d="M7 6v3.5M7 4v.5" stroke="#3aaece" strokeWidth="1.5" strokeLinecap="round" />
+                      <circle cx="7" cy="7" r="6" stroke="#3a6682" strokeWidth="1.3" />
+                      <path d="M7 6v3.5M7 4v.5" stroke="#3a6682" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </div>
                   <p className="text-sm leading-relaxed text-[#4b5563] max-w-xl">
                     We use cookies to understand how visitors use our site and to improve your experience.{" "}
-                    <Link href="/cookies" className="text-[#3aaece] hover:underline font-medium">
+                    <Link href="/cookies" className="text-[#3a6682] hover:underline font-medium">
                       Cookie Policy
                     </Link>
                   </p>
@@ -100,7 +100,7 @@ export default function CookieBanner() {
                   <button
                     onClick={accept}
                     className="rounded-full px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                    style={{ background: "#10657f" }}
+                    style={{ background: "#3a6682" }}
                   >
                     Accept
                   </button>

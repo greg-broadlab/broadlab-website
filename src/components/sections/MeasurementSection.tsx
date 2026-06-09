@@ -30,8 +30,8 @@ function BarGroup({ bar, inView, delay }: { bar: typeof BARS[number]; inView: bo
       <div className="flex items-end gap-[3px]" style={{ height: CHART_H }}>
         {([
           { h: bar.brand,  color: "#0d2535" },
-          { h: bar.search, color: "#3aaece" },
-          { h: bar.conv,   color: "rgba(58,174,206,0.35)" },
+          { h: bar.search, color: "#3a6682" },
+          { h: bar.conv,   color: "rgba(58,102,130,0.35)" },
           { h: bar.foot,   color: "rgba(13,37,53,0.2)" },
         ] as const).map((b, i) => (
           <motion.div
@@ -54,8 +54,8 @@ export default function MeasurementSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#f0f8fb]">
-      <div className="h-px w-full" style={{ background: "rgba(58,174,206,0.3)" }} />
+    <section ref={ref} className="bg-white">
+      <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
 
       <div className="section-padding">
         <div className="container-main">
@@ -64,7 +64,7 @@ export default function MeasurementSection() {
             {/* Left - copy */}
             <div>
               <motion.p
-                className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+                className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
                 transition={{ delay: 0.05, duration: 0.5 }}
@@ -102,7 +102,7 @@ export default function MeasurementSection() {
                 {OUTCOMES.map((o) => (
                   <div
                     key={o.label}
-                    className="rounded-lg border border-[#3aaece]/25 bg-white px-4 py-4"
+                    className="rounded-lg border border-[#3a6682]/25 bg-white px-4 py-4"
                   >
                     <p className="text-sm font-semibold text-[#0d2535]">{o.label}</p>
                     <p className="mt-0.5 text-xs text-[#6b7280]">{o.sub}</p>
@@ -115,7 +115,7 @@ export default function MeasurementSection() {
             {/* Right - animated bar chart */}
             <motion.div
               className="rounded-xl bg-white border border-[#e5e7eb] p-7"
-              style={{ boxShadow: "0 4px 24px rgba(16,101,127,0.07)" }}
+              style={{ boxShadow: "0 4px 24px rgba(58,102,130,0.07)" }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
               transition={{ delay: 0.2, duration: 0.65 }}
@@ -126,8 +126,8 @@ export default function MeasurementSection() {
                   <p className="text-xs font-bold tracking-[0.12em] uppercase text-[#0d2535]">Campaign Performance</p>
                   <p className="text-[11px] text-[#9ca3af] mt-0.5">Outcome index · in-flight view</p>
                 </div>
-                <span className="flex items-center gap-1 text-[9px] text-[#3aaece] font-semibold">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#3aaece] animate-pulse" />
+                <span className="flex items-center gap-1 text-[9px] text-[#3a6682] font-semibold">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#3a6682] animate-pulse" />
                   LIVE
                 </span>
               </div>
@@ -148,8 +148,8 @@ export default function MeasurementSection() {
               <div className="mt-5 flex items-center gap-4 flex-wrap">
                 {[
                   { color: "#0d2535",              label: "Brand lift"    },
-                  { color: "#3aaece",              label: "Search uplift" },
-                  { color: "rgba(58,174,206,0.35)", label: "Conversion"   },
+                  { color: "#3a6682",              label: "Search uplift" },
+                  { color: "rgba(58,102,130,0.35)", label: "Conversion"   },
                   { color: "rgba(13,37,53,0.2)",   label: "Footfall"      },
                 ].map((l) => (
                   <div key={l.label} className="flex items-center gap-1.5">

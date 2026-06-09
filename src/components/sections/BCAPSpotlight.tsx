@@ -16,7 +16,7 @@ function BCAPMockup({ inView }: { inView: boolean }) {
   return (
     <motion.div
       className="rounded-2xl overflow-hidden bg-white"
-      style={{ border: "1px solid #e5e7eb", boxShadow: "0 8px 40px rgba(16,101,127,0.1)" }}
+      style={{ border: "1px solid #e5e7eb", boxShadow: "0 8px 40px rgba(58,102,130,0.1)" }}
       initial={{ opacity: 0, x: 24 }}
       animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 24 }}
       transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
@@ -32,8 +32,8 @@ function BCAPMockup({ inView }: { inView: boolean }) {
           </svg>
           <p className="text-[12px] font-bold text-[#0d2535]">Build Your Audience</p>
         </div>
-        <span className="text-[9px] font-bold px-2 py-1 rounded text-[#10657f]"
-          style={{ background: "rgba(16,101,127,0.08)", border: "1px solid rgba(16,101,127,0.2)" }}>
+        <span className="text-[9px] font-bold px-2 py-1 rounded text-[#3a6682]"
+          style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.2)" }}>
           BROADLAB
         </span>
       </div>
@@ -88,9 +88,9 @@ function BCAPMockup({ inView }: { inView: boolean }) {
         {/* Audience Brief */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <p className="text-[10px] font-semibold text-[#0d2535]">Audience Brief <span className="text-[#3aaece]">*</span></p>
-            <span className="text-[9px] font-medium text-[#3aaece] px-2 py-0.5 rounded-full flex items-center gap-1"
-              style={{ background: "rgba(58,174,206,0.08)", border: "1px solid rgba(58,174,206,0.2)" }}>
+            <p className="text-[10px] font-semibold text-[#0d2535]">Audience Brief <span className="text-[#3a6682]">*</span></p>
+            <span className="text-[9px] font-medium text-[#3a6682] px-2 py-0.5 rounded-full flex items-center gap-1"
+              style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.2)" }}>
               ✦ Format with AI
             </span>
           </div>
@@ -122,7 +122,7 @@ function BCAPMockup({ inView }: { inView: boolean }) {
             ✦ Build Audience
           </button>
           <button className="flex-1 text-[10px] font-semibold px-3 py-2 rounded-lg text-white flex items-center justify-center gap-1"
-            style={{ background: "#3aaece" }}>
+            style={{ background: "#3a6682" }}>
             ↻ Re-launch Clustering
           </button>
         </div>
@@ -137,7 +137,7 @@ export default function BCAPSpotlight() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-white">
+    <section ref={ref} style={{ background: "#eaf1f6" }}>
       <div className="h-px w-full bg-[#e5e7eb]" />
 
       <div className="section-padding">
@@ -147,7 +147,7 @@ export default function BCAPSpotlight() {
             {/* Left - copy */}
             <div>
               <motion.p
-                className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3aaece] mb-4"
+                className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-4"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
                 transition={{ delay: 0.05, duration: 0.5 }}>
@@ -161,7 +161,7 @@ export default function BCAPSpotlight() {
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
                 transition={{ delay: 0.12, duration: 0.6 }}>
                 How we build<br />
-                <span style={{ color: "#3aaece" }}>your campaigns.</span>
+                <span style={{ color: "#3a6682" }}>your campaigns.</span>
               </motion.h2>
 
               <motion.div
@@ -176,8 +176,8 @@ export default function BCAPSpotlight() {
                     animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -12 }}
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}>
                     <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                      style={{ background: "rgba(58,174,206,0.1)" }}>
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#3aaece]" />
+                      style={{ background: "rgba(58,102,130,0.1)" }}>
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#3a6682]" />
                     </div>
                     <div>
                       <p className="text-sm font-bold text-[#0d2535]">{f.label}</p>
@@ -193,7 +193,7 @@ export default function BCAPSpotlight() {
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
                 transition={{ delay: 0.6, duration: 0.5 }}>
                 <Link href="/contact#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#10657f] px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]">
+                  className="inline-flex items-center gap-2 rounded-full bg-[#3a6682] px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0d2535]">
                   Book a consultation
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

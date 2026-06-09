@@ -9,13 +9,13 @@ export default function SystemCTA() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="bg-white">
-      <div className="h-px w-full" style={{ background: "#e5e7eb" }} />
+    <section ref={ref} style={{ background: "#3a6682" }}>
+      <div className="h-px w-full" style={{ background: "rgba(255,255,255,0.15)" }} />
 
       <div className="section-padding">
         <div className="container-main max-w-2xl mx-auto text-center">
           <motion.h2
-            className="font-bold leading-tight text-[#0d2535]"
+            className="font-bold leading-tight text-white"
             style={{ fontSize: "clamp(1.75rem,3.5vw,3rem)" }}
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 14 }}
@@ -25,7 +25,8 @@ export default function SystemCTA() {
           </motion.h2>
 
           <motion.p
-            className="mt-4 text-[1rem] leading-relaxed text-[#4b5563]"
+            className="mt-4 text-[1rem] leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.7)" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: inView ? 1 : 0 }}
             transition={{ delay: 0.22, duration: 0.5 }}
@@ -41,13 +42,13 @@ export default function SystemCTA() {
           >
             <Link
               href="/work"
-              className="inline-flex items-center justify-center rounded-full bg-[#3aaece] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2d9ab8]"
+              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3a6682] transition-colors hover:bg-[#eaf1f6]"
             >
               View our work
             </Link>
             <Link
               href="/contact#contact"
-              className="inline-flex items-center justify-center rounded-full border border-[#10657f] px-7 py-3 text-sm font-semibold text-[#10657f] transition-colors hover:bg-[#10657f] hover:text-white"
+              className="inline-flex items-center justify-center rounded-full border border-white px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[#3a6682]"
             >
               Book a consultation
             </Link>
