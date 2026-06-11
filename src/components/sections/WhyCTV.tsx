@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
@@ -6,7 +6,7 @@ import { TrendingUp, Zap, Target } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Data - PLACEHOLDER: stats sourced from OFCOM, Amplified Intelligence,
-// and INCRMNTAL/Profitability 2. Confirm with BroadLab before going live.
+// and INCRMNTAL/Profitability 2. Confirm with Broadlab before going live.
 // ---------------------------------------------------------------------------
 
 const STATS = [
@@ -223,7 +223,7 @@ export default function WhyCTV() {
               animate={headingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.22, duration: 0.5 }}
             >
-              {/* PLACEHOLDER - confirm 90% stat with BroadLab before go-live */}
+              {/* PLACEHOLDER - confirm 90% stat with Broadlab before go-live */}
               CTV reaches 90% of homes. For brands that use it properly, it&apos;s the most powerful and accountable channel in media.
             </motion.p>
 

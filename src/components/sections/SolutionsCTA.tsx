@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -22,7 +22,7 @@ export default function SolutionsCTA() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}>
-              See what BroadLab can do<br />
+              See what Broadlab can do<br />
               <span style={{ color: "#3a6682" }}>for your campaigns.</span>
             </motion.h2>
 

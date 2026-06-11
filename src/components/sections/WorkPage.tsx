@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, animate } from "framer-motion";
@@ -232,7 +232,7 @@ const AWARDS = [
   {
     body:      "Thinkbox TV Planning Awards",
     category:  "Best use of Addressability",
-    campaign:  "BroadLab for Scottish Widows",
+    campaign:  "Broadlab for Scottish Widows",
     year:      "2025",
     status:    "Shortlisted",
     confirmed: true,

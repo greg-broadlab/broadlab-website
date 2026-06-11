@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 
 function CookiePreferences() {
   function resetConsent() {
-    document.cookie = "broadlab_consent=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+    document.cookie = "Broadlab_consent=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
     window.location.reload();
   }
   return (
@@ -41,7 +41,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/broadlab-logo-darktext.png"
+              src="/Broadlab-logo-darktext.png"
               alt="Broadlab"
               width={200}
               height={48}
@@ -52,7 +52,7 @@ export default function Footer() {
               Simplifying the complex. Maximising outcomes.
             </p>
             <a
-              href="https://www.linkedin.com/company/broadlabtv/"
+              href="https://www.linkedin.com/company/Broadlabtv/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-5 text-[#9ca3af] hover:text-[#0d2535] transition-colors duration-200"

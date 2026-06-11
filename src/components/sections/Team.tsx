@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 const team = [
   {
@@ -6,7 +6,7 @@ const team = [
     title: "CEO & Founder",
     bio: "Jakob founded Broadlab with a vision to make Addressable TV accessible and measurable for every brand. With deep expertise in digital media and AdTech, he leads the company's strategic direction and technology vision.",
     image: "/images/team/jakob.jpeg",
-    linkedin: "https://www.linkedin.com/company/broadlabtv/",
+    linkedin: "https://www.linkedin.com/company/Broadlabtv/",
   },
   {
     name: "Chris Buck",

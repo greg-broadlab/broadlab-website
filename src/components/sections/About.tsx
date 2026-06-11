@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -155,7 +155,7 @@ function CompanyStatement() {
               transition={{ delay: 0.2, duration: 0.65 }}
             >
               <p className="text-[0.9375rem] leading-relaxed text-[#4b5563]">
-                BroadLab brings together the capability areas that matter most in CTV:
+                Broadlab brings together the capability areas that matter most in CTV:
                 media planning expertise, marketplace innovation, and advanced optimisation
                 and measurement - not as separate services, but as one connected system.
               </p>

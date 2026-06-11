@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -21,7 +21,7 @@ const AGENTS = [
   {
     id: "strategy",
     role: "Strategy Agent",
-    tagline: "Builds briefs, plans audiences, structures campaigns and surfaces recommendations - before a pound is spent.",
+    tagline: "Builds briefs, plans audiences, structures campaigns and surfaces recommendations - before a single penny is spent.",
     skills: ["Campaign Briefs", "Audience Strategy", "Client Recommendations", "Budget Planning"],
     prompts: ["Build a campaign brief for this client", "What audience should I target?"],
   },
@@ -138,7 +138,7 @@ export default function AgentsSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}>
-              Three AI agents, each built on BroadLab&apos;s proprietary data and tailored for a specific job - powering every decision we make across your campaigns.
+              Three AI agents, each built on Broadlab&apos;s proprietary data and tailored for a specific job - powering every decision we make across your campaigns.
             </motion.p>
           </div>
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 // ── Placeholder data - replace with real logos when available ─────────────────
 

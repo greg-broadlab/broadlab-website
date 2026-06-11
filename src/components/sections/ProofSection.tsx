@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
@@ -72,7 +72,7 @@ function VisualAttribution() {
 
 // ─── Case data ────────────────────────────────────────────────────────────────
 
-// PLACEHOLDER - confirm all figures with BroadLab before launch
+// PLACEHOLDER - confirm all figures with Broadlab before launch
 const CASES = [
   {
     value:   3,

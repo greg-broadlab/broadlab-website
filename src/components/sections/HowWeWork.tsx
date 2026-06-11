@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -55,7 +55,7 @@ export default function HowWeWork() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
               transition={{ delay: 0.1, duration: 0.6 }}
             >
-              How the BroadLab system works
+              How the Broadlab system works
             </motion.h2>
             <motion.p
               className="mt-5 max-w-xl mx-auto"

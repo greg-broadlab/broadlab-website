@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Broadlab | Outcome-Driven Addressable TV",
     description:
       "Access over 18 million UK households through premium publishers. AI-driven campaign optimisation, custom audiences, and holistic reporting.",
-    url: "https://broadlab.tv",
+    url: "https://Broadlab.tv",
     siteName: "Broadlab",
   },
 };

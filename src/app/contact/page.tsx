@@ -1,11 +1,11 @@
-import Navbar from "@/components/layout/Navbar";
+﻿import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactPage from "@/components/sections/ContactPage";
 
 export const metadata = {
-  title: "Contact - BroadLab",
+  title: "Contact - Broadlab",
   description:
-    "Get in touch with BroadLab. Talk to us about CTV strategy, the Broadlab system, or how outcome-driven TV investment could work for your business.",
+    "Get in touch with Broadlab. Talk to us about CTV strategy, the Broadlab system, or how outcome-driven TV investment could work for your business.",
 };
 
 export default function Contact() {

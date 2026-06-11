@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, type MotionValue } from "framer-motion";
@@ -51,7 +51,7 @@ function BrandIntro({ onComplete }: { onComplete: () => void }) {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/broadlab-logo-transparent.png"
+          src="/Broadlab-logo-transparent.png"
           alt=""
           className="h-28 w-auto"
         />
@@ -234,7 +234,7 @@ function LogoDot({
   mouseX: MotionValue<number>;
   mouseY: MotionValue<number>;
 }) {
-  // Bottom dots lighter/less opaque, top dots darker/more opaque — matches designer logo
+  // Bottom dots lighter/less opaque, top dots darker/more opaque - matches designer logo
   const baseOpacity = 0.52 + (index / (LOGO_PATHS.length - 1)) * 0.40;
   const { cx, cy } = DOT_CENTERS[index];
 
@@ -382,7 +382,7 @@ export default function Hero() {
                 animate={introComplete ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.32, duration: 0.55 }}
               >
-                BroadLab helps marketers and their agencies turn CTV investment into measurable, compounding business growth.
+                Broadlab helps marketers and their agencies turn their CTV investment into measurable and compounding business growth.
               </motion.p>
 
               <motion.div
@@ -391,7 +391,7 @@ export default function Hero() {
                 animate={introComplete ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.48, duration: 0.5 }}
               >
-                <Link href="/contact#contact" className="btn-primary">Book a consultation</Link>
+                <Link href="/contact#contact" className="btn-primary">Book a Consultation</Link>
                 <Link href="/system" className="btn-secondary">Explore the System</Link>
               </motion.div>
 

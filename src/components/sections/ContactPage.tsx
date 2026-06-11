@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -117,7 +117,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682]">
-              Talk to BroadLab
+              Talk to Broadlab
             </p>
             <h1
               className="font-bold text-[#0d2535] leading-tight"
@@ -132,10 +132,10 @@ export default function ContactPage() {
 
             <div className="flex flex-col gap-4 mt-2">
               <a
-                href="mailto:info@broadlab.tv"
+                href="mailto:info@Broadlab.tv"
                 className="text-sm font-medium text-[#3a6682] transition-opacity hover:opacity-70"
               >
-                info@broadlab.tv
+                info@Broadlab.tv
               </a>
 
               <div className="h-px w-12" style={{ background: "rgba(58,102,130,0.3)" }} />

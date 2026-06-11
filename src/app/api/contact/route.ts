@@ -1,8 +1,8 @@
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+﻿import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { NextRequest, NextResponse } from "next/server";
 
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "no-reply@broadlab.tech";
-const TO_EMAIL   = process.env.CONTACT_TO_EMAIL   ?? "info@broadlab.tv";
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "no-reply@Broadlab.tech";
+const TO_EMAIL   = process.env.CONTACT_TO_EMAIL   ?? "info@Broadlab.tv";
 
 // In-memory rate limiter: max 3 submissions per IP per 10 minutes
 const rateMap = new Map<string, number[]>();
@@ -28,7 +28,7 @@ function htmlEmail(name: string, email: string, company: string, reason: string)
 
         <!-- Header -->
         <tr><td style="background:#0d2535;border-radius:12px 12px 0 0;padding:32px 40px">
-          <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#3a6682">BroadLab</p>
+          <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#3a6682">Broadlab</p>
           <h1 style="margin:8px 0 0;font-size:22px;font-weight:700;color:#ffffff;line-height:1.3">New website enquiry</h1>
         </td></tr>
 
@@ -53,7 +53,7 @@ function htmlEmail(name: string, email: string, company: string, reason: string)
 
         <!-- Footer -->
         <tr><td style="background:#f9fafb;border-radius:0 0 12px 12px;padding:20px 40px;border-top:1px solid #e5e7eb">
-          <p style="margin:0;font-size:12px;color:#9ca3af">Sent from broadlab.tv contact form · Reply directly to <a href="mailto:${email}" style="color:#3a6682">${email}</a></p>
+          <p style="margin:0;font-size:12px;color:#9ca3af">Sent from Broadlab.tv contact form · Reply directly to <a href="mailto:${email}" style="color:#3a6682">${email}</a></p>
         </td></tr>
 
       </table>

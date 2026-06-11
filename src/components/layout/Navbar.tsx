@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/broadlab-logo-darktext.png"
+            src="/Broadlab-logo-darktext.png"
             alt="Broadlab"
             width={200}
             height={48}

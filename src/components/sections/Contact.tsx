@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -82,12 +82,12 @@ export default function Contact() {
                 <div>
                   <p className="text-[#0f1923] text-sm font-medium">LinkedIn</p>
                   <a
-                    href="https://www.linkedin.com/company/broadlabtv/"
+                    href="https://www.linkedin.com/company/Broadlabtv/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#4d7a96] hover:text-[#6bbdd8] text-sm transition-colors duration-200"
                   >
-                    linkedin.com/company/broadlabtv
+                    linkedin.com/company/Broadlabtv
                   </a>
                 </div>
               </div>

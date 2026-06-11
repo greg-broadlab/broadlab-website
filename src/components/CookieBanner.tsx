@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,7 +34,7 @@ export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = getCookie("broadlab_consent");
+    const consent = getCookie("Broadlab_consent");
     if (!consent) {
       const t = setTimeout(() => setVisible(true), 800);
       return () => clearTimeout(t);
@@ -43,13 +43,13 @@ export default function CookieBanner() {
   }, []);
 
   function accept() {
-    setCookie("broadlab_consent", "accepted", 365);
+    setCookie("Broadlab_consent", "accepted", 365);
     updateGTMConsent(true);
     setVisible(false);
   }
 
   function decline() {
-    setCookie("broadlab_consent", "declined", 365);
+    setCookie("Broadlab_consent", "declined", 365);
     updateGTMConsent(false);
     setVisible(false);
   }

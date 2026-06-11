@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -75,7 +75,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
           ))}
         </div>
 
-        {/* Centre - The BroadLab ID Graph */}
+        {/* Centre - The Broadlab ID Graph */}
         <div
           className="relative flex flex-col items-center justify-center gap-5 px-8 py-10 text-center"
           style={{
@@ -118,7 +118,7 @@ function GraphDiagram({ inView }: { inView: boolean }) {
                 Proprietary Engine
               </p>
               <p className="text-sm font-bold leading-snug text-white">
-                The BroadLab<br />ID Graph
+                The Broadlab<br />ID Graph
               </p>
             </div>
 
@@ -276,7 +276,7 @@ export default function TheSystem() {
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
               >
-                The BroadLab ID Graph
+                The Broadlab ID Graph
               </motion.p>
               <motion.h2
                 className="text-[clamp(2rem,3.8vw,3.5rem)] font-bold leading-tight text-[#0d2535]"
@@ -296,8 +296,8 @@ export default function TheSystem() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              {/* PLACEHOLDER - confirm copy with BroadLab */}
-              BroadLab's proprietary ID Graph combines census, behavioural and
+              {/* PLACEHOLDER - confirm copy with Broadlab */}
+              Broadlab's proprietary ID Graph combines census, behavioural and
               TV signal data - creating the audience intelligence layer that gives
               every campaign a structural edge before it launches.
             </motion.p>

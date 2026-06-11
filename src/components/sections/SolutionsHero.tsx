@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -8,7 +8,7 @@ const SOLUTIONS = [
   {
     id: "marketplaces",
     label: "Curated Marketplaces",
-    desc: "Premium CTV supply, direct connections, full transparency.",
+    desc: "Premium CTV supply, direct connections and full transparency.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a6682" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1" />
@@ -129,8 +129,7 @@ export default function SolutionsHero() {
                 style={{ fontSize: "1.0625rem", maxWidth: "30rem" }}
                 initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ delay: 0.26, duration: 0.55 }}>
-                BroadLab is built from the ground up with AI and proprietary data at its core.
-                Not added on. Not integrated after the fact. The technology is the difference.
+                Broadlab is built from the ground up with AI and proprietary data at its core - not added on, not integrated after the fact. That means smarter audiences, faster optimisation and measurement that proves real business outcomes.
               </motion.p>
 
               <motion.div className="mt-9 flex flex-wrap gap-4"
@@ -149,8 +148,18 @@ export default function SolutionsHero() {
               </motion.div>
             </div>
 
-            {/* Right - solution tiles */}
-            <SolutionTiles inView={inView} />
+            {/* Right - label + solution tiles */}
+            <div>
+              <motion.p
+                className="text-xs font-bold tracking-[0.18em] uppercase text-[#3a6682] mb-5"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
+                transition={{ delay: 0.18, duration: 0.5 }}
+              >
+                Four Offerings in One Complete Solution
+              </motion.p>
+              <SolutionTiles inView={inView} />
+            </div>
 
           </div>
         </div>

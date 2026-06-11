@@ -1,12 +1,12 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 
 const FEATURES = [
-  { label: "Campaigns built around your outcomes", desc: "Every campaign is structured around the metrics that matter to your business, before a pound is spent." },
-  { label: "Precision audiences from 60.3M geo keys", desc: "We build privacy-safe audience segments using the Audience Graph - accurate, scalable and consistent across every platform." },
+  { label: "Campaigns built around your outcomes", desc: "Every campaign is structured around the metrics that matter to your business, before a single penny is spent." },
+  { label: "Precision audiences from 60.3M geographic data points", desc: "We build privacy-safe audience segments using our very own Audience Graph - accurate, scalable and consistent across every platform." },
   { label: "Supply allocated across premium CTV", desc: "We plan and allocate across premium inventory with full pricing transparency and no hidden intermediaries." },
   { label: "Full visibility from brief to live", desc: "You see exactly how your campaign is structured, what it costs and how it's performing - at every stage." },
 ];
@@ -34,7 +34,7 @@ function BCAPMockup({ inView }: { inView: boolean }) {
         </div>
         <span className="text-[9px] font-bold px-2 py-1 rounded text-[#3a6682]"
           style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.2)" }}>
-          BROADLAB
+          Broadlab
         </span>
       </div>
 
@@ -96,7 +96,7 @@ function BCAPMockup({ inView }: { inView: boolean }) {
           </div>
           <div className="rounded-xl px-3 py-2.5" style={{ border: "1px solid #e5e7eb", background: "white", minHeight: 60 }}>
             <p className="text-[10px] text-[#0d2535] leading-relaxed">
-              Premium Pet Pamperers — high household income, aged 30-55, own pets and treat them as family. Interested in premium pet nutrition and wellness.
+              Premium Pet Pamperers - high household income, aged 30-55, own pets and treat them as family. Interested in premium pet nutrition and wellness.
             </p>
           </div>
           <p className="text-[9px] text-[#9ca3af] mt-1">Describe your target audience using natural language</p>

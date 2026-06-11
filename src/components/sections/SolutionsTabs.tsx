@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -11,25 +11,25 @@ const TABS = [
     id: "marketplaces",
     label: "Curated Marketplaces",
     headline: "Premium supply.\nDirect access.",
-    body: "BroadLab builds and manages curated CTV marketplaces across the UK, US and Europe - giving brands and agencies direct access to premium inventory with fewer intermediaries, lower fees and full transparency on every deal.",
+    body: "Broadlab builds and manages curated CTV marketplaces across the UK, US and Europe - giving brands and agencies direct access to premium inventory with fewer intermediaries, lower fees and full transparency on every deal.",
   },
   {
     id: "identity",
     label: "Identity Solutions",
     headline: "One view.\nYours to keep.",
-    body: "We build privacy-safe, brand-specific identity graphs that combine CRM data, CTV exposure and geo audience signals into a single planning and measurement asset - one that compounds in value with every campaign.",
+    body: "We build privacy-safe, brand-specific identity graphs that combine CRM data, CTV exposure and geographical audience signals into a single planning and measurement asset. One that compounds in value with each and every campaign.",
   },
   {
     id: "audience",
     label: "Audience Planning",
     headline: "Plan smarter.\nActivate with precision.",
-    body: "BCAP is BroadLab's campaign and audience builder - designed to make complex CTV planning fast and precise. Define outcomes, build audiences, allocate supply and launch, all in one place.",
+    body: "BCAP is Broadlab's campaign and audience building tool - designed to make complex CTV planning fast and precise. Define outcomes, build audiences, allocate supply and launch, all in one place.",
   },
   {
     id: "optimisation",
     label: "Optimisation",
     headline: "Every lever.\nAdjusted every day.",
-    body: "46,000+ variables monitored continuously throughout every campaign. BroadLab's optimisation engine adjusts audience, creative, geography, supply and frequency daily - delivering measurable improvements while campaigns are live.",
+    body: "46,000+ variables monitored continuously throughout every campaign. Broadlab's optimisation engine adjusts audience, creative, geography, supply and frequency daily - delivering measurable improvements in real-time while campaigns are still live.",
   },
 ];
 
@@ -42,23 +42,46 @@ function MarketplacesCard() {
     { name: "Europe", publishers: ["Netflix", "DAZN", "Samsung TV+", "RTL", "Disney+", "ProSieben", "Pluto TV", "YouTube"] },
   ];
   return (
-    <div className="rounded-2xl bg-white border border-[#e5e7eb] p-5 overflow-hidden"
+    <div className="rounded-2xl bg-white border border-[#e5e7eb] overflow-hidden flex flex-col"
       style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(58,102,130,0.07)" }}>
-      <div className="grid grid-cols-3 gap-4 h-full">
+
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-3 shrink-0"
+        style={{ borderBottom: "1px solid #f3f4f6", background: "#f9fafb" }}>
+        <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#3a6682]">Premium Inventory</p>
+        <span className="text-[9px] font-bold px-2 py-0.5 rounded-full text-[#3a6682]"
+          style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.2)" }}>
+          30+ Partners
+        </span>
+      </div>
+
+      {/* Region columns */}
+      <div className="grid grid-cols-3 gap-3 p-4 flex-1">
         {regions.map((r) => (
-          <div key={r.name} className="overflow-hidden">
-            <p className="text-[10px] font-bold tracking-[0.14em] text-[#3a6682] mb-2">{r.name}</p>
-            <div className="h-px bg-[#e5e7eb] mb-3" />
+          <div key={r.name}>
+            <p className="text-[10px] font-bold tracking-[0.14em] text-[#3a6682] mb-1.5">{r.name}</p>
+            <div className="h-px bg-[#e5e7eb] mb-2.5" />
             <div className="flex flex-wrap gap-1.5">
               {r.publishers.map((p) => (
                 <span key={p}
-                  className="text-[10px] font-semibold px-2 py-1 rounded-lg"
+                  className="text-[9.5px] font-semibold px-2 py-0.5 rounded-lg"
                   style={{ background: "#3a6682", color: "white" }}>
                   {p}
                 </span>
               ))}
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Footer stats */}
+      <div className="flex items-center gap-5 px-5 py-2.5 shrink-0"
+        style={{ borderTop: "1px solid #f3f4f6", background: "#f9fafb" }}>
+        {["3 regions", "DSP-agnostic", "Full transparency"].map((stat) => (
+          <span key={stat} className="flex items-center gap-1.5 text-[9px] font-medium text-[#6b7280]">
+            <span className="w-1 h-1 rounded-full bg-[#3a6682] shrink-0" />
+            {stat}
+          </span>
         ))}
       </div>
     </div>

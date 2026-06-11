@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 <style>
 
   /* ============================================================
-     BROADLAB BRAND KIT — EDITABLE STYLES
+     Broadlab BRAND KIT - EDITABLE STYLES
 
      HOW TO EDIT:
      - Change any hex colour below in :root to update it everywhere
@@ -188,43 +188,91 @@
   /* ════════════════════════════════════════
      4.2 TYPOGRAPHY
   ════════════════════════════════════════ */
-  .type-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  .type-scale {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 14px;
   }
   .type-scale-row {
     display: flex;
-    align-items: baseline;
-    gap: 12px;
-    padding: 6px 0;
+    align-items: center;
     border-bottom: 1px solid var(--border);
+    background: #fff;
   }
   .type-scale-row:last-child { border-bottom: none; }
-  .type-scale-label {
-    font-size: 8.5px;
-    color: var(--text-sub);
-    width: 70px;
+  .type-scale-row:nth-child(even) { background: var(--bg-card); }
+  .type-scale-meta {
+    width: 110px;
     flex-shrink: 0;
+    padding: 10px 12px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .type-scale-size {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue-400);
     font-family: monospace;
   }
-  .type-scale-sample { color: var(--text-head); line-height: 1; }
+  .type-scale-weight {
+    font-size: 8.5px;
+    color: var(--text-sub);
+  }
+  .type-scale-sample {
+    flex: 1;
+    padding: 8px 16px;
+    line-height: 1.15;
+  }
 
-  .type-info-box {
+  .type-fonts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .type-font-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 14px;
+    overflow: hidden;
   }
-  .type-info-label { font-size: 8px; color: var(--text-sub); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
-  .type-info-name  { font-size: 15px; font-weight: 700; color: var(--text-head); margin-bottom: 2px; }
-  .type-info-link  { font-size: 8.5px; color: var(--text-sub); margin-bottom: 10px; }
+  .type-font-header {
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+  }
+  .type-font-tag {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-sub);
+    margin-bottom: 4px;
+  }
+  .type-font-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-head);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .type-font-url {
+    font-size: 8.5px;
+    color: var(--text-sub);
+  }
+  .type-font-weights { padding: 4px 0; }
   .type-weight-row {
-    padding: 6px 0;
-    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 7px 14px;
+    border-bottom: 1px solid var(--border);
   }
-  .type-weight-name { font-size: 11px; color: var(--text-head); }
-  .type-weight-role { font-size: 8.5px; color: var(--text-sub); margin-top: 1px; }
+  .type-weight-row:last-child { border-bottom: none; }
+  .type-weight-name { font-size: 12px; color: var(--text-head); }
+  .type-weight-role { font-size: 8.5px; color: var(--text-sub); }
 
   /* ════════════════════════════════════════
      4.3 BUTTONS
@@ -505,9 +553,9 @@
   <!-- ══════════════════════════════════════════════════════════
        4.1 COLOUR PALETTE
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.1 — Colour Palette</span></div>
+  <div class="section-label"><span>4.1 - Colour Palette</span></div>
 
-  <div class="palette-group-label">Primary Blues — main brand palette</div>
+  <div class="palette-group-label">Primary Blues - main brand palette</div>
   <div class="primary-blues">
     <div class="swatch">
       <div class="swatch-block" style="background:#8fb3c8"></div>
@@ -619,7 +667,7 @@
       </div>
     </div>
     <div>
-      <div class="palette-group-label">Extended — data visualisation series</div>
+      <div class="palette-group-label">Extended - data visualisation series</div>
       <div class="extended-row">
         <div class="swatch">
           <div class="swatch-block xs" style="background:#3a6682"></div>
@@ -660,55 +708,87 @@
   <!-- ══════════════════════════════════════════════════════════
        4.2 TYPOGRAPHY
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.2 — Typography</span></div>
+  <div class="section-label"><span>4.2 - Typography</span></div>
 
-  <div class="type-grid">
-    <div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">Display / 48px</div>
-        <div class="type-scale-sample" style="font-size:28px;font-weight:800;font-family:var(--font-heading);letter-spacing:-.03em">BroadLab</div>
+  <!-- Type scale - full width bordered table -->
+  <div class="type-scale">
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">Display</div>
+        <div class="type-scale-weight">48px · ExtraBold 800</div>
       </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">H1 / 40px</div>
-        <div class="type-scale-sample" style="font-size:22px;font-weight:700;font-family:var(--font-heading);letter-spacing:-.02em">Outcome-Driven TV</div>
-      </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">H2 / 32px</div>
-        <div class="type-scale-sample" style="font-size:18px;font-weight:700;font-family:var(--font-heading)">Audience Intelligence</div>
-      </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">H3 / 24px</div>
-        <div class="type-scale-sample" style="font-size:14px;font-weight:700;font-family:var(--font-heading)">Campaign Measurement</div>
-      </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">H4 / 20px</div>
-        <div class="type-scale-sample" style="font-size:13px;font-weight:600">Optimisation Engine</div>
-      </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">Body / 16px</div>
-        <div class="type-scale-sample" style="font-size:12px;font-weight:400;color:var(--text-body)">Precision audiences from 60.3M geo keys.</div>
-      </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">Small / 14px</div>
-        <div class="type-scale-sample" style="font-size:11px;color:var(--text-body)">Daily in-flight measurement. Privacy-safe.</div>
-      </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">Caption / 12px</div>
-        <div class="type-scale-sample" style="font-size:10px;color:var(--text-sub)">Updated daily. Source: BroadLab platform.</div>
-      </div>
-      <div class="type-scale-row">
-        <div class="type-scale-label">Label / 11px UP</div>
-        <div class="type-scale-sample" style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-sub)">System Status</div>
-      </div>
+      <div class="type-scale-sample" style="font-size:34px;font-weight:800;font-family:var(--font-heading);letter-spacing:-.03em;color:var(--text-head)">Broadlab</div>
     </div>
-    <div>
-      <div class="type-info-box">
-        <div class="type-info-label">Heading font</div>
-        <div class="type-info-name" style="font-family:var(--font-heading)">Plus Jakarta Sans</div>
-        <div class="type-info-link">fonts.google.com/specimen/Plus+Jakarta+Sans</div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">H1</div>
+        <div class="type-scale-weight">40px · Bold 700</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:26px;font-weight:700;font-family:var(--font-heading);letter-spacing:-.02em;color:var(--text-head)">Outcome-Driven TV</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">H2</div>
+        <div class="type-scale-weight">32px · Bold 700</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:20px;font-weight:700;font-family:var(--font-heading);color:var(--text-head)">Audience Intelligence</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">H3</div>
+        <div class="type-scale-weight">24px · SemiBold 600</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:16px;font-weight:600;font-family:var(--font-heading);color:var(--text-head)">Campaign Measurement</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">H4</div>
+        <div class="type-scale-weight">20px · SemiBold 600</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:14px;font-weight:600;color:var(--text-head)">Optimisation Engine</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">Body</div>
+        <div class="type-scale-weight">16px · Regular 400</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:13px;font-weight:400;color:var(--text-body)">Precision audiences from 60.3M geo keys, privacy-safe via Snowflake.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">Small</div>
+        <div class="type-scale-weight">14px · Regular 400</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:11.5px;font-weight:400;color:var(--text-body)">Daily in-flight measurement. Privacy-safe. Continuously optimised.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">Caption</div>
+        <div class="type-scale-weight">12px · Regular 400</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:10px;font-weight:400;color:var(--text-sub)">Updated daily. Source: Broadlab platform. All figures indicative.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">
+        <div class="type-scale-size">Label</div>
+        <div class="type-scale-weight">11px · Bold 700 · UC</div>
+      </div>
+      <div class="type-scale-sample" style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-sub)">System Status · Active Campaign · Live</div>
+    </div>
+  </div>
+
+  <!-- Font family cards -->
+  <div class="type-fonts-grid">
+    <div class="type-font-card">
+      <div class="type-font-header">
+        <div class="type-font-tag">Heading Font</div>
+        <div class="type-font-name" style="font-family:var(--font-heading)">Plus Jakarta Sans</div>
+        <div class="type-font-url">fonts.google.com/specimen/Plus+Jakarta+Sans</div>
+      </div>
+      <div class="type-font-weights">
         <div class="type-weight-row">
           <div class="type-weight-name" style="font-weight:600;font-family:var(--font-heading)">SemiBold 600</div>
-          <div class="type-weight-role">H3, subheadings</div>
+          <div class="type-weight-role">H3, H4, subheadings</div>
         </div>
         <div class="type-weight-row">
           <div class="type-weight-name" style="font-weight:700;font-family:var(--font-heading)">Bold 700</div>
@@ -718,9 +798,15 @@
           <div class="type-weight-name" style="font-weight:800;font-family:var(--font-heading)">ExtraBold 800</div>
           <div class="type-weight-role">Display / hero headings</div>
         </div>
-        <div class="type-info-label" style="margin-top:12px">Body font</div>
-        <div class="type-info-name">Inter</div>
-        <div class="type-info-link">fonts.google.com/specimen/Inter</div>
+      </div>
+    </div>
+    <div class="type-font-card">
+      <div class="type-font-header">
+        <div class="type-font-tag">Body Font</div>
+        <div class="type-font-name">Inter</div>
+        <div class="type-font-url">fonts.google.com/specimen/Inter</div>
+      </div>
+      <div class="type-font-weights">
         <div class="type-weight-row">
           <div class="type-weight-name" style="font-weight:400">Regular 400</div>
           <div class="type-weight-role">Body copy, UI text</div>
@@ -731,7 +817,7 @@
         </div>
         <div class="type-weight-row">
           <div class="type-weight-name" style="font-weight:600">SemiBold 600</div>
-          <div class="type-weight-role">Buttons, nav, callouts</div>
+          <div class="type-weight-role">Buttons, nav items, callouts</div>
         </div>
         <div class="type-weight-row">
           <div class="type-weight-name" style="font-weight:700">Bold 700</div>
@@ -746,7 +832,7 @@
   <!-- ══════════════════════════════════════════════════════════
        4.3 BUTTONS
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.3 — Buttons</span></div>
+  <div class="section-label"><span>4.3 - Buttons</span></div>
 
   <div class="btn-grid">
     <div class="btn-cell">
@@ -777,7 +863,7 @@
   <!-- ══════════════════════════════════════════════════════════
        4.4 TAGS / BADGES
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.4 — Tags / Badges</span></div>
+  <div class="section-label"><span>4.4 - Tags / Badges</span></div>
 
   <div class="tags-row">
     <span class="tag tag-default">Intelligence Layer</span>
@@ -796,7 +882,7 @@
   <!-- ══════════════════════════════════════════════════════════
        4.5 TABLE
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.5 — Table</span></div>
+  <div class="section-label"><span>4.5 - Table</span></div>
 
   <table class="data-table">
     <thead>
@@ -811,37 +897,37 @@
     <tbody>
       <tr>
         <td>Lloyds Banking Group</td>
-        <td class="secondary">CTV — Premium</td>
+        <td class="secondary">CTV - Premium</td>
         <td class="value">£4.20</td>
         <td class="value">3.0×</td>
         <td><span class="table-badge" style="background:var(--success-tint);border-color:var(--success);color:var(--success)">Optimal</span></td>
       </tr>
       <tr>
         <td>Retail / DTC Client</td>
-        <td class="secondary">CTV — VOD</td>
+        <td class="secondary">CTV - VOD</td>
         <td class="value">£6.80</td>
         <td class="value">4.2×</td>
         <td><span class="table-badge" style="background:#eaf1f6;border-color:#3a6682;color:#3a6682">Live</span></td>
       </tr>
       <tr>
         <td>Automotive Brand</td>
-        <td class="secondary">CTV — BVOD</td>
+        <td class="secondary">CTV - BVOD</td>
         <td class="value">£9.50</td>
         <td class="value">2.1×</td>
         <td><span class="table-badge" style="background:var(--warning-tint);border-color:var(--warning);color:var(--warning)">Pending</span></td>
       </tr>
       <tr>
         <td>Sports Streaming</td>
-        <td class="secondary">CTV — Live</td>
+        <td class="secondary">CTV - Live</td>
         <td class="value">£3.90</td>
         <td class="value">5.8×</td>
         <td><span class="table-badge" style="background:var(--success-tint);border-color:var(--success);color:var(--success)">Optimal</span></td>
       </tr>
       <tr>
         <td>FMCG Campaign</td>
-        <td class="secondary">CTV — Broadcast</td>
+        <td class="secondary">CTV - Broadcast</td>
         <td class="value">£7.20</td>
-        <td class="value">—</td>
+        <td class="value">-</td>
         <td><span class="table-badge" style="background:var(--danger-tint);border-color:var(--danger);color:var(--danger)">Review</span></td>
       </tr>
     </tbody>
@@ -856,13 +942,13 @@
   <!-- ══════════════════════════════════════════════════════════
        4.6 CHARTS
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.6 — Charts</span></div>
+  <div class="section-label"><span>4.6 - Charts</span></div>
 
   <div class="charts-grid">
 
     <!-- Line Chart -->
     <div class="chart-card">
-      <div class="chart-title">Campaign Performance — Line Chart</div>
+      <div class="chart-title">Campaign Performance - Line Chart</div>
       <div class="chart-legend-row">
         <div class="chart-legend-item"><div class="chart-dot" style="background:#3a6682"></div>ROAS</div>
         <div class="chart-legend-item"><div class="chart-dot" style="background:#6898b5"></div>Reach</div>
@@ -907,7 +993,7 @@
 
     <!-- Horizontal Bar Chart -->
     <div class="chart-card">
-      <div class="chart-title">ROAS by Channel — Bar Chart</div>
+      <div class="chart-title">ROAS by Channel - Bar Chart</div>
       <div style="margin-top:10px">
         <div class="bar-row">
           <div class="bar-label">CTV Premium</div>
@@ -915,7 +1001,7 @@
           <div class="bar-value">4.5×</div>
         </div>
         <div class="bar-row">
-          <div class="bar-label">CTV — VOD</div>
+          <div class="bar-label">CTV - VOD</div>
           <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
           <div class="bar-value">3.8×</div>
         </div>
@@ -945,28 +1031,28 @@
   <!-- ══════════════════════════════════════════════════════════
        4.7 FORM INPUTS
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.7 — Form Inputs</span></div>
+  <div class="section-label"><span>4.7 - Form Inputs</span></div>
 
   <div class="form-grid">
     <div class="form-field">
       <label class="form-label">Campaign name</label>
       <input class="form-input" type="text" value="Lloyds Q3 Awareness" readonly>
-      <span class="form-hint">Default — border #e5e7eb</span>
+      <span class="form-hint">Default - border #e5e7eb</span>
     </div>
     <div class="form-field">
       <label class="form-label">Target outcome</label>
       <input class="form-input focused" type="text" placeholder="e.g. Brand lift, ROAS" readonly>
-      <span class="form-hint">Focused — border #3a6682 · ring rgba(58,102,130,0.15)</span>
+      <span class="form-hint">Focused - border #3a6682 · ring rgba(58,102,130,0.15)</span>
     </div>
     <div class="form-field">
       <label class="form-label">Budget allocation</label>
       <input class="form-input disabled" type="text" placeholder="Locked" disabled>
-      <span class="form-hint">Disabled — bg #f9fafb · border #d1d5db</span>
+      <span class="form-hint">Disabled - bg #f9fafb · border #d1d5db</span>
     </div>
     <div class="form-field">
       <label class="form-label">Start date</label>
       <input class="form-input error" type="text" value="12/13/2026" readonly>
-      <span class="form-error">Invalid date format — use DD/MM/YYYY</span>
+      <span class="form-error">Invalid date format - use DD/MM/YYYY</span>
     </div>
   </div>
   <p style="font-size:9px;color:var(--text-sub);margin-top:10px">
@@ -978,7 +1064,7 @@
   <!-- ══════════════════════════════════════════════════════════
        4.8 SHADOWS & BORDERS
   ══════════════════════════════════════════════════════════ -->
-  <div class="section-label"><span>4.8 — Shadows &amp; Borders</span></div>
+  <div class="section-label"><span>4.8 - Shadows &amp; Borders</span></div>
 
   <div class="shadows-grid">
     <div class="shadow-card shadow-xs">
@@ -1001,8 +1087,8 @@
 
   <!-- ── BOTTOM BAR ──────────────────────────────────────────── -->
   <div class="bottom-bar">
-    <div class="bottom-bar-left">Broadlab Brand Kit — All colours, type and components shown are the official Broadlab design system.</div>
-    <div class="bottom-bar-right">broadlab.tv</div>
+    <div class="bottom-bar-left">Broadlab Brand Kit - All colours, type and components shown are the official Broadlab design system.</div>
+    <div class="bottom-bar-right">Broadlab.tv</div>
   </div>
 
 </div>

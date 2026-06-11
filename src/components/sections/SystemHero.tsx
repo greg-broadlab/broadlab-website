@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -121,22 +121,33 @@ function LoopDiagram({ inView }: { inView: boolean }) {
             strokeWidth={1}
           />
           <text
-            x={CX} y={CY - 5}
+            x={CX} y={CY - 8}
             textAnchor="middle"
-            fontSize="6"
+            fontSize="5.5"
             fontWeight="700"
-            letterSpacing="0.2em"
+            letterSpacing="0.18em"
             fill="rgba(58,102,130,0.55)"
             fontFamily="Inter, system-ui, sans-serif"
           >
             THE
           </text>
           <text
-            x={CX} y={CY + 6}
+            x={CX} y={CY + 1}
             textAnchor="middle"
-            fontSize="6"
+            fontSize="5.5"
             fontWeight="700"
-            letterSpacing="0.2em"
+            letterSpacing="0.18em"
+            fill="rgba(58,102,130,0.55)"
+            fontFamily="Inter, system-ui, sans-serif"
+          >
+            BROADLAB
+          </text>
+          <text
+            x={CX} y={CY + 10}
+            textAnchor="middle"
+            fontSize="5.5"
+            fontWeight="700"
+            letterSpacing="0.18em"
             fill="rgba(58,102,130,0.55)"
             fontFamily="Inter, system-ui, sans-serif"
           >
@@ -278,8 +289,8 @@ export default function SystemHero() {
               >
                 {[
                   ["01", "Audience Graph", "AI-powered audience intelligence that powers the whole system"],
-                  ["02", "Measure",        "Outcomes tied to real marketing goals, not just delivery"],
-                  ["03", "Optimise",       "Daily AI/ML-driven optimisation across every lever"],
+                  ["02", "Measure",        "Outcomes tied to real marketing goals, not just advertising delivery"],
+                  ["03", "Optimise",       "Daily optimisation across six levers - audience, creative, geography, supply, frequency and bid strategy"],
                   ["04", "Learn",          "Every campaign makes the next one smarter"],
                 ].map(([num, label, desc]) => (
                   <div key={num} className="flex items-start gap-3">

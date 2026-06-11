@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence, useMotionValue, useSpring, animate } from "framer-motion";
@@ -869,7 +869,7 @@ function ResultsStrip() {
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
             transition={{ delay: 0.05, duration: 0.5 }}
           >
-            Results from live BroadLab campaigns
+            Results from live Broadlab campaigns
           </motion.p>
 
           {/* Stats grid */}

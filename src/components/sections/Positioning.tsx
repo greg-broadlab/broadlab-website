@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -49,7 +49,7 @@ export default function Positioning() {
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ duration: 0.5 }}
               >
-                The BroadLab System
+                The Broadlab System
               </motion.p>
 
               <motion.h2
@@ -69,7 +69,7 @@ export default function Positioning() {
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 8 }}
                 transition={{ delay: 0.2, duration: 0.55 }}
               >
-                BroadLab is the intelligence layer that sits above fragmented CTV - unifying audience, measurement, optimisation and learning into one connected system.
+                Broadlab is the intelligence layer that sits above fragmented CTV - unifying audience, measurement, optimisation and learning into one connected system.
               </motion.p>
 
               <motion.div

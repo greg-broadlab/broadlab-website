@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -364,7 +364,7 @@ export default function Platform() {
                   <div className="w-3 h-3 rounded-full bg-[#28c840]" />
                 </div>
                 <div className="flex-1 bg-white/80 rounded-md px-3 py-1 text-[11px] text-[#8a9bad] font-mono border border-[#d0dce8] truncate">
-                  app.broadlab.tv/{activeTab.toLowerCase()}
+                  app.Broadlab.tv/{activeTab.toLowerCase()}
                 </div>
               </div>
 
