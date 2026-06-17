@@ -145,33 +145,6 @@ export default function WorkPageClient() {
               Three case studies. Three sectors. One consistent outcome: CTV that works as a business tool.
             </motion.p>
 
-            {/* Stat strip — replaces pills, adds immediate credibility */}
-            <motion.div
-              className="absolute bottom-0 left-0 right-0"
-              initial={{ opacity: 0, y: 12 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.65, duration: 0.55 }}
-            >
-              <div className="h-px w-full" style={{ background: "rgba(255,255,255,0.1)" }} />
-              <div className="flex items-stretch justify-center">
-                {[
-                  { stat: "£3 ROAS",    label: "Financial Services · Lloyds" },
-                  { stat: "22%",        label: "Awareness Gain · Lenovo"     },
-                  { stat: "10,000+",    label: "Subscriptions · DAZN"        },
-                ].map((s, i) => (
-                  <div key={s.stat} className="flex-1 py-4 sm:py-5 text-center"
-                    style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.1)" : "none" }}>
-                    <p className="font-bold text-white" style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)", letterSpacing: "-0.01em" }}>
-                      {s.stat}
-                    </p>
-                    <p className="mt-0.5 text-[0.6875rem] font-medium hidden sm:block"
-                      style={{ color: "rgba(255,255,255,0.48)" }}>
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
 
           </div>
 
