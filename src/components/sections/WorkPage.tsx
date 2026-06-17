@@ -1,8 +1,9 @@
-﻿"use client";
+"use client";
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -63,7 +64,7 @@ const CASES = [
 ] as const;
 
 export default function WorkPageClient() {
-  const heroRef = useRef<HTMLDivElement>(null);
+  const heroRef  = useRef<HTMLDivElement>(null);
   const heroInView = useInView(heroRef, { once: true });
 
   return (
@@ -71,37 +72,53 @@ export default function WorkPageClient() {
       <Navbar />
 
       {/* Sticky full-screen hero - content slides over on scroll */}
-      <div style={{ position: "sticky", top: 0, height: "100vh", zIndex: 0 }}>
-        <div className="relative h-full overflow-hidden" style={{ background: "#eaf1f6" }}>
+      <div style={{ position: "sticky", top: 0, height: "100svh", zIndex: 0 }}>
+        <div className="relative h-full overflow-hidden">
 
-          {/* Dot grid */}
+          {/* Background photo */}
+          <Image
+            src="/images/backdrop-1.jpg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+
+          {/* Gradient overlay — deeper at bottom, lighter at top for depth */}
           <div
             className="pointer-events-none absolute inset-0"
             style={{
-              backgroundImage: "radial-gradient(circle, rgba(58,102,130,0.18) 1px, transparent 1px)",
-              backgroundSize: "28px 28px",
+              background: "linear-gradient(170deg, rgba(13,37,53,0.42) 0%, rgba(13,37,53,0.68) 55%, rgba(13,37,53,0.88) 100%)",
             }}
           />
 
-          {/* Centered content */}
+          {/* Centred content */}
           <div
             ref={heroRef}
             className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
           >
-            {/* Eyebrow */}
-            <motion.p
-              className="text-xs font-semibold tracking-[0.18em] uppercase text-[#3a6682] mb-6"
+            {/* Eyebrow with accent line */}
+            <motion.div
+              className="flex items-center gap-3 mb-7"
               initial={{ opacity: 0, y: 10 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
             >
-              Our work
-            </motion.p>
+              <span className="block w-8 h-px" style={{ background: "rgba(143,179,200,0.8)" }} />
+              <span
+                className="text-[0.6875rem] font-bold tracking-[0.22em] uppercase"
+                style={{ color: "rgba(143,179,200,0.9)" }}
+              >
+                Our work
+              </span>
+              <span className="block w-8 h-px" style={{ background: "rgba(143,179,200,0.8)" }} />
+            </motion.div>
 
-            {/* Headline - curtain reveal */}
+            {/* Headline — bigger, tighter */}
             <h1
-              className="font-bold leading-tight text-[#0d2535]"
-              style={{ fontSize: "clamp(2.75rem, 6vw, 5rem)" }}
+              className="font-bold text-white"
+              style={{ fontSize: "clamp(3.25rem, 7vw, 6.5rem)", lineHeight: 1.04, letterSpacing: "-0.02em" }}
             >
               {["Real challenges.", "Measurable results."].map((line, i) => (
                 <div key={i} style={{ overflow: "hidden" }}>
@@ -109,7 +126,7 @@ export default function WorkPageClient() {
                     className="block"
                     initial={{ y: "110%" }}
                     animate={{ y: heroInView ? "0%" : "110%" }}
-                    transition={{ delay: 0.1 + i * 0.13, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+                    transition={{ delay: 0.12 + i * 0.14, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                   >
                     {line}
                   </motion.span>
@@ -119,49 +136,43 @@ export default function WorkPageClient() {
 
             {/* Subtext */}
             <motion.p
-              className="mt-5 text-[1.0625rem] leading-relaxed text-[#4b5563] max-w-lg"
+              className="mt-6 text-[1.0625rem] leading-relaxed max-w-xl"
+              style={{ color: "rgba(255,255,255,0.82)" }}
               initial={{ opacity: 0, y: 8 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.38, duration: 0.55 }}
+              transition={{ delay: 0.4, duration: 0.55 }}
             >
               Three case studies. Three sectors. One consistent outcome: CTV that works as a business tool.
             </motion.p>
 
-            {/* Client pills */}
+            {/* Stat strip — replaces pills, adds immediate credibility */}
             <motion.div
-              className="mt-8 flex flex-wrap items-center justify-center gap-3"
-              initial={{ opacity: 0, y: 8 }}
+              className="absolute bottom-0 left-0 right-0"
+              initial={{ opacity: 0, y: 12 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5, duration: 0.5 }}
+              transition={{ delay: 0.65, duration: 0.55 }}
             >
-              {["Lloyds Banking Group", "Lenovo", "DAZN"].map((name) => (
-                <span
-                  key={name}
-                  className="rounded-full px-4 py-1.5 text-xs font-semibold text-[#3a6682]"
-                  style={{ background: "white", border: "1px solid rgba(58,102,130,0.3)" }}
-                >
-                  {name}
-                </span>
-              ))}
+              <div className="h-px w-full" style={{ background: "rgba(255,255,255,0.1)" }} />
+              <div className="flex items-stretch justify-center">
+                {[
+                  { stat: "£3 ROAS",    label: "Financial Services · Lloyds" },
+                  { stat: "22%",        label: "Awareness Gain · Lenovo"     },
+                  { stat: "10,000+",    label: "Subscriptions · DAZN"        },
+                ].map((s, i) => (
+                  <div key={s.stat} className="flex-1 py-4 sm:py-5 text-center"
+                    style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.1)" : "none" }}>
+                    <p className="font-bold text-white" style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)", letterSpacing: "-0.01em" }}>
+                      {s.stat}
+                    </p>
+                    <p className="mt-0.5 text-[0.6875rem] font-medium hidden sm:block"
+                      style={{ color: "rgba(255,255,255,0.48)" }}>
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
-            {/* Scroll indicator */}
-            <motion.div
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-              initial={{ opacity: 0 }}
-              animate={heroInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.9, duration: 0.5 }}
-            >
-              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-[#9ca3af]">Scroll</span>
-              <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-                  <path d="M1 1l7 8 7-8" stroke="rgba(58,102,130,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </motion.div>
-            </motion.div>
           </div>
 
         </div>
@@ -269,11 +280,11 @@ function RecognitionSection() {
             </motion.h2>
           </div>
 
-          {/* Single award - horizontal layout */}
+          {/* Single award */}
           {AWARDS.filter(a => a.confirmed).map((award, i) => (
             <motion.div
               key={i}
-              className="flex items-center gap-8 p-8 rounded-2xl"
+              className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl"
               style={{
                 border: "1px solid rgba(58,102,130,0.18)",
                 borderTop: "3px solid #3a6682",
@@ -283,30 +294,30 @@ function RecognitionSection() {
               animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
               transition={{ delay: 0.15, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              {/* Logo */}
-              <div className="flex items-center justify-center rounded-lg px-4 py-3 shrink-0"
-                style={{ background: "#eaf1f6", border: "1px solid rgba(58,102,130,0.2)" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/thinkbox.png" alt="Thinkbox" style={{ height: 24, width: "auto" }} />
+              {/* Logo + details together */}
+              <div className="flex items-center gap-4 flex-1 min-w-0">
+                <div className="flex items-center justify-center rounded-lg px-4 py-3 shrink-0"
+                  style={{ background: "#eaf1f6", border: "1px solid rgba(58,102,130,0.2)" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/thinkbox.png" alt="Thinkbox" style={{ height: 24, width: "auto" }} />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-bold text-[#0d2535]" style={{ fontSize: "0.9375rem" }}>{award.body}</p>
+                  <p className="text-sm text-[#6b7280] mt-1">{award.category}</p>
+                </div>
               </div>
 
-              {/* Details */}
-              <div className="flex-1">
-                <p className="font-bold text-[#0d2535]" style={{ fontSize: "0.9375rem" }}>{award.body}</p>
-                <p className="text-sm text-[#6b7280] mt-1">{award.category}</p>
+              {/* Campaign + year + status */}
+              <div className="flex items-center justify-between sm:flex-col sm:items-end sm:gap-2 shrink-0">
+                <div className="sm:text-right">
+                  <p className="text-xs font-medium text-[#3a6682]">{award.campaign}</p>
+                  <p className="text-xs font-semibold text-[#9ca3af] mt-1">{award.year}</p>
+                </div>
+                <span className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-3 py-1.5"
+                  style={{ color: "#3a6682", background: "rgba(58,102,130,0.1)" }}>
+                  {award.status}
+                </span>
               </div>
-
-              {/* Campaign + year */}
-              <div className="text-right shrink-0">
-                <p className="text-xs font-medium text-[#3a6682]">{award.campaign}</p>
-                <p className="text-xs font-semibold text-[#9ca3af] mt-1">{award.year}</p>
-              </div>
-
-              {/* Status pill */}
-              <span className="text-[0.625rem] font-bold uppercase tracking-[0.14em] rounded-full px-3 py-1.5 shrink-0"
-                style={{ color: "#3a6682", background: "rgba(58,102,130,0.1)" }}>
-                {award.status}
-              </span>
             </motion.div>
           ))}
 
@@ -471,7 +482,7 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               className="flex items-center justify-between flex-wrap gap-4 pb-8 mb-10"
               style={{ borderBottom: "1px solid #e5e7eb" }}
             >
-              <div className="flex items-center gap-5">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
                 <span
                   className="font-bold leading-none select-none"
                   style={{ fontSize: "1.75rem", color: "rgba(58,102,130,0.18)" }}
@@ -508,7 +519,7 @@ function LloydsCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
 
               {/* Right - results panel, metrics slide in from right */}
               <motion.div
-                className="rounded-2xl p-8 flex flex-col"
+                className="rounded-2xl p-6 sm:p-8 flex flex-col"
                 style={{
                   background: "#eaf1f6",
                   border: "1px solid rgba(58,102,130,0.2)",
@@ -611,7 +622,7 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               className="flex items-center justify-between flex-wrap gap-4 pb-8 mb-10"
               style={{ borderBottom: "1px solid rgba(58,102,130,0.2)" }}
             >
-              <div className="flex items-center gap-5">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
                 <span
                   className="font-bold leading-none select-none"
                   style={{ fontSize: "1.75rem", color: "rgba(58,102,130,0.18)" }}
@@ -648,7 +659,7 @@ function LenovoCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
 
               {/* Right - results panel, slides in from right */}
               <motion.div
-                className="rounded-2xl p-8 flex flex-col"
+                className="rounded-2xl p-6 sm:p-8 flex flex-col"
                 style={{
                   background: "white",
                   border: "1px solid rgba(58,102,130,0.2)",
@@ -775,7 +786,7 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               className="flex items-center justify-between flex-wrap gap-4 pb-8 mb-10"
               style={{ borderBottom: "1px solid #e5e7eb" }}
             >
-              <div className="flex items-center gap-5">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
                 <span
                   className="font-bold leading-none select-none"
                   style={{ fontSize: "1.75rem", color: "rgba(58,102,130,0.18)" }}
@@ -812,7 +823,7 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
 
               {/* Right - results panel, slides in from right */}
               <motion.div
-                className="rounded-2xl p-8 flex flex-col"
+                className="rounded-2xl p-6 sm:p-8 flex flex-col"
                 style={{
                   background: "#eaf1f6",
                   border: "1px solid rgba(58,102,130,0.2)",
@@ -867,7 +878,7 @@ function DAZNCaseStudy({ caseItem }: { caseItem: (typeof CASES)[number] }) {
               transition={{ delay: 0.7, duration: 0.6 }}
             >
               <div
-                className="rounded-2xl px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 items-center"
+                className="rounded-2xl px-6 py-6 sm:px-10 sm:py-8 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 items-center"
                 style={{ background: "#eaf1f6", border: "1px solid rgba(58,102,130,0.15)" }}
               >
                 <div>

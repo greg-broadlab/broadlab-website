@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const MODELS = [
   {
@@ -38,73 +39,61 @@ export default function FinalCTA() {
       <div className="section-padding relative z-10">
         <div className="container-main">
 
-          {/* Support models - two column layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Heading */}
+          <motion.h2
+            className="mb-10 font-bold leading-tight text-[#0d2535] text-center"
+            style={{ fontSize: "clamp(2rem, 3.8vw, 3.25rem)" }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            Flexible support, built around your model.
+          </motion.h2>
 
-            {/* Left - heading + model rows */}
-            <div>
-              <motion.h2
-                className="mb-12 font-bold leading-tight text-[#0d2535]"
-                style={{ fontSize: "clamp(2rem, 3.8vw, 3.25rem)" }}
+          {/* Full-width photo */}
+          <motion.div
+            className="relative w-full overflow-hidden rounded-2xl mb-14"
+            style={{ height: "clamp(260px, 42vw, 520px)" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+            transition={{ delay: 0.15, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <Image
+              src="/images/office-exec.jpg"
+              alt="Broadlab team in session"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 1280px) 100vw, 1200px"
+            />
+          </motion.div>
+
+          {/* Support models — 3 columns */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {MODELS.map((model, i) => (
+              <motion.div
+                key={model.name}
+                className="rounded-2xl bg-white p-8"
+                style={{
+                  border: "1px solid rgba(58,102,130,0.12)",
+                  boxShadow: "0 2px 12px rgba(58,102,130,0.05)",
+                }}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
-                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{ delay: 0.3 + i * 0.1, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                Flexible support, built around your model.
-              </motion.h2>
-
-              <div style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-                {MODELS.map((model, i) => (
-                  <motion.div
-                    key={model.name}
-                    className="grid grid-cols-1 gap-3 py-8 md:grid-cols-[1fr_2fr] md:gap-12 md:items-center"
-                    style={{
-                      borderBottom: i < MODELS.length - 1
-                        ? "1px solid rgba(0,0,0,0.06)"
-                        : undefined,
-                    }}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
-                    transition={{ delay: 0.2 + i * 0.12, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
-                  >
-                    <span className="font-bold text-[#0d2535]" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.35rem)" }}>
-                      {model.name}
-                    </span>
-                    <p className="leading-relaxed text-[#4b5563]" style={{ fontSize: "1rem" }}>
-                      {model.desc}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right - team photo placeholder */}
-            <motion.div
-              className="relative w-full overflow-hidden rounded-2xl"
-              style={{ aspectRatio: "4/5" }}
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 24 }}
-              transition={{ delay: 0.25, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <div
-                className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-                style={{ background: "rgba(255,255,255,0.6)", border: "1.5px dashed rgba(58,102,130,0.3)", borderRadius: "1rem" }}
-              >
-                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                  <circle cx="28" cy="20" r="10" fill="rgba(58,102,130,0.15)" />
-                  <path d="M8 48c0-11.046 8.954-20 20-20s20 8.954 20 20" fill="rgba(58,102,130,0.10)" />
-                </svg>
-                <p className="text-xs font-medium tracking-wide" style={{ color: "rgba(58,102,130,0.5)" }}>
-                  Team photo coming soon
+                <p className="font-bold text-[#0d2535] mb-3" style={{ fontSize: "1.125rem" }}>
+                  {model.name}
                 </p>
-              </div>
-            </motion.div>
-
+                <p className="leading-relaxed text-[#4b5563]" style={{ fontSize: "0.9375rem" }}>
+                  {model.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
           {/* Divider */}
           <motion.div
-            className="mx-auto mt-16 h-px w-24"
+            className="mx-auto h-px w-24"
             style={{ background: "rgba(58,102,130,0.25)" }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: inView ? 1 : 0 }}

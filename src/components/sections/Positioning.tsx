@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const CAPABILITIES = [
   {
@@ -99,6 +100,23 @@ export default function Positioning() {
                     <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </Link>
+              </motion.div>
+
+              {/* Bottom-left photo */}
+              <motion.div
+                className="relative mt-10 w-full overflow-hidden rounded-2xl"
+                style={{ aspectRatio: "16/10" }}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 16 }}
+                transition={{ delay: 0.45, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                <Image
+                  src="/images/office-convo.jpg"
+                  alt="Broadlab team at work"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </motion.div>
 
             </div>

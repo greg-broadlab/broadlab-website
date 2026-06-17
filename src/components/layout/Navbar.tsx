@@ -34,7 +34,7 @@ export default function Navbar() {
         scrolled ? "shadow-[0_2px_16px_rgba(13,37,53,0.08)] border-b border-[#e5e7eb]" : "border-b border-white"
       }`}
     >
-      <div className="container-main flex items-center justify-between h-16 md:h-20">
+      <div className="container-main flex items-center justify-between h-16 lg:h-20">
 
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -43,18 +43,18 @@ export default function Navbar() {
             alt="Broadlab"
             width={200}
             height={48}
-            className="h-10 w-auto"
+            className="h-9 lg:h-10 w-auto"
             priority
           />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-200 ${
+              className={`text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
                 isActive(link.href)
                   ? "text-[#0d2535] font-semibold underline underline-offset-4 decoration-[#3a6682]"
                   : "text-[#4b5563] hover:text-[#0d2535]"
@@ -66,18 +66,18 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Link
             href="/contact#contact"
-            className="px-5 py-2.5 rounded-full bg-[#3a6682] text-white text-sm font-semibold hover:bg-[#0d2535] transition-colors duration-200"
+            className="px-5 py-2.5 rounded-full bg-[#3a6682] text-white text-sm font-semibold hover:bg-[#0d2535] transition-colors duration-200 whitespace-nowrap"
           >
             Book a consultation
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Hamburger — shown below lg */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -87,8 +87,8 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
-      <div className={`md:hidden transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-80" : "max-h-0"}`}>
+      {/* Mobile/tablet menu — shown below lg */}
+      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-80" : "max-h-0"}`}>
         <nav className="bg-white border-t border-[#e5e7eb] px-6 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
             <Link
