@@ -10,6 +10,8 @@ const AGENTS = [
     tagline: "Ask anything about campaigns, supply, delivery or the wider data model - in plain English.",
     skills: ["Campaigns & Delivery", "Supply & Deals", "Geographic Breakdown", "Industry & Glossary"],
     prompts: ["What's my campaign pacing this week?", "Which supply is underperforming?"],
+    headerBg: "#4a86a8",
+    headerBgLight: "rgba(74,134,168,0.10)",
   },
   {
     id: "optimisation",
@@ -17,6 +19,8 @@ const AGENTS = [
     tagline: "Dig into campaign performance, surface conversion insights and make data-driven optimisation decisions.",
     skills: ["Campaign Performance", "Conversion Insights", "Optimisation Rounds", "Change Log"],
     prompts: ["Start an optimisation round", "Where should I reallocate budget?"],
+    headerBg: "#2a5068",
+    headerBgLight: "rgba(42,80,104,0.10)",
   },
   {
     id: "strategy",
@@ -24,13 +28,15 @@ const AGENTS = [
     tagline: "Builds briefs, plans audiences, structures campaigns and surfaces recommendations - before a single penny is spent.",
     skills: ["Campaign Briefs", "Audience Strategy", "Client Recommendations", "Budget Planning"],
     prompts: ["Build a campaign brief for this client", "What audience should I target?"],
+    headerBg: "#0d2535",
+    headerBgLight: "rgba(13,37,53,0.08)",
   },
 ];
 
 function AgentCard({ agent, index, inView }: { agent: typeof AGENTS[number]; index: number; inView: boolean }) {
   return (
     <motion.div
-      className="flex flex-col rounded-2xl overflow-hidden bg-white"
+      className="flex flex-col rounded-2xl overflow-hidden"
       style={{
         border: "1px solid rgba(58,102,130,0.18)",
         boxShadow: "0 4px 24px rgba(58,102,130,0.08)",
@@ -39,71 +45,73 @@ function AgentCard({ agent, index, inView }: { agent: typeof AGENTS[number]; ind
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 24 }}
       transition={{ delay: 0.2 + index * 0.12, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      {/* Card header */}
-      <div className="px-6 py-5" style={{ borderBottom: "1px solid #f3f4f6" }}>
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <motion.span
-              className="w-2 h-2 rounded-full"
-              style={{ background: "#3a6682" }}
-              animate={{ opacity: [1, 0.3, 1] }}
-              transition={{ duration: 2, repeat: Infinity, delay: index * 0.7 }}
-            />
-            <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#3a6682]">
-              Active
-            </span>
-          </div>
-        </div>
-        <p className="text-sm font-bold text-[#0d2535]">{agent.role}</p>
-        <p className="mt-2 text-xs leading-relaxed text-[#6b7280]" style={{ minHeight: "3.5rem" }}>{agent.tagline}</p>
-      </div>
-
-      {/* Skills */}
-      <div className="px-6 py-4 flex-1">
-        <p className="text-[9px] font-bold tracking-[0.16em] uppercase mb-3 text-[#9ca3af]">Skills</p>
-        <div className="grid grid-cols-2 gap-2">
-          {agent.skills.map((skill) => (
-            <div key={skill}
-              className="flex items-center justify-between px-3 py-2 rounded-lg text-[10px] font-medium text-[#4b5563]"
-              style={{
-                background: "#f9fafb",
-                border: "1px solid #f3f4f6",
-              }}>
-              {skill}
-              <span className="text-[#3a6682]">›</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Suggested prompts */}
-        <div className="mt-4 space-y-2">
-          {agent.prompts.map((prompt) => (
-            <div key={prompt}
-              className="px-3 py-2 rounded-lg text-[10px] text-[#4b5563]"
-              style={{
-                background: "rgba(58,102,130,0.06)",
-                border: "1px solid rgba(58,102,130,0.15)",
-              }}>
-              {prompt}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Input bar */}
-      <div className="px-6 py-4" style={{ borderTop: "1px solid #f3f4f6" }}>
-        <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
-          style={{ background: "#f9fafb", border: "1px solid #e5e7eb" }}>
-          <span className="text-[10px] flex-1 text-[#d1d5db]">
-            Or type your own question…
+      {/* Coloured header */}
+      <div className="px-6 py-6" style={{ background: agent.headerBg }}>
+        <div className="flex items-center gap-2 mb-4">
+          <motion.span
+            className="w-2 h-2 rounded-full"
+            style={{ background: "rgba(255,255,255,0.7)" }}
+            animate={{ opacity: [1, 0.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity, delay: index * 0.7 }}
+          />
+          <span className="text-[10px] font-bold tracking-[0.12em] uppercase" style={{ color: "rgba(255,255,255,0.7)" }}>
+            Active
           </span>
-          <div className="w-5 h-5 rounded-lg flex items-center justify-center shrink-0"
-            style={{ background: "#3a6682" }}>
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-              <path d="M2 5h6M5 2l3 3-3 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+        </div>
+        <p className="font-bold text-white" style={{ fontSize: "1.0625rem" }}>{agent.role}</p>
+        <p className="mt-2 text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.72)", minHeight: "3.5rem" }}>
+          {agent.tagline}
+        </p>
+      </div>
+
+      {/* White body */}
+      <div className="flex flex-col flex-1 bg-white">
+
+        {/* Skills */}
+        <div className="px-6 py-5 flex-1">
+          <p className="text-[9px] font-bold tracking-[0.16em] uppercase mb-3 text-[#9ca3af]">Skills</p>
+          <div className="grid grid-cols-2 gap-2">
+            {agent.skills.map((skill) => (
+              <div key={skill}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-[10px] font-medium text-[#4b5563]"
+                style={{ background: agent.headerBgLight, border: "1px solid transparent" }}>
+                {skill}
+                <span style={{ color: agent.headerBg }}>›</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Suggested prompts */}
+          <div className="mt-4 space-y-2">
+            {agent.prompts.map((prompt) => (
+              <div key={prompt}
+                className="px-3 py-2 rounded-lg text-[10px] text-[#4b5563]"
+                style={{
+                  background: agent.headerBgLight,
+                  border: `1px solid transparent`,
+                }}>
+                {prompt}
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Input bar */}
+        <div className="px-6 py-4" style={{ borderTop: "1px solid #f3f4f6" }}>
+          <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
+            style={{ background: "#f9fafb", border: "1px solid #e5e7eb" }}>
+            <span className="text-[10px] flex-1 text-[#d1d5db]">
+              Or type your own question…
+            </span>
+            <div className="w-5 h-5 rounded-lg flex items-center justify-center shrink-0"
+              style={{ background: agent.headerBg }}>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 5h6M5 2l3 3-3 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
       </div>
     </motion.div>
   );
