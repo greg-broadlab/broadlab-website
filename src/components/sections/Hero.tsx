@@ -51,7 +51,7 @@ function BrandIntro({ onComplete }: { onComplete: () => void }) {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/Broadlab-logo-transparent.png"
+          src="/broadlab-logo-transparent.png"
           alt=""
           className="h-28 w-auto"
         />

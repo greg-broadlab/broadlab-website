@@ -41,7 +41,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/Broadlab-logo-darktext.png"
+              src="/broadlab-logo-darktext.png"
               alt="Broadlab"
               width={200}
               height={48}
@@ -92,9 +92,7 @@ export default function Footer() {
               Office
             </p>
             <address className="not-italic text-sm text-[#4b5563] leading-relaxed">
-              Unit 5, 2nd Floor
-              <br />
-              The Market Exchange
+              Broadlab, 2nd Floor
               <br />
               12 Macklin Street
               <br />
