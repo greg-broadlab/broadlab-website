@@ -92,7 +92,9 @@ export default function Footer() {
               Office
             </p>
             <address className="not-italic text-sm text-[#4b5563] leading-relaxed">
-              Broadlab, 2nd Floor
+              Unit 5, 2nd Floor
+              <br />
+              The Market Exchange
               <br />
               12 Macklin Street
               <br />
