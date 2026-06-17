@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/Broadlab-logo-darktext.png"
+            src="/broadlab-logo-darktext.png"
             alt="Broadlab"
             width={200}
             height={48}
