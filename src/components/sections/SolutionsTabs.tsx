@@ -37,10 +37,41 @@ const TABS = [
 
 function MarketplacesCard() {
   const regions = [
-    { name: "UK",     publishers: ["Netflix", "DAZN", "Samsung TV+", "Sky", "Disney+", "HBO Max", "ITVX", "All 4"] },
-    { name: "US",     publishers: ["Netflix", "Hulu", "Disney+", "HBO Max", "Peacock", "Pluto TV", "Roku", "Paramount+"] },
-    { name: "Europe", publishers: ["Netflix", "DAZN", "Samsung TV+", "RTL", "Disney+", "ProSieben", "Pluto TV", "YouTube"] },
+    {
+      name: "UK",
+      accent: "#3a6682",
+      totalPartners: "30+",
+      categories: [
+        { type: "SVOD",   count: "12+", pct: 100 },
+        { type: "BVOD",   count: "8+",  pct: 67  },
+        { type: "FAST",   count: "6+",  pct: 50  },
+        { type: "Linear", count: "4+",  pct: 33  },
+      ],
+    },
+    {
+      name: "US",
+      accent: "#2a5068",
+      totalPartners: "40+",
+      categories: [
+        { type: "SVOD",   count: "15+", pct: 100 },
+        { type: "AVOD",   count: "10+", pct: 67  },
+        { type: "FAST",   count: "8+",  pct: 53  },
+        { type: "Linear", count: "5+",  pct: 33  },
+      ],
+    },
+    {
+      name: "Europe",
+      accent: "#4c7a94",
+      totalPartners: "28+",
+      categories: [
+        { type: "SVOD",  count: "10+", pct: 100 },
+        { type: "BVOD",  count: "8+",  pct: 80  },
+        { type: "FAST",  count: "6+",  pct: 60  },
+        { type: "Local", count: "4+",  pct: 40  },
+      ],
+    },
   ];
+
   return (
     <div className="rounded-2xl bg-white border border-[#e5e7eb] overflow-hidden flex flex-col"
       style={{ height: CARD_HEIGHT, boxShadow: "0 4px 24px rgba(58,102,130,0.07)" }}>
@@ -51,32 +82,52 @@ function MarketplacesCard() {
         <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#3a6682]">Premium Inventory</p>
         <span className="text-[9px] font-bold px-2 py-0.5 rounded-full text-[#3a6682]"
           style={{ background: "rgba(58,102,130,0.08)", border: "1px solid rgba(58,102,130,0.2)" }}>
-          30+ Partners
+          100+ Partners
         </span>
       </div>
 
       {/* Region columns */}
-      <div className="grid grid-cols-3 gap-3 p-4 flex-1">
-        {regions.map((r) => (
-          <div key={r.name}>
-            <p className="text-[10px] font-bold tracking-[0.14em] text-[#3a6682] mb-1.5">{r.name}</p>
-            <div className="h-px bg-[#e5e7eb] mb-2.5" />
-            <div className="flex flex-wrap gap-1.5">
-              {r.publishers.map((p) => (
-                <span key={p}
-                  className="text-[9.5px] font-semibold px-2 py-0.5 rounded-lg"
-                  style={{ background: "#3a6682", color: "white" }}>
-                  {p}
-                </span>
+      <div className="grid grid-cols-3 flex-1 overflow-hidden">
+        {regions.map((r, i) => (
+          <div key={r.name} className="flex flex-col p-3.5"
+            style={{ borderLeft: i > 0 ? "1px solid #f3f4f6" : "none" }}>
+
+            {/* Accent bar */}
+            <div className="h-0.5 w-full rounded-full mb-3" style={{ background: r.accent }} />
+
+            {/* Region name + total */}
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-[11px] font-bold text-[#0d2535]">{r.name}</p>
+              <span className="text-[8.5px] font-semibold text-[#9ca3af]">{r.totalPartners}</span>
+            </div>
+
+            {/* Inventory type rows */}
+            <div className="flex flex-col gap-2.5">
+              {r.categories.map((cat, ci) => (
+                <div key={cat.type}>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[8px] font-bold tracking-[0.07em] uppercase text-[#9ca3af]">{cat.type}</span>
+                    <span className="text-[9px] font-bold text-[#0d2535]">{cat.count}</span>
+                  </div>
+                  <div className="h-1 rounded-full overflow-hidden" style={{ background: "#f0f4f7" }}>
+                    <motion.div
+                      className="h-full rounded-full"
+                      style={{ background: r.accent }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${cat.pct}%` }}
+                      transition={{ delay: i * 0.08 + ci * 0.06, duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+                    />
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Footer stats */}
+      {/* Footer */}
       <div className="flex items-center gap-5 px-5 py-2.5 shrink-0"
-        style={{ borderTop: "1px solid #f3f4f6", background: "#f9fafb" }}>
+        style={{ background: "#f9fafb", borderTop: "1px solid #f3f4f6" }}>
         {["3 regions", "DSP-agnostic", "Full transparency"].map((stat) => (
           <span key={stat} className="flex items-center gap-1.5 text-[9px] font-medium text-[#6b7280]">
             <span className="w-1 h-1 rounded-full bg-[#3a6682] shrink-0" />

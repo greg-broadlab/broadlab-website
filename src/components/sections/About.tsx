@@ -175,7 +175,7 @@ function CompanyStatement() {
                 style={{ fontSize: "clamp(1.875rem,3.5vw,3rem)", color: "#0d2535" }}
               >
                 &ldquo;AI has allowed us to build the system
-                <span style={{ color: "#3a6682" }}> the industry should have built</span> years ago.&rdquo;
+                <span style={{ color: "#3a6682" }}> the industry should have built </span>years ago.&rdquo;
               </p>
             </motion.div>
 
