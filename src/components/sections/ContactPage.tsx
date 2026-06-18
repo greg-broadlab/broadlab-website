@@ -141,8 +141,7 @@ export default function ContactPage() {
               <div className="h-px w-12" style={{ background: "rgba(58,102,130,0.3)" }} />
 
               <address className="not-italic text-sm leading-relaxed text-[#6b7280]">
-                Unit 5, 2nd Floor<br />
-                The Market Exchange<br />
+                Broadlab, 2nd Floor<br />
                 12 Macklin Street<br />
                 London WC2B 5NF<br />
                 United Kingdom
