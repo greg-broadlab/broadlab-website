@@ -118,20 +118,8 @@ export async function POST(req: NextRequest) {
     }));
 
     return NextResponse.json({ ok: true });
-  } catch (err: unknown) {
-    const e = err as Record<string, unknown>;
-    const debug = {
-      name: e?.name,
-      message: e?.message,
-      code: e?.Code ?? e?.code,
-      meta: e?.$metadata,
-      region: process.env.SES_REGION ?? "eu-west-2 (fallback)",
-      keyPresent: !!process.env.SES_ACCESS_KEY_ID,
-      secretPresent: !!process.env.SES_SECRET_ACCESS_KEY,
-      from: FROM_EMAIL,
-      to: TO_EMAIL,
-    };
-    console.error("SES error:", debug);
-    return NextResponse.json({ error: "Failed to send message. Please try again.", debug }, { status: 500 });
+  } catch (err) {
+    console.error("SES error:", err);
+    return NextResponse.json({ error: "Failed to send message. Please try again." }, { status: 500 });
   }
 }
