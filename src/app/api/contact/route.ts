@@ -118,8 +118,16 @@ export async function POST(req: NextRequest) {
     }));
 
     return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("SES error:", err);
+  } catch (err: unknown) {
+    const e = err as Record<string, unknown>;
+    console.error("SES error name:", e?.name);
+    console.error("SES error message:", e?.message);
+    console.error("SES error code:", e?.Code ?? e?.code);
+    console.error("SES error statusCode:", e?.statusCode ?? e?.$metadata);
+    console.error("SES region used:", process.env.SES_REGION ?? "eu-west-2 (fallback)");
+    console.error("SES key present:", !!process.env.SES_ACCESS_KEY_ID);
+    console.error("SES secret present:", !!process.env.SES_SECRET_ACCESS_KEY);
+    console.error("FROM:", FROM_EMAIL, "TO:", TO_EMAIL);
     return NextResponse.json({ error: "Failed to send message. Please try again." }, { status: 500 });
   }
 }
