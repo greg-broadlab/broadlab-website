@@ -7,6 +7,11 @@ frontend:
         - npm ci
     build:
       commands:
+        - echo "SES_ACCESS_KEY_ID=$SES_ACCESS_KEY_ID" >> .env.production
+        - echo "SES_SECRET_ACCESS_KEY=$SES_SECRET_ACCESS_KEY" >> .env.production
+        - echo "SES_REGION=$SES_REGION" >> .env.production
+        - echo "CONTACT_FROM_EMAIL=$CONTACT_FROM_EMAIL" >> .env.production
+        - echo "CONTACT_TO_EMAIL=$CONTACT_TO_EMAIL" >> .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
