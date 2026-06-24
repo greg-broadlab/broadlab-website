@@ -24,6 +24,14 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
         ],
       },
+      {
+        source: "/device_storage.json",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Credentials", value: "false" },
+          { key: "Content-Type", value: "application/json" },
+        ],
+      },
     ];
   },
 };

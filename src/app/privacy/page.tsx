@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
           <h1 className="text-white font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
             Privacy Policy
           </h1>
-          <p className="text-[#8fb3c8] mt-3 text-sm">Last updated: 2nd October 2025</p>
+          <p className="text-[#8fb3c8] mt-3 text-sm">Last updated: 24th June 2026</p>
           <p className="text-[#8fb3c8] mt-1 text-sm">Privacy Notice – Broadlab UK Limited (as a Data Vendor)</p>
         </div>
       </div>

@@ -1,0 +1,15 @@
+{
+  "disclosures": [
+    {
+      "identifier": "cookieyes-consent",
+      "type": "cookie",
+      "maxAgeSeconds": 31536000,
+      "cookieRefresh": false,
+      "purposes": [1],
+      "specialPurposes": [3],
+      "domains": ["broadlab.tv"]
+    }
+  ],
+  "domains": ["broadlab.tv"],
+  "sdks": []
+}
