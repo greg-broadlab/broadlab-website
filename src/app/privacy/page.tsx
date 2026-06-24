@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Broadlab",
-  description: "How Broadlab collects, uses, and protects your personal data.",
+  description: "How Broadlab UK Limited processes personal data as a data vendor under the IAB Europe TCF v2.2.",
 };
 
 export default function PrivacyPolicy() {
@@ -19,7 +19,8 @@ export default function PrivacyPolicy() {
           <h1 className="text-white font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
             Privacy Policy
           </h1>
-          <p className="text-[#8fb3c8] mt-3 text-sm">Last updated: June 2026</p>
+          <p className="text-[#8fb3c8] mt-3 text-sm">Last updated: 2nd October 2025</p>
+          <p className="text-[#8fb3c8] mt-1 text-sm">Privacy Notice – Broadlab UK Limited (as a Data Vendor)</p>
         </div>
       </div>
 
@@ -27,87 +28,191 @@ export default function PrivacyPolicy() {
       <div className="container-main py-16">
         <div className="max-w-3xl">
 
-          <Section title="1. Who we are">
-            <p>Broadlab (&ldquo;Broadlab&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) is the data controller responsible for your personal data. We operate from 2nd Floor, 12 Macklin Street, London WC2B 5NF, United Kingdom.</p>
-            <p>You can contact us about data protection matters at <a href="mailto:info@broadlab.tv" className="text-[#3a6682] hover:underline">info@broadlab.tv</a>.</p>
-          </Section>
-
-          <Section title="2. What information we collect">
-            <p>We collect personal information in the following ways:</p>
-            <SubHeading>Contact enquiries</SubHeading>
-            <p>When you submit a contact form on our website, we collect your name, email address, company name, and the content of your message.</p>
-            <SubHeading>Website analytics</SubHeading>
-            <p>We use Google Tag Manager to collect anonymised information about how visitors use our website, including pages visited, time spent on site, and general location (country/city level). This data does not identify you personally.</p>
-            <SubHeading>Cookies</SubHeading>
-            <p>We use cookies to remember your preferences and to support analytics. See our <a href="/cookies" className="text-[#3a6682] hover:underline">Cookie Policy</a> for full details.</p>
-          </Section>
-
-          <Section title="3. How we use your information">
-            <p>We use the information we collect to:</p>
-            <ul>
-              <li>Respond to your enquiries and communicate with you about our services</li>
-              <li>Understand how our website is being used so we can improve it</li>
-              <li>Comply with our legal obligations</li>
-              <li>Send you relevant information about Broadlab services where you have expressed interest or we have a legitimate business reason to do so</li>
-            </ul>
-          </Section>
-
-          <Section title="4. Legal basis for processing">
-            <p>Under UK GDPR, we rely on the following legal bases:</p>
-            <SubHeading>Legitimate interests</SubHeading>
-            <p>We process contact form submissions and conduct B2B marketing communications on the basis of legitimate interests — our interest in responding to genuine business enquiries and marketing our services to relevant professionals. See our <a href="/legitimate-interest" className="text-[#3a6682] hover:underline">Legitimate Interest statement</a> for more detail.</p>
-            <SubHeading>Consent</SubHeading>
-            <p>We use analytics cookies only where you have given your consent via our cookie banner. You may withdraw consent at any time using the Cookie Preferences link in the footer.</p>
-            <SubHeading>Legal obligation</SubHeading>
-            <p>We may process your data where required by law.</p>
-          </Section>
-
-          <Section title="5. How long we keep your data">
-            <p>We retain contact form submissions for up to 24 months from the date of receipt, after which they are deleted. If you become a client, relevant communications may be retained for the duration of the business relationship and for a period of 6 years thereafter in line with standard business record-keeping requirements.</p>
-            <p>Analytics data is retained in accordance with Google&apos;s standard retention settings (typically 14 months).</p>
-          </Section>
-
-          <Section title="6. Sharing your data">
-            <p>We do not sell your personal data. We share data only with trusted service providers who process it on our behalf:</p>
-            <ul>
-              <li><strong>Amazon Web Services (AWS SES)</strong> — used to deliver emails generated from our contact form. AWS processes data in accordance with the EU-US Data Privacy Framework.</li>
-              <li><strong>Google (Tag Manager / Analytics)</strong> — used for website analytics. Data is anonymised and processed in accordance with Google&apos;s privacy terms.</li>
-            </ul>
-            <p>We may also disclose your data where required by law or to protect our legal rights.</p>
-          </Section>
-
-          <Section title="7. Your rights">
-            <p>Under UK GDPR, you have the right to:</p>
-            <ul>
-              <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
-              <li><strong>Rectification</strong> — ask us to correct inaccurate or incomplete data</li>
-              <li><strong>Erasure</strong> — request deletion of your data in certain circumstances</li>
-              <li><strong>Restriction</strong> — ask us to restrict processing of your data</li>
-              <li><strong>Portability</strong> — receive your data in a structured, machine-readable format</li>
-              <li><strong>Object</strong> — object to processing based on legitimate interests</li>
-              <li><strong>Withdraw consent</strong> — where processing is based on consent, withdraw it at any time</li>
-            </ul>
-            <p>To exercise any of these rights, contact us at <a href="mailto:info@broadlab.tv" className="text-[#3a6682] hover:underline">info@broadlab.tv</a>. We will respond within 30 days.</p>
-            <p>You also have the right to lodge a complaint with the UK Information Commissioner&apos;s Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-[#3a6682] hover:underline">ico.org.uk</a>.</p>
-          </Section>
-
-          <Section title="8. International transfers">
-            <p>Some of our service providers (including AWS and Google) may process data outside the UK or EEA. Where this occurs, we ensure appropriate safeguards are in place, such as Standard Contractual Clauses or adequacy decisions.</p>
-          </Section>
-
-          <Section title="9. Changes to this policy">
-            <p>We may update this Privacy Policy from time to time. The date at the top of this page reflects when it was last revised. Continued use of our website following any changes constitutes acceptance of the updated policy.</p>
-          </Section>
-
-          <Section title="10. Contact us">
-            <p>For any questions about this policy or how we handle your data:</p>
-            <p>
-              <strong>Broadlab</strong><br />
-              2nd Floor, 12 Macklin Street<br />
-              London WC2B 5NF<br />
-              United Kingdom<br />
-              <a href="mailto:info@broadlab.tv" className="text-[#3a6682] hover:underline">info@broadlab.tv</a>
+          <div className="mb-10 pb-10 border-b border-[#e5e7eb]">
+            <p className="text-[#4b5563] leading-relaxed text-[0.9375rem]">
+              This Privacy Notice explains how Broadlab UK Limited (&ldquo;Broadlab&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo; or &ldquo;us&rdquo;) processes personal data as a data vendor, under the instructions of data controllers such as advertisers, publishers (including CTV publishers), or media agencies.
             </p>
+            <p className="text-[#4b5563] leading-relaxed text-[0.9375rem] mt-3 italic">
+              Broadlab is a registered vendor under the IAB Europe Transparency and Consent Framework (TCF) v2.2.
+            </p>
+            <p className="text-[#4b5563] leading-relaxed text-[0.9375rem] mt-2">
+              <strong className="text-[#0d2535]">TCF Vendor ID:</strong> 1448
+            </p>
+          </div>
+
+          <Section title="Who We Are">
+            <p>Broadlab UK Limited is a Connected TV (CTV) advertising data vendor based in the United Kingdom. We provide services to advertising clients and partners, including:</p>
+            <ul>
+              <li>Data enrichment and audience segmentation</li>
+              <li>Campaign analytics and measurement</li>
+              <li>Delivery of personalised and non-personalised advertising</li>
+              <li>Integration with platforms such as the Microsoft Universal Pixel and Amazon Ads Pixel</li>
+            </ul>
+            <p>We do not determine the means or purposes of the data we process independently. Instead, we act under instruction from data controllers—including CTV publishers, advertisers, and media agencies—who determine the legal basis and purposes of processing, and who are responsible for obtaining user consent where required.</p>
+          </Section>
+
+          <Section title="Our Legal Basis for Processing">
+            <p>Under the TCF v2.2 framework, Broadlab only processes personal data:</p>
+            <ul>
+              <li>Where a valid legal basis of <strong>Consent</strong> has been provided by a data controller</li>
+              <li>For <strong>specific purposes</strong> declared in the Global Vendor List (GVL)</li>
+            </ul>
+            <p>We do <strong>not rely on Legitimate Interest</strong> for standard advertising purposes (e.g., personalised ads, audience profiles, performance measurement). We <strong>do</strong> rely on Legitimate Interest <strong>only</strong> for certain Special Purposes as defined below.</p>
+            <SubHeading>Purposes Processed on the Basis of Consent:</SubHeading>
+            <ul>
+              <li>Purpose 1: Store and/or access information on a device</li>
+              <li>Purpose 2: Use limited data to select advertising</li>
+              <li>Purpose 3: Create a personalised ads profile</li>
+              <li>Purpose 4: Select personalised ads</li>
+              <li>Purpose 7: Measure ad performance</li>
+              <li>Purpose 9: Generate audience insights</li>
+              <li>Purpose 10: Develop and improve products</li>
+            </ul>
+            <SubHeading>Special Purposes Processed on the Basis of Legitimate Interest:</SubHeading>
+            <ul>
+              <li>Special Purpose 1: Ensure security, prevent and detect fraud, and fix errors</li>
+              <li>Special Purpose 2: Deliver and present advertising and content (non-personalised)</li>
+              <li>Special Purpose 3: Save and communicate privacy choices</li>
+            </ul>
+            <p>Users may object to processing under Legitimate Interest via a Consent Management Platform (CMP) where supported.</p>
+          </Section>
+
+          <Section title="What Personal Data We Process">
+            <p>We may process the following categories of personal data:</p>
+            <ul>
+              <li>Mobile Advertising IDs (GAID, IDFA)</li>
+              <li>Cookie IDs</li>
+              <li>IP addresses (truncated or hashed, where applicable)</li>
+              <li>Device information (browser type, OS, model)</li>
+              <li>Location data (derived from IP or with consent via GPS)</li>
+              <li>Advertising engagement and event data</li>
+            </ul>
+            <p>Broadlab does not knowingly process personal data relating to children under 16 years of age or any special-category data (such as health, political or biometric information).</p>
+          </Section>
+
+          <Section title="Purposes of Processing">
+            <p>We process this data for the following reasons:</p>
+            <ul>
+              <li>Storing and/or accessing information on a device</li>
+              <li>Creating and applying audience profiles</li>
+              <li>Delivering ads (personalised or not)</li>
+              <li>Measuring advertising performance</li>
+              <li>Performing market research and generating insights</li>
+              <li>Developing and improving advertising products</li>
+            </ul>
+          </Section>
+
+          <Section title="Features and Special Features">
+            <SubHeading>Features Used:</SubHeading>
+            <ul>
+              <li>Feature 1: Match and combine offline data sources</li>
+              <li>Feature 2: Link different devices</li>
+            </ul>
+            <SubHeading>Special Features:</SubHeading>
+            <ul>
+              <li>Special Feature 1: Use precise geolocation data</li>
+              <li>Special Feature 2: Actively scan device characteristics for identification</li>
+            </ul>
+            <p>These are only activated with appropriate user consent.</p>
+          </Section>
+
+          <Section title="Website Cookies and Tracking">
+            <p>Our website (<a href="https://broadlab.tv" className="text-[#3a6682] hover:underline">https://broadlab.tv</a>) uses a range of cookies and tracking technologies, as disclosed in our <a href="/cookies" className="text-[#3a6682] hover:underline">Cookie Policy</a>:</p>
+            <ul>
+              <li><strong>Functional cookies:</strong> Necessary for site operation (e.g., Jetpack, WordPress, Complianz)</li>
+              <li><strong>Statistical cookies:</strong> Anonymous site usage metrics (e.g., Automattic/Jetpack tk_ai)</li>
+              <li><strong>Marketing cookies:</strong> Used in embedded services (e.g., Google Maps, Google Fonts)</li>
+            </ul>
+            <p>Consent is managed via our live Consent Management Platform (CMP), which appears when you first visit the site. You may update your preferences at any time via the CMP interface.</p>
+            <p>In addition, when advertisers use conversion tracking pixels (e.g., from Microsoft or Innovid) as part of campaign delivery, those third-party platforms may drop cookies or device identifiers on advertiser-owned websites. These are operated by the respective third-party vendors and governed by their own privacy policies. Broadlab does not operate these cookies; however, we may receive limited data collected via them (such as IP addresses or event-level identifiers) through the reporting tools provided by third-party platforms like Microsoft or Innovid.</p>
+          </Section>
+
+          <Section title="Data Sharing and Recipients">
+            <p>We may receive data from, or share data with:</p>
+            <ul>
+              <li>Supply-side platforms (SSPs)</li>
+              <li>Demand-side platforms (DSPs)</li>
+              <li>Ad exchanges</li>
+              <li>Ad verification and measurement vendors</li>
+              <li>Cloud infrastructure providers (e.g., AWS)</li>
+            </ul>
+            <p>All transfers occur under encrypted transmission and access controls.</p>
+          </Section>
+
+          <Section title="International Data Transfers">
+            <p>Where personal data is transferred outside the UK or EEA, we ensure safeguards are in place, including:</p>
+            <ul>
+              <li>Standard Contractual Clauses (SCCs)</li>
+              <li>UK International Data Transfer Agreement (IDTA)</li>
+              <li>Vendor-specific data protection addenda</li>
+            </ul>
+          </Section>
+
+          <Section title="Data Retention">
+            <p>We retain personal data only as long as necessary for its purpose:</p>
+            <div className="overflow-x-auto mt-2">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-[#f3f7fa]">
+                    <th className="text-left px-4 py-3 text-[#0d2535] font-semibold border border-[#e5e7eb]">Purpose</th>
+                    <th className="text-left px-4 py-3 text-[#0d2535] font-semibold border border-[#e5e7eb]">Retention Period</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Device storage, basic access", "Up to 13 months"],
+                    ["Personalised ads (3, 4)", "Up to 13 months"],
+                    ["Ad performance measurement", "180 days (event-level), 13 months (aggregate)"],
+                    ["Insights & product dev", "6–13 months depending on controller"],
+                    ["Special Purposes (1–3)", "Up to 180 days"],
+                  ].map(([purpose, period]) => (
+                    <tr key={purpose} className="even:bg-[#fafafa]">
+                      <td className="px-4 py-3 text-[#4b5563] border border-[#e5e7eb]">{purpose}</td>
+                      <td className="px-4 py-3 text-[#4b5563] border border-[#e5e7eb]">{period}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Section>
+
+          <Section title="Security Measures">
+            <p>We maintain industry-standard protections including:</p>
+            <ul>
+              <li>Data encryption (in transit and at rest)</li>
+              <li>Role-based access control</li>
+              <li>Secure storage via ISO/IEC 27001 certified platforms (e.g., AWS)</li>
+              <li>Access control, activity logging and a documented incident response procedure aligned with ISO 27001 standards</li>
+            </ul>
+          </Section>
+
+          <Section title="Your Rights and Choices">
+            <p>Depending on your jurisdiction, you may have rights under GDPR, UK DPA, CCPA, or similar laws, including:</p>
+            <ul>
+              <li>Access your personal data</li>
+              <li>Request correction or deletion</li>
+              <li>Restrict or object to processing</li>
+              <li>Withdraw consent</li>
+              <li>Opt out of personalised advertising</li>
+            </ul>
+            <p>To exercise your rights, use the CMP available on the site or contact us at: <a href="mailto:privacy@broadlab.tv" className="text-[#3a6682] hover:underline">privacy@broadlab.tv</a></p>
+            <p>Further information about Broadlab&apos;s governance, security and data protection measures can be found in the Broadlab Privacy and Data Protection Compliance Programme, available to clients on request.</p>
+          </Section>
+
+          <Section title="Contact Information">
+            <p>
+              <strong>Broadlab UK Limited</strong><br />
+              1st Floor Gallery Court, 28 Arcadia Avenue<br />
+              London, N3 2FG<br />
+              United Kingdom<br />
+              Company Number: 14585427<br />
+              Email: <a href="mailto:privacy@broadlab.tv" className="text-[#3a6682] hover:underline">privacy@broadlab.tv</a><br />
+              Data Protection Officer: Brian Jentz (<a href="mailto:brian.jentz@broadlab.tv" className="text-[#3a6682] hover:underline">brian.jentz@broadlab.tv</a>)
+            </p>
+          </Section>
+
+          <Section title="Policy Updates">
+            <p>We review this policy regularly and update it to reflect changes in our operations, legal obligations, or registration status under the TCF. Last reviewed: 2nd October 2025.</p>
           </Section>
 
         </div>
