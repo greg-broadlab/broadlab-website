@@ -12,7 +12,7 @@ const payload = {
       domains: ["broadlab.tv"],
     },
   ],
-  domains: ["broadlab.tv"],
+  domains: [{ domain: "broadlab.tv", use: "CTV advertising and consent management" }],
   sdks: [],
 };
 
