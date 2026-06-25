@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,12 +24,18 @@ export default function CookiePolicy() {
         </div>
       </div>
 
-      {/* Content — auto-populated by CookieYes */}
+      {/* Content — auto-populated by CookieYes cookie policy script */}
       <div className="container-main py-16">
         <div className="max-w-3xl">
           <div id="cky-auto-cookie-policy"></div>
         </div>
       </div>
+
+      <Script
+        id="cky-cookie-policy"
+        src="https://cdn-cookieyes.com/client_data/77a7252c29f0b94c713b226d6f2b75b6/cookie-policy/script.js"
+        strategy="afterInteractive"
+      />
 
       <Footer />
     </main>
