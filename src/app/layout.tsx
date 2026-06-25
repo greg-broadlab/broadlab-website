@@ -3,7 +3,6 @@ import "./globals.css";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Script from "next/script";
-import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-sans" });
@@ -30,6 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", inter.variable, plusJakarta.variable)}>
       <head>
+        {/* CookieYes — must be first, before GTM */}
+        <Script
+          id="cookieyes"
+          src="https://cdn-cookieyes.com/client_data/77a7252c29f0b94c713b226d6f2b75b6/script.js"
+          strategy="beforeInteractive"
+        />
         {/* Set consent defaults BEFORE GTM loads - blocks tracking until user accepts */}
         <Script
           id="consent-defaults"
@@ -73,7 +78,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <ScrollToTop />
         {children}
-        <CookieBanner />
       </body>
     </html>
   );
