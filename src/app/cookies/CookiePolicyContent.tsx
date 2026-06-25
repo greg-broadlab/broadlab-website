@@ -6,26 +6,32 @@ export default function CookiePolicyContent() {
   useEffect(() => {
     const container = document.getElementById('cky-auto-cookie-policy')
     if (!container) return
+    const target: HTMLElement = container
 
-    function movePolicy() {
+    function movePolicy(): boolean {
       const policy = document.getElementById('cky-policy-container')
-      if (policy && policy.parentNode !== container) {
-        container.appendChild(policy)
-        return true
-      }
-      return false
+      if (!policy) return false
+      if (policy.parentNode !== target) target.appendChild(policy)
+      return true
     }
 
-    // If CookieYes already injected the container (e.g. page refresh), move it immediately
     if (movePolicy()) return
 
-    // Otherwise watch body for when CookieYes appends it
     const observer = new MutationObserver(() => {
-      if (movePolicy()) observer.disconnect()
+      if (movePolicy()) {
+        observer.disconnect()
+        clearInterval(poll)
+      }
     })
-    observer.observe(document.body, { childList: true })
+    observer.observe(document.body, { childList: true, subtree: true })
 
-    // Load the cookie policy script — must append to body so document.currentScript is set
+    const poll = setInterval(() => {
+      if (movePolicy()) {
+        observer.disconnect()
+        clearInterval(poll)
+      }
+    }, 300)
+
     const existing = document.getElementById('cky-policy-script')
     if (existing) existing.remove()
 
@@ -36,6 +42,7 @@ export default function CookiePolicyContent() {
 
     return () => {
       observer.disconnect()
+      clearInterval(poll)
     }
   }, [])
 
