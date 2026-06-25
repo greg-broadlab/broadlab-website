@@ -92,7 +92,7 @@ export default function CookiePolicy() {
           </Section>
 
           <Section title="5. Third-party services">
-            <p>We use Google Tag Manager (GTM ID: GTM-NNDNNXH8) to manage analytics on our site. When you consent to analytics cookies, Google may also process data in accordance with their own privacy terms. You can learn more at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#3a6682] hover:underline">policies.google.com/privacy</a>.</p>
+            <p>We use Google Tag Manager (GTM ID: GTM-MDP5K93S) to manage analytics on our site. When you consent to analytics cookies, Google may also process data in accordance with their own privacy terms. You can learn more at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#3a6682] hover:underline">policies.google.com/privacy</a>.</p>
           </Section>
 
           <Section title="6. Changes to this policy">
