@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 function CookiePreferences() {
-  function resetConsent() {
-    document.cookie = "Broadlab_consent=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
-    window.location.reload();
+  function openPreferences() {
+    if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).revisitCkyConsent) {
+      (window as unknown as Record<string, () => void>).revisitCkyConsent();
+    }
   }
   return (
     <button
-      onClick={resetConsent}
+      onClick={openPreferences}
       className="text-xs text-[#9ca3af] hover:text-[#4b5563] transition-colors duration-200"
     >
       Cookie Preferences
